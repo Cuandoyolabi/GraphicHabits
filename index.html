@@ -7,15 +7,49 @@
     <link rel="stylesheet" href="sass/styles.css">
 </head>
 <body>
-    <header class="header__container">
-        <nav class="nav__container"></nav>
+    <header>
+        <div class="header__container">
+            <div class="brand__container"></div>
+        <nav class="nav__container">
+            
+            <div class="night__section"></div>
+            <div class="profile__section"></div>
+        </nav>
+    </div>
     </header>
+    
     <main class="main__container">
+        <div class="division__container">
+            <div class="division__container__number1">
+                <div class="golden__habit">     
+                </div>
+                <div id="graphic__container" class="graphic__container">
+                </div>
+                <button id="graphic__container__plus" class="graphic__container__plus"> + </button>
+                
+                <!--Ventana del nuevo habito-->
+                <div id="modal" class="modal">
+                    <div class="modal__content">
+                        <span class="close">X</span>
+                        <h2>Nuevo Habito</h2>
+                        <form class="habitForm" id="habitForm">
+                            <label for="habitName">Nombre del Habito:</label>
+                            <input type="text" id="habitName" name="habitName" required>
+                            <label for="habitColor">Color:</label>
+                            <input type="color" id="habitColor" name="habitColor" required>
+                            <button type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
 
+            </div>
+            <div class="division__container__number2">
+                <div class="habits__container"></div>
+                <div class="habits__info"></div>
+
+            </div>
+        </div>
     </main>
-    <footer class="footer__container">
-
-    </footer>
     
 
     <script src="javascript/script.js"></script>

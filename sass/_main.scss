@@ -1,0 +1,99 @@
+.main__container{
+    width: 100%;
+    height: 83%;
+    border: 3px solid black;
+
+    .division__container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+    }
+
+    .division__container__number1{
+        width: 55%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        .golden__habit{
+            width: 100px;
+            height: 40px;
+            margin-right: 510px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background-color: gold
+        }
+        .graphic__container{
+            width: 90%;
+            height: 350px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            border-radius: 5px;
+            background-color: rgb(211, 209, 209);
+        }
+        .graphic__container__plus{
+            width: 120px;
+            height: 40px;
+            margin-top: 15px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background-color: grey;
+
+        }
+    }
+
+    .modal{
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        right: 35%;
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        border-radius: 15px;
+        background-color: rgb(165, 165, 165);
+        
+
+        .modal__content{
+            padding: 30px 50px;
+            
+        }
+    }
+
+
+
+    .division__container__number2{
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    
+        .habits__container{
+            width: 90%;
+            height: 300px;
+            border-radius: 5px;
+            background-color: bisque;
+        }
+        .habits__info{
+            width: 90%;
+            height: 150px;
+            border-radius: 5px;
+            background-color: bisque;
+        }
+
+    }
+    
+
+}
