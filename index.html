@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habits</title>
     <link rel="stylesheet" href="sass/styles.css">
-</head>
-<body>
+    
     <header>
         <div class="header__container">
             <div class="brand__container"></div>
@@ -29,16 +28,19 @@
                 
                 <!--Ventana del nuevo habito-->
                 <div id="modal" class="modal">
+                    <div class="modal__options">
+                        <span class="close">Cancelar</span>
+                    </div>
                     <div class="modal__content">
-                        <span class="close">X</span>
-                        <h2>Nuevo Habito</h2>
+                        
                         <form class="habitForm" id="habitForm">
                             <label for="habitName">Nombre del Habito:</label>
                             <input type="text" id="habitName" name="habitName" required>
                             <label for="habitColor">Color:</label>
                             <input type="color" id="habitColor" name="habitColor" required>
-                            <button type="submit">Guardar</button>
+                            <button class="guardar__habito" type="submit">Guardar</button>
                         </form>
+                        
                     </div>
                 </div>
 
@@ -53,5 +55,6 @@
     
 
     <script src="javascript/script.js"></script>
+    
 </body>
 </html>
