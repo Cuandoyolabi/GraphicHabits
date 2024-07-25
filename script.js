@@ -78,3 +78,6 @@ document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito
 
 
 //Footer
+
+//Pruebas de conexion a MYSQL
+
