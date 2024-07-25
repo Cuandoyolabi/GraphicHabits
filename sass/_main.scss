@@ -84,13 +84,7 @@
             
         }
 
-        .guardar__habito{
-            width: 120px;
-            height: 30px;
-            border: 2px solid black;
-        }
-
-       
+        
     }
 
     .habitForm{
@@ -99,16 +93,36 @@
         border: 2px solid red;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-    
+        justify-content: center;
+        align-items: center;
+        
+        .habitName__label{
+            margin-bottom: 5px;
+        }
+
         .habitName{
             width: 100%;
             height: 25px;
+            margin-bottom: 50px;
             border-radius: 5px;
+            margin-right: auto;
             border: none;
         }
-    
+        .separacion__de__habitos{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: 1px solid black;
+        }
+        .guardar__habito{
+            width: 120px;
+            height: 30px;
+            margin-top: 20px;
+            border: 2px solid black;
+        }
+
+       
     }
 
     
