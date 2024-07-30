@@ -10,7 +10,7 @@ function crearNuevoHabito(event){
 
     event.preventDefault(); //Evitar el formulario por defecto
 
-    const maximoDeElementos = 2;
+    const maximoDeElementos = 5;
     const graphic__container = document.getElementById('graphic__container');
     const graphic__container__plus = document.getElementById('graphic__container__plus');
     const form = document.getElementById('habitForm');
@@ -27,7 +27,6 @@ function crearNuevoHabito(event){
     
     //Crear el nuevo habito con la informacion
     let nuevoHabito = document.createElement('div');
-    nuevoHabito.textContent = nombre;
     nuevoHabito.className = 'nuevo__habito';
     nuevoHabito.style.backgroundColor = color;
     nuevoHabito.style.width = '50px';
@@ -42,6 +41,8 @@ function crearNuevoHabito(event){
     //Cerramos la ventana emergente
     cerrarModal();
 
+    crearVentanaDeHabito();
+    
     //Limpiar el formulario
     form.reset();
 };
@@ -57,11 +58,28 @@ function cerrarModal(){
     modal.style.display = 'none';
 }
 
+function crearVentanaDeHabito(){
+
+    const contenedorDeHabitos = document.getElementById('habits__container');
+    let nuevaVentana = document.createElement('div');
+    nuevaVentana.classList.add('ventana__nueva');
+    nuevaVentana.style.width = '60%';
+    nuevaVentana.style.height = '40px';
+    console.log('Holaaaa');
+    console.log(contenedorDeHabitos)
+    
+    
+
+    contenedorDeHabitos.appendChild(nuevaVentana);
+
+}
 
 
 document.getElementById('graphic__container__plus').addEventListener('click', mostrarlModal);
 document.querySelector('.close').addEventListener('click', cerrarModal);
 document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito);
+
+
 
 //Creando la ventana de color.
 // Simple example, see optional options for more configuration.

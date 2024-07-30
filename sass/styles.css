@@ -5,7 +5,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgb(174, 171, 171);
+  background-color: #ffffff;
+  border: 1.5px solid grey;
+  box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
 .header__container .brand__container {
   width: 150px;
@@ -28,7 +30,9 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(255, 255, 255);
+  border: 1.5px solid grey;
+  box-shadow: 1px 2px 3px rgb(160, 159, 159);
 }
 .header__container .nav__container .profile__section {
   width: 46px;
@@ -41,6 +45,8 @@
   margin-right: 35px;
   cursor: pointer;
   background-color: rgb(255, 255, 255);
+  border: 1.5px solid grey;
+  box-shadow: 1px 2px 3px rgb(160, 159, 159);
 }
 .header__container .nav__container .fa-solid, .header__container .nav__container .fa-regular {
   font-size: 23px;
@@ -92,7 +98,9 @@ body {
   align-items: flex-end;
   justify-content: space-evenly;
   border-radius: 5px;
-  background-color: rgb(211, 209, 209);
+  background-color: rgb(255, 255, 255);
+  border: 1.5px solid grey;
+  box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
 .main__container .division__container__number1 .graphic__container__plus {
   width: 120px;
@@ -102,7 +110,8 @@ body {
   border: none;
   cursor: pointer;
   color: white;
-  background-color: grey;
+  background-color: rgb(138, 138, 138);
+  border: 1.5px solid grey;
 }
 .main__container .modal {
   width: 300px;
@@ -114,57 +123,62 @@ body {
   align-items: center;
   gap: 20px;
   border-radius: 15px;
-  background-color: rgb(165, 165, 165);
+  background-color: rgb(255, 255, 255);
+  border: 1.5px solid grey;
+  box-shadow: 2px 3px 5px rgb(160, 159, 159);
+}
+.main__container .modal .modal__options {
+  width: 90%;
+  margin: 10px 0px 0px 20px;
 }
 .main__container .modal .close {
   cursor: pointer;
 }
-.main__container .modal .modal__options {
-  width: 100%;
-  border: 2px solid black;
-}
 .main__container .modal .modal__content {
   width: 100%;
-  height: 90%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid black;
   padding: 10px 50px;
 }
 .main__container .habitForm {
   width: 250px;
   height: 100%;
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .main__container .habitForm .habitName__label {
+  align-self: flex-start;
+  font-size: 17px;
   margin-bottom: 5px;
 }
 .main__container .habitForm .habitName {
   width: 100%;
-  height: 25px;
-  margin-bottom: 50px;
+  height: 30px;
+  margin-bottom: 20px;
   border-radius: 5px;
   margin-right: auto;
   border: none;
+  border: 1.5px solid grey;
 }
 .main__container .habitForm .separacion__de__habitos {
   width: 100%;
+  margin-top: 15px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  border: 1px solid black;
+  justify-content: flex-start;
+  gap: 70px;
 }
 .main__container .habitForm .guardar__habito {
   width: 120px;
-  height: 30px;
-  margin-top: 20px;
-  border: 2px solid black;
+  height: 35px;
+  border-radius: 18px;
+  border: 1px solid grey;
+  margin-top: 50px;
 }
 .main__container .division__container__number2 {
   width: 45%;
@@ -183,15 +197,16 @@ body {
   justify-content: space-evenly;
   align-items: flex-start;
   border-radius: 5px;
-  background-color: rgb(170, 170, 170);
+  background-color: rgb(255, 255, 255);
+  border: 1.5px solid grey;
+  box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
-.main__container .division__container__number2 .habits__container .habito__nuevo {
+.main__container .division__container__number2 .habits__container .ventana__nueva {
   width: 60%;
   height: 40px;
   margin-left: 15px;
   border-radius: 10px;
   border: 1px solid rgb(92, 92, 92);
-  background-color: rgb(255, 255, 255);
 }
 .main__container .division__container__number2 .habits__info {
   width: 90%;
@@ -202,19 +217,21 @@ body {
   justify-content: center;
   gap: 20px;
   border-radius: 5px;
-  background-color: rgb(168, 168, 168);
+  background-color: rgb(255, 255, 255);
+  border: 1.5px solid grey;
+  box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
 .main__container .division__container__number2 .habits__info .habits__info__container {
   width: 30%;
   height: 85%;
   border-radius: 10px;
-  border: 1px solid black;
-  background-color: white;
+  background-color: rgb(124, 124, 124);
+  border: 1.5px solid rgb(170, 170, 170);
 }
 .main__container .division__container__number2 .habits__info .habits__info__container__num2 {
   width: 60%;
   height: 85%;
   border-radius: 10px;
-  border: 1px solid black;
-  background-color: white;
+  background-color: rgb(138, 134, 134);
+  border: 1.5px solid grey;
 }/*# sourceMappingURL=styles.css.map */
