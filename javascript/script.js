@@ -21,7 +21,6 @@ function crearNuevoHabito(event){
     }
 
     //Informacion que reqiere la ventana emergente
-    let nombre = document.getElementById('habitName').value;
     let color = document.getElementById('habitColor').value;
 
     
@@ -58,21 +57,11 @@ function cerrarModal(){
     modal.style.display = 'none';
 }
 
-function crearVentanaDeHabito(){
 
-    const contenedorDeHabitos = document.getElementById('habits__container');
-    let nuevaVentana = document.createElement('div');
-    nuevaVentana.classList.add('ventana__nueva');
-    nuevaVentana.style.width = '60%';
-    nuevaVentana.style.height = '40px';
-    console.log('Holaaaa');
-    console.log(contenedorDeHabitos)
-    
-    
 
-    contenedorDeHabitos.appendChild(nuevaVentana);
 
-}
+
+
 
 
 document.getElementById('graphic__container__plus').addEventListener('click', mostrarlModal);

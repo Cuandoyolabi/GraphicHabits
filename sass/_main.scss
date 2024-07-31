@@ -29,8 +29,9 @@
         }
         .graphic__container{
             width: 90%;
-            max-width: 650px;
-            height: 350px;
+            max-width: 850px;
+            height: 400px;
+            margin-left: 50px;
             display: flex;
             align-items: flex-end;
             justify-content: space-evenly;
@@ -46,9 +47,10 @@
             border-radius: 15px;
             border: none;
             cursor: pointer;
-            color: white;
-            background-color: rgb(138, 138, 138);
+            color: black;
+            background-color: rgb(255, 255, 255);
             border: 1.5px solid grey;
+            box-shadow:  0px 3px 1px rgb(160, 159, 159);
 
         }
     }
@@ -70,7 +72,11 @@
         
         .modal__options{
             width: 90%;
-            margin: 10px 0px 0px 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid black;
         }
         .close{
             cursor: pointer;
@@ -82,22 +88,42 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 10px 50px;
+            justify-content: space-evenly;
+            padding: 10px 25px;
+            border: 1px solid black;
+            
+            .habit__forms{
+                
+                .habit__form__num1, .habit__form__num2{
+                    border: 1px solid black;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 10pX;
+                    background-color: aqua;
+                    cursor: pointer;
+                }   
+                
+            }
+        }
+        .guardar__habito{
+            width: 80px;
+            height: 30px;
+            border-radius: 18px;
+            border: none;
+            cursor: pointer;
             
         }
-
         
     }
 
     .habitForm{
-        width: 250px;
+        width: 100%;
         height: 100%;
-        
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border: 1px solid black;
         
         .habitName__label{
             align-self: flex-start;
@@ -122,20 +148,15 @@
             align-items: center;
             justify-content: flex-start;
             gap: 70px;
+            border: 1px solid black;
            
-        }
-        .guardar__habito{
-            width: 120px;
-            height: 35px;
-            border-radius: 18px;
-            border: 1px solid grey;
-            margin-top: 50px;
-            
-
         }
 
        
     }
+
+
+    // CONTENEDOR NUMERO 2 
 
     .division__container__number2{
         width: 45%;
@@ -147,12 +168,13 @@
         gap: 20px;
     
         .habits__container{
+            max-width: 400px;
             width: 90%;
-            height: 320px;
+            height: 340px;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            align-items: flex-start;
+            align-items: center;
             border-radius: 5px;
             background-color: rgb(255, 255, 255);
             border: 1.5px solid grey;
@@ -160,17 +182,30 @@
 
         
             .ventana__nueva{
-                width: 60%;
+                width: 80%;
                 height: 40px;
-                margin-left: 15px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 50px;
+                background-color: white;
+                border: 0.5px solid grey;
+                padding: 5px 5px;
+                cursor: pointer;
+            
+            }
+
+            .botonDeVentanaNueva{
+                width: 20%;
+                height: 20%;
+                
                 border-radius: 10px;
-                border: 1px solid rgb(92, 92, 92);
-                
-                
-    
+                border: 1px solid black;
             }
         }
         .habits__info{
+            max-width: 400px;
             width: 90%;
             height: 150px;
             display: flex;
@@ -188,15 +223,15 @@
                 width: 30%;
                 height: 85%;
                 border-radius: 10px;
-                background-color: rgb(124, 124, 124);
+                background-color: rgb(255, 255, 255);
                 border: 1.5px solid rgb(170, 170, 170);
-
+                
             }
             .habits__info__container__num2{
                 width: 60%;
                 height: 85%;
                 border-radius: 10px;
-                background-color: rgb(138, 134, 134);
+                background-color: rgb(255, 255, 255);
                 border: 1.5px solid grey;
 
             }
@@ -205,5 +240,5 @@
 
     }
     
-
 }
+

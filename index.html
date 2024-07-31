@@ -33,19 +33,23 @@
                 
                 <!--Ventana del nuevo habito-->
                 <div id="modal" class="modal">
-                    <div class="modal__options">
-                        <span class="close">Cancelar</span>
-                    </div>
-                    <div class="modal__content">
-                        <form class="habitForm" id="habitForm">
-                            <label class="habitName__label" for="habitName">Habito:</label>
-                            <input type="text" class="habitName" id="habitName" name="habitName" required>
-                            <div class="separacion__de__habitos">
-                                <label for="habitColor">Color:</label>
-                                <input type="color" id="habitColor" name="habitColor" required>
-                            </div>
+                    <form class="habitForm" id="habitForm">
+                        <div class="modal__options">
+                            <span class="close">Cancelar</span>
                             <button class="guardar__habito" type="submit">Guardar</button>
-                        </form>
+                        </div>
+                        <div class="modal__content">
+                            <label class="habitName__label" for="habitName">Habito:</label>                      
+                            <input type="text" class="habitName" id="habitName" name="habitName" required>
+                            <div class="habit__forms"> 
+                                <span class="habit__form__num1">Forma numero 1</span>
+                                <span class="habit__form__num2">Forma numero 2</span>
+                            </div>
+                                <div class="separacion__de__habitos">
+                                    <label for="habitColor">Color:</label>
+                                    <input type="color" id="habitColor" name="habitColor" required>
+                                </div>
+                            </form>
                         
                     </div>
                 </div>
@@ -53,7 +57,15 @@
             </div>
             <div class="division__container__number2">
                 <div id="habits__container" class="habits__container">
-                    
+                   <!--Creacion de ventanas-->
+                   <div class="ventana__nueva">
+                    <p class="ventana__nueva__texto">Programacion</p>
+                    <span class="ventana__nueva__listo">Listo</span>
+                   </div>
+                   <div class="ventana__nueva"></div>
+                   <div class="ventana__nueva"></div>
+                   <div class="ventana__nueva"></div>
+                   <div class="ventana__nueva"></div>
                    
                 </div>
                 <div class="habits__info">
