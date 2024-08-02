@@ -1,6 +1,16 @@
 
 
 //Header y Nav 
+const toggleBlack = document.getElementById('color__icon');
+const division__container = document.getElementById('division__container');
+
+toggleBlack.onclick = function(){
+
+    toggleBlack.classList.toggle('dark');
+    division__container.classList.toggle('dark');
+    
+}
+
 
 
 

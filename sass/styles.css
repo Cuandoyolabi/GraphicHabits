@@ -78,6 +78,9 @@ body {
   background: rgb(182, 182, 182);
   background: linear-gradient(0deg, rgb(182, 182, 182) 9%, rgb(255, 255, 255) 93%);
 }
+.main__container .dark {
+  background-color: black;
+}
 .main__container .division__container__number1 {
   width: 55%;
   height: 100%;
@@ -279,6 +282,7 @@ body {
   width: 100%;
   height: 100px;
   margin-top: 110px;
-  border-top: 1px solid black;
-  background-color: white;
+  border-top: 1px solid rgb(0, 0, 0);
+  background: rgb(150, 150, 150);
+  background: linear-gradient(0deg, rgb(150, 150, 150) 0%, rgb(255, 255, 255) 50%);
 }/*# sourceMappingURL=styles.css.map */
