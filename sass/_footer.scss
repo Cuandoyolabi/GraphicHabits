@@ -3,6 +3,13 @@
     height: 100px;
     margin-top: 110px;
     border-top: 1px solid rgb(0, 0, 0);
+    transition: background-color 0.5s;
     background: rgb(150,150,150);
-background: linear-gradient(0deg, rgba(150,150,150,1) 0%, rgba(255,255,255,1) 50%);
+    background: linear-gradient(0deg, rgba(150,150,150,1) 0%, rgba(255,255,255,1) 50%);
+
+    &.active{
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgb(10, 10, 10) 0%, rgb(82, 82, 82) 100%);
+        border-color: rgb(138, 138, 138);
+    }
 }

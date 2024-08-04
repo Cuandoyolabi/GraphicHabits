@@ -1,18 +1,47 @@
 
 
 //Header y Nav 
-const toggleBlack = document.getElementById('color__icon');
-const division__container = document.getElementById('division__container');
+const toggleBlack = document.querySelector('#color__icon');
+const division__container = document.querySelector('.division__container');
+const header__container = document.querySelector('.header__container');
+const footer__container = document.querySelector('.footer__container');
+const graphic__container__id = document.querySelector('#graphic__container__id');
+const habits__container = document.querySelector('.habits__container');
+const ventana__nueva = document.querySelectorAll('.ventana__nueva');
+const habits__info = document.querySelector('.habits__info');
+const habits__info__container = document.querySelector('.habits__info__container');
+const habits__info__container__num2 = document.querySelector('.habits__info__container__num2');
+const habitForm = document.querySelector('.habitForm');
+const graphic__container__plus = document.querySelector('.graphic__container__plus');
+const night__section = document.querySelector('.night__section');
+const profile__section = document.querySelector('.profile__section');
 
-toggleBlack.onclick = function(){
 
-    toggleBlack.classList.toggle('dark');
-    division__container.classList.toggle('dark');
+toggleBlack.addEventListener('click', () => {
+
+    console.log(habits__info)
+    ventana__nueva.forEach(element => {
+        element.classList.toggle('active');
+    })
     
-}
-
-
-
+    profile__section.classList.toggle('active');
+    night__section.classList.toggle('active');
+    graphic__container__plus.classList.toggle('active');
+    habitForm.classList.toggle('active');
+    habits__info.classList.toggle('active');
+    habits__info__container.classList.toggle('active');
+    habits__info__container__num2.classList.toggle('active');
+    header__container.classList.toggle('active');
+    toggleBlack.classList.toggle('active');
+    division__container.classList.toggle('active');
+    graphic__container__id.classList.toggle('active');
+    habits__container.classList.toggle('active');
+    footer__container.classList.toggle('active');
+    
+});
+   
+    
+       
 
 
 //  -----------Main seccion 1---------- 
@@ -21,12 +50,12 @@ function crearNuevoHabito(event){
     event.preventDefault(); //Evitar el formulario por defecto
 
     const maximoDeElementos = 5;
-    const graphic__container = document.getElementById('graphic__container');
-    const graphic__container__plus = document.getElementById('graphic__container__plus');
+    const graphic__container__id = document.getElementById('graphic__container__id');
+    const graphic__container__plus__id = document.getElementById('graphic__container__plus__id');
     const form = document.getElementById('habitForm');
 
     //Verifica que solo sean 5 elementos
-    if(graphic__container.children.length >= maximoDeElementos){
+    if(graphic__container__id.children.length >= maximoDeElementos){
         return;
     }
 
@@ -45,7 +74,7 @@ function crearNuevoHabito(event){
     nuevoHabito.style.justifyContent = 'center';
 
     //Añadimos el div al contenedor
-    graphic__container.appendChild(nuevoHabito);
+    graphic__container__id.appendChild(nuevoHabito);
 
     //Cerramos la ventana emergente
     cerrarModal();
@@ -74,7 +103,7 @@ function cerrarModal(){
 
 
 
-document.getElementById('graphic__container__plus').addEventListener('click', mostrarlModal);
+document.getElementById('graphic__container__plus__id').addEventListener('click', mostrarlModal);
 document.querySelector('.close').addEventListener('click', cerrarModal);
 document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito);
 

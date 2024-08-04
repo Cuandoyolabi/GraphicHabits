@@ -10,13 +10,13 @@
         justify-content: center;
         background: rgb(182,182,182);
         background: linear-gradient(0deg, rgba(182,182,182,1) 9%, rgba(255,255,255,1) 93%);
-
+        
+        &.active{
+            background: rgb(93,93,93);
+            background: linear-gradient(0deg, rgba(93,93,93,1) 0%, rgba(0,0,0,1) 96%);
+        }
+    
     }
-
-    .dark{
-        background-color: black;
-    }
-
 
     .division__container__number1{
         width: 55%;
@@ -46,6 +46,13 @@
             background-color: rgb(255, 255, 255);
             border: 1.5px solid grey;
             box-shadow:  2px 3px 5px rgb(160, 159, 159);
+            transition: background-color 0.5s;
+        
+            &.active{
+                background: rgb(115,115,115);
+                background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(0,0,0,1) 100%);
+                box-shadow: none;
+            }
         }
         .graphic__container__plus{
             width: 120px;
@@ -54,15 +61,22 @@
             border-radius: 15px;
             border: none;
             cursor: pointer;
+            align-self: flex-end;
+            margin-right: 19px;
             color: black;
             background-color: rgb(255, 255, 255);
             border: 1.5px solid grey;
             box-shadow:  0px 3px 1px rgb(160, 159, 159);
 
+            &.active{
+                background-color: black;
+                box-shadow: none;
+                color: white;
+            }
         }
     }
 
-    .modal{
+    .modal__container{
         width: 300px;
         height: 300px;
         position: absolute;
@@ -132,6 +146,11 @@
         align-items: center;
         border: 1px solid black;
         
+        &.active{
+            background-color: black;
+            color: white;
+        }
+
         .habitName__label{
             align-self: flex-start;
             font-size: 17px;
@@ -187,7 +206,12 @@
             border: 1.5px solid grey;
             box-shadow:  2px 3px 5px rgb(160, 159, 159);
 
-        
+            &.active{
+                background-color: black;
+                box-shadow: none;
+            }
+
+
             .ventana__nueva{
                 width: 80%;
                 height: 40px;
@@ -201,6 +225,10 @@
                 padding: 5px 5px;
                 cursor: pointer;
             
+                &.active{
+                    background-color: black;
+                    color: white;
+                }
             }
 
             .ventana__nueva__texto{
@@ -222,22 +250,32 @@
             border: 1.5px solid grey;
             box-shadow:  2px 3px 5px rgb(160, 159, 159);
 
+            &.active{
+                background-color: black;
+                box-shadow: none;
+            }
         
             .habits__info__container{
-                width: 30%;
+                width: 40%;
                 height: 85%;
                 border-radius: 10px;
                 background-color: rgb(255, 255, 255);
                 border: 1.5px solid rgb(170, 170, 170);
                 
+                &.active{
+                    background-color: black;
+                }
             }
             .habits__info__container__num2{
-                width: 60%;
+                width: 50%;
                 height: 85%;
                 border-radius: 10px;
                 background-color: rgb(255, 255, 255);
                 border: 1.5px solid grey;
 
+                &.active{
+                    background-color: black;
+                }
             }
         }
         
@@ -246,6 +284,10 @@
     
 }
 
+
+#division__container__id.active{
+    background-color: rgb(0, 0, 0);
+}
 @media (maxf-width: 100px){
     
     .graphic__container{
