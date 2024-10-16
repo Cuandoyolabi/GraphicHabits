@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habits</title>
     <link rel="stylesheet" href="sass/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<!--Tareas pendientes
+
+1-Hacer la pagina 100vh
+2-Arreglar los iconos de usuario y modo oscuro
+
+
+-->
+
+<body>
+    <div class="cubierta__container" id="cubierta__container__id"></div>
     <header>
+        
         <div class="header__container">
             <div class="brand__container"></div>
         <nav class="nav__container">
             
-            <div class="night__section">
-                <i id="color__icon" class="fa-solid fa-circle-half-stroke"></i>
+            <div class="night__section" id="color__icon">
+                <i class="fa-solid fa-moon"></i>
             </div>
-            <div class="profile__section">
+            <div class="profile__section" id="abrir__ventana__perfil">
                 <i class="fa-regular fa-user"></i>
             </div>
         </nav>
@@ -25,11 +37,15 @@
     <main class="main__container">
         <div class="division__container">
             <div class="division__container__number1">
-                <div class="golden__habit">     
+                <div class="golden__habit" id="golden__habit__id"> 
+                    <i class="fa-solid fa-check"></i>   
                 </div>
                 <div id="graphic__container__id" class="graphic__container">
+
+
                 </div>
-                <button id="graphic__container__plus__id" class="graphic__container__plus"> + </button>
+
+                <button id="graphic__container__plus__id" class="graphic__container__plus"><i class="fa-solid fa-plus"></i></button>
                 
                 <!--Ventana del nuevo habito-->
                 <div id="modal" class="modal__container">
@@ -45,40 +61,34 @@
                                 <span class="habit__form__num1">Forma numero 1</span>
                                 <span class="habit__form__num2">Forma numero 2</span>
                             </div>
-                                <div class="separacion__de__habitos">
-                                    <label for="habitColor">Color:</label>
-                                    <input type="color" id="habitColor" name="habitColor" required>
-                                </div>
-                            </form>
+                            <div class="separacion__de__habitos">
+                                <label for="habitColor">Color:</label>
+                                <input type="color" id="habitColor" name="habitColor" required>
+                            </div>
+                    </form>
                             
-                    </div>
                 </div>
+            </div>
+
+            <!--Ventana del perfil-->
+            <div class="perfil__emergente">
+                <ul class="perfil__emergente__opciones">
+                    <li class="perfil__emergente__cuenta"><i class="fa-regular fa-user icon__perfil"></i>Cuenta </li>
+                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-gear icon__perfil"></i>Configuracion</li>
+                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-sliders icon__perfil"></i>Apariencia</li>
+                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-fire icon__perfil"></i>Habitos</li>
+                    <li class="perfil__emergente__opcion"><i class="fa-regular fa-folder-open icon__perfil"></i>Ordenar Habitos</li>
+                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-chart-column icon__perfil"></i>Grafica</li>
+                    <li class="perfil__emergente__opcion"><i class="fa-regular fa-id-badge icon__perfil"></i>Contactame</li>
+                </ul>
+            </div>
 
             </div>
             <div class="division__container__number2">
-                <div class="habits__container">
-                   <!--Creacion de ventanas-->
-                   <div class="ventana__nueva">
-                    <p class="ventana__nueva__texto">Programacion</p>
-                    <span class="ventana__nueva__listo">Listo</span>
-                   </div>
-                   <div class="ventana__nueva">
-                    <p class="ventana__nueva__texto">Tender la cama</p>
-                    <span class="ventana__nueva__listo">Listo</span>
-                   </div>
-                   <div class="ventana__nueva">
-                    <p class="ventana__nueva__texto">Diario</p>
-                    <span class="ventana__nueva__listo">Listo</span>
-                   </div>
-                   <div class="ventana__nueva">
-                    <p class="ventana__nueva__texto">Leer</p>
-                    <span class="ventana__nueva__listo">Listo</span>
-                   </div>
-                   <div class="ventana__nueva">
-                    <p class="ventana__nueva__texto">Ejercicio</p>
-                    <span class="ventana__nueva__listo">Listo</span>
-                   </div>
-                   
+                <div class="habits__container" id="habits__container__id">
+                   <ul class="habits__container__list" id="habits__container__list__id">
+
+                   </ul>
                 </div>
                 <div class="habits__info">
                     <div class="habits__info__container"></div>
@@ -89,11 +99,11 @@
         </div>
     </main>
     <footer class="footer__container">
-
+        
     </footer>
     
 
-    <script src="javascript/script.js"></script>
-    
+    <script  type="module" src="javascript/script.js"></script>
 </body>
+
 </html>
