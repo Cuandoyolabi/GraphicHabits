@@ -23,8 +23,6 @@ export function crearNuevoHabito(event){
     let nuevo__habito__recuadro = document.createElement("li");
     nuevo__habito__recuadro.textContent = habitName.value;
     
-
-
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
@@ -37,9 +35,6 @@ export function crearNuevoHabito(event){
 
     //Añadimos el div al contenedor
     graphic__container__id.appendChild(nuevoHabito);
-
-    //Solo probando cosas nuevas
-    
 
     //Cerramos la ventana emergente
     cerrarModal();
