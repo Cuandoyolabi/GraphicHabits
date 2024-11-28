@@ -3,7 +3,9 @@ import { crearNuevoHabito } from "./nuevoHabito.js";
 
 //Night mode
 const toggleBlack = document.getElementById('color__icon');
+console.log(toggleBlack);
 toggleBlack.addEventListener('click', () => {
+   
     activateNightMode();
     
 });
