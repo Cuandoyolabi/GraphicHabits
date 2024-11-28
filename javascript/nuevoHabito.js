@@ -38,7 +38,8 @@ export function crearNuevoHabito(event){
     //Añadimos el div al contenedor
     graphic__container__id.appendChild(nuevoHabito);
 
-S
+    //Solo probando cosas nuevas
+    
 
     //Cerramos la ventana emergente
     cerrarModal();
