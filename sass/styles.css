@@ -81,9 +81,14 @@ body {
   height: 100vh;
 }
 
+body {
+  overflow-y: hidden;
+  height: 100%;
+}
+
 .main__container {
   width: 100%;
-  height: 85vh;
+  height: 80%;
 }
 .main__container .division__container {
   width: 100%;
@@ -100,11 +105,12 @@ body {
 }
 .main__container .division__container__number1 {
   width: 55%;
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 3px solid black;
 }
 .main__container .division__container__number1 .golden__habit {
   width: 100px;
@@ -240,12 +246,13 @@ body {
 }
 .main__container .division__container__number2 {
   width: 45%;
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  border: 3px solid red;
 }
 .main__container .division__container__number2 .habits__container {
   max-width: 400px;
