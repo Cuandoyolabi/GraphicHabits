@@ -13,6 +13,7 @@
 2-Arreglar los iconos de usuario y modo oscuro
 
 3- Dia 28/11/2024
+4-Remover el texto al crear el habito
 -->
 
 <body>
@@ -48,33 +49,35 @@
 
                 <div id="graphic__container__id" class="graphic__container">
 
-
                 </div>
-
                 <button id="graphic__container__plus__id" class="graphic__container__plus"><i class="fa-solid fa-plus"></i></button>
-                
-                <!--Ventana del nuevo habito-->
-                <div id="modal" class="modal__container">
-                    <form class="habitForm" id="habitForm">
-                        <div class="modal__options">
-                            <span class="close">Cancelar</span>
-                            <button class="guardar__habito" type="submit">Guardar</button>
-                        </div>
-                        <div class="modal__content">
-                            <label class="habitName__label" for="habitName">Habito:</label>                      
-                            <input type="text" class="habitName" id="habitName" name="habitName" required>
-                            
-                            <div class="separacion__de__habitos">
-                                <label for="habitColor">Color:</label>
-                                <input type="color" id="habitColor" name="habitColor" required>
-                            </div>
-                    </form>
-                            
-                </div>
             </div>
 
-            <!--Ventana del perfil-->
-            <div class="perfil__emergente">
+            
+            
+                        
+        </div>
+
+        <!--Ventana del nuevo habito-->
+        <div id="modal" class="modal__container">
+            <form class="habitForm" id="habitForm">
+                <div class="modal__options">
+                    <span class="close">Cancelar</span>
+                    <button class="guardar__habito" type="submit">Guardar</button>
+                </div>
+                <div class="modal__content">
+                    <label class="habitName__label" for="habitName">Habito:</label>                      
+                    <input type="text" class="habitName" id="habitName" name="habitName" required>
+
+                    <div class="separacion__de__habitos">
+                        <label for="habitColor">Color:</label>
+                        <input type="color" id="habitColor" name="habitColor" required>
+                    </div>
+            </form>
+        </div>
+
+        <!--Ventana del perfil-->
+        <div class="perfil__emergente">
                 <ul class="perfil__emergente__opciones">
                     <li class="perfil__emergente__cuenta"><i class="fa-regular fa-user icon__perfil"></i>Cuenta </li>
                     <li class="perfil__emergente__opcion"><i class="fa-solid fa-gear icon__perfil"></i>Configuracion</li>
@@ -84,11 +87,10 @@
                     <li class="perfil__emergente__opcion"><i class="fa-solid fa-chart-column icon__perfil"></i>Grafica</li>
                     <li class="perfil__emergente__opcion"><i class="fa-regular fa-id-badge icon__perfil"></i>Contactame</li>
                 </ul>
-            </div>
+        </div>
 
-            <!--Division numero 2 del contenedor-->
-            </div>
-            <div class="division__container__number2">
+        <!--Division del segundo contenedor-->
+        <div class="division__container__number2">
                 <div class="habits__container" id="habits__container__id">
                    <ul class="habits__container__list" id="habits__container__list__id">
 
@@ -99,7 +101,6 @@
                     <div class="habits__info__container__num2"></div>
                 </div>
 
-            </div>
         </div>
     </main>
         
