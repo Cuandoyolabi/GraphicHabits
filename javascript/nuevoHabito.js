@@ -44,20 +44,17 @@ export function crearNuevoHabito(event){
     form.reset();
 };
 
-function mostrarlModal(){
+export function mostrarlModal(){
     
     const modal = document.getElementById('modal');
     modal.style.display = 'block';
     cubierta__container__id.style.display = 'block';
 }
 
-function cerrarModal(){
+export function cerrarModal(){
 
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
     cubierta__container__id.style.display = 'none';
 }
 
-document.getElementById('graphic__container__plus__id').addEventListener('click', mostrarlModal);
-document.querySelector('.close').addEventListener('click', cerrarModal);
-document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito);
