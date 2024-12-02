@@ -14,6 +14,7 @@
 
 3- Dia 28/11/2024
 4-Remover el texto al crear el habito
+5-Crear el habito en la grafica y que se guarda en localStorage.
 -->
 
 <body>
@@ -53,27 +54,26 @@
                 <button id="graphic__container__plus__id" class="graphic__container__plus"><i class="fa-solid fa-plus"></i></button>
             </div>
 
-            
-            
-                        
-        </div>
-
-        <!--Ventana del nuevo habito-->
-        <div id="modal" class="modal__container">
-            <form class="habitForm" id="habitForm">
-                <div class="modal__options">
-                    <span class="close">Cancelar</span>
-                    <button class="guardar__habito" type="submit">Guardar</button>
-                </div>
-                <div class="modal__content">
-                    <label class="habitName__label" for="habitName">Habito:</label>                      
-                    <input type="text" class="habitName" id="habitName" name="habitName" required>
-
-                    <div class="separacion__de__habitos">
-                        <label for="habitColor">Color:</label>
-                        <input type="color" id="habitColor" name="habitColor" required>
+             <!--Ventana del nuevo habito-->
+             <div id="modal" class="modal__container">
+                <form class="habitForm" id="habitForm">
+                    <div class="modal__options">
+                        <span class="close">Cancelar</span>
+                        <button class="guardar__habito" type="submit">Guardar</button>
                     </div>
-            </form>
+                    
+                    <div class="modal__content">
+                        <div class="modal__content__union">
+                            <label class="habitName__label" for="habitName">Habito:</label>                      
+                            <input type="text" class="habitName" id="habitName" name="habitName" required>
+                        </div>
+    
+                        <div class="separacion__de__habitos">
+                            <label for="habitColor">Color:</label>
+                            <input type="color" id="habitColor" name="habitColor" required>
+                        </div>
+                </form>
+            </div>
         </div>
 
         <!--Ventana del perfil-->
