@@ -32,6 +32,24 @@ document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito
 
 
 //Ventana del perfil
+const abrir__ventana__perfil = document.getElementById('abrir__ventana__perfil');
+
+
+abrir__ventana__perfil.addEventListener("click", () => {
+    console.log("jajaja");
+    const perfil__emergente__id = document.getElementById("perfil__emergente__id").style.display ="block";
+
+    
+
+    const cubierta__container__id = document.getElementById("cubierta__container__id").style.display ="block";
+})
+
+cubierta__container__id.addEventListener("click", ()=> {
+    perfil__emergente__id.style.display ="none";
+    cubierta__container__id.style.display = "none";
+})
+
+/*
 function abrirPerfil(){
     
     cubierta__container__id.style.display = 'none';
@@ -44,23 +62,22 @@ function cerrarPerfil(){
     cubierta__container__id.style.display = 'none';
     document.querySelector('.perfil__emergente').style.display = 'none';
 }
-
-
-
+*/
+/*
 cubierta__container__id.addEventListener("click", () => {
     cerrarModal()
     document.querySelector('.perfil__emergente').style.display = 'none';
 });
 
 
-const abrir__ventana__perfil = document.getElementById('abrir__ventana__perfil');
+
 abrir__ventana__perfil.addEventListener("toggle", () => {
 
     console.log("Si esta funcionando");
     abrirPerfil()
     
 });
-
+*/
 
 
 
