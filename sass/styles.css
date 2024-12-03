@@ -255,13 +255,13 @@ body {
   }
 }
 .cubierta__container {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 800px;
+  position: absolute;
   display: none;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
 
@@ -270,8 +270,9 @@ body {
   height: 300px;
   position: absolute;
   right: 40%;
+  top: 20%;
   display: none;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   border-radius: 20px;
@@ -284,7 +285,6 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  z-index: 101;
 }
 .modal__container .modal__options .close {
   font-size: 15px;
@@ -308,7 +308,6 @@ body {
   justify-content: space-around;
   padding: 10px 25px;
   border: 1px solid black;
-  z-index: 110;
 }
 .modal__container .modal__content .habit__form__num1, .modal__container .modal__content .habit__form__num2 {
   width: 90px;
@@ -328,7 +327,6 @@ body {
   border-radius: 20px;
   border: 1px solid white;
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
-  z-index: 110;
 }
 .modal__container .habitForm.active {
   background-color: black;
