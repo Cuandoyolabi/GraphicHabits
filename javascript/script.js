@@ -36,9 +36,9 @@ const abrir__ventana__perfil = document.getElementById('abrir__ventana__perfil')
 
 
 abrir__ventana__perfil.addEventListener("click", () => {
-    console.log("jajaja");
-    const perfil__emergente__id = document.getElementById("perfil__emergente__id").style.display ="block";
-
+    
+    const perfil__emergente__id = document.getElementById("perfil__emergente__id");
+    perfil__emergente__id.classList.toggle('active');
     
 
     const cubierta__container__id = document.getElementById("cubierta__container__id").style.display ="block";
