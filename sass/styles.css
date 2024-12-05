@@ -374,6 +374,9 @@ body {
 .perfil__emergente.visible {
   display: block;
 }
+.perfil__emergente.hidden {
+  display: none;
+}
 .perfil__emergente.active {
   background-color: rgb(0, 0, 0);
   color: rgb(0, 0, 0);
