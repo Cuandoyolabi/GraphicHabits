@@ -15,6 +15,8 @@ export function crearNuevoHabito(event){
         return;
     }
 
+    //Borra el valor de nombre del habito para la creacion de uno nuevo
+    habitName.value = "";
 
     //Informacion que requiere la ventana emergente
     let color = document.getElementById('habitColor').value;
@@ -57,4 +59,6 @@ export function cerrarModal(){
     modal.style.display = 'none';
     cubierta__container__id.style.display = 'none';
 }
+
+
 

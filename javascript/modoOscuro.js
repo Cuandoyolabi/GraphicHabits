@@ -3,7 +3,6 @@ export function activateNightMode(){
 
     const division__container = document.querySelector('.division__container');
     const header__container = document.querySelector('.header__container');
-
     const graphic__container__id = document.querySelector('#graphic__container__id');
     const habits__container = document.querySelector('.habits__container');
     const habits__info = document.querySelector('.habits__info');
@@ -16,7 +15,7 @@ export function activateNightMode(){
     const golden__habit__id = document.querySelector('.golden__habit');
 
     //Perfil
-    const perfil__emergente__id = document.getElementById("perfil__emergente__id");
+    const perfil__emergente__id = document.getElementById("peperfil__emergente__cuentafil__emergente__id");
     const perfil__emergente__opciones = document.querySelector('.perfil__emergente__opciones');
     const perfil__emergente__cuenta = document.querySelector('.perfil__emergente__cuenta');
     const perfil__emergente__opcion = document.querySelectorAll('.perfil__emergente__opcion');
