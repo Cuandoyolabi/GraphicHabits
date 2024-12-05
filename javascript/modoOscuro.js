@@ -15,13 +15,14 @@ export function activateNightMode(){
     const golden__habit__id = document.querySelector('.golden__habit');
 
     //Perfil
-    const perfil__emergente__id = document.getElementById("peperfil__emergente__cuentafil__emergente__id");
+    const perfil__emergente__id = document.getElementById("perfil__emergente__id");
     const perfil__emergente__opciones = document.querySelector('.perfil__emergente__opciones');
     const perfil__emergente__cuenta = document.querySelector('.perfil__emergente__cuenta');
     const perfil__emergente__opcion = document.querySelectorAll('.perfil__emergente__opcion');
     const cubierta__container__id = document.querySelector('#cubierta__container__id');
+    
 
-    perfil__emergente__id.classList.toggle("active");
+    
     cubierta__container__id.classList.toggle('active');
     profile__section.classList.toggle('active');
     night__section.classList.toggle('active');
@@ -38,6 +39,7 @@ export function activateNightMode(){
     golden__habit__id.classList.toggle('active');
 
     //Perfil
+    perfil__emergente__id.classList.toggle("active");
     perfil__emergente__cuenta.classList.toggle('active');
     perfil__emergente__opciones.classList.toggle('active');
     perfil__emergente__opcion.forEach(function(elemento){

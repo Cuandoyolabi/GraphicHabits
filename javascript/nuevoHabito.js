@@ -21,10 +21,14 @@ export function crearNuevoHabito(event){
     //Informacion que requiere la ventana emergente
     let color = document.getElementById('habitColor').value;
 
-    //Crear el nuevo habito y agregarlo al cuadro de habitos
+    //Crear el nuevo habito y agregarlo al contenedor de habitos
     let nuevo__habito__recuadro = document.createElement("li");
     nuevo__habito__recuadro.textContent = habitName.value;
-    
+    nuevo__habito__recuadro.className = "probando__habito";
+    habits__container__list__id.appendChild(nuevo__habito__recuadro);
+
+
+
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
