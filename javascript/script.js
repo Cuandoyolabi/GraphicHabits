@@ -1,6 +1,6 @@
 import { activateNightMode } from "./modoOscuro.js";
 import { crearNuevoHabito, mostrarlModal, cerrarModal } from "./nuevoHabito.js";
-import { mostrarPerfil, ocultarPerfil, toggleProfile } from "./ventanaPerfil.js";
+import { mostrarPerfil } from "./ventanaPerfil.js";
 
 
 //Modo oscuro
@@ -25,20 +25,18 @@ document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito
 
 //Crear nuevo Habito
 
-
-
-
 //Crear una ventana que aparezca cuando se selecciona goldenHabit
-
-
 
 //Ventana del perfil
 const abrir__ventana__perfil = document.getElementById("abrir__ventana__perfil");
 const perfil__emergente__id = document.getElementById("perfil__emergente__id");
 
 abrir__ventana__perfil.addEventListener("click", () => {
-    perfil__emergente__id.classList.toggle('hidden');    
+    
+    mostrarPerfil();
+
 });
+
 
 
 

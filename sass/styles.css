@@ -359,10 +359,10 @@ body {
 .perfil__emergente {
   width: 400px;
   height: 490px;
-  display: none;
   position: absolute;
   right: 0;
   top: 0;
+  display: none;
   margin-top: 20px;
   margin-right: 30px;
   background-color: rgb(255, 255, 255);
@@ -371,8 +371,8 @@ body {
   transition: transform 0.5s ease;
   z-index: 101;
 }
-.perfil__emergente.open {
-  width: 700px;
+.perfil__emergente.visible {
+  display: block;
 }
 .perfil__emergente.active {
   background-color: rgb(0, 0, 0);
