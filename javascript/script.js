@@ -1,5 +1,6 @@
 import { activateNightMode } from "./modoOscuro.js";
 import { crearNuevoHabito, mostrarlModal, cerrarModal } from "./nuevoHabito.js";
+import { mostrarPerfil, ocultarPerfil, toggleProfile } from "./ventanaPerfil.js";
 
 
 //Modo oscuro
@@ -32,76 +33,12 @@ document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito
 
 
 //Ventana del perfil
-const abrir__ventana__perfil = document.getElementById('abrir__ventana__perfil');
-
+const abrir__ventana__perfil = document.getElementById("abrir__ventana__perfil");
+const perfil__emergente__id = document.getElementById("perfil__emergente__id");
 
 abrir__ventana__perfil.addEventListener("click", () => {
-    
-    const perfil__emergente__id = document.getElementById("perfil__emergente__id");
-    perfil__emergente__id.classList.toggle('active');
-    
-
-    const cubierta__container__id = document.getElementById("cubierta__container__id").style.display ="block";
-})
-
-cubierta__container__id.addEventListener("click", ()=> {
-    perfil__emergente__id.style.display ="none";
-    cubierta__container__id.style.display = "none";
-})
-
-/*
-function abrirPerfil(){
-    
-    cubierta__container__id.style.display = 'none';
-    document.querySelector('.perfil__emergente').style.display = 'block';
-    
-}
-
-function cerrarPerfil(){
-
-    cubierta__container__id.style.display = 'none';
-    document.querySelector('.perfil__emergente').style.display = 'none';
-}
-*/
-/*
-cubierta__container__id.addEventListener("click", () => {
-    cerrarModal()
-    document.querySelector('.perfil__emergente').style.display = 'none';
+    perfil__emergente__id.classList.toggle('hidden');    
 });
 
 
-
-abrir__ventana__perfil.addEventListener("toggle", () => {
-
-    console.log("Si esta funcionando");
-    abrirPerfil()
-    
-});
-*/
-
-
-
-
-
-
-
-
-
-//Creando la ventana de color.
-// Simple example, see optional options for more configuration.
-
-
-//Como crear una base de datos y como conectarla.
-//Ver videos acerca de position
-//Ver videos acerca e z index
-
-
-
-
-//Main seccion 2
-
-
-//Footer
-
-//Pruebas de conexion a MYSQL
 
