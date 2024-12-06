@@ -15,17 +15,27 @@ export function crearNuevoHabito(event){
         return;
     }
 
-    //Borra el valor de nombre del habito para la creacion de uno nuevo
-    habitName.value = "";
-
+  
     //Informacion que requiere la ventana emergente
     let color = document.getElementById('habitColor').value;
 
     //Crear el nuevo habito y agregarlo al contenedor de habitos
     let nuevo__habito__recuadro = document.createElement("li");
     nuevo__habito__recuadro.textContent = habitName.value;
-    nuevo__habito__recuadro.className = "probando__habito";
+    nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
+    nuevo__habito__recuadro.innerHTML = habitName.value;
+    
+    const recuadroListo = document.createElement("div");
+    recuadroListo.className ="recuadroListoEstilo";
+
+    nuevoHabito.appendChild(recuadroListo);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
+
+    //Borra el valor de nombre del habito para la creacion de uno nuevo
+    habitName.value = "";
+
+
+
 
 
 

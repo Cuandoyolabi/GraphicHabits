@@ -16,8 +16,8 @@ toggleBlack.addEventListener('click', () => {
 const showModal = document.getElementById('graphic__container__plus__id');
 showModal.addEventListener('click',  () => {
 
-    mostrarlModal()
-    cerrarPerfil()
+    mostrarlModal();
+    cerrarPerfil();
 
 });
 
