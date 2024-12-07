@@ -5,7 +5,6 @@ export function crearNuevoHabito(event){
 
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById('graphic__container__id');
-    const graphic__container__plus__id = document.getElementById('graphic__container__plus__id');
     const habitName = document.getElementById("habitName");
     const form = document.getElementById('habitForm');
 
@@ -14,7 +13,6 @@ export function crearNuevoHabito(event){
     if(graphic__container__id.children.length >= maximoDeElementos){
         return;
     }
-
   
     //Informacion que requiere la ventana emergente
     let color = document.getElementById('habitColor').value;
@@ -25,18 +23,18 @@ export function crearNuevoHabito(event){
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
     nuevo__habito__recuadro.innerHTML = habitName.value;
     
-    const recuadroListo = document.createElement("div");
-    recuadroListo.className ="recuadroListoEstilo";
+    //Creando el boton que indica que se completa
+    const buttonCompletar = document.createElement("button");
+    buttonCompletar.className ="recuadroListoEstilo";
+    buttonCompletar.textContent = "Completar";
 
-    nuevoHabito.appendChild(recuadroListo);
+    //Agrega el boton a el habito creado recientemente
+    nuevo__habito__recuadro.appendChild(recuadroListo);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
+
 
     //Borra el valor de nombre del habito para la creacion de uno nuevo
     habitName.value = "";
-
-
-
-
 
 
     //Crear el nuevo habito e ingresarlo a la grafica.
