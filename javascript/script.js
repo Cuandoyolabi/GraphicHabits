@@ -5,7 +5,6 @@ import { cerrarPerfil, mostrarPerfil, perfil__emergente__id } from "./ventanaPer
 
 //Modo oscuro
 const toggleBlack = document.getElementById('color__icon');
-console.log(toggleBlack);
 toggleBlack.addEventListener('click', () => {
    
     activateNightMode();

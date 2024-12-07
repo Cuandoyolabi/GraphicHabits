@@ -71,23 +71,40 @@ export function cerrarModal(){
     cubierta__container__id.style.display = 'none';
 }
 
-// Funcion para cargar habitos desde localStorage
-export function cargarHabitos(){
-
-
-}
-
 
 //Funcion para guardar habitos en localStorage
-export function guardarHabitos(){
-    const habitos = Array.from(habits__container__list__id.children).map((habitItem) => ({
-        text: habitItem.querySelector(".habit-info").textContent,
-        completed: habitItem.querySelector().classList.contains("completed"),
-    }));
+export  function guardarHabitos(){
+
+    const habits__container__list__id = document.getElementById("habits__container__list__id");
+    const habitos = Array.from(habits__container__list__id.children).map((habitItem) => {
+        const habitText = habitItem.textContent.replace("Palomita", "").trim();
+        return {
+            text: habitText,
+        };
+    });
 
     localStorage.setItem("habitos", JSON.stringify(habitos));
+
 }
 
-console.log(habitos);
+// Funcion para cargar habitos desde localStorage
 
+export function cargarHabitos(){
+    
+    const habits__container__list__id = document.getElementById("habits__container__list__id");
+    const graphic__container__id = document.getElementById("graphic__container__id");
 
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+
+    habitosGuardados.forEach((habit) => {
+        //Crea el nuevo habito como un elemento de lista
+        let nuevo__habito__recuadro = document.createElement("li");
+        nuevo__habito__recuadro.textContent = habit.text;
+        nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
+
+        //Crear el boton para completar el habito
+        const buttonCompletar = document.createElement("button");
+
+    });
+
+}
