@@ -104,7 +104,25 @@ export function cargarHabitos(){
 
         //Crear el boton para completar el habito
         const buttonCompletar = document.createElement("button");
+        buttonCompletar.className = "buttonCompletar";
+        buttonCompletar.textContent = "Comita";
+
+        //Añadir el boton al recuadro 
+        nuevo__habito__recuadro.appendChild(buttonCompletar);
+
+        //Añadir el habito a la lista de habitos
+        habits__container__list__id.appendChild(nuevo__habito__recuadro);
+
+        //Crear el nuevo habito para la grafica
+        let nuevoHabito = document.createElement("div");
+        nuevoHabito.className = "nuevo__habito";
+        nuevoHabito.style.backgroundColor = "#cccccc";
+
+        //Añadir el habito a la grafica
+        graphic__container__id.appendChild(nuevoHabito);
+
 
     });
-
 }
+
+document.addEventListener("DOMContentLoaded", cargarHabitos);
