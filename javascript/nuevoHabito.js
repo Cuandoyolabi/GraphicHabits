@@ -71,5 +71,23 @@ export function cerrarModal(){
     cubierta__container__id.style.display = 'none';
 }
 
+// Funcion para cargar habitos desde localStorage
+export function cargarHabitos(){
+
+
+}
+
+
+//Funcion para guardar habitos en localStorage
+export function guardarHabitos(){
+    const habitos = Array.from(habits__container__list__id.children).map((habitItem) => ({
+        text: habitItem.querySelector(".habit-info").textContent,
+        completed: habitItem.querySelector().classList.contains("completed"),
+    }));
+
+    localStorage.setItem("habitos", JSON.stringify(habitos));
+}
+
+console.log(habitos);
 
 
