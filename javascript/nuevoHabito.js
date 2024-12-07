@@ -17,7 +17,7 @@ export function crearNuevoHabito(event){
     //Informacion que requiere la ventana emergente
     let color = document.getElementById('habitColor').value;
 
-    //Crear el nuevo habito y agregarlo al contenedor de habitos
+    //Crear el nuevo habito
     let nuevo__habito__recuadro = document.createElement("li");
     nuevo__habito__recuadro.textContent = habitName.value;
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
@@ -25,17 +25,17 @@ export function crearNuevoHabito(event){
     
     //Creando el boton que indica que se completa
     const buttonCompletar = document.createElement("button");
-    buttonCompletar.className ="recuadroListoEstilo";
-    buttonCompletar.textContent = "Completar";
+    buttonCompletar.className ="buttonCompletar";
 
     //Agrega el boton a el habito creado recientemente
-    nuevo__habito__recuadro.appendChild(recuadroListo);
+    nuevo__habito__recuadro.appendChild(buttonCompletar);
+
+    //Agregar el habito nuevo al contenedor de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
 
     //Borra el valor de nombre del habito para la creacion de uno nuevo
     habitName.value = "";
-
 
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
@@ -52,7 +52,6 @@ export function crearNuevoHabito(event){
 
     //Cerramos la ventana emergente
     cerrarModal();
-    crearVentanaDeHabito();
     
     //Limpiar el formulario
     form.reset();

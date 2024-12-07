@@ -463,7 +463,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  border: 5px solid red;
 }
 
 .nuevo__habitoAgregado {
@@ -480,7 +479,8 @@ body {
 }
 
 .buttonCompletar {
-  width: 100px;
-  height: 50px;
-  background-color: black;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */
