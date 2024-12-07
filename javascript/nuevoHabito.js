@@ -47,6 +47,9 @@ export function crearNuevoHabito(event){
     nuevoHabito.style.alignItems = 'center';
     nuevoHabito.style.justifyContent = 'center';
 
+    //Guardamos los habitos en localStorage
+    guardarHabitos();
+
     //Añadimos el div al contenedor
     graphic__container__id.appendChild(nuevoHabito);
 
@@ -77,7 +80,7 @@ export  function guardarHabitos(){
 
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const habitos = Array.from(habits__container__list__id.children).map((habitItem) => {
-        const habitText = habitItem.textContent.replace("Palomita", "").trim();
+        const habitText = habitItem.textContent.replace("✔", "").trim();
         return {
             text: habitText,
         };
@@ -115,8 +118,13 @@ export function cargarHabitos(){
 
         //Crear el nuevo habito para la grafica
         let nuevoHabito = document.createElement("div");
-        nuevoHabito.className = "nuevo__habito";
-        nuevoHabito.style.backgroundColor = "#cccccc";
+        nuevoHabito.className = 'nuevo__habito';
+        nuevoHabito.style.backgroundColor = color;
+        nuevoHabito.style.width = '50px';
+        nuevoHabito.style.height = '20px';
+        nuevoHabito.style.display = 'flex';
+        nuevoHabito.style.alignItems = 'center';
+        nuevoHabito.style.justifyContent = 'center';
 
         //Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
