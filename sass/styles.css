@@ -112,19 +112,26 @@ body {
   justify-content: center;
   align-items: center;
 }
+.main__container .division__container__number1 .golden__habit__division {
+  width: 90%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid black;
+}
 .main__container .division__container__number1 .golden__habit {
   width: 100px;
   height: 40px;
-  margin-right: 510px;
+  align-self: flex-end;
   margin-bottom: 15px;
   border-radius: 5px;
   background-color: rgb(133, 133, 133);
 }
 .main__container .division__container__number1 .graphic__container {
   width: 90%;
-  max-width: 850px;
   height: 400px;
-  margin-left: 50px;
   display: flex;
   align-items: flex-end;
   justify-content: space-evenly;
@@ -138,6 +145,14 @@ body {
   background: rgb(115, 115, 115);
   background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
   box-shadow: none;
+}
+.main__container .division__container__number1 .graphic__container__button__division {
+  width: 90%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid black;
 }
 .main__container .division__container__number1 .graphic__container__plus {
   width: 120px;
