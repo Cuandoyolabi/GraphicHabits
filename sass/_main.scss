@@ -37,13 +37,12 @@ body{
         align-items: center;
     
         .golden__habit__division{
-            width: 90%;
+            width: 80%;
             margin-top: 50px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             border-radius: 10px;
-            border: 1px solid black;
         }
 
         .golden__habit{
@@ -55,7 +54,7 @@ body{
             background-color: rgb(133, 133, 133)
         }
         .graphic__container{
-            width: 90%;
+            width: 80%;
             height: 400px;
             display: flex;
             align-items: flex-end;
@@ -74,24 +73,22 @@ body{
         }
 
         .graphic__container__button__division{
-            width: 90%;
+            width: 80%;
             border-radius: 10px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            border: 1px solid black;
-            
+        
         }
 
         .graphic__container__plus{
             width: 120px;
             height: 40px;
             margin-top: 15px;
-            border-radius: 15px;
+            border-radius: 10px;
             border: none;
             cursor: pointer;
             align-self: flex-end;
-            margin-right: 19px;
             color: black;
             background-color: rgb(255, 255, 255);
             border: 1.5px solid grey;

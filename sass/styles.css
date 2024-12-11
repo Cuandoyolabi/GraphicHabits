@@ -113,13 +113,12 @@ body {
   align-items: center;
 }
 .main__container .division__container__number1 .golden__habit__division {
-  width: 90%;
+  width: 80%;
   margin-top: 50px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid black;
 }
 .main__container .division__container__number1 .golden__habit {
   width: 100px;
@@ -130,7 +129,7 @@ body {
   background-color: rgb(133, 133, 133);
 }
 .main__container .division__container__number1 .graphic__container {
-  width: 90%;
+  width: 80%;
   height: 400px;
   display: flex;
   align-items: flex-end;
@@ -147,22 +146,20 @@ body {
   box-shadow: none;
 }
 .main__container .division__container__number1 .graphic__container__button__division {
-  width: 90%;
+  width: 80%;
   border-radius: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border: 1px solid black;
 }
 .main__container .division__container__number1 .graphic__container__plus {
   width: 120px;
   height: 40px;
   margin-top: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   align-self: flex-end;
-  margin-right: 19px;
   color: black;
   background-color: rgb(255, 255, 255);
   border: 1.5px solid grey;
@@ -395,7 +392,6 @@ body {
   gap: 20px;
 }
 .division__container__number2 .habits__container {
-  max-width: 400px;
   width: 90%;
   height: 340px;
   display: flex;
@@ -430,44 +426,6 @@ body {
 }
 .division__container__number2 .habits__container .ventana__nueva__texto {
   margin-left: 15px;
-}
-.division__container__number2 .habits__info {
-  max-width: 400px;
-  width: 90%;
-  height: 150px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  border-radius: 5px;
-  background-color: rgb(255, 255, 255);
-  border: 1.5px solid grey;
-  box-shadow: 2px 3px 5px rgb(160, 159, 159);
-}
-.division__container__number2 .habits__info.active {
-  background-color: black;
-  box-shadow: none;
-}
-.division__container__number2 .habits__info .habits__info__container {
-  width: 40%;
-  height: 85%;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  border: 1.5px solid rgb(170, 170, 170);
-}
-.division__container__number2 .habits__info .habits__info__container.active {
-  background-color: black;
-}
-.division__container__number2 .habits__info .habits__info__container__num2 {
-  width: 50%;
-  height: 85%;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  border: 1.5px solid grey;
-}
-.division__container__number2 .habits__info .habits__info__container__num2.active {
-  background-color: black;
 }
 
 .habits__container__list {
