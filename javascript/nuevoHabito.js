@@ -105,6 +105,9 @@ export function cargarHabitos(){
         nuevo__habito__recuadro.textContent = habit.text;
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
 
+        //Informacion que requiere la ventana emergente
+        let color = document.getElementById('habitColor').value;
+
         //Crear el boton para completar el habito
         const buttonCompletar = document.createElement("button");
         buttonCompletar.className = "buttonCompletar";

@@ -5,9 +5,6 @@ export function activateNightMode(){
     const header__container = document.querySelector('.header__container');
     const graphic__container__id = document.querySelector('#graphic__container__id');
     const habits__container = document.querySelector('.habits__container');
-    const habits__info = document.querySelector('.habits__info');
-    const habits__info__container = document.querySelector('.habits__info__container');
-    const habits__info__container__num2 = document.querySelector('.habits__info__container__num2');
     const habitForm = document.querySelector('.habitForm');
     const graphic__container__plus = document.querySelector('.graphic__container__plus');
     const night__section = document.querySelector('.night__section');
@@ -20,17 +17,12 @@ export function activateNightMode(){
     const perfil__emergente__cuenta = document.querySelector('.perfil__emergente__cuenta');
     const perfil__emergente__opcion = document.querySelectorAll('.perfil__emergente__opcion');
     const cubierta__container__id = document.querySelector('#cubierta__container__id');
-    
 
-    
     cubierta__container__id.classList.toggle('active');
     profile__section.classList.toggle('active');
     night__section.classList.toggle('active');
     graphic__container__plus.classList.toggle('active');
     habitForm.classList.toggle('active');
-    habits__info.classList.toggle('active');
-    habits__info__container.classList.toggle('active');
-    habits__info__container__num2.classList.toggle('active');
     header__container.classList.toggle('active');
     division__container.classList.toggle('active');
     graphic__container__id.classList.toggle('active');
