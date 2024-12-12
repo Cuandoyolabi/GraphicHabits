@@ -47,6 +47,9 @@ body{
         .golden__habit{
             width: 100px;
             height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             align-self: flex-end;
             margin-bottom: 15px;
             border-radius: 5px;
@@ -111,11 +114,13 @@ body{
     
     body{
         position: absolute;
+        overflow-y: auto;
+        overflow: hidden;
     }
 
     .main__container{
         height: min-content;
-        border: 3px solid red;
+        
     
         .division__container{
             flex-direction: column;
@@ -127,7 +132,7 @@ body{
             display: grid;
             grid-template-columns: 50px 1fr 1fr 1fr 50px;
             grid-template-rows: 20px 1fr 50px;
-            border: 2px solid rgb(0, 132, 255);
+            
         
             .box2{
                 grid-column-start: 2;
@@ -154,7 +159,7 @@ body{
                 display: flex;
                 justify-content: flex-end;
                 align-items: flex-end;
-                border: 2px solid blue;
+                
             }
 
             .golden__habit{
@@ -167,12 +172,12 @@ body{
             .graphic__container{
                 width: 100%;
                 height: 100%;
-                border: 2px solid red;
+               
             }
 
             .graphic__container__button__division{
                 width: 80%;
-                border: 1px solid red;
+                
             }
 
             .graphic__container__plus{
