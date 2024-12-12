@@ -1,14 +1,13 @@
 body{
     overflow-y: hidden;
     height: 100%;
+    position: fixed;
 }
 
 .main__container{
     width: 100%;
     height: 80%;
-    position: fixed;
     
-
 
     //CONTENEDOR DIVISOR
     .division__container{
@@ -110,8 +109,12 @@ body{
 }
 @media (max-width: 605px){
     
+    body{
+        position: absolute;
+    }
+
     .main__container{
-        height: 100%;
+        height: min-content;
         border: 3px solid red;
     
         .division__container{
@@ -163,7 +166,7 @@ body{
 
             .graphic__container{
                 width: 100%;
-                height: 200px;
+                height: 100%;
                 border: 2px solid red;
             }
 
