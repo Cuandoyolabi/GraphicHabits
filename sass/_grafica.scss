@@ -121,7 +121,6 @@ body{
     .main__container{
         height: min-content;
         
-    
         .division__container{
             flex-direction: column;
         }
@@ -189,6 +188,8 @@ body{
     }
 }
 
+@media( max-width: 450px){
 
+}
 
 
