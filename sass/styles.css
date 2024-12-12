@@ -175,11 +175,27 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
-@media (maxf-width: 100px) {
-  .graphic__container {
-    height: 500px;
-    width: 1000px;
-    background-color: rgb(0, 255, 255);
+@media (max-width: 605px) {
+  .main__container {
+    height: 100%;
+    border: 3px solid red;
+  }
+  .main__container .division__container {
+    flex-direction: column;
+  }
+  .main__container .division__container__number1 {
+    width: 100%;
+    height: 50%;
+    display: grid;
+    border: 2px solid rgb(0, 132, 255);
+  }
+  .main__container .division__container__number1 .golden__habit__division {
+    margin-top: 0;
+  }
+  .main__container .division__container__number1 .graphic__container {
+    width: 80%;
+    height: 800px;
+    border: 2px solid red;
   }
 }
 .cubierta__container {
@@ -456,4 +472,34 @@ body {
   height: 38px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+@media (max-width: 605px) {
+  .division__container__number2 {
+    width: 100%;
+    height: 80%;
+    justify-content: flex-start;
+    border: 3px solid red;
+  }
+  .division__container__number2 .habits__container {
+    width: 80%;
+    height: 250px;
+    border-radius: 20px;
+    border: 3px solid rgb(0, 255, 136);
+  }
+  .habits__container__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+  }
+  .nuevo__habitoAgregado {
+    width: 120px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=styles.css.map */

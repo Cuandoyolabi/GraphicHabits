@@ -23,6 +23,7 @@ export function crearNuevoHabito(event){
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
     nuevo__habito__recuadro.innerHTML = habitName.value;
     
+    
     //Creando el boton que indica que se completa
     const buttonCompletar = document.createElement("button");
     buttonCompletar.className ="buttonCompletar";
