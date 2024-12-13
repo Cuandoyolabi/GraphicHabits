@@ -7,6 +7,7 @@
     align-items: center;
     gap: 20px;
     transition: all 0.5s ease-in-out;
+    
 
     .habits__container{
         width: 90%;
@@ -121,8 +122,9 @@
         align-items: center;
         padding: 5px;
         font-size: 14px;
+        }
     }
-}
+
 
 @media(max-width: 500px){
 
