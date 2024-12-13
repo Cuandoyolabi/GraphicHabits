@@ -34,6 +34,7 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        transition: all 0.5s ease-in-out;
     
         .golden__habit__division{
             width: 80%;
@@ -110,16 +111,18 @@ body{
 #division__container__id.active{
     background-color: rgb(0, 0, 0);
 }
-@media (max-width: 805px){
+@media (max-width: 905px){
     
     body{
         position: absolute;
         overflow-y: auto;
         overflow: hidden;
+        transition: all 0.5s ease-in-out;
     }
 
     .main__container{
         height: min-content;
+        transition: all 0.5s ease-in-out;
         
         .division__container{
             flex-direction: column;
@@ -131,6 +134,7 @@ body{
             display: grid;
             grid-template-columns: 50px 1fr 1fr 1fr 50px;
             grid-template-rows: 20px 1fr 50px;
+            transition: all 0.5s ease-in-out;
             
         
             .box2{
