@@ -1,4 +1,13 @@
-//  -----------Main seccion 1---------- 
+const colors =  [
+    "#FF5773",
+    "#33FF73",
+    "#335773",
+    "#FFC300",
+    "#16A085",
+]
+
+
+//  -----------Main seccion 1---------- //
 export function crearNuevoHabito(event){
 
     event.preventDefault(); //Evitar el formulario por defecto
@@ -61,6 +70,7 @@ export function crearNuevoHabito(event){
     form.reset();
 };
 
+//Mostrar Modal
 export function mostrarlModal(){
     
     const modal = document.getElementById('modal');
@@ -68,13 +78,13 @@ export function mostrarlModal(){
     cubierta__container__id.style.display = 'block';
 }
 
+//Cerrar Modal
 export function cerrarModal(){
 
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
     cubierta__container__id.style.display = 'none';
 }
-
 
 //Funcion para guardar habitos en localStorage
 export  function guardarHabitos(){
@@ -92,7 +102,6 @@ export  function guardarHabitos(){
 }
 
 // Funcion para cargar habitos desde localStorage
-
 export function cargarHabitos(){
     
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -138,3 +147,5 @@ export function cargarHabitos(){
 }
 
 document.addEventListener("DOMContentLoaded", cargarHabitos);
+
+
