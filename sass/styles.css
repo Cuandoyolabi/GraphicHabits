@@ -288,6 +288,10 @@ body {
   justify-content: space-around;
   padding: 10px 10px;
 }
+.modal__container .modal__content .modal__content__union {
+  margin-top: 10px;
+  margin-left: 5px;
+}
 .modal__container .modal__content .habit__form__num1, .modal__container .modal__content .habit__form__num2 {
   width: 90px;
   height: 150px;

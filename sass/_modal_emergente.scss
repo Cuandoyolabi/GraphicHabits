@@ -41,7 +41,11 @@
         align-items: flex-start;
         justify-content: space-around;
         padding: 10px 10px;
-        
+
+        .modal__content__union{
+            margin-top: 10px;
+            margin-left: 5px;
+        }
         
         .habit__form__num1, .habit__form__num2{
             width: 90px;
