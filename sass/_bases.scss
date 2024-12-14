@@ -12,3 +12,25 @@ body{
     width: 100%;
     height: 100vh;
 }
+
+.main__container{
+    width: 100%;
+    height: 80%;
+    
+}
+
+@media (max-width: 905px){
+    
+    body{
+        position: absolute;
+        overflow-y: auto;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .main__container{
+        height: min-content;
+        transition: all 0.5s ease-in-out;
+
+    } 
+}
