@@ -74,6 +74,9 @@ export function crearNuevoHabito(event){
     //Guardamos los habitos en localStorage
     guardarHabitos();
 
+    //Borrar el color determinado
+    color = "";
+
     //Añadimos el div al contenedor
     graphic__container__id.appendChild(nuevoHabito);
 
@@ -107,10 +110,10 @@ export  function guardarHabitos(){
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const habitos = Array.from(habits__container__list__id.children).map((habitItem) => {
         const habitText = habitItem.textContent.replace("✔", "").trim();
-        const color = colorSeleccionado;
+        const habitColor = habitItem.style.backgroundColor; 
         return {
             text: habitText,
-            color: color,
+            color: habitColor,
         };
     });
 
@@ -134,7 +137,7 @@ export function cargarHabitos(){
         let nuevo__habito__recuadro = document.createElement("li");
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
         nuevo__habito__recuadro.textContent = habit.text;
-        nuevo__habito__recuadro.style.backgroundColor = habit.color;
+       // Aqui se le puede dar el color al recuadro
         
 
         console.log(habit.color)
@@ -158,7 +161,6 @@ export function cargarHabitos(){
         nuevoHabito.style.display = 'flex';
         nuevoHabito.style.alignItems = 'center';
         nuevoHabito.style.justifyContent = 'center';
-        
         nuevoHabito.style.backgroundColor = habit.color;
 
         //Añadir el habito a la grafica
