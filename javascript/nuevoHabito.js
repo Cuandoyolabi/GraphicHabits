@@ -18,7 +18,6 @@ export function inicializadorSelectorDeColor(){
 
 inicializadorSelectorDeColor();
 
-
 // Funcion de creacion de habito
 export function crearNuevoHabito(event){
 
@@ -30,20 +29,24 @@ export function crearNuevoHabito(event){
     const form = document.getElementById('habitForm');
 
     //Verifica que solo sean 5 elementos
-    const maximoDeElementos = 5;
+    const maximoDeElementos = 6;
     if(graphic__container__id.children.length >= maximoDeElementos){
         return;
     }
   
-    //Informacion que requiere la ventana emergente
-    let color = document.getElementById('habitColor').value;
+    // Verificacion de que el usuario selecciono un color
+    if(!colorSeleccionado){
+        alert("Por favor, selecciona un color");
+        return;
+    }
+
+    let color = colorSeleccionado;
 
     //Crear el nuevo habito
     let nuevo__habito__recuadro = document.createElement("li");
     nuevo__habito__recuadro.textContent = habitName.value;
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
     nuevo__habito__recuadro.innerHTML = habitName.value;
-    
     
     //Creando el boton que indica que se completa
     const buttonCompletar = document.createElement("button");
@@ -54,7 +57,6 @@ export function crearNuevoHabito(event){
 
     //Agregar el habito nuevo al contenedor de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
-
 
     //Borra el valor de nombre del habito para la creacion de uno nuevo
     habitName.value = "";
