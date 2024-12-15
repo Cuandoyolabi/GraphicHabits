@@ -1,4 +1,25 @@
-//  -----------Main seccion 1---------- 
+
+// Funcion sobre eleccion del color
+let colorSeleccionado = "";
+
+export function inicializadorSelectorDeColor(){
+
+    const opcionesDeColor = document.querySelectorAll(".color__opcion");
+    opcionesDeColor.forEach((opcion) => {
+        opcion.addEventListener("click", () => {
+            
+            colorSeleccionado = opcion.style.backgroundColor;
+
+            opcionesDeColor.forEach((opcion) => opcion.classList.remove("seleccionado"));
+            opcion.classList.add("seleccionado");
+        });
+    });
+} 
+
+inicializadorSelectorDeColor();
+
+
+// Funcion de creacion de habito
 export function crearNuevoHabito(event){
 
     event.preventDefault(); //Evitar el formulario por defecto
@@ -61,6 +82,7 @@ export function crearNuevoHabito(event){
     form.reset();
 };
 
+//Mostrar Modal
 export function mostrarlModal(){
     
     const modal = document.getElementById('modal');
@@ -68,6 +90,7 @@ export function mostrarlModal(){
     cubierta__container__id.style.display = 'block';
 }
 
+//Cerrar modal
 export function cerrarModal(){
 
     const modal = document.getElementById('modal');
@@ -92,12 +115,10 @@ export  function guardarHabitos(){
 }
 
 // Funcion para cargar habitos desde localStorage
-
 export function cargarHabitos(){
     
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
-
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
     habitosGuardados.forEach((habit) => {
@@ -132,7 +153,6 @@ export function cargarHabitos(){
 
         //Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
-
 
     });
 }

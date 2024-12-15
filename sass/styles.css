@@ -352,6 +352,9 @@ body {
   margin: 5px;
   border: 2px solid rgb(255, 255, 255);
 }
+.modal__container .habitForm .separacion__Colores .color__opcion.seleccionado {
+  border: 3px solid black;
+}
 
 .perfil__emergente {
   width: 400px;
