@@ -20,71 +20,59 @@ inicializadorSelectorDeColor();
 
 // Funcion de creacion de habito
 export function crearNuevoHabito(event){
-
-    event.preventDefault(); //Evitar el formulario por defecto
+    
+    //Evitar el formulario por defecto
+    event.preventDefault(); 
 
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById('graphic__container__id');
     const habitName = document.getElementById("habitName");
     const form = document.getElementById('habitForm');
 
-    //Verifica que solo sean 5 elementos
+    //Verifica limite de elementos
     const maximoDeElementos = 6;
     if(graphic__container__id.children.length >= maximoDeElementos){
         return;
     }
   
     // Verificacion de que el usuario selecciono un color
-    if(!colorSeleccionado){
+    const color = colorSeleccionado || document.querySelector('.habitColor__label').dataset.selectedColor;
+    if(!color){
         alert("Por favor, selecciona un color");
         return;
     }
 
-    let color = colorSeleccionado;
+    console.log("Usando el color:", selectedColor);
 
     //Crear el nuevo habito
     let nuevo__habito__recuadro = document.createElement("li");
-    nuevo__habito__recuadro.textContent = habitName.value;
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
     nuevo__habito__recuadro.innerHTML = habitName.value;
     
     //Creando el boton que indica que se completa
     const buttonCompletar = document.createElement("button");
     buttonCompletar.className ="buttonCompletar";
-
-    //Agrega el boton a el habito creado recientemente
     nuevo__habito__recuadro.appendChild(buttonCompletar);
 
     //Agregar el habito nuevo al contenedor de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
     //Borra el valor de nombre del habito para la creacion de uno nuevo
-    habitName.value = "";
+    //habitName.value = "";
 
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
-    nuevoHabito.style.backgroundColor = color;
-    nuevoHabito.style.width = '50px';
-    nuevoHabito.style.height = '20px';
-    nuevoHabito.style.display = 'flex';
-    nuevoHabito.style.alignItems = 'center';
-    nuevoHabito.style.justifyContent = 'center';
+    nuevoHabito.style.backgroundColor = selectedColor;
+    graphic__container__id.appendChild(nuevoHabito);
 
     //Guardamos los habitos en localStorage
     guardarHabitos();
 
-    //Borrar el color determinado
-    color = "";
-
-    //Añadimos el div al contenedor
-    graphic__container__id.appendChild(nuevoHabito);
-
-    //Cerramos la ventana emergente
+    //Resetear formulario y modal
+    form.reset();
     cerrarModal();
     
-    //Limpiar el formulario
-    form.reset();
 };
 
 //Mostrar Modal
@@ -104,24 +92,32 @@ export function cerrarModal(){
 }
 
 //El color viene de los habitos que se crean en la grafica
+//El nombre del habito viene del contenedor de habitos
 //Funcion para guardar habitos en localStorage
 export  function guardarHabitos(){
 
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
 
-   console.log(graphic__container__id)
-   console.log(graphic__container__id.children)
-    const habitos = Array.from(habits__container__list__id.children).map((habitItem) => {
+    const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
         const habitText = habitItem.textContent.replace("✔", "").trim();
-        const habitColor = habitItem.style.backgroundColor; 
-       
-            
+        const graphicHabit = graphic__container__id.children[index];
+
+
+        if(!graphicHabit){
+            console.error(`Error: No se encontro el elemento grafico para el indice ${index}`);
+            return null;
+        }
+
+        const habitColor = graphicHabit.style.backgroundColor;
+
+        console.log(`Guardando habito: Texto: ${habitText}, Color: ${habitColor}`);
+
             return {
                 text: habitText,
                 color: habitColor,
             };
-    });
+    }).filter(habit => habit !== null);
 
     localStorage.setItem("habitos", JSON.stringify(habitos));
 
@@ -139,10 +135,6 @@ export function cargarHabitos(){
         let nuevo__habito__recuadro = document.createElement("li");
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
         nuevo__habito__recuadro.textContent = habit.text;
-       // Aqui se le puede dar el color al recuadro
-        
-
-        console.log(habit.color)
 
         //Crear el boton para completar el habito
         const buttonCompletar = document.createElement("button");
@@ -163,11 +155,13 @@ export function cargarHabitos(){
         nuevoHabito.style.display = 'flex';
         nuevoHabito.style.alignItems = 'center';
         nuevoHabito.style.justifyContent = 'center';
-        nuevoHabito.style.backgroundColor = habit.color;
+        nuevoHabito.style.backgroundColor = habit.color || "gray";
+
+        console.log(`Cargando: Texto: "${habit.text}", Color: "${habit.color}"`); // Depuración
 
         //Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
-
+        
     });
 }
 

@@ -1,5 +1,5 @@
 body{
-    overflow-y: hidden;
+    
     height: 100%;
     position: fixed;
 }
@@ -106,10 +106,20 @@ body{
     
 }
 
-
 #division__container__id.active{
     background-color: rgb(0, 0, 0);
 }
+
+// Clase agregada desde javascript al habito de la grafica
+.nuevo__habito{
+    width: 50px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 @media (max-width: 805px){
     
     body{
