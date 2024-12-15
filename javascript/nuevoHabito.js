@@ -107,8 +107,10 @@ export  function guardarHabitos(){
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const habitos = Array.from(habits__container__list__id.children).map((habitItem) => {
         const habitText = habitItem.textContent.replace("✔", "").trim();
+        const color = habitItem.style.backgroundColor || "default";
         return {
             text: habitText,
+            color: color,
         };
     });
 
@@ -130,7 +132,7 @@ export function cargarHabitos(){
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
 
         //Informacion que requiere la ventana emergente
-        let color = document.getElementById('habitColor').value;
+        let color = colorSeleccionado;
 
         //Crear el boton para completar el habito
         const buttonCompletar = document.createElement("button");
@@ -146,7 +148,7 @@ export function cargarHabitos(){
         //Crear el nuevo habito para la grafica
         let nuevoHabito = document.createElement("div");
         nuevoHabito.className = 'nuevo__habito';
-        nuevoHabito.style.backgroundColor = color;
+        nuevoHabito.style.backgroundColor = habit.color;
         nuevoHabito.style.width = '50px';
         nuevoHabito.style.height = '20px';
         nuevoHabito.style.display = 'flex';
