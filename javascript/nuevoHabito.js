@@ -103,18 +103,24 @@ export function cerrarModal(){
     cubierta__container__id.style.display = 'none';
 }
 
-
+//El color viene de los habitos que se crean en la grafica
 //Funcion para guardar habitos en localStorage
 export  function guardarHabitos(){
 
     const habits__container__list__id = document.getElementById("habits__container__list__id");
+    const graphic__container__id = document.getElementById("graphic__container__id");
+
+   console.log(graphic__container__id)
+   console.log(graphic__container__id.children)
     const habitos = Array.from(habits__container__list__id.children).map((habitItem) => {
         const habitText = habitItem.textContent.replace("✔", "").trim();
         const habitColor = habitItem.style.backgroundColor; 
-        return {
-            text: habitText,
-            color: habitColor,
-        };
+       
+            
+            return {
+                text: habitText,
+                color: habitColor,
+            };
     });
 
     localStorage.setItem("habitos", JSON.stringify(habitos));
@@ -124,13 +130,9 @@ export  function guardarHabitos(){
 // Funcion para cargar habitos desde localStorage
 export function cargarHabitos(){
     
-
-    
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-
-    
 
     habitosGuardados.forEach((habit) => {
         //Crea el nuevo habito como un elemento de lista
