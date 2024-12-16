@@ -587,4 +587,12 @@ body {
     width: 85px;
     font-size: 10px;
   }
+}
+.ventana__configuracion {
+  width: 60%;
+  height: 80%;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 20px;
+  border: 3px solid red;
 }/*# sourceMappingURL=styles.css.map */
