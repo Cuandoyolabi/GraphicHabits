@@ -570,6 +570,9 @@ body {
 .ventana__configuracion .ventana__configuracion__derecha__Apariencia.hidden {
   display: none;
 }
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia.visible {
+  display: flex;
+}
 .ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia {
   width: 96%;
   height: 20%;
@@ -606,6 +609,12 @@ body {
   border-bottom-right-radius: 18px;
   border: 1px solid rgb(167, 167, 167);
 }
+.ventana__configuracion .ventana__configuracion__derecha__Habitos.hidden {
+  display: none;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos.visible {
+  display: flex;
+}
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .ventana__habitos {
   width: 96%;
   height: 50%;
@@ -625,6 +634,9 @@ body {
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto.hidden {
   display: none;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto.visible {
+  display: flex;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto {
   width: 96%;

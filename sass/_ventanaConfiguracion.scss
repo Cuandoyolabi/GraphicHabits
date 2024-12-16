@@ -79,6 +79,10 @@
             display: none;
         }
 
+        &.visible{
+            display: flex;
+        }
+
         .ventana__apariencia{
             width: 96%;
             height: 20%;
@@ -119,6 +123,13 @@
         border-bottom-right-radius: 18px;
         border: 1px solid rgb(167, 167, 167);
         
+        &.hidden{
+            display: none;
+        }
+        &.visible{
+            display: flex;
+        }
+
         .ventana__habitos{
             width: 96%;
             height: 50%;
@@ -142,6 +153,10 @@
         
         &.hidden{
             display: none;
+        }
+
+        &.visible{
+            display: flex;
         }
 
         .ventana__contacto{

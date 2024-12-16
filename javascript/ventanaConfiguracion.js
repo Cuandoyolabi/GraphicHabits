@@ -1,6 +1,7 @@
 const ventana__configuracion__id = document.getElementById("ventana__configuracion__id");
-const configuracionApariencia = document.getElementById("configuracionApariencia");
-const configuracionContacto = document.getElementById("configuracionContacto");
+const ventana__apariencia__id = document.getElementById("ventana__configuracion__derecha__Apariencia__id");
+const ventana__contacto__id = document.getElementById("ventana__configuracion__derecha__Contacto__id");
+const ventana__habitos__id = document.getElementById("ventana__configuracion__derecha__Habitos__id");
 
 export function mostrarPerfil(){
 
@@ -18,10 +19,26 @@ export function cerrarPerfil(){
 
 export function mostrarConfiguracionHabitos(){
 
-
-    console.log("Checando si sirve esta funcion");
-    configuracionApariencia.classList.toggle("hidden");
-    configuracionContacto.classList.toggle("hidden");
+    ventana__apariencia__id.classList.add("hidden");
+    ventana__contacto__id.classList.add("hidden");
+    ventana__habitos__id.classList.add("visible");
 
 }
+
+export function mostrarConfiguracionApariencia(){
+
+    ventana__apariencia__id.classList.add("hidden");
+    ventana__contacto__id.classList.add("hidden");
+    ventana__habitos__id.classList.add("visible");
+
+}
+
+export function mostrarConfiguracionContacto(){
+
+    ventana__apariencia__id.classList.add("hidden");
+    ventana__contacto__id.classList.add("hidden");
+    ventana__habitos__id.classList.add("visible");
+
+}
+
 
