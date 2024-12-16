@@ -597,7 +597,7 @@ body {
   position: absolute;
   border-radius: 20px;
   margin-top: 15px;
-  border: 1px solid rgb(167, 167, 167);
+  border: 1px solid rgb(197, 197, 197);
 }
 .ventana__configuracion .ventana__configuracion__izquierda {
   width: 33%;
@@ -647,39 +647,46 @@ body {
   font-weight: 300;
   color: rgb(61, 61, 61);
 }
-.ventana__configuracion .ventana__configuracion__derecha {
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia {
   width: 67%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: flex-start;
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
   border: 1px solid rgb(167, 167, 167);
 }
-.ventana__configuracion .ventana__configuracion__derecha .ventana__apariencia {
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia {
   width: 96%;
   height: 20%;
   margin-top: 20px;
   border-radius: 8px;
 }
-.ventana__configuracion .ventana__configuracion__derecha .ventana__apariencia .ventana__apariencia__separacion {
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__separacion {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
-.ventana__configuracion .ventana__configuracion__derecha .ventana__apariencia .ventana__apariencia__titulo {
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__titulo {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 10px;
 }
-.ventana__configuracion .ventana__configuracion__derecha .ventana__apariencia .ventana__apariencia__titulo2 {
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__titulo2 {
   font-size: 18px;
   font-weight: 300;
 }
-.ventana__configuracion .ventana__configuracion__derecha .ventana__apariencia .ventana__apariencia__texto {
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__texto {
   font-size: 12px;
   font-weight: 200;
   color: rgb(26, 26, 26);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos {
+  width: 67%;
+  height: 100%;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border: 1px solid rgb(167, 167, 167);
 }/*# sourceMappingURL=styles.css.map */

@@ -7,7 +7,7 @@
     position: absolute;
     border-radius: 20px;
     margin-top: 15px;
-    border: 1px solid rgb(167, 167, 167);
+    border: 1px solid rgb(197, 197, 197);
 
     .ventana__configuracion__izquierda{
         width: 33%;
@@ -58,10 +58,10 @@
         }  
     }
 
-    .ventana__configuracion__derecha{
+    .ventana__configuracion__derecha__Apariencia{
         width: 67%;
         height: 100%;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: flex-start;
         border-top-right-radius: 18px;
@@ -97,7 +97,14 @@
             }
         }
     }
-    
+
+    .ventana__configuracion__derecha__Habitos{
+        width: 67%;
+        height: 100%;
+        border-top-right-radius: 18px;
+        border-bottom-right-radius: 18px;
+        border: 1px solid rgb(167, 167, 167);
+    }
 }
 
 
