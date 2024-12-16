@@ -36,7 +36,7 @@ export function crearNuevoHabito(event){
     }
   
     // Verificacion de que el usuario selecciono un color
-    const color = colorSeleccionado || document.querySelector('.habitColor__label').dataset.colorSeleccionado;
+    const color = colorSeleccionado;
     if(!color){
         alert("Por favor, selecciona un color");
         return;
