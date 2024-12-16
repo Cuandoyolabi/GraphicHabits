@@ -101,15 +101,12 @@ export  function guardarHabitos(){
         const habitText = habitItem.textContent.replace("✔", "").trim();
         const graphicHabit = graphic__container__id.children[index];
 
-
         if(!graphicHabit){
             console.error(`Error: No se encontro el elemento grafico para el indice ${index}`);
             return null;
         }
 
         const habitColor = graphicHabit.style.backgroundColor;
-
-        console.log(`Guardando habito: Texto: ${habitText}, Color: ${habitColor}`);
 
             return {
                 text: habitText,
@@ -148,14 +145,7 @@ export function cargarHabitos(){
         //Crear el nuevo habito para la grafica
         let nuevoHabito = document.createElement("div");
         nuevoHabito.className = 'nuevo__habito';
-        nuevoHabito.style.width = '50px';
-        nuevoHabito.style.height = '20px';
-        nuevoHabito.style.display = 'flex';
-        nuevoHabito.style.alignItems = 'center';
-        nuevoHabito.style.justifyContent = 'center';
         nuevoHabito.style.backgroundColor = habit.color || "gray";
-
-        console.log(`Cargando: Texto: "${habit.text}", Color: "${habit.color}"`); // Depuración
 
         //Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
