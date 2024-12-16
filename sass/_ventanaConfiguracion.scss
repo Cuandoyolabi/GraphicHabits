@@ -7,19 +7,18 @@
     position: absolute;
     border-radius: 20px;
     margin-top: 15px;
-    //border: 1px solid rgb(167, 167, 167);
-    border: 3px solid red;
+    border: 1px solid rgb(167, 167, 167);
 
     .ventana__configuracion__izquierda{
-        width: 200px;
+        width: 33%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        border: 3px solid red;
         border-top-left-radius: 18px;
         border-bottom-left-radius: 18px;
         background-color: rgb(218, 218, 218);
+        border: 1px solid rgb(167, 167, 167);
     
         .opciones__configuracion{
             width: 90%;
@@ -27,34 +26,76 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            gap: 20px;
+            gap: 17px;
             margin-top: 10px;
-            border: 2px solid black;
             border-radius: 16px;
         }
 
         .opciones__configuracion__apariencia,
         .opciones__configuracion__habitos, 
         .opciones__configuracion__contactar{
-            width: 90%;
+            width: 100%;
             height: 30px;
-            border-radius: 8px;
-            background-color: rgb(202, 202, 202);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            padding-left: 10px;
+            border-radius: 6px;
+            background-color: rgb(255, 255, 255);
+            cursor: pointer;
         
+            .icon__configuracion{
+                font-size: 20px;
+                color: rgba(58, 54, 54, 0.973);
+            }
+
             .opciones__configuracion__texto{
+                font-size: 16px;
+                font-weight: 300;
+                color: rgb(61, 61, 61);
+            }
+        }  
+    }
+
+    .ventana__configuracion__derecha{
+        width: 67%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        border-top-right-radius: 18px;
+        border-bottom-right-radius: 18px;
+        border: 1px solid rgb(167, 167, 167);
+    
+        .ventana__apariencia{
+            width: 96%;
+            height: 20%;
+            margin-top: 20px;
+            border-radius: 8px;
+        
+            .ventana__apariencia__separacion{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .ventana__apariencia__titulo{
                 font-size: 20px;
                 font-weight: 400;
+                margin-bottom: 10px;
+            }
+            .ventana__apariencia__titulo2{
+                font-size: 18px;
+                font-weight: 300;
+            }
+            .ventana__apariencia__texto{
+                font-size: 12px;
+                font-weight: 200;
+                color: rgb(26, 26, 26);
             }
         }
-
-        
-    }
-    
-    .ventana__configuracion__derecha{
-        width: 300px;
-        height: 100px;
-        background-color: red;
-        border: 4px solid black;
     }
     
 }
