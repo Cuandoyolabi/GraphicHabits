@@ -10,7 +10,6 @@ export function mostrarPerfil(){
 export function cerrarPerfil(){
 
     ventana__configuracion__id.classList.toggle("hidden");
-    //perfil__emergente__id.classList.toggle("hidden");
 
 }
 
