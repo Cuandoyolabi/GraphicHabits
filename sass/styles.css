@@ -591,7 +591,7 @@ body {
 .ventana__configuracion {
   width: 60%;
   height: 80%;
-  display: flex;
+  display: none;
   flex-direction: row;
   background-color: #ffffff;
   position: absolute;

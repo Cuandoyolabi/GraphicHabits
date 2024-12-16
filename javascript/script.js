@@ -1,6 +1,6 @@
 import { activateNightMode } from "./modoOscuro.js";
 import { crearNuevoHabito, mostrarlModal, cerrarModal } from "./nuevoHabito.js";
-import { cerrarPerfil, mostrarPerfil, perfil__emergente__id } from "./ventanaPerfil.js";
+import { cerrarPerfil, mostrarPerfil } from "./ventanaConfiguracion.js";
 
 
 //Modo oscuro
