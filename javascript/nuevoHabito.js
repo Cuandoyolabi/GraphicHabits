@@ -28,7 +28,6 @@ export function editarHabito(){
     
 }
 
-
 // Funcion de creacion de habito
 export function crearNuevoHabito(event){
     

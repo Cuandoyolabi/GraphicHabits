@@ -74,7 +74,11 @@
         border-top-right-radius: 18px;
         border-bottom-right-radius: 18px;
         border: 1px solid rgb(167, 167, 167);
-    
+        
+        &.hidden{
+            display: none;
+        }
+
         .ventana__apariencia{
             width: 96%;
             height: 20%;
@@ -135,7 +139,11 @@
         display: none;
         justify-content: center;
         align-items: flex-start;
-    
+        
+        &.hidden{
+            display: none;
+        }
+
         .ventana__contacto{
             width: 96%;
             height: 200px;

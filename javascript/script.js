@@ -1,6 +1,6 @@
 import { activateNightMode } from "./modoOscuro.js";
 import { crearNuevoHabito, mostrarlModal, cerrarModal } from "./nuevoHabito.js";
-import { cerrarPerfil, mostrarPerfil } from "./ventanaConfiguracion.js";
+import { cerrarPerfil, mostrarPerfil, mostrarConfiguracionHabitos } from "./ventanaConfiguracion.js";
 
 
 //Modo oscuro
@@ -40,6 +40,11 @@ abrir__ventana__perfil.addEventListener("click", () => {
 });
 
 
+const seccionHabitos = document.getElementById("configuracionHabitos");
+seccionHabitos.addEventListener("click", () => {
 
+    mostrarConfiguracionHabitos();
+
+});
 
 
