@@ -71,7 +71,7 @@
         .ventana__apariencia{
             width: 96%;
             height: 20%;
-            margin-top: 20px;
+            padding: 20px 10px;
             border-radius: 8px;
         
             .ventana__apariencia__separacion{
@@ -101,9 +101,49 @@
     .ventana__configuracion__derecha__Habitos{
         width: 67%;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
         border-top-right-radius: 18px;
         border-bottom-right-radius: 18px;
         border: 1px solid rgb(167, 167, 167);
+        
+        .ventana__habitos{
+            width: 96%;
+            height: 50%;
+            padding: 20px 10px;
+        }
+
+        .ventana__habitos__titulo{
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        
+    }
+
+    .ventana__configuracion__derecha__Contacto{
+        width: 67%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: flex-start;
+    
+        .ventana__contacto{
+            width: 96%;
+            height: 200px;
+            padding: 20px 10px;
+        
+            .ventana__contacto__titulo{
+                margin-bottom: 10px;
+                font-size: 20px;
+                font-weight: 400;
+            }
+            .ventana__contacto__texto{
+                margin-top: 15px;
+                font-size: 18px;
+            }
+        }
     }
 }
 
