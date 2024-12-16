@@ -36,13 +36,11 @@ export function crearNuevoHabito(event){
     }
   
     // Verificacion de que el usuario selecciono un color
-    const color = colorSeleccionado || document.querySelector('.habitColor__label').dataset.selectedColor;
+    const color = colorSeleccionado || document.querySelector('.habitColor__label').dataset.colorSeleccionado;
     if(!color){
         alert("Por favor, selecciona un color");
         return;
     }
-
-    console.log("Usando el color:", selectedColor);
 
     //Crear el nuevo habito
     let nuevo__habito__recuadro = document.createElement("li");
@@ -63,7 +61,7 @@ export function crearNuevoHabito(event){
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
-    nuevoHabito.style.backgroundColor = selectedColor;
+    nuevoHabito.style.backgroundColor = colorSeleccionado;
     graphic__container__id.appendChild(nuevoHabito);
 
     //Guardamos los habitos en localStorage
