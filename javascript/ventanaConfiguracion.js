@@ -16,6 +16,13 @@ export function cerrarPerfil(){
 
 }
 
+export function mostrarConfiguracionApariencia(){
+
+    ventana__apariencia__id.classList.add("visible");
+    ventana__contacto__id.classList.add("hidden");
+    ventana__habitos__id.classList.add("hidden");
+
+}
 
 export function mostrarConfiguracionHabitos(){
 
@@ -25,19 +32,15 @@ export function mostrarConfiguracionHabitos(){
 
 }
 
-export function mostrarConfiguracionApariencia(){
 
-    ventana__apariencia__id.classList.add("hidden");
-    ventana__contacto__id.classList.add("hidden");
-    ventana__habitos__id.classList.add("visible");
-
-}
 
 export function mostrarConfiguracionContacto(){
 
     ventana__apariencia__id.classList.add("hidden");
-    ventana__contacto__id.classList.add("hidden");
-    ventana__habitos__id.classList.add("visible");
+    ventana__apariencia__id.classList.remove("visible")
+
+    ventana__contacto__id.classList.add("visible");
+    ventana__habitos__id.classList.remove("visible");
 
 }
 
