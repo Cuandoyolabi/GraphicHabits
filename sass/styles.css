@@ -364,18 +364,17 @@ body {
 }
 
 .perfil__emergente {
-  width: 400px;
-  height: 490px;
+  width: 220px;
+  height: 80%;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 80;
   display: none;
   margin-top: 20px;
-  margin-right: 30px;
+  margin-right: 20px;
   background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(145, 145, 145);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 15px;
-  transition: transform 0.5s ease;
   z-index: 101;
 }
 .perfil__emergente.visible {
@@ -396,8 +395,9 @@ body {
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 15px;
   border-radius: 20px;
 }
 .perfil__emergente__opciones.active {
