@@ -18,6 +18,17 @@ export function inicializadorSelectorDeColor(){
 
 inicializadorSelectorDeColor();
 
+//Funcion que elimina el habito seleccionado
+export function eliminarHabito(){
+
+}
+
+//Funcion para editar el habito seleccionado
+export function editarHabito(){
+    
+}
+
+
 // Funcion de creacion de habito
 export function crearNuevoHabito(event){
     
@@ -154,3 +165,4 @@ export function cargarHabitos(){
 }
 
 document.addEventListener("DOMContentLoaded", cargarHabitos);
+
