@@ -1,6 +1,6 @@
 .ventana__configuracion{
     width: 60%;
-    height: 80%;
+    height: 75%;
     display: none;
     flex-direction: row;
     background-color: #ffffff;
@@ -8,6 +8,13 @@
     border-radius: 20px;
     margin-top: 15px;
     border: 1px solid rgb(197, 197, 197);
+
+    &.visible{
+        display: flex;
+    }
+    &.hidden{
+        display: none;
+    }
 
     .ventana__configuracion__izquierda{
         width: 33%;
@@ -61,7 +68,7 @@
     .ventana__configuracion__derecha__Apariencia{
         width: 67%;
         height: 100%;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: flex-start;
         border-top-right-radius: 18px;
@@ -101,7 +108,7 @@
     .ventana__configuracion__derecha__Habitos{
         width: 67%;
         height: 100%;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: flex-start;
         border-top-right-radius: 18px;
