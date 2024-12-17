@@ -68,6 +68,8 @@ export function crearNuevoHabito(event){
     //Agregar el habito a la configuracion de habitos
     
 
+
+
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
