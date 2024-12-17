@@ -65,8 +65,8 @@ export function crearNuevoHabito(event){
     //Agregar el habito nuevo al contenedor de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
-    //Borra el valor de nombre del habito para la creacion de uno nuevo
-    //habitName.value = "";
+    //Agregar el habito a la configuracion de habitos
+    
 
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
