@@ -22,6 +22,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        min-width: 170px;
         border-top-left-radius: 18px;
         border-bottom-left-radius: 18px;
         background-color: rgb(218, 218, 218);
@@ -235,7 +236,37 @@
         }
     }
 
-    
 }
+
+@media (max-width: 805px){
+
+    .ventana__configuracion{
+        width: 100%;
+        height: 90%;
+        top: 100;
+        right: 0;
+    }
+
+}
+
+@media (max-width: 550px){
+
+    .ventana__configuracion{
+
+        .ventana__configuracion__izquierda{
+            
+
+            .opciones__configuracion__apariencia,
+            .opciones__configuracion__contactar,
+            .opciones__configuracion__habitos{
+
+                .opciones__configuracion__texto{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
 
 

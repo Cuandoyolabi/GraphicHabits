@@ -138,7 +138,6 @@ export  function guardarHabitos(){
 
         //Implementacion de ID
         let habitId = habitItem.id = `${index + 1}`;
-        console.log(habitId);
 
         //Color
         const habitColor = graphicHabit.style.backgroundColor;
@@ -242,13 +241,12 @@ export function eliminarHabito(id){
 
     })
 
-    localStorage.setItem("habitos", JSON.stringify(nuevosHabitos));
+    localStorage.setItem("nuevosHabitos", JSON.stringify(nuevosHabitos));
 
 }
 
 //Funcion para editar el habito seleccionado
 export function editarHabito(){
-    
 }
 
 // Funcion que obtiene el ID
