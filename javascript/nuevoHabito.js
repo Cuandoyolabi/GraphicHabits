@@ -71,18 +71,26 @@ export function crearNuevoHabito(event){
 
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
+    let habito__nombre = document.createElement("h2");
     let habito__separacion = document.createElement("div");
-    //let habito__editar = document.createElement("button");
-    //let habito__eliminar = document.createElement("button");
+    let habito__editar = document.createElement("button");
+    let habito__eliminar = document.createElement("button");
 
+    habito__editar.textContent = "Editar";
+    habito__eliminar.textContent = "Eliminar";
+    habito__nombre.textContent = habitName.value;
+
+    habito__editar.className = "habito__editar";
+    habito__eliminar.className = "habito__eliminar";
+    habito__nombre.className = "habito__nombre";
     nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
     habito__separacion.className = "habito__separacion";
-    
-    ventana__habitos__lista.appendChild(nuevo__habito__configuracion);
+
+    habito__separacion.appendChild(habito__editar);
+    habito__separacion.appendChild(habito__eliminar);
+    nuevo__habito__configuracion.appendChild(habito__nombre);
     nuevo__habito__configuracion.appendChild(habito__separacion);
-
-    nuevo__habito__configuracion.textContent = habitName.value;
-
+    ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
 
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
@@ -144,7 +152,7 @@ export  function guardarHabitos(){
 
 }
 
-// Funcion para cargar habitos desde localStorage
+// Funcion para cargar habitos desde localStorage a la grafica y al contenedor
 export function cargarHabitos(){
     
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -179,14 +187,7 @@ export function cargarHabitos(){
     });
 }
 
-
-
-export function guardarHabitoConfiguracion(){
-
-    //Guardado
-   
-}
-
+// Funcion para cargar los habitos a la pagina de habitos de Configuracion
 export function cargarHabitoConfiguracion(){
    
     const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
@@ -196,15 +197,22 @@ export function cargarHabitoConfiguracion(){
         let nuevo__habito__configuracion = document.createElement("div");
         let habito__nombre = document.createElement("h2");
         let habito__separacion = document.createElement("div");
-        //let habito__editar = document.createElement("button");
-        //let habito__eliminar = document.createElement("button");
+        let habito__editar = document.createElement("button");
+        let habito__eliminar = document.createElement("button");
 
+        habito__editar.textContent = "Editar";
+        habito__eliminar.textContent = "Eliminar";
         habito__nombre.textContent = habit.text;
 
+
+        habito__editar.className = "habito__editar";
+        habito__eliminar.className = "habito__eliminar";
+        habito__nombre.className = "habito__nombre";
         nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
         habito__separacion.className = "habito__separacion";
-    
 
+        habito__separacion.appendChild(habito__editar);
+        habito__separacion.appendChild(habito__eliminar);
         nuevo__habito__configuracion.appendChild(habito__nombre);
         nuevo__habito__configuracion.appendChild(habito__separacion);
         ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
