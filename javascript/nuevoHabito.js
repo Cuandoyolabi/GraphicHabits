@@ -73,6 +73,7 @@ export function crearNuevoHabito(event){
     nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
     ventana__habitos__lista.appendChild(nuevo__habito__configuracion);
 
+
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
@@ -170,3 +171,10 @@ export function cargarHabitos(){
 
 document.addEventListener("DOMContentLoaded", cargarHabitos);
 
+export function guardarHabitoConfiguracion(){
+    //Aqui se guardara el habito de configuracion con localStorage
+}
+
+export function cargarHabitoConfiguracion(){
+    //Aqui se cargara el habito de configuracion con localStorage
+}
