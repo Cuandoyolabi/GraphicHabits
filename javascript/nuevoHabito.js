@@ -70,6 +70,9 @@ export function crearNuevoHabito(event){
     habito__eliminar.textContent = "Eliminar";
     habito__nombre.textContent = habitName.value;
 
+    habito__eliminar.id = "habito__eliminar__id";
+    habito__editar.id = "habito__editar__id";
+
     habito__editar.className = "habito__editar";
     habito__eliminar.className = "habito__eliminar";
     habito__nombre.className = "habito__nombre";
@@ -122,17 +125,24 @@ export  function guardarHabitos(){
     const graphic__container__id = document.getElementById("graphic__container__id");
 
     const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
+        //Texto
         const habitText = habitItem.textContent.replace("✔", "").trim();
         const graphicHabit = graphic__container__id.children[index];
 
+        //Verificacion que el habito se implemento en la grafica y contenedor
         if(!graphicHabit){
             console.error(`Error: No se encontro el elemento grafico para el indice ${index}`);
             return null;
         }
 
+        //ID
+        
+
+        //Color
         const habitColor = graphicHabit.style.backgroundColor;
 
             return {
+                
                 text: habitText,
                 color: habitColor,
             };
@@ -194,6 +204,8 @@ export function cargarHabitoConfiguracion(){
         habito__eliminar.textContent = "Eliminar";
         habito__nombre.textContent = habit.text;
 
+        habito__eliminar.id = "habito__eliminar__id";
+        habito__editar.id = "habito__editar__id";
 
         habito__editar.className = "habito__editar";
         habito__eliminar.className = "habito__eliminar";
@@ -217,9 +229,26 @@ cargarHabitoConfiguracion();
 //Funcion que elimina el habito seleccionado
 export function eliminarHabito(){
 
+    console.log("SI ESTA FUNCIONANDO")
+    const habitId = obtenerIdDesdeUrl();
+    const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
+
+    const nuevosHabitos = habitos.filter((habito) => habito.id !== habitId);
+
+    localStorage.setItem("habitos", JSON.stringify(nuevosHabitos));
+
+    alert("Habito eliminado correctante");
 }
 
 //Funcion para editar el habito seleccionado
 export function editarHabito(){
     
 }
+
+// Funcion que obtiene el ID
+export function obtenerIdDesdeUrl(){
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+}
+
+document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
