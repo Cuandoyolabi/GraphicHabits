@@ -34,6 +34,9 @@ export function crearNuevoHabito(event){
     //Evitar el formulario por defecto
     event.preventDefault(); 
 
+    //Ids de la seccion de configuracion
+    const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
+
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById('graphic__container__id');
     const habitName = document.getElementById("habitName");
@@ -66,9 +69,9 @@ export function crearNuevoHabito(event){
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
     //Agregar el habito a la configuracion de habitos
-    
-
-
+    let nuevo__habito__configuracion = document.createElement("div");
+    nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
+    ventana__habitos__lista.appendChild(nuevo__habito__configuracion);
 
     //Crear el nuevo habito e ingresarlo a la grafica.
     let nuevoHabito = document.createElement('div');
