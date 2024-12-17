@@ -125,24 +125,26 @@ export  function guardarHabitos(){
     const graphic__container__id = document.getElementById("graphic__container__id");
 
     const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
+        
         //Texto
         const habitText = habitItem.textContent.replace("✔", "").trim();
         const graphicHabit = graphic__container__id.children[index];
 
-        //Verificacion que el habito se implemento en la grafica y contenedor
+        //Verificacion de que el habito se implemento en la grafica y el contenedor
         if(!graphicHabit){
             console.error(`Error: No se encontro el elemento grafico para el indice ${index}`);
             return null;
         }
 
-        //ID
-        
+        //Implementacion de ID
+        let habitId = habitItem.id = `habit-id${index + 1}`;
+        console.log(habitId);
 
         //Color
         const habitColor = graphicHabit.style.backgroundColor;
 
             return {
-                
+                id: Date.now(),
                 text: habitText,
                 color: habitColor,
             };
@@ -229,7 +231,7 @@ cargarHabitoConfiguracion();
 //Funcion que elimina el habito seleccionado
 export function eliminarHabito(){
 
-    console.log("SI ESTA FUNCIONANDO")
+    console.log("funciona ??")
     const habitId = obtenerIdDesdeUrl();
     const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
 
