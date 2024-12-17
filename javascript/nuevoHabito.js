@@ -194,16 +194,20 @@ export function cargarHabitoConfiguracion(){
     habitosGuardados.forEach((habit) => { 
 
         let nuevo__habito__configuracion = document.createElement("div");
+        let habito__nombre = document.createElement("h2");
         let habito__separacion = document.createElement("div");
         //let habito__editar = document.createElement("button");
         //let habito__eliminar = document.createElement("button");
 
+        habito__nombre.textContent = habit.text;
+
         nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
         habito__separacion.className = "habito__separacion";
     
-        ventana__habitos__lista.appendChild(nuevo__habito__configuracion);
+
+        nuevo__habito__configuracion.appendChild(habito__nombre);
         nuevo__habito__configuracion.appendChild(habito__separacion);
-        nuevo__habito__configuracion.textContent = habit.text;
+        ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
 
     }); 
 }
