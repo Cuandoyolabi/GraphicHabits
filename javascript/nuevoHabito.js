@@ -137,14 +137,14 @@ export  function guardarHabitos(){
         }
 
         //Implementacion de ID
-        let habitId = habitItem.id = `habit-id${index + 1}`;
+        let habitId = habitItem.id = `${index + 1}`;
         console.log(habitId);
 
         //Color
         const habitColor = graphicHabit.style.backgroundColor;
 
             return {
-                id: Date.now(),
+                id: habitId,
                 text: habitText,
                 color: habitColor,
             };
@@ -229,17 +229,21 @@ cargarHabitoConfiguracion();
 
 
 //Funcion que elimina el habito seleccionado
-export function eliminarHabito(){
+export function eliminarHabito(id){
 
     console.log("funciona ??")
     const habitId = obtenerIdDesdeUrl();
     const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
 
-    const nuevosHabitos = habitos.filter((habito) => habito.id !== habitId);
+    habitos.forEach((habit) =>{
+
+        const nuevosHabitos = habitos.filter((habito) => habit.id !== habitId);
+        console.log(nuevosHabitos);
+
+    })
 
     localStorage.setItem("habitos", JSON.stringify(nuevosHabitos));
 
-    alert("Habito eliminado correctante");
 }
 
 //Funcion para editar el habito seleccionado
