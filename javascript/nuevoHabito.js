@@ -72,17 +72,16 @@ export function crearNuevoHabito(event){
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
     let habito__separacion = document.createElement("div");
-    let habito__editar = document.createElement("button");
-    let habito__eliminar = document.createElement("button");
+    //let habito__editar = document.createElement("button");
+    //let habito__eliminar = document.createElement("button");
 
-    habito__separacion.className = "habito__separacion";
     nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
-
+    habito__separacion.className = "habito__separacion";
     
-    nuevo__habito__configuracion.appendChild(habito__separacion);
     ventana__habitos__lista.appendChild(nuevo__habito__configuracion);
+    nuevo__habito__configuracion.appendChild(habito__separacion);
 
-    nuevo__habito__configuracion.innerHTML = habitName.value;
+    nuevo__habito__configuracion.textContent = habitName.value;
 
 
     //Crear el nuevo habito e ingresarlo a la grafica.
@@ -180,12 +179,34 @@ export function cargarHabitos(){
     });
 }
 
-document.addEventListener("DOMContentLoaded", cargarHabitos);
+
 
 export function guardarHabitoConfiguracion(){
-    //Aqui se guardara el habito de configuracion con localStorage
+
+    //Guardado
+   
 }
 
 export function cargarHabitoConfiguracion(){
-    //Aqui se cargara el habito de configuracion con localStorage
+   
+    const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    habitosGuardados.forEach((habit) => { 
+
+        let nuevo__habito__configuracion = document.createElement("div");
+        let habito__separacion = document.createElement("div");
+        //let habito__editar = document.createElement("button");
+        //let habito__eliminar = document.createElement("button");
+
+        nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
+        habito__separacion.className = "habito__separacion";
+    
+        ventana__habitos__lista.appendChild(nuevo__habito__configuracion);
+        nuevo__habito__configuracion.appendChild(habito__separacion);
+        nuevo__habito__configuracion.textContent = habit.text;
+
+    }); 
 }
+
+document.addEventListener("DOMContentLoaded", cargarHabitos);
+cargarHabitoConfiguracion();
