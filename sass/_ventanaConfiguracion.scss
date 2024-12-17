@@ -141,9 +141,19 @@
         }
         
         //Habitos agregados desde JavaScript
+        .habito__separacion{
+            width: 50px;
+            height: 100%;
+            background-color: red;
+            border: 3px solid black;
+        }
+
         .nuevo__habitoConfiguracion{
             width: 80%;
             height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-radius: 10px;
             background-color: rgb(255, 255, 255);
             border: 1px solid rgb(78, 78, 78);

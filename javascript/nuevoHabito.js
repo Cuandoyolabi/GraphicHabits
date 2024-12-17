@@ -68,10 +68,21 @@ export function crearNuevoHabito(event){
     //Agregar el habito nuevo al contenedor de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
+
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
+    let habito__separacion = document.createElement("div");
+    let habito__editar = document.createElement("button");
+    let habito__eliminar = document.createElement("button");
+
+    habito__separacion.className = "habito__separacion";
     nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
+
+    
+    nuevo__habito__configuracion.appendChild(habito__separacion);
     ventana__habitos__lista.appendChild(nuevo__habito__configuracion);
+
+    nuevo__habito__configuracion.innerHTML = habitName.value;
 
 
     //Crear el nuevo habito e ingresarlo a la grafica.
