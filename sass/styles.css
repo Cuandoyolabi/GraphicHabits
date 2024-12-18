@@ -705,7 +705,12 @@ body {
   font-size: 18px;
 }
 
-@media (max-width: 805px) {
+@media (max-width: 1200px) {
+  .ventana__configuracion {
+    width: 85%;
+  }
+}
+@media (max-width: 810px) {
   .ventana__configuracion {
     width: 100%;
     height: 90%;
@@ -713,10 +718,17 @@ body {
     right: 0;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 690px) {
   .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .opciones__configuracion__texto,
   .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .opciones__configuracion__texto,
   .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .opciones__configuracion__texto {
     font-size: 14px;
+  }
+  .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__separacion {
+    width: 50%;
+  }
+  .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar, .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar {
+    width: 60px;
+    height: 25px;
   }
 }/*# sourceMappingURL=styles.css.map */

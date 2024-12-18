@@ -238,7 +238,13 @@
 
 }
 
-@media (max-width: 805px){
+@media(max-width: 1200px){
+    .ventana__configuracion{
+        width: 85%;
+    }
+}
+
+@media (max-width: 810px){
 
     .ventana__configuracion{
         width: 100%;
@@ -249,7 +255,7 @@
 
 }
 
-@media (max-width: 550px){
+@media (max-width: 690px){
 
     .ventana__configuracion{
 
@@ -265,8 +271,21 @@
                 }
             }
         }
+
+        .ventana__configuracion__derecha__Habitos{
+
+            .nuevo__habitoConfiguracion{
+                
+                .habito__separacion{
+                    width: 50%;
+                }
+                .habito__editar, .habito__eliminar{
+                    width: 60px;
+                    height: 25px;
+                }
+            }
+        }
     }
 }
-
 
 
