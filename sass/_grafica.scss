@@ -20,8 +20,11 @@ body{
         background: linear-gradient(0deg, rgba(182,182,182,1) 9%, rgba(255,255,255,1) 93%);
         
         &.active{
-            background: rgb(93,93,93);
-            background: linear-gradient(0deg, rgba(93,93,93,1) 0%, rgba(0,0,0,1) 96%);
+            
+            background-color: #191919;
+            background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
+            //background: rgb(93,93,93);
+            //background: linear-gradient(0deg, rgba(93,93,93,1) 0%, rgba(0,0,0,1) 96%);
         }
     
     }

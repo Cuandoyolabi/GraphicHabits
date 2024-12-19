@@ -12,7 +12,7 @@
   transition: background-color 0.5s;
 }
 .header__container.active {
-  background-color: black;
+  background-color: #141414;
 }
 .header__container .brand__container {
   width: 150px;
@@ -100,8 +100,8 @@ body {
   background: linear-gradient(0deg, rgb(182, 182, 182) 9%, rgb(255, 255, 255) 93%);
 }
 .main__container .division__container.active {
-  background: rgb(93, 93, 93);
-  background: linear-gradient(0deg, rgb(93, 93, 93) 0%, rgb(0, 0, 0) 96%);
+  background-color: #191919;
+  background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
 }
 .main__container .division__container__number1 {
   width: 55%;
