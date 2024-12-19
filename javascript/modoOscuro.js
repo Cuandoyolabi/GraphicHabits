@@ -13,7 +13,7 @@ export function activateNightMode(){
 
     //Contenedor de habitos
     const habitoAgregado = document.querySelectorAll(".nuevo__habitoAgregado");
-    const buttonCompletar = document.querySelectorAll("buttonCompletar");
+    const buttonCompletar = document.querySelectorAll(".buttonCompletar");
 
 
     //Perfil
@@ -36,6 +36,10 @@ export function activateNightMode(){
 
     //Contenedor de habitos
     habitoAgregado.forEach(function(elemento){
+        elemento.classList.toggle('active');
+    });
+    
+    buttonCompletar.forEach(function(elemento){
         elemento.classList.toggle('active');
     })
 

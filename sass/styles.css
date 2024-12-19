@@ -451,6 +451,10 @@ body {
   border: 1px solid black;
   cursor: pointer;
 }
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .buttonCompletar.active {
+  background-color: black;
+  border: 1px solid white;
+}
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto {
   width: 40%;
   height: 100%;

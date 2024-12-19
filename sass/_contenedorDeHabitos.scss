@@ -93,6 +93,11 @@
             border-radius: 50%;
             border: 1px solid black;
             cursor: pointer;
+        
+            &.active{
+                background-color: black;
+                border: 1px solid white;
+            }
         }
 
         .recuadroArriba__Conjunto{
