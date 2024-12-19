@@ -425,24 +425,48 @@ body {
   max-width: 150px;
   height: 90%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
   font-size: 10px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 13px;
   list-style: none;
+  border-radius: 13px;
   border: 1px solid black;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba {
   width: 100%;
   height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 10px;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto {
+  width: 80%;
+  height: 100%;
   border: 1px solid black;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto .recuadroArriba__numero {
+  font-size: 20px;
+  font-weight: 600;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto .recuadroArriba__dias {
+  font-size: 13px;
+  font-weight: 400;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Abajo {
   width: 100%;
   height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   border: 1px solid black;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 8px;
 }
 
 .buttonCompletar {
