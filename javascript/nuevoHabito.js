@@ -54,13 +54,14 @@ export function crearNuevoHabito(event){
     let recuadroAbajo__texto = document.createElement("h2");
     let buttonCompletar = document.createElement("button");
 
-    recuadroAbajo__texto.innerHTML = habitName.value;
+    //Informacion
+    recuadroAbajo__texto.innerText = habitName.value;
     
 
     //Estilos
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
-    nuevo__recuadro__Arriba.className = "nuevoHabitoUp";
-    nuevo__recuadro__Abajo.className = "nuevoHabitoDown";
+    nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
+    nuevo__recuadro__Abajo.className = "nuevo__recuadro__Abajo";
     buttonCompletar.className ="buttonCompletar";
 
     //Estructura
@@ -189,29 +190,31 @@ export function cargarHabitos(){
         let recuadroAbajo__texto = document.createElement("h2");
         let buttonCompletar = document.createElement("button");
 
-        recuadroAbajo__texto.innerHTML = habitName.value;
-    
+        //Informacion
+        recuadroAbajo__texto.innerText = habitName.value;
+        
+
 
         //Estilos
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
-        nuevo__recuadro__Arriba.className = "nuevoHabitoUp";
-        nuevo__recuadro__Abajo.className = "nuevoHabitoDown";
+        nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
+        nuevo__recuadro__Abajo.className = "nuevo__recuadro__Abajo";
         buttonCompletar.className ="buttonCompletar";
 
         //Estructura
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
 
+
+        nuevo__recuadro__Arriba.appendChild(recuadroArriba__numero);
+        nuevo__recuadro__Arriba.appendChild(buttonCompletar);
+        nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     
         //Agregar el habito nuevo al contenedor de habitos
         habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
-        /*
-        Separacion para mejor organizacion
-        */
-
-        //Añadir el boton al recuadro 
-        nuevo__habito__recuadro.appendChild(buttonCompletar);
+        /*   Separacion para mejor organizacion   */
+        
 
         //Añadir el habito a la lista de habitos
         habits__container__list__id.appendChild(nuevo__habito__recuadro);
