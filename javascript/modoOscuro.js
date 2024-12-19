@@ -26,6 +26,7 @@ export function activateNightMode(){
 
     //Modal
     const buttonGuardar = document.querySelector(".guardar__habito");
+    const habitName = document.querySelector(".habitName");
 
     cubierta__container__id.classList.toggle('active');
     profile__section.classList.toggle('active');
@@ -46,6 +47,7 @@ export function activateNightMode(){
 
     //Modal
     buttonGuardar.classList.toggle('active');
+    habitName.classList.toggle('active');
 
     //Contenedor de habitos
     habitoAgregado.forEach(function(elemento){

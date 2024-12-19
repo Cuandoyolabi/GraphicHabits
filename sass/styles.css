@@ -254,8 +254,8 @@ body {
 }
 
 .modal__container {
-  width: 400px;
-  height: 330px;
+  width: 350px;
+  height: 350px;
   position: absolute;
   top: 20%;
   display: none;
@@ -346,6 +346,9 @@ body {
   border: none;
   padding-left: 10px;
   border: 1.5px solid rgb(153, 153, 153);
+}
+.modal__container .habitForm .habitName.active {
+  background-color: #191919;
 }
 .modal__container .habitForm .separacion__Colores {
   width: 100%;
