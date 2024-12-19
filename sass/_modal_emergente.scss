@@ -1,8 +1,8 @@
 .modal__container{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 330px;
     position: absolute;
-    
+    top: 20%;
     display: none;
     justify-content: center;
     align-items: center;
@@ -13,23 +13,30 @@
 
     .modal__options{
         width: 90%;
+        height: 50px;
+        margin-top: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
 
         .close{
+            color: rgb(255, 7, 7);
+            font-weight: 500;
             font-size: 15px;
             cursor: pointer;
         }
         .guardar__habito{
-            width: 80px;
-            height: 30px;
             font-size: 15px;
-            border-radius: 18px;
+            font-weight: 500;
+            color: rgb(0, 17, 255);
+            background-color: rgb(255, 255, 255);
             border: none;
             cursor: pointer;
-            background-color: white;
+        
+            &.active{
+                background-color: black;
+            }    
         }
     }
 
@@ -40,9 +47,12 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-around;
-        padding: 10px 10px;
+        padding: 10px 17px;
 
         .modal__content__union{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
             margin-top: 10px;
             margin-left: 5px;
         }
@@ -64,7 +74,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-radius: 20px;
+        border-radius: 16px;
         border: 1px solid white;
         box-shadow:  2px 3px 5px rgb(160, 159, 159);
 
@@ -81,7 +91,7 @@
         }
 
         .habitName{
-            width: 100%;
+            width: 85%;
             height: 35px;
             margin-top: 8px;
             margin-bottom: 20px;
@@ -97,6 +107,7 @@
             display: flex;
             flex-direction: column;
             margin-top: 15px;
+            margin-left: 2px;
             gap: 10px;
             
         
