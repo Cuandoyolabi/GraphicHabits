@@ -11,6 +11,11 @@ export function activateNightMode(){
     const profile__section = document.querySelector('.profile__section');
     const golden__habit__id = document.querySelector('.golden__habit');
 
+    //Contenedor de habitos
+    const habitoAgregado = document.querySelectorAll(".nuevo__habitoAgregado");
+    const buttonCompletar = document.querySelectorAll("buttonCompletar");
+
+
     //Perfil
     const perfil__emergente__id = document.getElementById("perfil__emergente__id");
     const perfil__emergente__opciones = document.querySelector('.perfil__emergente__opciones');
@@ -27,8 +32,12 @@ export function activateNightMode(){
     division__container.classList.toggle('active');
     graphic__container__id.classList.toggle('active');
     habits__container.classList.toggle('active');
-
     golden__habit__id.classList.toggle('active');
+
+    //Contenedor de habitos
+    habitoAgregado.forEach(function(elemento){
+        elemento.classList.toggle('active');
+    })
 
     //Perfil
     perfil__emergente__id.classList.toggle("active");

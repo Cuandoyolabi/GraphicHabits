@@ -74,6 +74,11 @@
     border-radius: 15px;
     border: 1px solid black;
 
+    &.active{
+        border: 1px solid white;
+        color: white;
+    }
+
     .nuevo__recuadro__Arriba{
         width: 100%;
         height: 50%;
@@ -121,7 +126,7 @@
         .recuadroAbajo__texto{
             font-size: 20px;
             font-weight: 400;
-            margin-left: 8px;
+            margin-left: 12px;
             text-transform: capitalize;
         }
     }
