@@ -46,8 +46,8 @@ export function crearNuevoHabito(event){
     }
 
     //Agregar el habito al contenedor de habitos
-    let nuevo__habito__recuadro = document.createElement("div");
     //nuevo__habito__recuadro.innerHTML = habitName.value;
+    let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
     let recuadroArriba__numero = document.createElement("h2");
@@ -68,11 +68,14 @@ export function crearNuevoHabito(event){
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
 
+
+    nuevo__recuadro__Arriba.appendChild(recuadroArriba__numero);
+    nuevo__recuadro__Arriba.appendChild(buttonCompletar);
+    nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
+    habits__container__list__id.appendChild(nuevo__habito__recuadro);      
     
-    //Agregar el habito nuevo al contenedor de habitos
-    habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
-
+    /* Separacion para mejor organizacion */
 
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
@@ -132,7 +135,7 @@ export function cerrarModal(){
 }
 
 //El color viene de los habitos que se crean en la grafica
-//El nombre del habito viene del contenedor de habitos
+//El nombre del habito viene del contenedor de habitos 
 //Funcion para guardar habitos en localStorage
 export  function guardarHabitos(){
 
@@ -142,7 +145,8 @@ export  function guardarHabitos(){
     const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
         
         //Texto
-        const habitText = habitItem.textContent.replace("✔", "").trim();
+        const habitElement = habitItem.querySelector(".nuevo__recuadro__Abajo h2");
+        const habitText =  habitElement ? habitElement.textContent.replace("✔", "").trim() : "";
         const graphicHabit = graphic__container__id.children[index];
 
         //Verificacion de que el habito se implemento en la grafica y el contenedor
@@ -177,13 +181,8 @@ export function cargarHabitos(){
 
     habitosGuardados.forEach((habit) => {
         //Recrea el habito con su estructura y estilos para el contenedor de habitos
-        /*
-        let nuevo__habito__recuadro = document.createElement("div");
-        nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
-        nuevo__habito__recuadro.textContent = habit.text;
-        */
-        let nuevo__habito__recuadro = document.createElement("div");
-         //nuevo__habito__recuadro.innerHTML = habitName.value;
+        //nuevo__habito__recuadro.innerHTML = habitName.value;
+        let nuevo__habito__recuadro = document.createElement("div"); 
         let nuevo__recuadro__Arriba = document.createElement("div");
         let nuevo__recuadro__Abajo = document.createElement("div");
         let recuadroArriba__numero = document.createElement("h2");
@@ -209,9 +208,7 @@ export function cargarHabitos(){
         nuevo__recuadro__Arriba.appendChild(recuadroArriba__numero);
         nuevo__recuadro__Arriba.appendChild(buttonCompletar);
         nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
-    
-        //Agregar el habito nuevo al contenedor de habitos
-        habits__container__list__id.appendChild(nuevo__habito__recuadro);
+        habits__container__list__id.appendChild(nuevo__habito__recuadro);        
 
         /*   Separacion para mejor organizacion   */
         
