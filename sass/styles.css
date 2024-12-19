@@ -467,6 +467,7 @@ body {
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba .buttonCompletar.active {
   background-color: #191919;
   border: 1px solid white;
+  color: white;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto {
   width: 40%;
