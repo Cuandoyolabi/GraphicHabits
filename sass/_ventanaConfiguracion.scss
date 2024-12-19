@@ -76,8 +76,8 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        border-top-right-radius: 18px;
-        border-bottom-right-radius: 18px;
+        border-top-right-radius: 19px;
+        border-bottom-right-radius: 19px;
         border: 1px solid rgb(167, 167, 167);
 
         &.hidden{
@@ -128,8 +128,8 @@
         display: none;
         justify-content: center;
         align-items: flex-start;
-        border-top-right-radius: 18px;
-        border-bottom-right-radius: 18px;
+        border-top-right-radius: 19px;
+        border-bottom-right-radius: 19px;
         border: 1px solid rgb(167, 167, 167);
 
         &.active{
@@ -222,6 +222,8 @@
         display: none;
         justify-content: center;
         align-items: flex-start;
+        border-top-right-radius: 19px;
+        border-bottom-right-radius: 19px;
         
         &.active{
             background-color: #202020;

@@ -143,8 +143,7 @@ body {
   transition: background-color 0.5s;
 }
 .main__container .division__container__number1 .graphic__container.active {
-  background: rgb(115, 115, 115);
-  background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  background-color: #191919;
   box-shadow: none;
 }
 .main__container .division__container__number1 .graphic__container__button__division {
@@ -168,7 +167,7 @@ body {
   box-shadow: 0px 3px 1px rgb(160, 159, 159);
 }
 .main__container .division__container__number1 .graphic__container__plus.active {
-  background-color: black;
+  background-color: #191919;
   box-shadow: none;
   color: white;
 }
@@ -385,7 +384,7 @@ body {
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
 .division__container__number2 .habits__container.active {
-  background-color: black;
+  background-color: #191919;
   box-shadow: none;
 }
 .division__container__number2 .habits__container .ventana__nueva {
@@ -452,7 +451,7 @@ body {
   cursor: pointer;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba .buttonCompletar.active {
-  background-color: black;
+  background-color: #191919;
   border: 1px solid white;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto {
@@ -613,8 +612,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  border-top-right-radius: 18px;
-  border-bottom-right-radius: 18px;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
   border: 1px solid rgb(167, 167, 167);
 }
 .ventana__configuracion .ventana__configuracion__derecha__Apariencia.hidden {
@@ -658,8 +657,8 @@ body {
   display: none;
   justify-content: center;
   align-items: flex-start;
-  border-top-right-radius: 18px;
-  border-bottom-right-radius: 18px;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
   border: 1px solid rgb(167, 167, 167);
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos.active {
@@ -738,6 +737,8 @@ body {
   display: none;
   justify-content: center;
   align-items: flex-start;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto.active {
   background-color: #202020;

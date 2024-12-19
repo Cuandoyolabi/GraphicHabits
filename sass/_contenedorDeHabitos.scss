@@ -20,7 +20,7 @@
         box-shadow:  2px 3px 5px rgb(160, 159, 159);
 
         &.active{
-            background-color: black;
+            background-color: #191919;
             box-shadow: none;
         }
 
@@ -95,7 +95,7 @@
             cursor: pointer;
         
             &.active{
-                background-color: black;
+                background-color: #191919;
                 border: 1px solid white;
             }
         }
