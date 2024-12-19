@@ -11,16 +11,17 @@ export function activateNightMode(){
     const profile__section = document.querySelector('.profile__section');
     const golden__habit__id = document.querySelector('.golden__habit');
 
+    // Ventana de Configuracion
+    const configuracion__Izquierda = document.querySelector(".ventana__configuracion__izquierda");
+    const configuracionApariencia = document.querySelector('.ventana__configuracion__derecha__Apariencia');
+    const configuracionHabitos = document.querySelector('.ventana__configuracion__derecha__Apariencia');
+    const configuracionContacto = document.querySelector('.ventana__configuracion__derecha__Contacto');
+    
     //Contenedor de habitos
     const habitoAgregado = document.querySelectorAll(".nuevo__habitoAgregado");
     const buttonCompletar = document.querySelectorAll(".buttonCompletar");
-
-
-    //Perfil
-    const perfil__emergente__id = document.getElementById("perfil__emergente__id");
-    const perfil__emergente__opciones = document.querySelector('.perfil__emergente__opciones');
-    const perfil__emergente__cuenta = document.querySelector('.perfil__emergente__cuenta');
-    const perfil__emergente__opcion = document.querySelectorAll('.perfil__emergente__opcion');
+    
+    // Cubierta
     const cubierta__container__id = document.querySelector('#cubierta__container__id');
 
     cubierta__container__id.classList.toggle('active');
@@ -34,6 +35,12 @@ export function activateNightMode(){
     habits__container.classList.toggle('active');
     golden__habit__id.classList.toggle('active');
 
+    // Ventana de configuracion
+    configuracion__Izquierda.classList.toggle('active');
+    configuracionApariencia.classList.toggle('active');
+    configuracionHabitos.classList.toggle('active');
+    configuracionContacto.classList.toggle('active');
+
     //Contenedor de habitos
     habitoAgregado.forEach(function(elemento){
         elemento.classList.toggle('active');
@@ -41,16 +48,8 @@ export function activateNightMode(){
     
     buttonCompletar.forEach(function(elemento){
         elemento.classList.toggle('active');
-    })
+    });
 
-    //Perfil
-    perfil__emergente__id.classList.toggle("active");
-    perfil__emergente__cuenta.classList.toggle('active');
-    perfil__emergente__opciones.classList.toggle('active');
-    perfil__emergente__opcion.forEach(function(elemento){
-        elemento.classList.toggle('active');
-        
-    });    
 };
 
 

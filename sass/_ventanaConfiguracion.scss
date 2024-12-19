@@ -28,6 +28,10 @@
         background-color: rgb(218, 218, 218);
         border: 1px solid rgb(167, 167, 167);
     
+        &.active{
+            background-color: #2c2c2c;
+        }
+
         .opciones__configuracion{
             width: 90%;
             height: 90%;
@@ -75,13 +79,17 @@
         border-top-right-radius: 18px;
         border-bottom-right-radius: 18px;
         border: 1px solid rgb(167, 167, 167);
-        
+
         &.hidden{
             display: none;
         }
 
         &.visible{
             display: flex;
+        }
+
+        &.active{
+            background-color: #202020;
         }
 
         .ventana__apariencia{
@@ -123,7 +131,11 @@
         border-top-right-radius: 18px;
         border-bottom-right-radius: 18px;
         border: 1px solid rgb(167, 167, 167);
-        
+
+        &.active{
+            background-color: #202020;
+        }
+
         &.hidden{
             display: none;
         }
@@ -211,6 +223,10 @@
         justify-content: center;
         align-items: flex-start;
         
+        &.active{
+            background-color: #202020;
+        }
+
         &.hidden{
             display: none;
         }

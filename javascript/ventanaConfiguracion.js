@@ -19,6 +19,7 @@ export function cerrarPerfil(){
 export function mostrarConfiguracionApariencia(){
 
     ventana__apariencia__id.classList.add("visible");
+    ventana__apariencia__id.classList.remove("hidden");
     ventana__habitos__id.classList.add("hidden");
     ventana__habitos__id.classList.remove("visible");
     ventana__contacto__id.classList.remove("visible");
