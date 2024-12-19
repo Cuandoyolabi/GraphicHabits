@@ -46,7 +46,7 @@ export function crearNuevoHabito(event){
     }
 
     //Agregar el habito al contenedor de habitos
-    let nuevo__habito__recuadro = document.createElement("li");
+    let nuevo__habito__recuadro = document.createElement("div");
     //nuevo__habito__recuadro.innerHTML = habitName.value;
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
@@ -63,10 +63,15 @@ export function crearNuevoHabito(event){
     nuevo__recuadro__Abajo.className = "nuevoHabitoDown";
     buttonCompletar.className ="buttonCompletar";
 
+    //Estructura
+    nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
+    nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
 
     
     //Agregar el habito nuevo al contenedor de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
+
+
 
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
@@ -170,15 +175,40 @@ export function cargarHabitos(){
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
     habitosGuardados.forEach((habit) => {
-        //Crea el nuevo habito como un elemento de lista
-        let nuevo__habito__recuadro = document.createElement("li");
+        //Recrea el habito con su estructura y estilos para el contenedor de habitos
+        /*
+        let nuevo__habito__recuadro = document.createElement("div");
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
         nuevo__habito__recuadro.textContent = habit.text;
+        */
+        let nuevo__habito__recuadro = document.createElement("div");
+         //nuevo__habito__recuadro.innerHTML = habitName.value;
+        let nuevo__recuadro__Arriba = document.createElement("div");
+        let nuevo__recuadro__Abajo = document.createElement("div");
+        let recuadroArriba__numero = document.createElement("h2");
+        let recuadroAbajo__texto = document.createElement("h2");
+        let buttonCompletar = document.createElement("button");
 
-        //Crear el boton para completar el habito
-        const buttonCompletar = document.createElement("button");
-        buttonCompletar.className = "buttonCompletar";
-        buttonCompletar.textContent = "✔";
+        recuadroAbajo__texto.innerHTML = habitName.value;
+    
+
+        //Estilos
+        nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
+        nuevo__recuadro__Arriba.className = "nuevoHabitoUp";
+        nuevo__recuadro__Abajo.className = "nuevoHabitoDown";
+        buttonCompletar.className ="buttonCompletar";
+
+        //Estructura
+        nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
+        nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
+
+    
+        //Agregar el habito nuevo al contenedor de habitos
+        habits__container__list__id.appendChild(nuevo__habito__recuadro);
+
+        /*
+        Separacion para mejor organizacion
+        */
 
         //Añadir el boton al recuadro 
         nuevo__habito__recuadro.appendChild(buttonCompletar);
