@@ -45,19 +45,28 @@ export function crearNuevoHabito(event){
         return;
     }
 
-    //Crear el nuevo habito
+    //Agregar el habito al contenedor de habitos
     let nuevo__habito__recuadro = document.createElement("li");
-    nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
-    nuevo__habito__recuadro.innerHTML = habitName.value;
-    
-    //Creando el boton que indica que se completa
-    const buttonCompletar = document.createElement("button");
-    buttonCompletar.className ="buttonCompletar";
-    nuevo__habito__recuadro.appendChild(buttonCompletar);
+    //nuevo__habito__recuadro.innerHTML = habitName.value;
+    let nuevo__recuadro__Arriba = document.createElement("div");
+    let nuevo__recuadro__Abajo = document.createElement("div");
+    let recuadroArriba__numero = document.createElement("h2");
+    let recuadroAbajo__texto = document.createElement("h2");
+    let buttonCompletar = document.createElement("button");
 
+    recuadroAbajo__texto.innerHTML = habitName.value;
+    
+
+    //Estilos
+    nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
+    nuevo__recuadro__Arriba.className = "nuevoHabitoUp";
+    nuevo__recuadro__Abajo.className = "nuevoHabitoDown";
+    buttonCompletar.className ="buttonCompletar";
+
+
+    
     //Agregar el habito nuevo al contenedor de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
-
 
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
@@ -255,4 +264,4 @@ export function obtenerIdDesdeUrl(){
     return params.get("id");
 }
 
-document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
+//document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);

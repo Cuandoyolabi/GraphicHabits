@@ -433,6 +433,16 @@ body {
   list-style: none;
   border: 1px solid black;
 }
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba {
+  width: 100%;
+  height: 50%;
+  border: 1px solid black;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Abajo {
+  width: 100%;
+  height: 50%;
+  border: 1px solid black;
+}
 
 .buttonCompletar {
   width: 38px;
