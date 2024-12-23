@@ -166,7 +166,7 @@ export  function guardarHabitos(){
         const habitColor = graphicHabit.style.backgroundColor;
 
         //Implementacion de ID
-        let habitId =  uuidv4();
+        let habitId =  uuid.v4();
         habitItem.dataset.id = habitId;
 
         return {
@@ -287,14 +287,10 @@ cargarHabitoConfiguracion();
 //Funcion que elimina el habito seleccionado
 export function eliminarHabito(id){
 
-    const habitId = obtenerIdDesdeUrl();
     const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
-
-    habitos.forEach((habit) =>{
-
-        const nuevosHabitos = habitos.filter((habito) => habit.id !== habitId);
-
-    })
+    const indice = habitos.map(habito => habito.id === id);
+    console.log(indice)
+    console.log(habitos)
 
     localStorage.setItem("nuevosHabitos", JSON.stringify(nuevosHabitos));
 
@@ -310,4 +306,4 @@ export function obtenerIdDesdeUrl(){
     return params.get("id");
 }
 
-//document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
+document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
