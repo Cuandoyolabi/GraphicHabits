@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'; 
-
 // Funcion sobre eleccion del color
 let colorSeleccionado = "";
 
@@ -145,8 +143,6 @@ export function cerrarModal(){
     cubierta__container__id.style.display = 'none';
 }
 
-//El color viene de los habitos que se crean en la grafica
-//El nombre del habito viene del contenedor de habitos 
 //Funcion para guardar habitos en localStorage
 export  function guardarHabitos(){
 
@@ -166,19 +162,21 @@ export  function guardarHabitos(){
             return null;
         }
 
-        //Implementacion de ID
-        let habitId = habitItem.id = `${index + 1}`;
-
         //Color
         const habitColor = graphicHabit.style.backgroundColor;
 
-            return {
-                id: habitId,
-                text: habitText,
-                color: habitColor,
-            };
+        //Implementacion de ID
+        let habitId =  uuidv4();
+        habitItem.dataset.id = habitId;
+
+        return {
+            id: habitId,
+            text: habitText,
+            color: habitColor,
+        };
     }).filter(habit => habit !== null);
 
+    //Guardado en localStorgae
     localStorage.setItem("habitos", JSON.stringify(habitos));
 
 }
@@ -289,14 +287,12 @@ cargarHabitoConfiguracion();
 //Funcion que elimina el habito seleccionado
 export function eliminarHabito(id){
 
-    console.log("funciona ??")
     const habitId = obtenerIdDesdeUrl();
     const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
 
     habitos.forEach((habit) =>{
 
         const nuevosHabitos = habitos.filter((habito) => habit.id !== habitId);
-        console.log(nuevosHabitos);
 
     })
 
