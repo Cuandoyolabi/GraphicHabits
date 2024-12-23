@@ -61,4 +61,5 @@ seccionContacto.addEventListener("click", () => {
 
 });
 
-document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
+//document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
+
