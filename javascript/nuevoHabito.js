@@ -293,14 +293,17 @@ cargarHabitoConfiguracion();
 
 
 //Funcion que elimina el habito seleccionado
-export function eliminarHabito(id){
+export function eliminarHabito(habitId){
 
     const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
-    const indice = habitos.map(habito => habito.id === id);
-    console.log(indice)
+    //const indice = habitos.map(habito => habito.id === id);
+    //console.log(indice)
     console.log(habitos)
 
-    localStorage.setItem("nuevosHabitos", JSON.stringify(nuevosHabitos));
+    const probando = habitos.filter(habito => habito.id !== habitId);
+    console.log(probando);
+
+    //localStorage.setItem("nuevosHabitos", JSON.stringify(nuevosHabitos));
 
 }
 
@@ -314,3 +317,5 @@ export function obtenerIdDesdeUrl(){
     return params.get("id");
 }
 
+eliminarHabito("efeea9ee-5e06-4fbc-9b2e-52ed05e99a0e");
+cargarHabitos();
