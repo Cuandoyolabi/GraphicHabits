@@ -1,3 +1,5 @@
+"use strict";
+
 // Funcion sobre eleccion del color
 let colorSeleccionado = "";
 
