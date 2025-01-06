@@ -1,6 +1,6 @@
 "use strict";
 
-
+import { guardarHabitos } from "./localStorage";
 
 // Funcion sobre eleccion del color
 let colorSeleccionado = "";
@@ -26,8 +26,6 @@ export function crearNuevoHabito(event){
     event.preventDefault(); 
 
     //Ids de la seccion de configuracion
-    const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
-    const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById('graphic__container__id');
     const habitName = document.getElementById("habitName");
     const form = document.getElementById('habitForm');
@@ -67,8 +65,8 @@ export function crearNuevoHabito(event){
 
 //Habito selecionable
 export function crearhabitoHTML({name, color, days}){
-
-     //Agregar el habito al contenedor de habitos
+    
+    /*------------  Contenedor de Habitos ----------------*/
     let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
@@ -77,6 +75,8 @@ export function crearhabitoHTML({name, color, days}){
     let recuadroArriba__numero = document.createElement("h2");
     let recuadroAbajo__texto = document.createElement("h2");
     let buttonCompletar = document.createElement("button");
+    
+    
 
     //Informacion
     recuadroAbajo__texto.innerText = name;
@@ -105,18 +105,17 @@ export function crearhabitoHTML({name, color, days}){
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);      
 
-    //Grafica
+    //---------- Habito Grafica ------------------- */
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
     nuevoHabito.style.backgroundColor = color;
     graphic__container__id.appendChild(nuevoHabito);
 
-    cerrarModal();
-}
-//Habito configuracion
-export function crearHabitoConfiguracion({name}){
+    /* --------- Habito Configuracion -------------*/
 
-    //Agregar el habito a la configuracion de habitos
+    const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
+    
+
     let nuevo__habito__configuracion = document.createElement("div");
     let habito__nombre = document.createElement("h2");
     let habito__separacion = document.createElement("div");
@@ -144,7 +143,12 @@ export function crearHabitoConfiguracion({name}){
     habito__separacion.appendChild(habito__eliminar);
     nuevo__habito__configuracion.appendChild(habito__nombre);
     nuevo__habito__configuracion.appendChild(habito__separacion);
-    ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
+    ventana__habitos__lista.appendChild(nuevo__habito__configuracion);    
+
+    
+    cerrarModal();
+
+    return { nuevo__habito__recuadro, nuevoHabito }
 
 }
 
@@ -162,6 +166,9 @@ export function cargarHabitos(){
        };
         
        const habitHTML = crearhabitoHTML(habitData);
+
+       habits__container__list__id.appendChild(habitHTML.listItem);
+       graphic__container__id.appendChild(habitHTML.graphItem);
 
     });
 }

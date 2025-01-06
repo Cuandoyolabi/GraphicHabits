@@ -1,6 +1,7 @@
 import { activateNightMode } from "./modoOscuro.js";
 import { cerrarPerfil, mostrarPerfil, mostrarConfiguracionHabitos, mostrarConfiguracionContacto, mostrarConfiguracionApariencia } from "./ventanaConfiguracion.js";
-import { crearNuevoHabito, crearhabitoHTML, crearHabitoConfiguracion } from "./nuevoHabito.js";
+import { crearNuevoHabito, crearhabitoHTML, cerrarModal, mostrarlModal } from "./nuevoHabito.js";
+
 
 //Modo oscuro
 const toggleBlack = document.getElementById('color__icon');
@@ -59,22 +60,5 @@ seccionContacto.addEventListener("click", () => {
     mostrarConfiguracionContacto();
 
 });
-
-//Mostrar Modal
-export function mostrarlModal(){
-    
-    const modal = document.getElementById('modal');
-    modal.style.display = 'block';
-    cubierta__container__id.style.display = 'block';
-}
-
-//Cerrar modal
-export function cerrarModal(){
-
-    const modal = document.getElementById('modal');
-    modal.style.display = 'none';
-    cubierta__container__id.style.display = 'none';
-}
-
 
 
