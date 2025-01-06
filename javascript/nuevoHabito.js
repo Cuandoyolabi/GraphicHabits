@@ -52,6 +52,7 @@ export function crearNuevoHabito(event){
 
     //Crear los elementos del habito
     const habitHTML = crearhabitoHTML(habitData);
+    crearHabitoGrafica(color);
 
 
     //Guardamos los habitos en localStorage
@@ -76,12 +77,10 @@ export function crearHabitoGrafica({color}){
 export function crearhabitoHTML({name, color, days}){
 
      //Agregar el habito al contenedor de habitos
-    //nuevo__habito__recuadro.innerHTML = habitName.value;
     let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
     let recuadroArriba__Conjunto = document.createElement("div");
-
     let recuadroArriba__Dias = document.createElement("h2");
     let recuadroArriba__numero = document.createElement("h2");
     let recuadroAbajo__texto = document.createElement("h2");
@@ -125,19 +124,23 @@ export function crearHabitoConfiguracion({name, color, days}){
     let habito__editar = document.createElement("button");
     let habito__eliminar = document.createElement("button");
 
+    //Texto
     habito__editar.textContent = "Editar";
     habito__eliminar.textContent = "Eliminar";
     habito__nombre.textContent = habitName.value;
 
+    // ID
     habito__eliminar.id = "habito__eliminar__id";
     habito__editar.id = "habito__editar__id";
 
+    //Clases
     habito__editar.className = "habito__editar";
     habito__eliminar.className = "habito__eliminar";
     habito__nombre.className = "habito__nombre";
     nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
     habito__separacion.className = "habito__separacion";
 
+    //Agregar
     habito__separacion.appendChild(habito__editar);
     habito__separacion.appendChild(habito__eliminar);
     nuevo__habito__configuracion.appendChild(habito__nombre);
@@ -148,66 +151,22 @@ export function crearHabitoConfiguracion({name, color, days}){
 
 // Funcion para cargar habitos desde localStorage a la grafica y al contenedor
 export function cargarHabitos(){
-    
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
     habitosGuardados.forEach((habit) => {
-        //Recrea el habito con su estructura y estilos para el contenedor de habitos
-        //nuevo__habito__recuadro.innerHTML = habitName.value;
-        let nuevo__habito__recuadro = document.createElement("div"); 
-        let nuevo__recuadro__Arriba = document.createElement("div");
-        let nuevo__recuadro__Abajo = document.createElement("div");
-        let recuadroArriba__Conjunto = document.createElement("div");
-
-        let recuadroArriba__Dias = document.createElement("h2");
-        let recuadroArriba__numero = document.createElement("h2");
-        let recuadroAbajo__texto = document.createElement("h2");
-        let buttonCompletar = document.createElement("button");
-
-        //Informacion
-        recuadroAbajo__texto.innerText = habit.text;
-        recuadroArriba__numero.textContent = 10;
-        recuadroArriba__Dias.textContent = "Dias";
-        buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
-
-        //Estilos
-        nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
-        nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
-        recuadroArriba__numero.className = "recuadroArriba__numero";
-        recuadroArriba__Dias.className = "recuadroArriba__dias";
-        recuadroArriba__Conjunto.className = "recuadroArriba__Conjunto";
-        nuevo__recuadro__Abajo.className = "nuevo__recuadro__Abajo";
-        recuadroAbajo__texto.className = "recuadroAbajo__texto";
-        buttonCompletar.className ="buttonCompletar";
-
-        //Estructura
-        nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
-        nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
-        nuevo__recuadro__Arriba.appendChild(recuadroArriba__Conjunto);
-
-        recuadroArriba__Conjunto.appendChild(recuadroArriba__numero);
-        recuadroArriba__Conjunto.appendChild(recuadroArriba__Dias);
-        nuevo__recuadro__Arriba.appendChild(buttonCompletar);
-        nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
-        habits__container__list__id.appendChild(nuevo__habito__recuadro);          
-
-        /*   Separacion para mejor organizacion   */
-
-
-
-        //Añadir el habito a la lista de habitos
-        habits__container__list__id.appendChild(nuevo__habito__recuadro);
-
-        //Crear el nuevo habito para la grafica
-        let nuevoHabito = document.createElement("div");
-        nuevoHabito.className = 'nuevo__habito';
-        nuevoHabito.style.backgroundColor = habit.color || "gray";
-
-        //Añadir el habito a la grafica
-        graphic__container__id.appendChild(nuevoHabito);
+       const habitData = {
+            name: habit.text,
+            color: habit.color,
+            days: 10,
+       };
         
+       const habitHTML = crearhabitoHTML(habitData);
+
+       crearHabitoGrafica();
+       
+
     });
 }
 
