@@ -1,5 +1,7 @@
 "use strict";
 
+
+
 // Funcion sobre eleccion del color
 let colorSeleccionado = "";
 
@@ -52,7 +54,6 @@ export function crearNuevoHabito(event){
 
     //Crear los elementos del habito
     const habitHTML = crearhabitoHTML(habitData);
-    crearHabitoGrafica(color);
 
 
     //Guardamos los habitos en localStorage
@@ -63,15 +64,6 @@ export function crearNuevoHabito(event){
     cerrarModal();
 };
 
-//Habito - Grafica
-export function crearHabitoGrafica({color}){
-
-    let nuevoHabito = document.createElement('div');
-    nuevoHabito.className = 'nuevo__habito';
-    nuevoHabito.style.backgroundColor = color;
-    graphic__container__id.appendChild(nuevoHabito);
-
-}
 
 //Habito selecionable
 export function crearhabitoHTML({name, color, days}){
@@ -87,8 +79,8 @@ export function crearhabitoHTML({name, color, days}){
     let buttonCompletar = document.createElement("button");
 
     //Informacion
-    recuadroAbajo__texto.innerText = habitName.value;
-    recuadroArriba__numero.textContent = 10;
+    recuadroAbajo__texto.innerText = name;
+    recuadroArriba__numero.textContent = days;
     recuadroArriba__Dias.textContent = "Dias";
     buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
 
@@ -113,9 +105,16 @@ export function crearhabitoHTML({name, color, days}){
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);      
 
+    //Grafica
+    let nuevoHabito = document.createElement('div');
+    nuevoHabito.className = 'nuevo__habito';
+    nuevoHabito.style.backgroundColor = color;
+    graphic__container__id.appendChild(nuevoHabito);
+
+    cerrarModal();
 }
 //Habito configuracion
-export function crearHabitoConfiguracion({name, color, days}){
+export function crearHabitoConfiguracion({name}){
 
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
@@ -127,7 +126,7 @@ export function crearHabitoConfiguracion({name, color, days}){
     //Texto
     habito__editar.textContent = "Editar";
     habito__eliminar.textContent = "Eliminar";
-    habito__nombre.textContent = habitName.value;
+    habito__nombre.textContent = name;
 
     // ID
     habito__eliminar.id = "habito__eliminar__id";
@@ -164,14 +163,26 @@ export function cargarHabitos(){
         
        const habitHTML = crearhabitoHTML(habitData);
 
-       crearHabitoGrafica();
-       
-
     });
 }
 
 inicializadorSelectorDeColor();
 document.addEventListener("DOMContentLoaded", cargarHabitos);
 
+//Mostrar Modal
+export function mostrarlModal(){
+    
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
+    cubierta__container__id.style.display = 'block';
+}
+
+//Cerrar modal
+export function cerrarModal(){
+
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+    cubierta__container__id.style.display = 'none';
+}
 
 

@@ -1,8 +1,6 @@
 import { activateNightMode } from "./modoOscuro.js";
-import { crearNuevoHabito } from "./nuevoHabito.js";
-import { guardarHabitos } from "./localStorage.js";
 import { cerrarPerfil, mostrarPerfil, mostrarConfiguracionHabitos, mostrarConfiguracionContacto, mostrarConfiguracionApariencia } from "./ventanaConfiguracion.js";
-
+import { crearNuevoHabito, crearhabitoHTML, crearHabitoConfiguracion } from "./nuevoHabito.js";
 
 //Modo oscuro
 const toggleBlack = document.getElementById('color__icon');
@@ -77,4 +75,6 @@ export function cerrarModal(){
     modal.style.display = 'none';
     cubierta__container__id.style.display = 'none';
 }
+
+
 
