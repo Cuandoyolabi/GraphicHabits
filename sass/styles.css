@@ -349,6 +349,7 @@ body {
 }
 .modal__container .habitForm .habitName.active {
   background-color: #191919;
+  color: white;
 }
 .modal__container .habitForm .separacion__Colores {
   width: 100%;

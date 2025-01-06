@@ -123,6 +123,9 @@ export function crearNuevoHabito(event){
     //Guardamos los habitos en localStorage
     guardarHabitos();
 
+    //Refrescar la pagina de configuracion
+    cargarHabitoConfiguracion();
+
     //Resetear formulario y modal
     form.reset();
     cerrarModal();
@@ -280,10 +283,13 @@ export function cargarHabitoConfiguracion() {
         nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
         habito__separacion.className = "habito__separacion";
 
-        // Agregar eventos
+        // Evento de eliminacion
         habito__eliminar.addEventListener("click", () => {
             eliminarHabito(index);
         });
+
+        // Evento de edición
+        habito__editar.addEventListener("click", () => editarHabito(index));
 
         // Elementos agregados
         habito__separacion.appendChild(habito__editar);
@@ -305,9 +311,23 @@ function eliminarHabito(index) {
     cargarHabitoConfiguracion(); // Recargar la lista para reflejar los cambios
 }
 
-//Funcion para editar el habito seleccionado
-export function editarHabito(){
+// Función que edita el hábito seleccionado
+function editarHabito(index) {
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    const habit = habitosGuardados[index];
+
+    // Crear el input de edición y poner el valor actual del hábito
+    const nuevoTexto = prompt("Edita el nombre del hábito", habit.text);
+
+    // Si el usuario no cancela la edición (nuevoTexto no es null)
+    if (nuevoTexto !== null && nuevoTexto.trim() !== "") {
+        habit.text = nuevoTexto; // Actualizamos el texto del hábito
+        habitosGuardados[index] = habit; // Actualizamos el hábito en el arreglo
+        localStorage.setItem("habitos", JSON.stringify(habitosGuardados)); // Guardamos los cambios
+        cargarHabitoConfiguracion(); // Recargamos la lista de hábitos para reflejar el cambio
+    }
 }
+
 
 // Funcion que obtiene el ID
 export function obtenerIdDesdeUrl(){
@@ -315,6 +335,6 @@ export function obtenerIdDesdeUrl(){
     return params.get("id");
 }
 
-// Haiendo pruebas, quiero recojer el id de un div
 
-//const divID = document.getElementById()
+
+
