@@ -129,6 +129,7 @@ export function crearNuevoHabito(event){
     
 };
 
+
 //Mostrar Modal
 export function mostrarlModal(){
     
@@ -231,7 +232,8 @@ export function cargarHabitos(){
         habits__container__list__id.appendChild(nuevo__habito__recuadro);          
 
         /*   Separacion para mejor organizacion   */
-        
+
+
 
         //Añadir el habito a la lista de habitos
         habits__container__list__id.appendChild(nuevo__habito__recuadro);
@@ -317,5 +319,6 @@ export function obtenerIdDesdeUrl(){
     return params.get("id");
 }
 
-eliminarHabito("efeea9ee-5e06-4fbc-9b2e-52ed05e99a0e");
-cargarHabitos();
+// Haiendo pruebas, quiero recojer el id de un div
+
+//const divID = document.getElementById()
