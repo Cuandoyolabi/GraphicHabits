@@ -1,3 +1,8 @@
+// Funcion que obtiene el ID
+export function obtenerIdDesdeUrl(){
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+}
 
 //Funcion para guardar habitos en localStorage
 export  function guardarHabitos(){
@@ -35,5 +40,24 @@ export  function guardarHabitos(){
     //Guardado en localStorgae
     localStorage.setItem("habitos", JSON.stringify(habitos));
 
+}
+
+//Funcion que elimina el habito seleccionado
+export function eliminarHabito(habitId){
+
+    const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
+    //const indice = habitos.map(habito => habito.id === id);
+    //console.log(indice)
+    console.log(habitos)
+
+    const probando = habitos.filter(habito => habito.id !== habitId);
+    console.log(probando);
+
+    //localStorage.setItem("nuevosHabitos", JSON.stringify(nuevosHabitos));
+
+}
+
+//Funcion para editar el habito seleccionado
+export function editarHabito(){
 }
 
