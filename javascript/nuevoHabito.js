@@ -17,8 +17,6 @@ export function inicializadorSelectorDeColor(){
     });
 } 
 
-inicializadorSelectorDeColor();
-
 // Funcion de creacion de habito
 export function crearNuevoHabito(event){
     
@@ -195,73 +193,8 @@ export function cargarHabitos(){
     });
 }
 
-// Funcion para cargar los habitos a la pagina de habitos de Configuracion
-export function cargarHabitoConfiguracion(){
-   
-    //AQUI SE DEBE IMPLEMENTAR LA FUNCION DE ELIMINAR
-
-    const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
-    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-    habitosGuardados.forEach((habit) => { 
-
-        let nuevo__habito__configuracion = document.createElement("div");
-        let habito__nombre = document.createElement("h2");
-        let habito__separacion = document.createElement("div");
-        let habito__editar = document.createElement("button");
-        let habito__eliminar = document.createElement("button");
-
-        //Texto asignado
-        habito__editar.textContent = "Editar";
-        habito__eliminar.textContent = "Eliminar";
-        habito__nombre.textContent = habit.text;
-
-        //Ids asignados
-        habito__eliminar.id = "habito__eliminar__id";
-        habito__editar.id = "habito__editar__id";
-
-        //Clases asignadas
-        habito__editar.className = "habito__editar";
-        habito__eliminar.className = "habito__eliminar";
-        habito__nombre.className = "habito__nombre";
-        nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
-        habito__separacion.className = "habito__separacion";
-
-        //Elementos agregados
-        habito__separacion.appendChild(habito__editar);
-        habito__separacion.appendChild(habito__eliminar);
-        nuevo__habito__configuracion.appendChild(habito__nombre);
-        nuevo__habito__configuracion.appendChild(habito__separacion);
-        ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
-
-    }); 
-}
-
+inicializadorSelectorDeColor();
 document.addEventListener("DOMContentLoaded", cargarHabitos);
-cargarHabitoConfiguracion();
 
 
-//Funcion que elimina el habito seleccionado
-export function eliminarHabito(habitId){
-
-    const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
-    //const indice = habitos.map(habito => habito.id === id);
-    //console.log(indice)
-    console.log(habitos)
-
-    const probando = habitos.filter(habito => habito.id !== habitId);
-    console.log(probando);
-
-    //localStorage.setItem("nuevosHabitos", JSON.stringify(nuevosHabitos));
-
-}
-
-//Funcion para editar el habito seleccionado
-export function editarHabito(){
-}
-
-// Funcion que obtiene el ID
-export function obtenerIdDesdeUrl(){
-    const params = new URLSearchParams(window.location.search);
-    return params.get("id");
-}
 
