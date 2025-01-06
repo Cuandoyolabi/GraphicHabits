@@ -25,7 +25,6 @@ export function crearNuevoHabito(event){
 
     //Ids de la seccion de configuracion
     const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
-
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById('graphic__container__id');
     const habitName = document.getElementById("habitName");
@@ -44,7 +43,39 @@ export function crearNuevoHabito(event){
         return;
     }
 
-    //Agregar el habito al contenedor de habitos
+    //Crear el nuevo habito
+    const habitData = {
+        name: habitName.value,
+        color: colorSeleccionado,
+        days: 10,
+    };
+
+    //Crear los elementos del habito
+    const habitHTML = crearhabitoHTML(habitData);
+
+
+    //Guardamos los habitos en localStorage
+    guardarHabitos();
+
+    //Resetear formulario y modal
+    form.reset();
+    cerrarModal();
+};
+
+//Habito - Grafica
+export function crearHabitoGrafica({color}){
+
+    let nuevoHabito = document.createElement('div');
+    nuevoHabito.className = 'nuevo__habito';
+    nuevoHabito.style.backgroundColor = color;
+    graphic__container__id.appendChild(nuevoHabito);
+
+}
+
+//Habito selecionable
+export function crearhabitoHTML({name, color, days}){
+
+     //Agregar el habito al contenedor de habitos
     //nuevo__habito__recuadro.innerHTML = habitName.value;
     let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
@@ -82,9 +113,10 @@ export function crearNuevoHabito(event){
     nuevo__recuadro__Arriba.appendChild(buttonCompletar);
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);      
-    
 
-    /* Separacion para mejor organizacion */
+}
+//Habito configuracion
+export function crearHabitoConfiguracion({name, color, days}){
 
     //Agregar el habito a la configuracion de habitos
     let nuevo__habito__configuracion = document.createElement("div");
@@ -112,21 +144,7 @@ export function crearNuevoHabito(event){
     nuevo__habito__configuracion.appendChild(habito__separacion);
     ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
 
-    //Crear el nuevo habito e ingresarlo a la grafica.
-    let nuevoHabito = document.createElement('div');
-    nuevoHabito.className = 'nuevo__habito';
-    nuevoHabito.style.backgroundColor = colorSeleccionado;
-    graphic__container__id.appendChild(nuevoHabito);
-
-    //Guardamos los habitos en localStorage
-    guardarHabitos();
-
-    //Resetear formulario y modal
-    form.reset();
-    cerrarModal();
-    
-};
-
+}
 
 // Funcion para cargar habitos desde localStorage a la grafica y al contenedor
 export function cargarHabitos(){
