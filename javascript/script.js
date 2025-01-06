@@ -61,5 +61,19 @@ seccionContacto.addEventListener("click", () => {
 
 });
 
-//document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
+//Mostrar Modal
+export function mostrarlModal(){
+    
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
+    cubierta__container__id.style.display = 'block';
+}
+
+//Cerrar modal
+export function cerrarModal(){
+
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+    cubierta__container__id.style.display = 'none';
+}
 
