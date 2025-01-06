@@ -250,63 +250,59 @@ export function cargarHabitos(){
 }
 
 // Funcion para cargar los habitos a la pagina de habitos de Configuracion
-export function cargarHabitoConfiguracion(){
-   
-    //AQUI SE DEBE IMPLEMENTAR LA FUNCION DE ELIMINAR
-
+export function cargarHabitoConfiguracion() {
     const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-    habitosGuardados.forEach((habit) => { 
 
+    // Limpiar lista actual para evitar duplicados si la función se llama múltiples veces
+    ventana__habitos__lista.innerHTML = "";
+
+    habitosGuardados.forEach((habit, index) => { 
         let nuevo__habito__configuracion = document.createElement("div");
         let habito__nombre = document.createElement("h2");
         let habito__separacion = document.createElement("div");
         let habito__editar = document.createElement("button");
         let habito__eliminar = document.createElement("button");
 
-        //Texto asignado
+        // Texto asignado
         habito__editar.textContent = "Editar";
         habito__eliminar.textContent = "Eliminar";
         habito__nombre.textContent = habit.text;
 
-        //Ids asignados
-        habito__eliminar.id = "habito__eliminar__id";
-        habito__editar.id = "habito__editar__id";
+        // Ids asignados
+        habito__eliminar.id = "habito__eliminar__id_" + index;
+        habito__editar.id = "habito__editar__id_" + index;
 
-        //Clases asignadas
+        // Clases asignadas
         habito__editar.className = "habito__editar";
         habito__eliminar.className = "habito__eliminar";
         habito__nombre.className = "habito__nombre";
         nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
         habito__separacion.className = "habito__separacion";
 
-        //Elementos agregados
+        // Agregar eventos
+        habito__eliminar.addEventListener("click", () => {
+            eliminarHabito(index);
+        });
+
+        // Elementos agregados
         habito__separacion.appendChild(habito__editar);
         habito__separacion.appendChild(habito__eliminar);
         nuevo__habito__configuracion.appendChild(habito__nombre);
         nuevo__habito__configuracion.appendChild(habito__separacion);
         ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
-
-    }); 
+    });
 }
 
 document.addEventListener("DOMContentLoaded", cargarHabitos);
 cargarHabitoConfiguracion();
 
-
 //Funcion que elimina el habito seleccionado
-export function eliminarHabito(habitId){
-
-    const habitos = JSON.parse(localStorage.getItem("habitos")) || [];
-    //const indice = habitos.map(habito => habito.id === id);
-    //console.log(indice)
-    console.log(habitos)
-
-    const probando = habitos.filter(habito => habito.id !== habitId);
-    console.log(probando);
-
-    //localStorage.setItem("nuevosHabitos", JSON.stringify(nuevosHabitos));
-
+function eliminarHabito(index) {
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    habitosGuardados.splice(index, 1); // Eliminar el hábito del arreglo
+    localStorage.setItem("habitos", JSON.stringify(habitosGuardados)); // Guardar los cambios
+    cargarHabitoConfiguracion(); // Recargar la lista para reflejar los cambios
 }
 
 //Funcion para editar el habito seleccionado
