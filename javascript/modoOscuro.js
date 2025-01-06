@@ -14,7 +14,7 @@ export function activateNightMode(){
     // Ventana de Configuracion
     const configuracion__Izquierda = document.querySelector(".ventana__configuracion__izquierda");
     const configuracionApariencia = document.querySelector('.ventana__configuracion__derecha__Apariencia');
-    const configuracionHabitos = document.querySelector('.ventana__configuracion__derecha__Apariencia');
+    const configuracionHabitos = document.querySelector('.ventana__configuracion__derecha__Habitos');
     const configuracionContacto = document.querySelector('.ventana__configuracion__derecha__Contacto');
     
     //Contenedor de habitos

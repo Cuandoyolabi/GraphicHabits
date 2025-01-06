@@ -640,6 +640,7 @@ body {
 }
 .ventana__configuracion .ventana__configuracion__derecha__Apariencia.active {
   background-color: #202020;
+  color: white;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia {
   width: 96%;
@@ -778,6 +779,9 @@ body {
 .ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .ventana__contacto__texto {
   margin-top: 15px;
   font-size: 18px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto.active {
+  color: white;
 }
 
 @media (max-width: 1200px) {

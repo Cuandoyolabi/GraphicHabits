@@ -60,7 +60,7 @@ export function crearNuevoHabito(event){
 
     //Informacion
     recuadroAbajo__texto.innerText = habitName.value;
-    recuadroArriba__numero.textContent = 10;
+    recuadroArriba__numero.textContent = 0;
     recuadroArriba__Dias.textContent = "Dias";
     buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
 
@@ -209,7 +209,7 @@ export function cargarHabitos(){
 
         //Informacion
         recuadroAbajo__texto.innerText = habit.text;
-        recuadroArriba__numero.textContent = 10;
+        recuadroArriba__numero.textContent = 0;
         recuadroArriba__Dias.textContent = "Dias";
         buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
 
