@@ -1,5 +1,6 @@
 import { activateNightMode } from "./modoOscuro.js";
-import { crearNuevoHabito, mostrarlModal, cerrarModal } from "./nuevoHabito.js";
+import { crearNuevoHabito } from "./nuevoHabito.js";
+import { guardarHabitos } from "./localStorage.js";
 import { cerrarPerfil, mostrarPerfil, mostrarConfiguracionHabitos, mostrarConfiguracionContacto, mostrarConfiguracionApariencia } from "./ventanaConfiguracion.js";
 
 
@@ -22,8 +23,6 @@ showModal.addEventListener('click',  () => {
 
 const closeModal = document.querySelector('.close');
 closeModal.addEventListener('click', cerrarModal);
-
-
 document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito);
 
 
@@ -39,7 +38,7 @@ abrir__ventana__perfil.addEventListener("click", () => {
 
 });
 
-
+//Seccion de Habitos Configuracion
 const seccionHabitos = document.getElementById("configuracionHabitos");
 seccionHabitos.addEventListener("click", () => {
 
@@ -47,6 +46,7 @@ seccionHabitos.addEventListener("click", () => {
 
 });
 
+//Seccion de apariencia Configuracion 
 const seccionApariencia = document.getElementById("configuracionApariencia");
 seccionApariencia.addEventListener("click", () => {
 
@@ -54,6 +54,7 @@ seccionApariencia.addEventListener("click", () => {
 
 });
 
+//Seccion de contacto Configuracion
 const seccionContacto = document.getElementById("configuracionContacto");
 seccionContacto.addEventListener("click", () => {
 
