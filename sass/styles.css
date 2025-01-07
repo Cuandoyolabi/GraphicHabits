@@ -184,7 +184,7 @@ body {
   align-items: center;
 }
 
-@media (max-width: 805px) {
+@media (max-width: 905px) {
   body {
     position: absolute;
     overflow-y: auto;
@@ -502,7 +502,7 @@ body {
   text-transform: capitalize;
 }
 
-@media (max-width: 805px) {
+@media (max-width: 905px) {
   .division__container__number2 {
     width: 100%;
     height: 50%;
@@ -525,7 +525,7 @@ body {
     padding: 10px 5px;
   }
   .nuevo__habitoAgregado {
-    width: 130px;
+    width: 330px;
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -534,23 +534,31 @@ body {
     padding: 5px;
     font-size: 14px;
   }
-}
-@media (max-width: 500px) {
-  .nuevo__habitoAgregado {
-    width: 110px;
+  .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
+    font-size: 20px;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 590px) {
   .nuevo__habitoAgregado {
-    width: 90px;
+    width: 130px;
+    font-size: 17px;
+  }
+}
+@media (max-width: 530px) {
+  .nuevo__habitoAgregado {
+    width: 100px;
     height: 100px;
+  }
+  .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
     font-size: 12px;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 470px) {
   .nuevo__habitoAgregado {
     width: 85px;
-    font-size: 10px;
+  }
+  .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
+    font-size: 12px;
   }
 }
 .ventana__configuracion {
