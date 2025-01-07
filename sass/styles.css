@@ -241,6 +241,9 @@ body {
   .main__container .division__container__number1 .graphic__container__plus {
     width: 100%;
   }
+  .nuevo__habito {
+    width: 40px;
+  }
 }
 .cubierta__container {
   top: 0;
@@ -750,7 +753,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border: 1px solid black;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar {
   width: 80px;
