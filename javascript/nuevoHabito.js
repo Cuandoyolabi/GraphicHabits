@@ -316,17 +316,54 @@ function editarHabito(index) {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habit = habitosGuardados[index];
 
-    // Crear el input de edición y poner el valor actual del hábito
-    const nuevoTexto = prompt("Edita el nombre del hábito", habit.text);
+    // Mostrar el modal
+    const modal = document.getElementById("modal");
+    modal.style.display = "flex"; // Cambia el display para mostrar el modal
 
-    // Si el usuario no cancela la edición (nuevoTexto no es null)
-    if (nuevoTexto !== null && nuevoTexto.trim() !== "") {
-        habit.text = nuevoTexto; // Actualizamos el texto del hábito
-        habitosGuardados[index] = habit; // Actualizamos el hábito en el arreglo
-        localStorage.setItem("habitos", JSON.stringify(habitosGuardados)); // Guardamos los cambios
-        cargarHabitoConfiguracion(); // Recargamos la lista de hábitos para reflejar el cambio
-    }
+    // Rellenar los campos del formulario con los valores actuales del hábito
+    const habitNameInput = document.getElementById("habitName");
+    habitNameInput.value = habit.text;
+
+    // Seleccionar el color actual
+    const colorOptions = document.querySelectorAll(".color__opcion");
+    colorOptions.forEach(option => {
+        if (option.style.backgroundColor === habit.color) {
+            option.classList.add("selected"); // Añade una clase para marcarlo como seleccionado
+        } else {
+            option.classList.remove("selected");
+        }
+    });
+
+    // Actualizar el hábito al hacer clic en "Guardar"
+    const habitForm = document.getElementById("habitForm");
+    habitForm.onsubmit = function (event) {
+        event.preventDefault(); // Prevenir el envío del formulario
+
+        const nuevoNombre = habitNameInput.value;
+        const nuevoColor = document.querySelector(".color__opcion.selected").style.backgroundColor;
+
+        if (nuevoNombre.trim() !== "") {
+            // Actualizar el hábito
+            habit.text = nuevoNombre;
+            habit.color = nuevoColor;
+            habitosGuardados[index] = habit;
+
+            // Guardar en localStorage y recargar la lista
+            localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
+            cargarHabitoConfiguracion(); // Recargar la lista de hábitos
+
+            // Cerrar el modal
+            modal.style.display = "none";
+        }
+    };
+
+    // Cerrar el modal si se hace clic en "Cancelar"
+    const closeModal = document.querySelector(".close");
+    closeModal.onclick = function () {
+        modal.style.display = "none";
+    };
 }
+
 
 
 // Funcion que obtiene el ID
