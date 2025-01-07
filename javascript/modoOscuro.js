@@ -16,7 +16,15 @@ export function activateNightMode(){
     const configuracionApariencia = document.querySelector('.ventana__configuracion__derecha__Apariencia');
     const configuracionHabitos = document.querySelector('.ventana__configuracion__derecha__Habitos');
     const configuracionContacto = document.querySelector('.ventana__configuracion__derecha__Contacto');
+    const ventana__apariencia__texto = document.querySelector(".ventana__apariencia__texto");
+
+    const opciones__configuracion__apariencia = document.querySelector('.opciones__configuracion__apariencia');
+    const opciones__configuracion__habitos = document.querySelector('.opciones__configuracion__habitos');
+    const opciones__configuracion__contactar = document.querySelector('.opciones__configuracion__contactar');
     
+    const opciones__configuracion__texto = document.querySelectorAll('.opciones__configuracion__texto');
+    const icon__configuracion = document.querySelectorAll('.icon__configuracion');
+
     //Contenedor de habitos
     const habitoAgregado = document.querySelectorAll(".nuevo__habitoAgregado");
     const buttonCompletar = document.querySelectorAll(".buttonCompletar");
@@ -44,6 +52,19 @@ export function activateNightMode(){
     configuracionApariencia.classList.toggle('active');
     configuracionHabitos.classList.toggle('active');
     configuracionContacto.classList.toggle('active');
+    ventana__apariencia__texto.classList.toggle("active");
+
+    opciones__configuracion__apariencia.classList.toggle('active');
+    opciones__configuracion__contactar.classList.toggle('active');
+    opciones__configuracion__habitos.classList.toggle('active');
+
+    opciones__configuracion__texto.forEach(function(elemento){
+        elemento.classList.toggle("active");
+    });
+
+    icon__configuracion.forEach(function(elemento){
+        elemento.classList.toggle("active");
+    });
 
     //Modal
     buttonGuardar.classList.toggle('active');

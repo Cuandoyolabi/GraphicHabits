@@ -609,11 +609,22 @@ body {
   background-color: rgb(255, 255, 255);
   cursor: pointer;
 }
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.active {
+  background-color: #202020;
+  color: white;
+}
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .icon__configuracion,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .icon__configuracion,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .icon__configuracion {
   font-size: 20px;
   color: rgba(58, 54, 54, 0.973);
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .icon__configuracion.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .icon__configuracion.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .icon__configuracion.active {
+  color: white;
 }
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .opciones__configuracion__texto,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .opciones__configuracion__texto,
@@ -621,6 +632,11 @@ body {
   font-size: 16px;
   font-weight: 300;
   color: rgb(61, 61, 61);
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .opciones__configuracion__texto.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .opciones__configuracion__texto.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .opciones__configuracion__texto.active {
+  color: white;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Apariencia {
   width: 67%;
@@ -667,6 +683,9 @@ body {
   font-size: 12px;
   font-weight: 200;
   color: rgb(26, 26, 26);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__texto.active {
+  color: white;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos {
   width: 67%;
