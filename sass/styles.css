@@ -245,7 +245,7 @@ body {
     width: 40px;
   }
 }
-@media (min-width: 390px) and (max-width: 414px) {
+@media (min-width: 390px) and (max-width: 450px) {
   .main__container .division__container__number1 {
     grid-template-columns: 13px 1fr 1fr 1fr 13px;
   }
@@ -593,6 +593,11 @@ body {
   }
   .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
     font-size: 12px;
+  }
+}
+@media (min-width: 390px) and (max-width: 450px) {
+  .division__container__number2 {
+    grid-template-columns: 13px 1fr 1fr 1fr 13px;
   }
 }
 .ventana__configuracion {
