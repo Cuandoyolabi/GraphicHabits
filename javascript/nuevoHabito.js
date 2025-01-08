@@ -177,12 +177,12 @@ export  function guardarHabitos(){
             id: habitId,
             text: habitText,
             color: habitColor,
+            days: 0,
+            ultimoDia: null,
         };
     }).filter(habit => habit !== null);
 
-    //Guardado en localStorgae
     localStorage.setItem("habitos", JSON.stringify(habitos));
-
 }
 
 // Funcion para cargar habitos desde localStorage a la grafica y al contenedor
@@ -366,4 +366,34 @@ function editarHabito(index) {
 export function obtenerIdDesdeUrl(){
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
+}
+
+// Funcion ( Completar Habito)
+export function habitoCompletado(habitId){
+
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    const habit = habitosGuardados.find(h => h.id === habitId);
+
+    if(!habit){
+        console.error("No se encontro el habito");
+        return;
+    }
+
+    const hoy = new Date().toISOString().split("T")[0];
+
+    if(habit.ultimoDia === hoy){
+        alert("Este habito ya fue completado hoy.");
+        return;
+    }
+
+    habit.days += 1;
+    habit.ultimoDia = hoy;
+
+    localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
+
+    const habitElement = document.querySelector(`[data-id=${habitId}] .recuadroArriba__numero`);
+    if(habitElement){
+        habitElement.textContent = habit.days;
+    }
+
 }
