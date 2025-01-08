@@ -172,8 +172,6 @@ export  function guardarHabitos(){
         let habitId =  uuid.v4();
         habitItem.dataset.id = habitId;
 
-        habitItem.dataset.id = habitId;
-
         return {
             id: habitId,
             text: habitText,
@@ -207,7 +205,7 @@ export function cargarHabitos(){
 
         //Informacion
         recuadroAbajo__texto.innerText = habit.text;
-        recuadroArriba__numero.textContent = 0;
+        recuadroArriba__numero.textContent = habit.days || 0;
         recuadroArriba__Dias.textContent = "Dias";
         buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
 
@@ -221,20 +219,18 @@ export function cargarHabitos(){
         recuadroAbajo__texto.className = "recuadroAbajo__texto";
         buttonCompletar.className ="buttonCompletar";
 
+        //Asignacion de ID
+        nuevo__habito__recuadro.dataset.id = habit.id;
+
         //Estructura
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
         nuevo__recuadro__Arriba.appendChild(recuadroArriba__Conjunto);
-
         recuadroArriba__Conjunto.appendChild(recuadroArriba__numero);
         recuadroArriba__Conjunto.appendChild(recuadroArriba__Dias);
         nuevo__recuadro__Arriba.appendChild(buttonCompletar);
         nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
         habits__container__list__id.appendChild(nuevo__habito__recuadro);          
-
-        /*   Separacion para mejor organizacion   */
-
-
 
         //Añadir el habito a la lista de habitos
         habits__container__list__id.appendChild(nuevo__habito__recuadro);
@@ -246,7 +242,6 @@ export function cargarHabitos(){
 
         //Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
-        
     });
 }
 
@@ -371,8 +366,12 @@ export function obtenerIdDesdeUrl(){
 // Funcion ( Completar Habito)
 export function habitoCompletado(habitId){
 
+    console.log(habitId);
+
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habit = habitosGuardados.find(h => h.id === habitId);
+
+    console.log(habitId);
 
     if(!habit){
         console.error(`No se encontro el habito con el ID: ${habitId}`);
@@ -398,7 +397,7 @@ export function habitoCompletado(habitId){
 
 }
 
-// Delegacion de eventos, ya que el boton es creado dinamicamente desde JavaScript
+// Aqui se hace una delegacion de eventos, ya que el boton es creado dinamicamente desde JavaScript
 const habits__container = document.getElementById("habits__container__list__id");
 
 habits__container.addEventListener("click", (event) => {
@@ -413,3 +412,5 @@ habits__container.addEventListener("click", (event) => {
 
     }
 })
+
+//Cada que se reinicia, el dataset-id se elimina del elemento
