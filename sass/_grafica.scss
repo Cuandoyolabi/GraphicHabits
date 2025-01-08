@@ -204,8 +204,14 @@ body{
     }
 }
 
-@media( max-width: 450px){
+@media(min-width: 390px) and (max-width: 414px){
 
+    .main__container{
+
+        .division__container__number1{
+            grid-template-columns: 13px 1fr 1fr 1fr 13px;
+        }
+    }
 }
 
 
