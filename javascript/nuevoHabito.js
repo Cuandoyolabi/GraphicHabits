@@ -399,7 +399,7 @@ export function habitoCompletado(habitId){
 
 // Aqui se hace una delegacion de eventos, ya que el boton es creado dinamicamente desde JavaScript
 const habits__container = document.getElementById("habits__container__list__id");
-
+console.log(habits__container)
 habits__container.addEventListener("click", (event) => {
     if(event.target.classList.contains("buttonCompletar")){
         console.log("Si esta funcionado!");
@@ -413,4 +413,24 @@ habits__container.addEventListener("click", (event) => {
     }
 })
 
-//Cada que se reinicia, el dataset-id se elimina del elemento
+const buttonCompletar = document.getElementsByClassName("buttonCompletar");
+
+Array.from(buttonCompletar).forEach(button => {
+    const habitElement = event.target.closest(".nuevo__habitoAgregado");
+    const habitId = habitElement.dataset.id;
+
+    //Obtener el habito desde localStorage
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
+
+        if(habitIndex !== -1){
+            const habit = habitosGuardados[habitIndex];
+    
+
+        const today = new Date().toLocaleDateString();
+
+        if(habit.ultimoDia === today){
+            habit.days = Math.max(0, habit.days - 1)
+        }
+    }
+})
