@@ -168,14 +168,11 @@ export  function guardarHabitos(){
             return null;
         }
 
-
-
-
         //Implementacion de ID
         let habitId =  uuid.v4();
         habitItem.dataset.id = habitId;
 
-        nuevo__habito__recuadro.dataset.id = habitId;
+        habitItem.dataset.id = habitId;
 
         return {
             id: habitId,
@@ -401,6 +398,7 @@ export function habitoCompletado(habitId){
 
 }
 
+// Delegacion de eventos, ya que el boton es creado dinamicamente desde JavaScript
 const habits__container = document.getElementById("habits__container__list__id");
 
 habits__container.addEventListener("click", (event) => {
