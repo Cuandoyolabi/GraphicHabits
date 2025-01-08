@@ -397,3 +397,8 @@ export function habitoCompletado(habitId){
     }
 
 }
+
+buttonCompletar.addEventListener("click", () => {
+    const habitId = nuevo__habito__recuadro.dataset.id;
+    habitoCompletado(habitId);
+})
