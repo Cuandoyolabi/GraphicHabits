@@ -182,6 +182,11 @@
             background-color: rgb(255, 255, 255);
             border: 1px solid rgb(78, 78, 78);
         
+            &.active{
+                background-color: #2c2c2c;
+                color: white;
+            }
+
             .habito__separacion{
                 width: 40%;
                 height: 100%;
@@ -198,6 +203,10 @@
                 color: blue;
                 cursor: pointer;
             
+                &.active{
+                    background-color:#202020
+                }
+
                 &.hover{
                     background-color: rgb(78, 78, 78);
                 }
@@ -210,6 +219,10 @@
                 border: 1px solid gray;
                 color: red;
                 cursor: pointer;
+            
+                &.active{
+                    background-color:#202020
+                }
             }
 
             .habito__nombre{
@@ -230,6 +243,10 @@
             font-size: 20px;
             font-weight: 400;
             margin-bottom: 10px;
+        
+            &.active{
+                color: white;
+            }
         }
         
     }

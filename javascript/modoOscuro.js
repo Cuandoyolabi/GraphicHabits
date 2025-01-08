@@ -21,7 +21,11 @@ export function activateNightMode(){
     const opciones__configuracion__apariencia = document.querySelector('.opciones__configuracion__apariencia');
     const opciones__configuracion__habitos = document.querySelector('.opciones__configuracion__habitos');
     const opciones__configuracion__contactar = document.querySelector('.opciones__configuracion__contactar');
-    
+    const ventana__habitos__titulo = document.querySelector(".ventana__habitos__titulo");
+    const nuevo__habitoConfiguracion = document.querySelectorAll(".nuevo__habitoConfiguracion");
+    const habito__editar = document.querySelectorAll(".habito__editar");
+    const habito__eliminar = document.querySelectorAll(".habito__eliminar");
+
     const opciones__configuracion__texto = document.querySelectorAll('.opciones__configuracion__texto');
     const icon__configuracion = document.querySelectorAll('.icon__configuracion');
 
@@ -53,10 +57,23 @@ export function activateNightMode(){
     configuracionHabitos.classList.toggle('active');
     configuracionContacto.classList.toggle('active');
     ventana__apariencia__texto.classList.toggle("active");
+    ventana__habitos__titulo.classList.toggle("active");
 
     opciones__configuracion__apariencia.classList.toggle('active');
     opciones__configuracion__contactar.classList.toggle('active');
     opciones__configuracion__habitos.classList.toggle('active');
+
+    habito__editar.forEach(function(elemento){
+        elemento.classList.toggle("active");
+    });
+
+    habito__eliminar.forEach(function(elemento){
+        elemento.classList.toggle("active");
+    });
+
+    nuevo__habitoConfiguracion.forEach(function(elemento){
+        elemento.classList.toggle("active");
+    });
 
     opciones__configuracion__texto.forEach(function(elemento){
         elemento.classList.toggle("active");

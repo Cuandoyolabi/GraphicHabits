@@ -747,6 +747,10 @@ body {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(78, 78, 78);
 }
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion.active {
+  background-color: #2c2c2c;
+  color: white;
+}
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__separacion {
   width: 40%;
   height: 100%;
@@ -762,6 +766,9 @@ body {
   color: blue;
   cursor: pointer;
 }
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar.active {
+  background-color: #202020;
+}
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar.hover {
   background-color: rgb(78, 78, 78);
 }
@@ -772,6 +779,9 @@ body {
   border: 1px solid gray;
   color: red;
   cursor: pointer;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar.active {
+  background-color: #202020;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__nombre {
   font-size: 20px;
@@ -788,6 +798,9 @@ body {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .ventana__habitos__titulo.active {
+  color: white;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto {
   width: 67%;
