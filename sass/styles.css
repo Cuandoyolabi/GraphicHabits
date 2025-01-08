@@ -293,7 +293,7 @@ body {
   cursor: pointer;
 }
 .modal__container .modal__options .guardar__habito.active {
-  background-color: black;
+  background-color: #191919;
 }
 .modal__container .modal__content {
   width: 100%;
@@ -331,7 +331,7 @@ body {
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
 .modal__container .habitForm.active {
-  background-color: black;
+  background-color: #191919;
   color: white;
   box-shadow: none;
 }
@@ -380,6 +380,20 @@ body {
   border: 3px solid black;
 }
 
+@media (max-width: 900px) {
+  .modal__container {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+  }
+}
+@media (max-width: 605px) {
+  .modal__container {
+    position: absolute;
+    top: 20%;
+    left: 16%;
+  }
+}
 .division__container__number2 {
   width: 45%;
   height: 95%;
