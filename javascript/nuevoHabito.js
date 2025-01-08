@@ -364,40 +364,38 @@ export function obtenerIdDesdeUrl(){
 }
 
 // Funcion ( Completar Habito)
-export function habitoCompletado(habitId){
-
-    console.log(habitId);
-
+function habitoCompletado(habitId) {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-    const habit = habitosGuardados.find(h => h.id === habitId);
+    const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
 
-    console.log(habitId);
+    if (habitIndex !== -1) {
+        const habit = habitosGuardados[habitIndex];
 
-    if(!habit){
-        console.error(`No se encontro el habito con el ID: ${habitId}`);
-        return;
+        // Comprobamos si es el mismo día
+        const today = new Date().toLocaleDateString();
+
+        // Si es el mismo día que el último registrado, revertimos el contador (decrementamos)
+        if (habit.ultimoDia === today) {
+            habit.days = Math.max(0, habit.days - 1); // Aseguramos que no baje de 0
+            habit.ultimoDia = null; // Restablecemos el último día
+        } else {
+            habit.days += 1;
+            habit.ultimoDia = today;
+        }
+
+        // Actualizamos el habit en el localStorage
+        localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
+
+        // Actualizar el contador de días en el DOM
+        const habitElement = document.querySelector(`[data-id="${habitId}"]`);
+        const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
+        habitNumberElement.textContent = habit.days;
+    } else {
+        console.error(`No se encontró el hábito con el ID: ${habitId}`);
     }
-
-    const hoy = new Date().toISOString().split("T")[0];
-
-    if(habit.ultimoDia === hoy){
-        alert("Este habito ya fue completado hoy.");
-        return;
-    }
-
-    habit.days += 1;
-    habit.ultimoDia = hoy;
-
-    localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
-
-    const habitElement = document.querySelector(`[data-id=${habitId}] .recuadroArriba__numero`);
-    if(habitElement){
-        habitElement.textContent = habit.days;
-    }
-
 }
 
-// Aqui se hace una delegacion de eventos, ya que el boton es creado dinamicamente desde JavaScript
+/*
 const habits__container = document.getElementById("habits__container__list__id");
 console.log(habits__container)
 habits__container.addEventListener("click", (event) => {
@@ -412,25 +410,17 @@ habits__container.addEventListener("click", (event) => {
 
     }
 })
+*/
 
+// Aqui se hace una delegacion de eventos, ya que el boton es creado dinamicamente desde JavaScript
 const buttonCompletar = document.getElementsByClassName("buttonCompletar");
 
 Array.from(buttonCompletar).forEach(button => {
-    const habitElement = event.target.closest(".nuevo__habitoAgregado");
-    const habitId = habitElement.dataset.id;
+    button.addEventListener("click", (event) => {
+        const habitElement = event.target.closest(".nuevo__habitoAgregado");
+        const habitId = habitElement.dataset.id;
 
-    //Obtener el habito desde localStorage
-    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-    const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
-
-        if(habitIndex !== -1){
-            const habit = habitosGuardados[habitIndex];
-    
-
-        const today = new Date().toLocaleDateString();
-
-        if(habit.ultimoDia === today){
-            habit.days = Math.max(0, habit.days - 1)
-        }
-    }
-})
+        // Llamar a la función habitoCompletado para gestionar la lógica
+        habitoCompletado(habitId);
+    });
+});
