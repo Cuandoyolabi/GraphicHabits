@@ -285,14 +285,20 @@
                 font-size: 20px;
                 font-weight: 400;
             }
+            .contacto__texto{
+                font-size: 18px;
+            }
             .ventana__contacto__texto{
                 margin-top: 15px;
                 font-size: 18px;
+                
             }
-        }
-    }
+            .espacio{
+                padding-bottom: 20px;
+            }
 
-    .ventana__configuracion__derecha__Contacto{
+
+        }
 
         .ventana__contacto__separacion{
             width: 90%;
@@ -321,9 +327,7 @@
         &.active{
             color: white;
         }
-
     }
-
 }
 
 @media(max-width: 1200px){
@@ -373,6 +377,22 @@
                 }
             }
         }
+
+        .ventana__configuracion__derecha__Contacto{
+
+            .ventana__contacto{
+
+                .ventana__contacto__texto{
+                    font-size: 14px;
+                }
+
+                .contacto__texto{
+                    font-size: 14px;
+                }
+
+            }
+        }
+
     }
 }
 
