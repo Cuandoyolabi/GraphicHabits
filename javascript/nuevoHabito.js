@@ -398,7 +398,17 @@ export function habitoCompletado(habitId){
 
 }
 
-buttonCompletar.addEventListener("click", () => {
-    const habitId = nuevo__habito__recuadro.dataset.id;
-    habitoCompletado(habitId);
+const habits__container = document.getElementById("habits__container__list__id");
+
+habits__container.addEventListener("click", (event) => {
+    if(event.target.classList.contains("buttonCompletar")){
+        console.log("Si esta funcionado!");
+
+        const habitDiv = event.target.closest(".nuevo__habitoAgregado");
+        if(habitDiv){
+            const habitId = habitDiv.dataset.id;
+            habitoCompletado(habitId);
+        }
+
+    }
 })
