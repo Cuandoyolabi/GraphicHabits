@@ -399,6 +399,11 @@ body {
     left: 16%;
   }
 }
+@media (min-width: 390px) and (max-width: 450px) {
+  .modal__container {
+    top: 10%;
+  }
+}
 .division__container__number2 {
   width: 45%;
   height: 95%;
