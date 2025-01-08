@@ -364,8 +364,6 @@ function editarHabito(index) {
     };
 }
 
-
-
 // Funcion que obtiene el ID
 export function obtenerIdDesdeUrl(){
     const params = new URLSearchParams(window.location.search);

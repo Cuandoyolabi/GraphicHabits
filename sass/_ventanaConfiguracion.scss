@@ -223,6 +223,9 @@
                 &.active{
                     background-color:#202020
                 }
+                &.hover{
+                    background-color: red;
+                }    
             }
 
             .habito__nombre{
@@ -290,6 +293,30 @@
     }
 
     .ventana__configuracion__derecha__Contacto{
+
+        .ventana__contacto__separacion{
+            width: 90%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            border: 1px solid black;
+        
+            .ventana__contacto__telefono{
+                width: 50%;
+                height: 50px;
+                font-weight: 300;
+                font-size: 20px;
+            }
+
+            .ventana__contacto__email{
+                width: 50%;
+                height: 50px;
+                font-weight: 00;
+
+            }
+        }
 
         &.active{
             color: white;
