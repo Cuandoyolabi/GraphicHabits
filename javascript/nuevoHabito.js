@@ -47,7 +47,6 @@ export function crearNuevoHabito(event){
     }
 
     //Agregar el habito al contenedor de habitos
-    //nuevo__habito__recuadro.innerHTML = habitName.value;
     let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
@@ -169,9 +168,14 @@ export  function guardarHabitos(){
             return null;
         }
 
+
+
+
         //Implementacion de ID
         let habitId =  uuid.v4();
         habitItem.dataset.id = habitId;
+
+        nuevo__habito__recuadro.dataset.id = habitId;
 
         return {
             id: habitId,
@@ -194,7 +198,6 @@ export function cargarHabitos(){
 
     habitosGuardados.forEach((habit) => {
         //Recrea el habito con su estructura y estilos para el contenedor de habitos
-        //nuevo__habito__recuadro.innerHTML = habitName.value;
         let nuevo__habito__recuadro = document.createElement("div"); 
         let nuevo__recuadro__Arriba = document.createElement("div");
         let nuevo__recuadro__Abajo = document.createElement("div");
@@ -375,7 +378,7 @@ export function habitoCompletado(habitId){
     const habit = habitosGuardados.find(h => h.id === habitId);
 
     if(!habit){
-        console.error("No se encontro el habito");
+        console.error(`No se encontro el habito con el ID: ${habitId}`);
         return;
     }
 
