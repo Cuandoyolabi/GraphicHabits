@@ -51,7 +51,7 @@ export function crearNuevoHabito(event){
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
     let recuadroArriba__Conjunto = document.createElement("div");
-    let recuadroArriba__ConjuntoDias = document.createElement("div");
+    let nuevo__recuadro__Medio = document.createElement("div");
     let recuadroArriba__Dias = document.createElement("h2");
     let recuadroArriba__numero = document.createElement("h2");
     let recuadroAbajo__texto = document.createElement("h2");
@@ -68,6 +68,7 @@ export function crearNuevoHabito(event){
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
     nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
     recuadroArriba__numero.className = "recuadroArriba__numero";
+    nuevo__recuadro__Medio.className = "nuevo__recuadro__Medio"
     recuadroArriba__Dias.className = "recuadroArriba__dias";
     recuadroArriba__Conjunto.className = "recuadroArriba__Conjunto";
     nuevo__recuadro__Abajo.className = "nuevo__recuadro__Abajo";
@@ -78,11 +79,11 @@ export function crearNuevoHabito(event){
 
     //Estructura
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
-    recuadroArriba__ConjuntoDias.appendChild(recuadroArriba__Dias);
+    nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
-    nuevo__habito__recuadro.appendChild(recuadroArriba__ConjuntoDias)
+    
     nuevo__recuadro__Arriba.appendChild(recuadroArriba__Conjunto);
-
+    nuevo__recuadro__Medio.appendChild(recuadroArriba__Dias)
     
     recuadroArriba__Conjunto.appendChild(recuadroArriba__numero);
     recuadroArriba__Conjunto.appendChild(icono__habito);
