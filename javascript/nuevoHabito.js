@@ -399,12 +399,14 @@ function habitoCompletado(habitId) {
         //Le cambiamos de color al habito al ser completado
         const buttonCompletar = document.querySelector(".buttonCompletar");
         const habit__icon = document.querySelector(".habit__icon");
-       
+       const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
 
         buttonCompletar.style.backgroundColor = habit.color;
+        buttonCompletar.style.borderColor = "white";
         buttonCompletar.style.color = "white";
         habit__icon.style.color = habit.color;
-       
+        nuevo__habitoAgregado.style.borderWidth = "3px";
+        nuevo__habitoAgregado.style.borderColor = habit.color;
 
         // Actualizamos el habit en el localStorage
         localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
