@@ -90,12 +90,6 @@ export function crearNuevoHabito(event){
     nuevo__recuadro__Arriba.appendChild(buttonCompletar);
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);      
-    
-
-    //Estructura de icono
-    
-    
-    
 
 
     /* Separacion para mejor organizacion */
@@ -209,11 +203,12 @@ export function cargarHabitos(){
         let nuevo__recuadro__Arriba = document.createElement("div");
         let nuevo__recuadro__Abajo = document.createElement("div");
         let recuadroArriba__Conjunto = document.createElement("div");
-
+        let nuevo__recuadro__Medio = document.createElement("div");
         let recuadroArriba__Dias = document.createElement("h2");
         let recuadroArriba__numero = document.createElement("h2");
         let recuadroAbajo__texto = document.createElement("h2");
         let buttonCompletar = document.createElement("button");
+        const icono__habito = document.createElement('i');
 
         //Informacion
         recuadroAbajo__texto.innerText = habit.text;
@@ -224,25 +219,31 @@ export function cargarHabitos(){
         //Estilos
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
         nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
+        nuevo__recuadro__Medio.className = "nuevo__recuadro__Medio"
         recuadroArriba__numero.className = "recuadroArriba__numero";
         recuadroArriba__Dias.className = "recuadroArriba__dias";
         recuadroArriba__Conjunto.className = "recuadroArriba__Conjunto";
         nuevo__recuadro__Abajo.className = "nuevo__recuadro__Abajo";
         recuadroAbajo__texto.className = "recuadroAbajo__texto";
         buttonCompletar.className ="buttonCompletar";
+        icono__habito.classList.add('fa-solid', 'fa-fire', "habit__icon");
 
         //Asignacion de ID
         nuevo__habito__recuadro.dataset.id = habit.id;
 
         //Estructura
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
+        nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
+        
         nuevo__recuadro__Arriba.appendChild(recuadroArriba__Conjunto);
+        nuevo__recuadro__Medio.appendChild(recuadroArriba__Dias)
+        
         recuadroArriba__Conjunto.appendChild(recuadroArriba__numero);
-        recuadroArriba__Conjunto.appendChild(recuadroArriba__Dias);
+        recuadroArriba__Conjunto.appendChild(icono__habito);
+    
         nuevo__recuadro__Arriba.appendChild(buttonCompletar);
-        nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
-        habits__container__list__id.appendChild(nuevo__habito__recuadro);          
+        nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);           
 
         //Añadir el habito a la lista de habitos
         habits__container__list__id.appendChild(nuevo__habito__recuadro);
