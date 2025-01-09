@@ -74,8 +74,7 @@ export function crearNuevoHabito(event){
     nuevo__recuadro__Abajo.className = "nuevo__recuadro__Abajo";
     recuadroAbajo__texto.className = "recuadroAbajo__texto";
     buttonCompletar.className ="buttonCompletar";
-    icono__habito.classList.add('fa-solid', 'fa-fire');
-    icono__habito.className = "habit__icon";
+    icono__habito.classList.add('fa-solid', 'fa-fire', "habit__icon");
 
     //Estructura
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
