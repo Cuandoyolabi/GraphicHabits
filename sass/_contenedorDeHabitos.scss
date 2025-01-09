@@ -108,8 +108,8 @@
             height: 100%;
             margin-left: 5px;
             display: flex;
-            flex-direction: column;
-            justify-content: -start;
+
+            justify-content: center;
             align-items: flex-start;
         
             .recuadroArriba__numero{
@@ -119,6 +119,9 @@
             .recuadroArriba__dias{
                 font-size: 13px;
                 font-weight: 400;
+            }
+            .habit__icon{
+                width: 40px;
             }
         }
     }

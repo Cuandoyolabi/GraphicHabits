@@ -504,8 +504,7 @@ body {
   height: 100%;
   margin-left: 5px;
   display: flex;
-  flex-direction: column;
-  justify-content: -start;
+  justify-content: center;
   align-items: flex-start;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto .recuadroArriba__numero {
@@ -515,6 +514,9 @@ body {
 .nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto .recuadroArriba__dias {
   font-size: 13px;
   font-weight: 400;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto .habit__icon {
+  width: 40px;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Abajo {
   width: 100%;

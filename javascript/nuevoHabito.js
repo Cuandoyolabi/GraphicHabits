@@ -51,11 +51,12 @@ export function crearNuevoHabito(event){
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
     let recuadroArriba__Conjunto = document.createElement("div");
-
+    let recuadroArriba__ConjuntoDias = document.createElement("div");
     let recuadroArriba__Dias = document.createElement("h2");
     let recuadroArriba__numero = document.createElement("h2");
     let recuadroAbajo__texto = document.createElement("h2");
     let buttonCompletar = document.createElement("button");
+    const icono__habito = document.createElement('i');
 
     //Informacion
     recuadroAbajo__texto.innerText = habitName.value;
@@ -72,18 +73,30 @@ export function crearNuevoHabito(event){
     nuevo__recuadro__Abajo.className = "nuevo__recuadro__Abajo";
     recuadroAbajo__texto.className = "recuadroAbajo__texto";
     buttonCompletar.className ="buttonCompletar";
+    icono__habito.classList.add('fa-solid', 'fa-fire');
+    icono__habito.className = "habit__icon";
 
     //Estructura
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
+    recuadroArriba__ConjuntoDias.appendChild(recuadroArriba__Dias);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
+    nuevo__habito__recuadro.appendChild(recuadroArriba__ConjuntoDias)
     nuevo__recuadro__Arriba.appendChild(recuadroArriba__Conjunto);
 
+    
     recuadroArriba__Conjunto.appendChild(recuadroArriba__numero);
-    recuadroArriba__Conjunto.appendChild(recuadroArriba__Dias);
+    recuadroArriba__Conjunto.appendChild(icono__habito);
+
     nuevo__recuadro__Arriba.appendChild(buttonCompletar);
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);      
     
+
+    //Estructura de icono
+    
+    
+    
+
 
     /* Separacion para mejor organizacion */
 
