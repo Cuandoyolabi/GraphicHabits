@@ -395,23 +395,8 @@ function habitoCompletado(habitId) {
     }
 }
 
+
 /*
-const habits__container = document.getElementById("habits__container__list__id");
-console.log(habits__container)
-habits__container.addEventListener("click", (event) => {
-    if(event.target.classList.contains("buttonCompletar")){
-        console.log("Si esta funcionado!");
-
-        const habitDiv = event.target.closest(".nuevo__habitoAgregado");
-        if(habitDiv){
-            const habitId = habitDiv.dataset.id;
-            habitoCompletado(habitId);
-        }
-
-    }
-})
-*/
-
 // Aqui se hace una delegacion de eventos, ya que el boton es creado dinamicamente desde JavaScript
 const buttonCompletar = document.getElementsByClassName("buttonCompletar");
 
@@ -419,8 +404,24 @@ Array.from(buttonCompletar).forEach(button => {
     button.addEventListener("click", (event) => {
         const habitElement = event.target.closest(".nuevo__habitoAgregado");
         const habitId = habitElement.dataset.id;
-
+        console.log("Esta funcionando ");
         // Llamar a la función habitoCompletado para gestionar la lógica
         habitoCompletado(habitId);
     });
+});
+*/
+
+// Aquí seleccionamos el contenedor principal donde se agregan dinámicamente los hábitos
+const habitsContainer = document.getElementById("habits__container__list__id");
+
+// Delegación de eventos: escuchamos los clics en el contenedor principal
+habitsContainer.addEventListener("click", (event) => {
+    // Verificamos si el clic ocurrió en un botón con la clase "buttonCompletar"
+    if (event.target.closest(".buttonCompletar")) {
+        const habitElement = event.target.closest(".nuevo__habitoAgregado");
+        const habitId = habitElement.dataset.id;
+
+        // Llamar a la función habitoCompletado para gestionar la lógica
+        habitoCompletado(habitId);
+    }
 });
