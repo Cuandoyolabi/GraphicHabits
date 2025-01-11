@@ -384,41 +384,51 @@ function habitoCompletado(habitId) {
     if (habitIndex !== -1) {
         const habit = habitosGuardados[habitIndex];
 
+        
         // Comprobamos si es el mismo día
         const today = new Date().toLocaleDateString();
 
-        // Si es el mismo día que el último registrado, revertimos el contador (decrementamos)
-        if (habit.ultimoDia === today) {
-            habit.days = Math.max(0, habit.days - 1); // Aseguramos que no baje de 0
-            habit.ultimoDia = null; // Restablecemos el último día
-        } else {
-            habit.days += 1;
-            habit.ultimoDia = today;
-        }
-
-        //Le cambiamos de color al habito al ser completado
+        const habitElement = document.querySelector(`[data-id="${habitId}"]`);
         const buttonCompletar = document.querySelector(".buttonCompletar");
         const habit__icon = document.querySelector(".habit__icon");
        const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
+        
+        if (habit.ultimoDia === today) {
+            habit.days = Math.max(0, habit.days - 1); 
+            habit.ultimoDia = null; 
 
-        buttonCompletar.style.backgroundColor = habit.color;
-        buttonCompletar.style.borderColor = "white";
-        buttonCompletar.style.color = "white";
-        habit__icon.style.color = habit.color;
-        nuevo__habitoAgregado.style.borderWidth = "3px";
-        nuevo__habitoAgregado.style.borderColor = habit.color;
+            //Resetea los estilos
+            buttonCompletar.style.borderColor = "black";
+            buttonCompletar.style.color = "black";
+            buttonCompletar.style.backgroundColor = "gray";
+
+
+        } else {
+            habit.days += 1;
+            habit.ultimoDia = today;
+            //Le da color al habito al ser completado
+            buttonCompletar.style.backgroundColor = habit.color;
+            buttonCompletar.style.borderColor = "white";
+            buttonCompletar.style.color = "white";
+            habit__icon.style.color = habit.color;
+            nuevo__habitoAgregado.style.borderWidth = "3px";
+            nuevo__habitoAgregado.style.borderColor = habit.color;
+        
+        }
+
 
         // Actualizamos el habit en el localStorage
         localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
 
         // Actualizar el contador de días en el DOM
-        const habitElement = document.querySelector(`[data-id="${habitId}"]`);
+        
         const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
         habitNumberElement.textContent = habit.days;
     } else {
         console.error(`No se encontró el hábito con el ID: ${habitId}`);
     }
 }
+
 
 // Aquí seleccionamos el contenedor principal donde se agregan dinámicamente los hábitos
 const habitsContainer = document.getElementById("habits__container__list__id");
