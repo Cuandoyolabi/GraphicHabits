@@ -400,8 +400,12 @@ function habitoCompletado(habitId) {
             //Resetea los estilos
             buttonCompletar.style.borderColor = "black";
             buttonCompletar.style.color = "black";
-            buttonCompletar.style.backgroundColor = "gray";
+            buttonCompletar.style.backgroundColor = "white";
+            nuevo__habitoAgregado.style.borderWidth = "1px";
 
+            // SI LA PAGINA ESTA EN SU MODO OSCURO, ESTOS DEBEN SER BLANCOS EN VEZ DE NEGROS
+            nuevo__habitoAgregado.style.borderColor = "black";
+            habit__icon.style.color = "black";
 
         } else {
             habit.days += 1;
