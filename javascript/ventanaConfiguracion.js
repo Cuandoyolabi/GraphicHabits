@@ -46,4 +46,8 @@ export function mostrarConfiguracionContacto(){
 
 }
 
+export function mostrarConfiguracionInformacion(){
 
+    
+
+}
