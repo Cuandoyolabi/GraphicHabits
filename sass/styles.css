@@ -534,6 +534,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
   font-size: 20px;
