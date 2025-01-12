@@ -391,7 +391,6 @@ function habitoCompletado(habitId) {
         const today = new Date().toLocaleDateString();
 
         const habitElement = document.querySelector(`[data-id="${habitId}"]`);
-        
         const buttonCompletar = document.querySelector(".buttonCompletar");
         const habit__icon = document.querySelector(".habit__icon");
         const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
@@ -415,14 +414,15 @@ function habitoCompletado(habitId) {
         } else {
             habit.days += 1;
             habit.ultimoDia = today;
-            //Le da color al habito al ser completado
-            buttonCompletar.style.backgroundColor = habit.color;
-            buttonCompletar.style.borderColor = "white";
-            buttonCompletar.style.color = "white";
-            habit__icon.style.color = habit.color;
-            nuevo__habitoAgregado.style.borderWidth = "3px";
-            nuevo__habitoAgregado.style.borderColor = habit.color;
         }
+
+        //Le da color al habito al ser completado
+        buttonCompletar.style.backgroundColor = habit.color;
+        buttonCompletar.style.borderColor = "white";
+        buttonCompletar.style.color = "white";
+        habit__icon.style.color = habit.color;
+        nuevo__habitoAgregado.style.borderWidth = "3px";
+        nuevo__habitoAgregado.style.borderColor = habit.color;
 
         // Actualizamos el habit en el localStorage
         localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
