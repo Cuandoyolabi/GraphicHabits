@@ -236,17 +236,18 @@ export function cargarHabitos(){
         //Asignacion de ID
         nuevo__habito__recuadro.dataset.id = habit.id;
 
+        //Color por si el habito esta completado
+
+
+
         //Estructura
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
-        
         nuevo__recuadro__Arriba.appendChild(recuadroArriba__Conjunto);
         nuevo__recuadro__Medio.appendChild(recuadroArriba__Dias)
-        
         recuadroArriba__Conjunto.appendChild(recuadroArriba__numero);
         recuadroArriba__Conjunto.appendChild(icono__habito);
-    
         nuevo__recuadro__Arriba.appendChild(buttonCompletar);
         nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);           
 
@@ -399,11 +400,10 @@ function habitoCompletado(habitId) {
         const habit__icon = habitElement.querySelector(".habit__icon");
         const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
 
-        // Si funciona console.log(nuevo__habitoAgregado)
-
         if (habit.ultimoDia === today) {
             habit.days = Math.max(0, habit.days - 1); 
             habit.ultimoDia = null; 
+            habit.completado = false;
 
             const colorDeterminado = isDarkMode() ? '#ffffff' : '#000000';
 
@@ -420,6 +420,7 @@ function habitoCompletado(habitId) {
         } else {
             habit.days += 1;
             habit.ultimoDia = today;
+            habit.completado = true;
 
             console.log(nuevo__habitoAgregado)
 
@@ -428,7 +429,7 @@ function habitoCompletado(habitId) {
             buttonCompletar.style.borderColor = "white";
             buttonCompletar.style.color = "white";
             habit__icon.style.color = habit.color;
-            nuevo__habitoAgregado.style.borderWidth = "3px";
+            //nuevo__habitoAgregado.style.borderWidth = "3px";
             //nuevo__habitoAgregado.style.borderColor = habit.color;
         }
 
@@ -442,7 +443,6 @@ function habitoCompletado(habitId) {
         console.error(`No se encontró el hábito con el ID: ${habitId}`);
     }
 }
-
 
 // Aquí seleccionamos el contenedor principal donde se agregan dinámicamente los hábitos
 const habitsContainer = document.getElementById("habits__container__list__id");
