@@ -15,11 +15,22 @@
   background-color: #141414;
 }
 .header__container .brand__container {
-  width: 150px;
+  width: 190px;
   height: 45px;
   margin-left: 50px;
   border-radius: 30px;
   background-color: rgb(230, 230, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__container .brand__container.active {
+  background-color: #535353;
+  color: rgb(204, 204, 204);
+}
+.header__container .brand__container .brand__container__title {
+  font-weight: 300;
+  font-size: 18px;
 }
 .header__container .nav__container {
   display: flex;

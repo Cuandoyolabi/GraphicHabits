@@ -7,6 +7,9 @@ export function activateNightMode(){
     const isDarkModeActive = body.classList.contains('dark-mode');
 
 
+    //Header
+    const brand__container = document.querySelector(".brand__container");
+
     const division__container = document.querySelector('.division__container');
     const header__container = document.querySelector('.header__container');
     const graphic__container__id = document.querySelector('#graphic__container__id');
@@ -56,6 +59,9 @@ export function activateNightMode(){
     graphic__container__id.classList.toggle('active');
     habits__container.classList.toggle('active');
     golden__habit__id.classList.toggle('active');
+
+    //Header
+    brand__container.classList.toggle("active");
 
     // Ventana de configuracion
     configuracion__Izquierda.classList.toggle('active');
