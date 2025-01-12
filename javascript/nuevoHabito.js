@@ -79,6 +79,8 @@ export function crearNuevoHabito(event){
     buttonCompletar.className ="buttonCompletar";
     icono__habito.classList.add('fa-solid', 'fa-fire', "habit__icon");
 
+    console.log(document.querySelectorAll(".nuevo__habitoAgregado"));
+
     //Estructura
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
@@ -379,6 +381,8 @@ export function obtenerIdDesdeUrl(){
     return params.get("id");
 }
 
+//VERIFICA QUE FUNCIONE COMO EL COLOR, QUE SE USA CLOSEST
+
 // Funcion ( Completar Habito)
 function habitoCompletado(habitId) {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
@@ -393,7 +397,9 @@ function habitoCompletado(habitId) {
         const habitElement = document.querySelector(`[data-id="${habitId}"]`);
         const buttonCompletar = habitElement.querySelector(".buttonCompletar");
         const habit__icon = habitElement.querySelector(".habit__icon");
-        const nuevo__habitoAgregado = habitElement.querySelector(".nuevo__habitoAgregado");
+        const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
+
+        // Si funciona console.log(nuevo__habitoAgregado)
 
         if (habit.ultimoDia === today) {
             habit.days = Math.max(0, habit.days - 1); 
@@ -415,13 +421,15 @@ function habitoCompletado(habitId) {
             habit.days += 1;
             habit.ultimoDia = today;
 
+            console.log(nuevo__habitoAgregado)
+
             //Le da color al habito al ser completado
             buttonCompletar.style.backgroundColor = habit.color;
             buttonCompletar.style.borderColor = "white";
             buttonCompletar.style.color = "white";
             habit__icon.style.color = habit.color;
             nuevo__habitoAgregado.style.borderWidth = "3px";
-            nuevo__habitoAgregado.style.borderColor = habit.color;
+            //nuevo__habitoAgregado.style.borderColor = habit.color;
         }
 
         // Actualizamos el habit en el localStorage
