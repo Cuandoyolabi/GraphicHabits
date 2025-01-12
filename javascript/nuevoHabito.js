@@ -1,5 +1,8 @@
 "use strict";
 
+//Se utilizaran estas fuciones en (HabitoCompletado)
+import { isDarkMode } from "./modoOscuro.js";
+
 // Funcion sobre eleccion del color
 let colorSeleccionado = "";
 
@@ -384,18 +387,20 @@ function habitoCompletado(habitId) {
     if (habitIndex !== -1) {
         const habit = habitosGuardados[habitIndex];
 
-        
         // Comprobamos si es el mismo día
         const today = new Date().toLocaleDateString();
 
         const habitElement = document.querySelector(`[data-id="${habitId}"]`);
+        
         const buttonCompletar = document.querySelector(".buttonCompletar");
         const habit__icon = document.querySelector(".habit__icon");
-       const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
-        
+        const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
+
         if (habit.ultimoDia === today) {
             habit.days = Math.max(0, habit.days - 1); 
             habit.ultimoDia = null; 
+
+            const colorDeterminado = isDarkMode() ? '#ffffff' : '#000000';
 
             //Resetea los estilos
             buttonCompletar.style.borderColor = "black";
@@ -404,8 +409,8 @@ function habitoCompletado(habitId) {
             nuevo__habitoAgregado.style.borderWidth = "1px";
 
             // SI LA PAGINA ESTA EN SU MODO OSCURO, ESTOS DEBEN SER BLANCOS EN VEZ DE NEGROS
-            nuevo__habitoAgregado.style.borderColor = "black";
-            habit__icon.style.color = "black";
+            nuevo__habitoAgregado.style.borderColor = colorDeterminado;
+            habit__icon.style.color = colorDeterminado;
 
         } else {
             habit.days += 1;
@@ -417,15 +422,12 @@ function habitoCompletado(habitId) {
             habit__icon.style.color = habit.color;
             nuevo__habitoAgregado.style.borderWidth = "3px";
             nuevo__habitoAgregado.style.borderColor = habit.color;
-        
         }
-
 
         // Actualizamos el habit en el localStorage
         localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
 
         // Actualizar el contador de días en el DOM
-        
         const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
         habitNumberElement.textContent = habit.days;
     } else {

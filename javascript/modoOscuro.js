@@ -1,6 +1,12 @@
 
 export function activateNightMode(){
 
+    //Estas variables verifican y activan el modo oscuro del body
+    const body = document.body; 
+    body.classList.toggle('dark-mode');
+    const isDarkModeActive = body.classList.contains('dark-mode');
+
+
     const division__container = document.querySelector('.division__container');
     const header__container = document.querySelector('.header__container');
     const graphic__container__id = document.querySelector('#graphic__container__id');
@@ -96,7 +102,14 @@ export function activateNightMode(){
         elemento.classList.toggle('active');
     });
 
+    //Retornar la variable que indica que esta en modo oscuro la pagina
+    return isDarkModeActive;
+
 };
 
+export function isDarkMode(){
 
+    const body = document.body;
+    return body.classList.contains('dark-mode');
 
+}
