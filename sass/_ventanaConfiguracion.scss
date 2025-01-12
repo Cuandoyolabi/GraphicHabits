@@ -152,10 +152,8 @@
         border: 1px solid rgb(167, 167, 167);
 
         &.active{
-            background-color: #202020;
-            
+            background-color: #202020;   
         }
-
         &.hidden{
             display: none;
         }
@@ -259,6 +257,27 @@
             }
         }
         
+    }
+
+    .ventana__configuracion__derecha__Informacion{
+        width: 67%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: flex-start;
+        border-top-right-radius: 19px;
+        border-bottom-right-radius: 19px;
+        border: 1px solid rgb(167, 167, 167);
+    
+        &.active{
+            background-color: #202020;   
+        }
+        &.hidden{
+            display: none;
+        }
+        &.visible{
+            display: flex;
+        }
     }
 
     .ventana__configuracion__derecha__Contacto{
