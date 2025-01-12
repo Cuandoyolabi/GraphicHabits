@@ -30,6 +30,8 @@ export function activateNightMode(){
     const opciones__configuracion__apariencia = document.querySelector('.opciones__configuracion__apariencia');
     const opciones__configuracion__habitos = document.querySelector('.opciones__configuracion__habitos');
     const opciones__configuracion__contactar = document.querySelector('.opciones__configuracion__contactar');
+    const opciones__configuracion__informacion = document.querySelector(".opciones__configuracion__informacion");
+    
     const ventana__habitos__titulo = document.querySelector(".ventana__habitos__titulo");
     const nuevo__habitoConfiguracion = document.querySelectorAll(".nuevo__habitoConfiguracion");
     const habito__editar = document.querySelectorAll(".habito__editar");
@@ -73,6 +75,7 @@ export function activateNightMode(){
 
     opciones__configuracion__apariencia.classList.toggle('active');
     opciones__configuracion__contactar.classList.toggle('active');
+    opciones__configuracion__informacion.classList.toggle("active");
     opciones__configuracion__habitos.classList.toggle('active');
 
     habito__editar.forEach(function(elemento){

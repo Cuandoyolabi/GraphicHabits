@@ -3,6 +3,7 @@ const ventana__apariencia__id = document.getElementById("ventana__configuracion_
 const ventana__contacto__id = document.getElementById("ventana__configuracion__derecha__Contacto__id");
 const ventana__habitos__id = document.getElementById("ventana__configuracion__derecha__Habitos__id");
 
+
 export function mostrarPerfil(){
 
     ventana__configuracion__id.classList.toggle("visible");

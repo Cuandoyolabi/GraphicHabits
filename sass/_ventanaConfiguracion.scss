@@ -202,14 +202,17 @@
                 border-radius: 7px;
                 border: 1px solid gray;
                 color: blue;
+                transition: 0.3s ease;
+                background-color: #ffffff;
                 cursor: pointer;
-            
+
                 &.active{
                     background-color:#202020
                 }
 
-                &.hover{
-                    background-color: rgb(78, 78, 78);
+                &:hover{
+                    background-color: rgb(95, 95, 95);
+                    color:rgb(255, 255, 255);
                 }
             }
 
@@ -219,13 +222,16 @@
                 border-radius: 7px;
                 border: 1px solid gray;
                 color: red;
+                transition: 0.3s ease;
+                background-color: #ffffff;
                 cursor: pointer;
             
                 &.active{
                     background-color:#202020
                 }
-                &.hover{
-                    background-color: red;
+                &:hover{
+                    background-color: rgb(95, 95, 95);
+                    color: white;
                 }    
             }
 

@@ -823,13 +823,16 @@ body {
   border-radius: 7px;
   border: 1px solid gray;
   color: blue;
+  transition: 0.3s ease;
+  background-color: #ffffff;
   cursor: pointer;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar.active {
   background-color: #202020;
 }
-.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar.hover {
-  background-color: rgb(78, 78, 78);
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar:hover {
+  background-color: rgb(95, 95, 95);
+  color: rgb(255, 255, 255);
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar {
   width: 80px;
@@ -837,13 +840,16 @@ body {
   border-radius: 7px;
   border: 1px solid gray;
   color: red;
+  transition: 0.3s ease;
+  background-color: #ffffff;
   cursor: pointer;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar.active {
   background-color: #202020;
 }
-.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar.hover {
-  background-color: red;
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar:hover {
+  background-color: rgb(95, 95, 95);
+  color: white;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__nombre {
   font-size: 20px;

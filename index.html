@@ -11,14 +11,16 @@
 
 <!--Tareas pendientes
 
-1-En configuracion añadir una pestaña mas donde se le acomode la informacion y añadirle el modo oscuro.
+1-En configuracion añadir una pestaña mas donde se le acomode la informacion y añadirle el modo oscuro. (EN PROCESO)
 
-Cuando edito un habito, se crea otro.
+2-Cuando edito un habito, se crea otro.
 2-Poder modificar el nombre del habito y el color. (Es posible editar el nombre, hay fallas con el color)
 
+Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
 
+3-Agregarle oscuridad cuando se editan los habitos
 3-Agregar a un limite a las letras de los habitos (EN PROCESO)
-4-Agregarles un hover a los botones con colores
+4-Agregarles un hover a los botones con colores. (en proceso)
 
 5-Mejorar la interfaz del modal en computadora y en telefono
 
@@ -28,7 +30,7 @@ Cuando edito un habito, se crea otro.
 10-Anunciar que solo se pueden crear 6 habitos cuando desees clickear el boton de crear.
 
 
-13-Agregarle el nombre a la app a la izquieda y darle un modo oscuro (EN PROCESO)
+11-Hacer que se encienda el boton amarillo arriba de la grafica, cuando todos los habitos esten completos
 -->
 
 <body>
@@ -121,18 +123,22 @@ Cuando edito un habito, se crea otro.
             <!--Ventana de opciones-->
             <div class="ventana__configuracion__izquierda">
                 <div class="opciones__configuracion">
+                    <!--Apariencia-->
                     <div class="opciones__configuracion__apariencia" id="configuracionApariencia">
                         <i class="fa-solid fa-sliders icon__configuracion"></i>
                         <h2  class="opciones__configuracion__texto">Configuracion</h2>
                     </div>
+                    <!--Habitos-->
                     <div class="opciones__configuracion__habitos" id="configuracionHabitos">
                         <i class="fa-solid fa-fire icon__configuracion"></i>
                         <h2 class="opciones__configuracion__texto">Habitos</h2>
                     </div>
+                    <!--Informacion-->
                     <div class="opciones__configuracion__informacion">
                         <i class="fa-solid fa-circle-info icon__configuracion"></i>
                         <h2 class="opciones__configuracion__texto">Informacion</h2>
                     </div>
+                    <!--Contacto-->
                     <div class="opciones__configuracion__contactar" id="configuracionContacto">
                         <i class="fa-solid fa-reply icon__configuracion"></i>
                         <h2 class="opciones__configuracion__texto">Contactame</h2>
@@ -170,7 +176,7 @@ Cuando edito un habito, se crea otro.
             <!--Ventana de informacion-->
             <div class="ventana__configuracion__derecha__Informacion" id="ventana__configuracion__derecha__Informacion__id">
                 <div class="ventana__informacion">
-
+                    <h2 class="ventana__informacion__titulo">Informacion</h2>
 <!--
                     <div class="ventana__contacto__separacion">
                         <div class="ventana__contacto__telefono">
