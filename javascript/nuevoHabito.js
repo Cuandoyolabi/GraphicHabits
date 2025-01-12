@@ -236,10 +236,6 @@ export function cargarHabitos(){
         //Asignacion de ID
         nuevo__habito__recuadro.dataset.id = habit.id;
 
-        //Color por si el habito esta completado
-
-
-
         //Estructura
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
@@ -444,6 +440,33 @@ function habitoCompletado(habitId) {
     }
 }
 
+function restaurarColorDeHabitos() {
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+
+    habitosGuardados.forEach(habit => {
+        const habitElement = document.querySelector(`[data-id="${habit.id}"]`);
+
+        if (habitElement) {
+            const buttonCompletar = habitElement.querySelector(".buttonCompletar");
+            const habit__icon = habitElement.querySelector(".habit__icon");
+
+            //Solo le hace falta el borde
+            if (habit.completado) {
+                //nuevoHabitoAgregado.classList.add("habito-completado");
+                buttonCompletar.style.backgroundColor = habit.color;
+                buttonCompletar.style.color = "white";
+                buttonCompletar.style.borderColor = "white";
+                habit__icon.style.color = habit.color;
+            } else {
+                //nuevoHabitoAgregado.classList.remove("habito-completado");
+                buttonCompletar.style.backgroundColor = "white";
+                buttonCompletar.style.color = "black";
+                habit__icon.style.color = "black";
+            }
+        }
+    });
+}
+
 // Aquí seleccionamos el contenedor principal donde se agregan dinámicamente los hábitos
 const habitsContainer = document.getElementById("habits__container__list__id");
 
@@ -455,4 +478,8 @@ habitsContainer.addEventListener("click", (event) => {
 
         habitoCompletado(habitId);
     }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    restaurarColorDeHabitos();
 });
