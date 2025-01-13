@@ -880,14 +880,29 @@ body {
   border-bottom-right-radius: 19px;
   border: 1px solid rgb(167, 167, 167);
 }
-.ventana__configuracion .ventana__configuracion__derecha__Informacion.active {
-  background-color: #202020;
-}
 .ventana__configuracion .ventana__configuracion__derecha__Informacion.hidden {
   display: none;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Informacion.visible {
   display: flex;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion.active {
+  background-color: #202020;
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion {
+  width: 96%;
+  height: 200px;
+  padding: 20px 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion .espacioArriba {
+  padding-top: 18px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion .informacion {
+  font-size: 17px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion .espacio {
+  padding-bottom: 10px;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto {
   width: 67%;
