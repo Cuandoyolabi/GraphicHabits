@@ -78,7 +78,14 @@ export function crearNuevoHabito(event){
     buttonCompletar.className ="buttonCompletar";
     icono__habito.classList.add('fa-solid', 'fa-fire', "habit__icon");
 
-    console.log(document.querySelectorAll(".nuevo__habitoAgregado"));
+    //Variable que verifica la creacion del habito en modo oscuro o light
+    if(isDarkMode()){
+        nuevo__habito__recuadro.style.borderColor = "#ffffff";
+        recuadroAbajo__texto.style.color = "#ffffff";
+        recuadroArriba__Dias.style.color = "#ffffff";
+        icono__habito.style.color = "#ffffff";
+        recuadroArriba__numero.style.color = "#ffffff";
+    }
 
     //Estructura
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);

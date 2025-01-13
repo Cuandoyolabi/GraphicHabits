@@ -76,6 +76,8 @@
     border-radius: 15px;
     border: 1px solid black;
 
+    //Aqui se puede alternar entre los estilos, por el modo oscuro
+
     &.active{
         border: 1px solid white;
         color: white;
