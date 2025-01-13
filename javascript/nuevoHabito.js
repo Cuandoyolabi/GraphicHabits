@@ -1,7 +1,7 @@
 "use strict";
 
 //Se utilizaran estas fuciones en (HabitoCompletado)
-import { activateNightMode, isDarkMode } from "./modoOscuro.js";
+import { activateNightMode, isDarkMode} from "./modoOscuro.js";
 
 
 //Funcion que reinicia la pagina
@@ -506,8 +506,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //Verifica si el usuario dejo la pagina en el modo oscuro
     if(isDarkMode()){
         activateNightMode();
-    } else {
-        activateNightMode();
-    }
+    };
 });
 
