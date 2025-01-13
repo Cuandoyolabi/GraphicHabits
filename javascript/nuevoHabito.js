@@ -493,6 +493,9 @@ habitsContainer.addEventListener("click", (event) => {
         const habitId = habitElement.dataset.id;
 
         habitoCompletado(habitId);
+        //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
+        //habitoDeGraficaCompletado(habitId);
+
     }
 });
 
