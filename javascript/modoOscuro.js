@@ -1,4 +1,3 @@
-
 export function activateNightMode(){
 
     //Estas variables verifican y activan el modo oscuro del body
@@ -113,14 +112,16 @@ export function activateNightMode(){
         elemento.classList.toggle('active');
     });
 
+    localStorage.setItem("modoOscuro", "true");
+
     //Retornar la variable que indica que esta en modo oscuro la pagina
     return isDarkModeActive;
 
 };
 
 export function isDarkMode(){
-
-    const body = document.body;
-    return body.classList.contains('dark-mode');
+    
+    return localStorage.getItem("modoOscuro") === "true";
 
 }
+
