@@ -3,6 +3,16 @@
 //Se utilizaran estas fuciones en (HabitoCompletado)
 import { isDarkMode } from "./modoOscuro.js";
 
+
+//Funcion que reinicia la pagina
+function reiniciarPagina(){
+
+    location.reload();
+    
+
+}
+
+
 // Funcion sobre eleccion del color
 let colorSeleccionado = "";
 
@@ -146,7 +156,7 @@ export function crearNuevoHabito(event){
     //Resetear formulario y modal
     form.reset();
     cerrarModal();
-    
+
 };
 
 //Mostrar Modal
@@ -323,6 +333,7 @@ function eliminarHabito(index) {
     habitosGuardados.splice(index, 1); // Eliminar el hábito del arreglo
     localStorage.setItem("habitos", JSON.stringify(habitosGuardados)); // Guardar los cambios
     cargarHabitoConfiguracion(); // Recargar la lista para reflejar los cambios
+    reiniciarPagina();
 }
 
 // Función que edita el hábito seleccionado
@@ -489,3 +500,4 @@ habitsContainer.addEventListener("click", (event) => {
 document.addEventListener("DOMContentLoaded", () => {
     restaurarColorDeHabitos();
 });
+
