@@ -57,10 +57,18 @@
             border-radius: 6px;
             background-color: rgb(255, 255, 255);
             cursor: pointer;
-            
+            /*
+            &.light{
+                background-color: rgb(56, 56, 56);
+            }
+            */
             &.active{
                 background-color: #202020;
                 color: white;
+            }
+
+            &:hover{
+                background-color: rgb(56, 56, 56);
             }
 
             .icon__configuracion{

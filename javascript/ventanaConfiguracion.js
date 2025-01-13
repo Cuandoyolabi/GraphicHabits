@@ -1,8 +1,13 @@
+//Ventanas del lado derechos
 const ventana__configuracion__id = document.getElementById("ventana__configuracion__id");
 const ventana__apariencia__id = document.getElementById("ventana__configuracion__derecha__Apariencia__id");
 const ventana__contacto__id = document.getElementById("ventana__configuracion__derecha__Contacto__id");
 const ventana__habitos__id = document.getElementById("ventana__configuracion__derecha__Habitos__id");
 const ventana__informacion__id = document.getElementById("ventana__configuracion__derecha__Informacion__id");
+
+//Opciones del lado izquierdo
+const configuracionApariencia = document.getElementById("configuracionApariencia");
+
 
 export function mostrarPerfil(){
 
@@ -18,7 +23,9 @@ export function cerrarPerfil(){
 }
 
 export function mostrarConfiguracionApariencia(){
-
+    
+    //Intento de dejarlo activo
+    //configuracionApariencia.classList.add("light");
     ventana__apariencia__id.classList.add("visible");
     ventana__apariencia__id.classList.remove("hidden");
     ventana__habitos__id.classList.add("hidden");
