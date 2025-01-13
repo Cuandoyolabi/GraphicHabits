@@ -1,3 +1,5 @@
+"use strict"
+
 //Ventanas del lado derechos
 const ventana__configuracion__id = document.getElementById("ventana__configuracion__id");
 const ventana__apariencia__id = document.getElementById("ventana__configuracion__derecha__Apariencia__id");
@@ -7,7 +9,9 @@ const ventana__informacion__id = document.getElementById("ventana__configuracion
 
 //Opciones del lado izquierdo
 const configuracionApariencia = document.getElementById("configuracionApariencia");
-
+const configuracionHabitos = document.getElementById("configuracionHabitos");
+const configuracionInformacion = document.getElementById("configuracionInformacion");
+const configuracionContacto = document.getElementById("configuracionContacto");
 
 export function mostrarPerfil(){
 
@@ -24,8 +28,12 @@ export function cerrarPerfil(){
 
 export function mostrarConfiguracionApariencia(){
     
-    //Intento de dejarlo activo
-    //configuracionApariencia.classList.add("light");
+    configuracionApariencia.classList.add("selected");
+    configuracionHabitos.classList.remove("selected");
+    configuracionInformacion.classList.remove("selected");
+    configuracionContacto.classList.remove("selected");
+
+    //Cambio de ventana
     ventana__apariencia__id.classList.add("visible");
     ventana__apariencia__id.classList.remove("hidden");
     ventana__habitos__id.classList.add("hidden");
@@ -36,6 +44,12 @@ export function mostrarConfiguracionApariencia(){
 
 export function mostrarConfiguracionHabitos(){
 
+    configuracionApariencia.classList.remove("selected");
+    configuracionHabitos.classList.add("selected");
+    configuracionInformacion.classList.remove("selected");
+    configuracionContacto.classList.remove("selected");
+
+    //Cambio de ventana
     ventana__apariencia__id.classList.add("hidden");
     ventana__apariencia__id.classList.remove("visible");
     ventana__habitos__id.classList.add("visible");
@@ -46,6 +60,12 @@ export function mostrarConfiguracionHabitos(){
 
 export function mostrarConfiguracionContacto(){
 
+    configuracionApariencia.classList.remove("selected");
+    configuracionHabitos.classList.remove("selected");
+    configuracionInformacion.classList.remove("selected");
+    configuracionContacto.classList.add("selected");
+
+    //Cambio de ventana
     ventana__apariencia__id.classList.add("hidden");
     ventana__apariencia__id.classList.remove("visible")
     ventana__contacto__id.classList.add("visible");
@@ -56,6 +76,12 @@ export function mostrarConfiguracionContacto(){
 
 export function mostrarConfiguracionInformacion(){
 
+    configuracionApariencia.classList.remove("selected");
+    configuracionHabitos.classList.remove("selected");
+    configuracionInformacion.classList.add("selected");
+    configuracionContacto.classList.remove("selected");
+
+    //Cambio de ventana
     ventana__informacion__id.classList.add("visible");
     ventana__apariencia__id.classList.remove("visible");
     ventana__apariencia__id.classList.add("hidden");
