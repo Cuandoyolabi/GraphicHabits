@@ -30,7 +30,6 @@ export function crearNuevoHabito(event){
 
     //Ids de la seccion de configuracion
     const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
-
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById('graphic__container__id');
     const habitName = document.getElementById("habitName");
