@@ -1,7 +1,7 @@
 "use strict";
 
 //Se utilizaran estas fuciones en (HabitoCompletado)
-import { activateNightMode, isDarkMode} from "./modoOscuro.js";
+import { activateNightMode, isDarkMode } from "./modoOscuro.js";
 
 
 //Funcion que reinicia la pagina
@@ -496,10 +496,8 @@ habitsContainer.addEventListener("click", (event) => {
     }
 });
 
-console.log(isDarkMode() === true);
-isDarkMode();
 
-
+//Recarga la pagina automaticamente
 document.addEventListener("DOMContentLoaded", () => {
     restaurarColorDeHabitos();
     
