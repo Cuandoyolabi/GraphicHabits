@@ -693,6 +693,12 @@ body {
   background-color: #202020;
   color: white;
 }
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.active.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.active.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.active.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion.active.selected {
+  border: 1px solid white;
+}
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.active:hover,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.active:hover,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.active:hover,
@@ -710,7 +716,7 @@ body {
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.selected,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.selected,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion.selected {
-  border: 1px solid white;
+  border: 1.5px solid rgb(0, 0, 0);
 }
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .icon__configuracion,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .icon__configuracion,
