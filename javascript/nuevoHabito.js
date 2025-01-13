@@ -506,6 +506,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //Verifica si el usuario dejo la pagina en el modo oscuro
     if(isDarkMode()){
         activateNightMode();
+    } else {
+        activateNightMode();
     }
 });
 

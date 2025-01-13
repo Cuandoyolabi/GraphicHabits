@@ -125,3 +125,57 @@ export function isDarkMode(){
 
 }
 
+export function deactivateNightMode() {
+    const body = document.body;
+    body.classList.remove('dark-mode');
+
+    // Elementos específicos
+    const elementsToReset = [
+        document.querySelector(".brand__container"),
+        document.querySelector('.division__container'),
+        document.querySelector('.header__container'),
+        document.querySelector('#graphic__container__id'),
+        document.querySelector('.habits__container'),
+        document.querySelector('.habitForm'),
+        document.querySelector('.graphic__container__plus'),
+        document.querySelector('.night__section'),
+        document.querySelector('.profile__section'),
+        document.querySelector('.golden__habit'),
+        document.querySelector(".ventana__configuracion__izquierda"),
+        document.querySelector('.ventana__configuracion__derecha__Apariencia'),
+        document.querySelector('.ventana__configuracion__derecha__Habitos'),
+        document.querySelector('.ventana__configuracion__derecha__Contacto'),
+        document.querySelector(".ventana__apariencia__texto"),
+        document.querySelector(".ventana__configuracion__derecha__Informacion"),
+        document.querySelector(".ventana__habitos__titulo"),
+        document.querySelector('#cubierta__container__id'),
+        document.querySelector(".guardar__habito"),
+        document.querySelector(".habitName"),
+    ];
+
+    elementsToReset.forEach(element => {
+        if (element) {
+            element.classList.remove('active');
+        }
+    });
+
+    // Resetear colecciones de elementos
+    const collectionsToReset = [
+        document.querySelectorAll(".nuevo__habitoConfiguracion"),
+        document.querySelectorAll(".habito__editar"),
+        document.querySelectorAll(".habito__eliminar"),
+        document.querySelectorAll(".opciones__configuracion__texto"),
+        document.querySelectorAll('.icon__configuracion'),
+        document.querySelectorAll(".nuevo__habitoAgregado"),
+        document.querySelectorAll(".buttonCompletar"),
+    ];
+
+    collectionsToReset.forEach(collection => {
+        collection.forEach(element => {
+            element.classList.remove('active');
+        });
+    });
+
+    // Eliminar la indicación de modo oscuro en localStorage
+    localStorage.setItem("modoOscuro", "false");
+}
