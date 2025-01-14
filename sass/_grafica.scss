@@ -5,8 +5,6 @@ body{
     position: fixed;
 }
 
-
-
 //Contenedor divisor
 .division__container{
     width: 100%;
@@ -19,41 +17,31 @@ body{
     
     &.active{
         background: rgb(93,93,93);
-        background: linear-gradient(0deg, rgba(93,93,93,1) 0%, rgba(0,0,0,1) 96%);
+        background: linear-gradient(320deg, rgb(49, 49, 49) 0%, rgba(0,0,0,1) 96%);
     }
 
     // Grafica
     .division__container__number1{
-    width: 55%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s ease-in-out;
+        width: 55%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease-in-out;
 
     .golden__habit__division{
         width: 80%;
         margin-top: 50px;
         display: flex;
-
         flex-direction: row;
-        justify-content: center;
-        background: rgb(182,182,182);
-        background: linear-gradient(0deg, rgba(182,182,182,1) 9%, rgba(255,255,255,1) 93%);
-        
-        &.active{
-            
-            background-color: #191919;
-            background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
-            //background: rgb(93,93,93);
-            //background: linear-gradient(0deg, rgba(93,93,93,1) 0%, rgba(0,0,0,1) 96%);
-        }
-    
-
         justify-content: flex-end;
         align-items: center;
-        border-radius: 10px;
+
+        &.active{
+            background-color: #191919;
+            background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
+        }
     }
 
     .golden__habit{
@@ -80,24 +68,23 @@ body{
         transition: background-color 0.5s;
     
         &.active{
-            background: rgb(115,115,115);
-            background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(0,0,0,1) 100%);
+            background-color: #191919;
             box-shadow: none;
         }
     }
 
-        .golden__habit{
-            width: 100px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-self: flex-end;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            background-color: rgb(133, 133, 133)
-        }
-        .graphic__container{
+    .golden__habit{
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        background-color: rgb(133, 133, 133)
+    }
+    .graphic__container{
             width: 80%;
             height: 400px;
             display: flex;
@@ -113,7 +100,7 @@ body{
                 background-color: #191919;
                 box-shadow: none;
             }
-        }
+    }
 
     .graphic__container__button__division{
         width: 80%;
@@ -137,31 +124,11 @@ body{
         border: 1.5px solid grey;
         box-shadow:  0px 3px 1px rgb(160, 159, 159);
 
-
-        .graphic__container__plus{
-            width: 120px;
-            height: 40px;
-            margin-top: 15px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            align-self: flex-end;
-            color: black;
-            background-color: rgb(255, 255, 255);
-            border: 1.5px solid grey;
-            box-shadow:  0px 3px 1px rgb(160, 159, 159);
-
             &.active{
                 background-color: #191919;
                 box-shadow: none;
                 color: white;
             }
-
-        &.active{
-            background-color: black;
-            box-shadow: none;
-            color: white;
-
         }
     }
 }
@@ -169,7 +136,6 @@ body{
 #division__container__id.active{
     background-color: rgb(0, 0, 0);
 }
-
 
 // Clase agregada desde javascript al habito de la grafica
 .nuevo__habito{
@@ -180,46 +146,74 @@ body{
     align-items: center;
 }
 
-
-
 @media (max-width: 905px){
     
-    .division__container__number1{
-        width: 100%;
-        height: 50%;
-        display: grid;
-        grid-template-columns: 50px 1fr 1fr 1fr 50px;
-        grid-template-rows: 20px 1fr 50px;
-        transition: all 0.5s ease-in-out;
-    
-        .box2{
-            grid-column-start: 2;
-            grid-column-end: 5;
-            grid-row: 2;
-        }
-   
-        .box1{
-            grid-column-start: 4;
-            grid-row-start: 3;
-    }
-
-        .box3{
-            grid-column-start: 2;
-            grid-column-end: 4;
-            grid-row-start: 3;
-        }
-
-        .golden__habit__division{
-        width: 100%;
-        height: 50px;
-        margin-top: 0;
+    .division__container{
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        
-        }
+        flex-direction: column;
 
+        .division__container__number1{
+            width: 100%;
+            height: 50%;
+            display: grid;
+            grid-template-columns: 50px 1fr 1fr 1fr 50px;
+            grid-template-rows: 20px 1fr 50px;
+            transition: all 0.5s ease-in-out;
         
+            .graphic__container{
+                width: 100%;
+                height: 100%;
+            }
+
+            .graphic__container__button__division{
+                display: flex;
+                justify-content: flex-start;
+
+                .graphic__container__plus{
+                    width: 80%;
+                }
+            }
+
+            .golden__habit__division{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                margin-top: 3px;
+
+                .golden__habit{
+                    width: 80%;
+                    align-self: flex-end;
+                    margin-bottom: 0px;
+                }
+            }
+
+            .box2{
+                grid-column-start: 2;
+                grid-column-end: 5;
+                grid-row: 2;
+            }
+       
+            .box1{
+                grid-column-start: 4;
+                grid-row-start: 3;
+            }
+    
+            .box3{
+                grid-column-start: 2;
+                grid-column-end: 4;
+                grid-row-start: 3;
+            }
+    
+            .golden__habit__division{
+                width: 100%;
+                height: 50px;
+                margin-top: 0;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+            }
+        }
     }
 
     .nuevo__habito{
@@ -232,17 +226,15 @@ body{
     .main__container{
 
         .division__container__number1{
+            width: 100%;
+            display: grid;
             grid-template-columns: 13px 1fr 1fr 1fr 13px;
         }
-    }
-}
-
-
+    
         .golden__habit{
-        width: 80%;
-        height: 35px;
-        margin-bottom: 0px;
-        
+            width: 80%;
+            height: 35px;
+            margin-bottom: 0px;
         }
 
         .graphic__container{
@@ -250,14 +242,13 @@ body{
             height: 100%;
         }
 
-
         .graphic__container__button__division{
             width: 80%;
         }
 
         .graphic__container__plus{
             width: 100%;
-            }      
-        }
+        }      
     }
 }
+
