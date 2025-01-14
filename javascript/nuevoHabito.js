@@ -275,6 +275,9 @@ export function cargarHabitos(){
         nuevoHabito.className = 'nuevo__habito';
         nuevoHabito.style.backgroundColor = habit.color || "gray";
 
+        //Asignacion de ID al habito de la grafica
+        nuevoHabito.datainfo.id = habit.id;
+
         //Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
     });
@@ -417,6 +420,8 @@ function habitoCompletado(habitId) {
         const habit__icon = habitElement.querySelector(".habit__icon");
         const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
 
+        console.log(buttonCompletar)
+
         if (habit.ultimoDia === today) {
             habit.days = Math.max(0, habit.days - 1); 
             habit.ultimoDia = null; 
@@ -424,6 +429,7 @@ function habitoCompletado(habitId) {
 
             const colorDeterminado = isDarkMode() ? '#ffffff' : '#000000';
 
+            console.log(buttonCompletar)
             //Resetea los estilos
             buttonCompletar.style.borderColor = "black";
             buttonCompletar.style.color = "black";
@@ -456,6 +462,10 @@ function habitoCompletado(habitId) {
         // Actualizar el contador de días en el DOM
         const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
         habitNumberElement.textContent = habit.days;
+
+        //Se llama a la funcion que actualiza el habito en la grafica
+        //actualizarGrafica(habitId);
+
     } else {
         console.error(`No se encontró el hábito con el ID: ${habitId}`);
     }
@@ -488,13 +498,12 @@ function restaurarColorDeHabitos() {
     });
 }
 
-function habitoDeGraficaCompletado(habitId){
+function actualizarGrafica(habitId){
 
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
     const habitElement = document.querySelector(`[data-id="${habitId}"]`);
 
-    
 
 
 

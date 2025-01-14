@@ -239,10 +239,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.nuevo__habito .expandir-habito {
-  transition: all 0.2s ease-in-out;
-  transform: scale(1.1);
+  transition: width 0.3s ease;
 }
 
 @media (max-width: 905px) {
@@ -1439,10 +1436,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.nuevo__habito .expandir-habito {
-  transition: all 0.2s ease-in-out;
-  transform: scale(1.1);
+  transition: width 0.3s ease;
 }
 
 @media (max-width: 905px) {
