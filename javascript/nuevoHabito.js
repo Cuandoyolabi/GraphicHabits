@@ -1,3 +1,4 @@
+
 "use strict";
 
 //Se utilizaran estas fuciones en (HabitoCompletado)
@@ -22,6 +23,19 @@ export function inicializadorSelectorDeColor(){
         opcion.addEventListener("click", () => {
             
             colorSeleccionado = opcion.style.backgroundColor;
+
+const colors =  [
+    "#FF5773",
+    "#33FF73",
+    "#335773",
+    "#FFC300",
+    "#16A085",
+]
+
+
+//  -----------Main seccion 1---------- //
+export function crearNuevoHabito(event){
+
 
             opcionesDeColor.forEach((opcion) => opcion.classList.remove("seleccionado"));
             opcion.classList.add("seleccionado");
@@ -166,7 +180,11 @@ export function mostrarlModal(){
     cubierta__container__id.style.display = 'block';
 }
 
+
 //Cerrar modal
+
+//Cerrar Modal
+
 export function cerrarModal(){
 
     const modal = document.getElementById('modal');
@@ -210,7 +228,11 @@ export  function guardarHabitos(){
     localStorage.setItem("habitos", JSON.stringify(habitos));
 }
 
+
 // Funcion para cargar habitos desde localStorage a la grafica y al contenedor
+
+// Funcion para cargar habitos desde localStorage
+
 export function cargarHabitos(){
     
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -324,6 +346,7 @@ export function cargarHabitoConfiguracion() {
 }
 
 document.addEventListener("DOMContentLoaded", cargarHabitos);
+
 cargarHabitoConfiguracion();
 
 //Funcion que elimina el habito seleccionado
@@ -521,4 +544,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activateNightMode();
     };
 });
+
+
+
 

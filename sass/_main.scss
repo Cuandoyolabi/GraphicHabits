@@ -1,16 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Plus Jakarta Sans", sans-serif;
-
-}
 
 body{
-    width: 100%;
-    height: 100vh;
+    overflow-y: hidden;
+    height: 100%;
+    position: fixed;
+
 }
 
 .main__container{
@@ -34,3 +28,6 @@ body{
 
     } 
 }
+
+
+

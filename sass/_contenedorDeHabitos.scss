@@ -6,6 +6,8 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    transition: all 0.5s ease-in-out;
+    
 
     .habits__container{
         width: 80%;
@@ -23,7 +25,6 @@
             background-color: #191919;
             box-shadow: none;
         }
-
 
         .ventana__nueva{
             width: 80%;
@@ -163,6 +164,7 @@
 
     .division__container__number2{
 
+
         .habits__container{
             width: 90%;
         }
@@ -174,6 +176,8 @@
     
 }
 
+
+
 @media (max-width: 905px){
 
     .division__container__number2{
@@ -183,6 +187,8 @@
         display: grid;
         grid-template-columns: 50px 1fr 1fr 1fr 50px;
         grid-template-rows: 20px 1fr  1fr 20px;
+        transition: all 0.5s ease-in-out;
+
 
         .habits__container{
             width: 100%;
@@ -209,6 +215,7 @@
         align-items: center;
         padding: 5px;
         font-size: 14px;
+
     
         .nuevo__recuadro__Abajo{
 
@@ -217,7 +224,7 @@
             }
         }
     }
-}
+
 
 @media(max-width: 590px){
 
@@ -251,7 +258,6 @@
 }
 
 @media (max-width: 470px){
-
 
     .nuevo__habitoAgregado{
         width: 105px;

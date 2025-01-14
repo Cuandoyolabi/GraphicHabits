@@ -11,7 +11,6 @@
 
 <!--Tareas pendientes
 
-
 7-Hacer que la grafica suba un pixel cada que el habito sea completado (EN PROCESO)
 
 
@@ -37,6 +36,20 @@ Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
 
 10-Modificar el hover de los botones cuando esta en modo blanco 
 11-Hacer que se encienda el boton amarillo arriba de la grafica, cuando todos los habitos esten completos
+
+1-Implementar colores en el modal que no sean negro ni blanco.
+2-Implementar codigo que habilite que el habito se hizo ese dia.
+3-Como guardo y donde, el hecho que el habito se hizo o no se hizo.
+4-Mejorar la interfaz de los habitos creados tanto en computadora, como en telefono.
+5-Mejorar la interfaz del modal para crear habitos.
+
+6-Que se guarda la informacion en localStorage (En proceso)
+7-Arreglar la composicion de la pagina, que esta descuadrada. (En proceso)
+8-Arreglar la pagina, para poder visualizarla en telefono. (En proceso)
+9-Arreglar la pagina, para poader visualizarla en tablet. (En proceso)
+10-Decidir si el codigo sera en ingles o en español
+11-Hacer mas chico el menu de perfil y darle funcionalidad a las paginas
+
 -->
 
 <body>
@@ -86,7 +99,7 @@ Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
                 </div>
             </div>
 
-             <!--Ventana de creacion del nuevo habito-->
+             <!--Modal de creacion del nuevo habito-->
              <div id="modal" class="modal__container">
                 <form class="habitForm" id="habitForm">
                     <div class="modal__options">
@@ -96,10 +109,12 @@ Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
                     
                     <!--Aqui-->
                     <div class="modal__content">
+
                         <div class="modal__content__union">
                             <label class="habitName__label" for="habitName">Habito:</label>                      
                             <input type="text" class="habitName" id="habitName" name="habitName"  autocomplete="off" placeholder="Nombre" required>
                         </div>
+
 
                         <div class="separacion__Colores">
                             <label class="habitColor__label">Color:</label>
@@ -117,7 +132,21 @@ Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
                                 <div class="color__opcion" style="background-color: rgb(199, 158, 247);"></div>
                                 <div class="color__opcion" style="background-color: rgb(146, 241, 178);"></div>
                             </div>
+
+                        <div class="separacion__de__habitos"> 
+                            <div class="color-option" style="background-color: rgb(81, 236, 159);"></div>
+                            <div class="color-option" style="background-color: rgb(155, 252, 255);"></div>
+                            <div class="color-option" style="background-color: rgb(108, 235, 125);"></div>
+                            <div class="color-option" style="background-color: rgb(139, 97, 206);"></div>
+                            <div class="color-option" style="background-color: rgb(207, 90, 172);"></div>
+                            <div class="color-option" style="background-color: rgb(211, 76, 105);"></div>
+                            <div class="color-option" style="background-color: rgb(224, 191, 100);"></div>
+                            <div class="color-option" style="background-color: rgb(231, 156, 87);"></div>
+
                         </div>
+                        
+                    </div>
+
                 </form>
             </div>
         </div>
