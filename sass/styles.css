@@ -126,7 +126,7 @@ body {
 }
 .division__container.active {
   background: rgb(93, 93, 93);
-  background: linear-gradient(0deg, rgb(93, 93, 93) 0%, rgb(0, 0, 0) 96%);
+  background: linear-gradient(320deg, rgb(49, 49, 49) 0%, rgb(0, 0, 0) 96%);
 }
 .division__container .division__container__number1 {
   width: 55%;
@@ -1293,7 +1293,7 @@ body {
 }
 .division__container.active {
   background: rgb(93, 93, 93);
-  background: linear-gradient(0deg, rgb(93, 93, 93) 0%, rgb(0, 0, 0) 96%);
+  background: linear-gradient(320deg, rgb(49, 49, 49) 0%, rgb(0, 0, 0) 96%);
 }
 .division__container .division__container__number1 {
   width: 55%;
