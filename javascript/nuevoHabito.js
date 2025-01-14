@@ -1,4 +1,3 @@
-
 "use strict";
 
 //Se utilizaran estas fuciones en (HabitoCompletado)
@@ -173,11 +172,6 @@ export function mostrarlModal(){
     cubierta__container__id.style.display = 'block';
 }
 
-
-//Cerrar modal
-
-//Cerrar Modal
-
 export function cerrarModal(){
 
     const modal = document.getElementById('modal');
@@ -221,11 +215,7 @@ export  function guardarHabitos(){
     localStorage.setItem("habitos", JSON.stringify(habitos));
 }
 
-
-// Funcion para cargar habitos desde localStorage a la grafica y al contenedor
-
 // Funcion para cargar habitos desde localStorage
-
 export function cargarHabitos(){
     
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -339,7 +329,6 @@ export function cargarHabitoConfiguracion() {
 }
 
 document.addEventListener("DOMContentLoaded", cargarHabitos);
-
 cargarHabitoConfiguracion();
 
 //Funcion que elimina el habito seleccionado
@@ -526,7 +515,6 @@ habitsContainer.addEventListener("click", (event) => {
 
     }
 });
-
 
 //Recarga la pagina automaticamente
 document.addEventListener("DOMContentLoaded", () => {
