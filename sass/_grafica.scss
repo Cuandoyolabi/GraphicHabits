@@ -24,13 +24,13 @@ body{
 
     // Grafica
     .division__container__number1{
-    width: 55%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s ease-in-out;
+        width: 55%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease-in-out;
 
     .golden__habit__division{
         width: 80%;
@@ -43,17 +43,13 @@ body{
         background: linear-gradient(0deg, rgba(182,182,182,1) 9%, rgba(255,255,255,1) 93%);
         
         &.active{
-            
             background-color: #191919;
             background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
-            //background: rgb(93,93,93);
-            //background: linear-gradient(0deg, rgba(93,93,93,1) 0%, rgba(0,0,0,1) 96%);
         }
-    
-
-        justify-content: flex-end;
-        align-items: center;
-        border-radius: 10px;
+        //
+        //justify-content: flex-end;
+        //align-items: center;
+        //border-radius: 10px;
     }
 
     .golden__habit{
@@ -86,8 +82,8 @@ body{
         }
     }
 
-        .golden__habit{
-            width: 100px;
+    .golden__habit{
+        width: 100px;
             height: 40px;
             display: flex;
             justify-content: center;
@@ -96,8 +92,8 @@ body{
             margin-bottom: 15px;
             border-radius: 5px;
             background-color: rgb(133, 133, 133)
-        }
-        .graphic__container{
+    }
+    .graphic__container{
             width: 80%;
             height: 400px;
             display: flex;
@@ -113,7 +109,7 @@ body{
                 background-color: #191919;
                 box-shadow: none;
             }
-        }
+    }
 
     .graphic__container__button__division{
         width: 80%;
@@ -162,6 +158,7 @@ body{
             box-shadow: none;
             color: white;
 
+            }
         }
     }
 }
@@ -179,8 +176,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-
-
 
 @media (max-width: 905px){
     
@@ -201,7 +196,7 @@ body{
         .box1{
             grid-column-start: 4;
             grid-row-start: 3;
-    }
+        }
 
         .box3{
             grid-column-start: 2;
@@ -210,16 +205,13 @@ body{
         }
 
         .golden__habit__division{
-        width: 100%;
-        height: 50px;
-        margin-top: 0;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        
+            width: 100%;
+            height: 50px;
+            margin-top: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
         }
-
-        
     }
 
     .nuevo__habito{
@@ -234,22 +226,18 @@ body{
         .division__container__number1{
             grid-template-columns: 13px 1fr 1fr 1fr 13px;
         }
-    }
-}
-
-
+    
         .golden__habit{
-        width: 80%;
-        height: 35px;
-        margin-bottom: 0px;
-        
+            width: 80%;
+            height: 35px;
+            margin-bottom: 0px;
+     
         }
 
         .graphic__container{
             width: 100%;
             height: 100%;
         }
-
 
         .graphic__container__button__division{
             width: 80%;

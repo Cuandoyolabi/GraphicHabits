@@ -22,7 +22,10 @@ export function inicializadorSelectorDeColor(){
     opcionesDeColor.forEach((opcion) => {
         opcion.addEventListener("click", () => {
             
-            colorSeleccionado = opcion.style.backgroundColor;
+            colorSeleccionado = opcion.style.backgroundColor;        
+        }
+    )}
+)};
 
 const colors =  [
     "#FF5773",
@@ -32,16 +35,6 @@ const colors =  [
     "#16A085",
 ]
 
-
-//  -----------Main seccion 1---------- //
-export function crearNuevoHabito(event){
-
-
-            opcionesDeColor.forEach((opcion) => opcion.classList.remove("seleccionado"));
-            opcion.classList.add("seleccionado");
-        });
-    });
-} 
 
 inicializadorSelectorDeColor();
 
