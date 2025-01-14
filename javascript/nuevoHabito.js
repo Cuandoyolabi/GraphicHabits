@@ -483,6 +483,18 @@ function restaurarColorDeHabitos() {
     });
 }
 
+function habitoDeGraficaCompletado(habitId){
+
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
+    const habitElement = document.querySelector(`[data-id="${habitId}"]`);
+
+    
+
+
+
+}
+
 // Aquí seleccionamos el contenedor principal donde se agregan dinámicamente los hábitos
 const habitsContainer = document.getElementById("habits__container__list__id");
 

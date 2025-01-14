@@ -710,7 +710,7 @@ body {
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar:hover,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion:hover {
   background-color: #dadada;
-  border: 1px solid rgb(155, 155, 155);
+  border: 1px solid rgb(92, 92, 92);
 }
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.selected,
 .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.selected,
