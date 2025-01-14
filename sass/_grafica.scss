@@ -75,14 +75,14 @@ body{
 
     .golden__habit{
         width: 100px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-self: flex-end;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            background-color: rgb(133, 133, 133)
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        background-color: rgb(133, 133, 133)
     }
     .graphic__container{
             width: 80%;
@@ -163,6 +163,29 @@ body{
             .graphic__container{
                 width: 100%;
                 height: 100%;
+            }
+
+            .graphic__container__button__division{
+                display: flex;
+                justify-content: flex-start;
+
+                .graphic__container__plus{
+                    width: 80%;
+                }
+            }
+
+            .golden__habit__division{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                margin-top: 3px;
+
+                .golden__habit{
+                    width: 80%;
+                    align-self: flex-end;
+                    margin-bottom: 0px;
+                }
             }
 
             .box2{
