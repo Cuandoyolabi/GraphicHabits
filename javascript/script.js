@@ -1,6 +1,6 @@
 import { activateNightMode } from "./modoOscuro.js";
 import { crearNuevoHabito, mostrarlModal, cerrarModal } from "./nuevoHabito.js";
-import { cerrarPerfil, mostrarPerfil, perfil__emergente__id } from "./ventanaPerfil.js";
+import { cerrarPerfil, mostrarPerfil, mostrarConfiguracionHabitos, mostrarConfiguracionContacto, mostrarConfiguracionApariencia, mostrarConfiguracionInformacion } from "./ventanaConfiguracion.js";
 
 
 //Modo oscuro
@@ -40,6 +40,34 @@ abrir__ventana__perfil.addEventListener("click", () => {
 });
 
 
+const seccionHabitos = document.getElementById("configuracionHabitos");
+seccionHabitos.addEventListener("click", () => {
 
+    mostrarConfiguracionHabitos();
+
+});
+
+const seccionApariencia = document.getElementById("configuracionApariencia");
+seccionApariencia.addEventListener("click", () => {
+
+    mostrarConfiguracionApariencia();
+
+});
+
+const seccionContacto = document.getElementById("configuracionContacto");
+seccionContacto.addEventListener("click", () => {
+
+    mostrarConfiguracionContacto();
+
+});
+
+const configuracionInformacion  = document.getElementById("configuracionInformacion");
+configuracionInformacion.addEventListener("click", () => {
+
+    mostrarConfiguracionInformacion();
+
+});
+
+//document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
 
 

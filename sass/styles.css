@@ -12,14 +12,25 @@
   transition: background-color 0.5s;
 }
 .header__container.active {
-  background-color: black;
+  background-color: #141414;
 }
 .header__container .brand__container {
-  width: 150px;
+  width: 190px;
   height: 45px;
   margin-left: 50px;
   border-radius: 30px;
   background-color: rgb(230, 230, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__container .brand__container.active {
+  background-color: #535353;
+  color: rgb(204, 204, 204);
+}
+.header__container .brand__container .brand__container__title {
+  font-weight: 300;
+  font-size: 18px;
 }
 .header__container .nav__container {
   display: flex;
@@ -81,6 +92,14 @@ body {
   height: 100vh;
 }
 
+
+body {
+  height: 100%;
+  position: fixed;
+}
+
+
+
 .main__container {
   width: 100%;
   height: 80%;
@@ -108,9 +127,15 @@ body {
   background: rgb(182, 182, 182);
   background: linear-gradient(0deg, rgb(182, 182, 182) 9%, rgb(255, 255, 255) 93%);
 }
+
+.main__container .division__container.active {
+  background-color: #191919;
+  background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
+
 .division__container.active {
   background: rgb(93, 93, 93);
   background: linear-gradient(0deg, rgb(93, 93, 93) 0%, rgb(0, 0, 0) 96%);
+
 }
 .division__container .division__container__number1 {
   width: 55%;
@@ -152,9 +177,14 @@ body {
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
   transition: background-color 0.5s;
 }
+
+.main__container .division__container__number1 .graphic__container.active {
+  background-color: #191919;
+
 .division__container .division__container__number1 .graphic__container.active {
   background: rgb(115, 115, 115);
   background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+
   box-shadow: none;
 }
 .division__container .division__container__number1 .graphic__container__button__division {
@@ -177,16 +207,47 @@ body {
   border: 1.5px solid grey;
   box-shadow: 0px 3px 1px rgb(160, 159, 159);
 }
+
+.main__container .division__container__number1 .graphic__container__plus.active {
+  background-color: #191919;
+
 .division__container .division__container__number1 .graphic__container__plus.active {
   background-color: black;
+
   box-shadow: none;
   color: white;
 }
 .division__container #division__container__id.active {
   background-color: rgb(0, 0, 0);
 }
+
+
+.nuevo__habito {
+  width: 50px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 905px) {
+  body {
+    position: absolute;
+    overflow-y: auto;
+    overflow: hidden;
+  }
+  .main__container {
+    height: -moz-min-content;
+    height: min-content;
+  }
+  .main__container .division__container {
+    flex-direction: column;
+  }
+  .main__container .division__container__number1 {
+
 @media (max-width: 905px) {
   .division__container .division__container__number1 {
+
     width: 100%;
     height: 50%;
     display: grid;
@@ -231,6 +292,14 @@ body {
   .division__container .division__container__number1 .graphic__container__plus {
     width: 100%;
   }
+  .nuevo__habito {
+    width: 40px;
+  }
+}
+@media (min-width: 390px) and (max-width: 450px) {
+  .main__container .division__container__number1 {
+    grid-template-columns: 13px 1fr 1fr 1fr 13px;
+  }
 }
 
 .cubierta__container {
@@ -245,9 +314,10 @@ body {
 }
 
 .modal__container {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   position: absolute;
+  top: 20%;
   display: none;
   justify-content: center;
   align-items: center;
@@ -258,33 +328,45 @@ body {
 }
 .modal__container .modal__options {
   width: 90%;
+  height: 50px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 .modal__container .modal__options .close {
+  color: rgb(255, 7, 7);
+  font-weight: 500;
   font-size: 15px;
   cursor: pointer;
 }
 .modal__container .modal__options .guardar__habito {
-  width: 80px;
-  height: 30px;
   font-size: 15px;
-  border-radius: 18px;
+  font-weight: 500;
+  color: rgb(0, 17, 255);
+  background-color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
-  background-color: white;
+}
+.modal__container .modal__options .guardar__habito.active {
+  background-color: #191919;
 }
 .modal__container .modal__content {
   width: 100%;
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
-  padding: 10px 25px;
-  border: 1px solid black;
+  padding: 10px 17px;
+}
+.modal__container .modal__content .modal__content__union {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 .modal__container .modal__content .habit__form__num1, .modal__container .modal__content .habit__form__num2 {
   width: 90px;
@@ -301,29 +383,35 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid white;
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
 .modal__container .habitForm.active {
-  background-color: black;
+  background-color: #191919;
   color: white;
   box-shadow: none;
 }
 .modal__container .habitForm .habitName__label {
   align-self: flex-start;
   font-size: 17px;
-  margin-bottom: 5px;
 }
 .modal__container .habitForm .habitName {
-  width: 100%;
-  height: 30px;
+  width: 85%;
+  height: 35px;
+  margin-top: 8px;
   margin-bottom: 20px;
   border-radius: 5px;
   margin-right: auto;
   border: none;
+  padding-left: 10px;
   border: 1.5px solid rgb(153, 153, 153);
 }
+
+.modal__container .habitForm .habitName.active {
+  background-color: #191919;
+  color: white;
+
 .modal__container .habitForm .separacion__de__habitos {
   width: 100%;
   height: 100px;
@@ -359,80 +447,53 @@ body {
 .perfil__emergente.active {
   background-color: rgb(0, 0, 0);
   color: rgb(0, 0, 0);
-}
 
-.perfil__emergente__opciones {
+}
+.modal__container .habitForm .separacion__Colores {
   width: 100%;
   height: 100%;
-  list-style: none;
-  padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 20px;
+  margin-top: 15px;
+  margin-left: 2px;
+  gap: 10px;
 }
-.perfil__emergente__opciones.active {
-  border: 1px solid rgb(102, 102, 102);
-  background: radial-gradient(circle, rgb(14, 14, 14) 0%, rgb(29, 29, 29) 100%);
+.modal__container .habitForm .separacion__Colores .habitColor__label {
+  font-size: 19px;
+  margin-left: 5px;
 }
-
-.perfil__emergente__cuenta {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
-  gap: 40px;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(0, 0, 0);
+.modal__container .habitForm .separacion__Colores .color__opcion {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
   cursor: pointer;
+  margin: 5px;
+  border: 2px solid rgb(255, 255, 255);
 }
-.perfil__emergente__cuenta:hover {
-  background-color: rgba(204, 204, 204, 0.822);
-}
-.perfil__emergente__cuenta.active {
-  background-color: black;
-  border: 1px solid white;
-  color: white;
-}
-.perfil__emergente__cuenta.active:hover {
-  background-color: rgba(113, 113, 113, 0.727);
+.modal__container .habitForm .separacion__Colores .color__opcion.seleccionado {
+  border: 3px solid black;
 }
 
-.icon__perfil {
-  font-size: 25px;
+@media (max-width: 900px) {
+  .modal__container {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+  }
 }
-
-.perfil__emergente__opcion {
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 40px;
-  padding: 20px;
-  cursor: pointer;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(0, 0, 0);
+@media (max-width: 605px) {
+  .modal__container {
+    position: absolute;
+    top: 20%;
+    left: 16%;
+  }
 }
-.perfil__emergente__opcion:hover {
-  background-color: rgba(204, 204, 204, 0.822);
+@media (min-width: 390px) and (max-width: 450px) {
+  .modal__container {
+    top: 10%;
+  }
 }
-.perfil__emergente__opcion.active {
-  background-color: black;
-  border: 1px solid white;
-  color: white;
-}
-.perfil__emergente__opcion.active:hover {
-  background-color: rgba(163, 163, 163, 0.727);
-}
-
 .division__container__number2 {
   width: 45%;
   height: 95%;
@@ -444,7 +505,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .division__container__number2 .habits__container {
-  width: 90%;
+  width: 80%;
   height: 360px;
   display: flex;
   flex-direction: column;
@@ -456,7 +517,7 @@ body {
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
 }
 .division__container__number2 .habits__container.active {
-  background-color: black;
+  background-color: #191919;
   box-shadow: none;
 }
 .division__container__number2 .habits__container .ventana__nueva {
@@ -482,33 +543,108 @@ body {
 
 .habits__container__list {
   width: 99%;
-  height: 99%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 95%;
+  display: grid;
   align-items: center;
-  gap: 15px;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 10px 10px;
+  gap: 5px;
 }
 
 .nuevo__habitoAgregado {
-  width: 95%;
-  height: 47px;
+  width: 100%;
+  max-width: 150px;
+  height: 90%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  font-size: 24px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 13px;
+  align-items: flex-start;
+  font-size: 10px;
   list-style: none;
-  color: black;
+  border-radius: 15px;
+  border: 1px solid black;
 }
-
-.buttonCompletar {
+.nuevo__habitoAgregado.active {
+  border: 1px solid white;
+  color: white;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px 5px 8px;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .buttonCompletar {
   width: 38px;
   height: 38px;
   border-radius: 50%;
+  border: 1px solid black;
+  background-color: white;
   cursor: pointer;
 }
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .buttonCompletar.active {
+  background-color: #191919;
+  border: 1px solid white;
+  color: white;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto .recuadroArriba__numero {
+  font-size: 30px;
+  font-weight: 600;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Arriba .recuadroArriba__Conjunto .habit__icon {
+  font-size: 25px;
+  padding-left: 5px;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Medio {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 16px;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Medio .recuadroArriba__dias {
+  font-size: 17px;
+  font-weight: 400;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Abajo {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 12px;
+  text-transform: capitalize;
+}
+
+
+@media (max-width: 1033px) {
+  .division__container__number2 .habits__container {
+    width: 90%;
+  }
+  .division__container__number2 .nuevo__habitoAgregado {
+    width: 110px;
+  }
+}
+
 
 @media (max-width: 905px) {
   .division__container__number2 {
@@ -534,7 +670,7 @@ body {
     padding: 10px 5px;
   }
   .nuevo__habitoAgregado {
-    width: 130px;
+    width: 330px;
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -543,23 +679,433 @@ body {
     padding: 5px;
     font-size: 14px;
   }
-}
-@media (max-width: 500px) {
-  .nuevo__habitoAgregado {
-    width: 110px;
+  .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
+    font-size: 15px;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 590px) {
   .nuevo__habitoAgregado {
-    width: 90px;
+    width: 140px;
+  }
+  .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
+    font-size: 14px;
+  }
+}
+@media (max-width: 535px) {
+  .nuevo__habitoAgregado {
+    width: 130px;
     height: 100px;
+  }
+  .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
     font-size: 12px;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 470px) {
   .nuevo__habitoAgregado {
-    width: 85px;
-    font-size: 10px;
+    width: 105px;
+  }
+  .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
+    font-size: 12px;
+  }
+}
+@media (min-width: 390px) and (max-width: 450px) {
+  .division__container__number2 {
+    grid-template-columns: 13px 1fr 1fr 1fr 13px;
+  }
+}
+.ventana__configuracion {
+  width: 60%;
+  height: 75%;
+  display: none;
+  flex-direction: row;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 20px;
+  margin-top: 15px;
+  border: 1px solid rgb(197, 197, 197);
+}
+.ventana__configuracion.visible {
+  display: flex;
+}
+.ventana__configuracion.hidden {
+  display: none;
+}
+.ventana__configuracion .ventana__configuracion__izquierda {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 170px;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  background-color: rgb(218, 218, 218);
+  border: 1px solid rgb(167, 167, 167);
+}
+.ventana__configuracion .ventana__configuracion__izquierda.active {
+  background-color: #2c2c2c;
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 17px;
+  margin-top: 10px;
+  border-radius: 16px;
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding-left: 10px;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion.active {
+  background-color: #202020;
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.active.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.active.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.active.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion.active.selected {
+  border: 1px solid white;
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.active:hover,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.active:hover,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.active:hover,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion.active:hover {
+  background-color: rgb(56, 56, 56);
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia:hover,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos:hover,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar:hover,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion:hover {
+  background-color: #dadada;
+  border: 1px solid rgb(92, 92, 92);
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar.selected,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion.selected {
+  border: 1.5px solid rgb(0, 0, 0);
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .icon__configuracion,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .icon__configuracion,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .icon__configuracion,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion .icon__configuracion {
+  font-size: 20px;
+  color: rgba(58, 54, 54, 0.973);
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .icon__configuracion.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .icon__configuracion.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .icon__configuracion.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion .icon__configuracion.active {
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .opciones__configuracion__texto,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .opciones__configuracion__texto,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .opciones__configuracion__texto,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion .opciones__configuracion__texto {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgb(61, 61, 61);
+}
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .opciones__configuracion__texto.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .opciones__configuracion__texto.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .opciones__configuracion__texto.active,
+.ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__informacion .opciones__configuracion__texto.active {
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia {
+  width: 67%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+  border: 1px solid rgb(167, 167, 167);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia.hidden {
+  display: none;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia.visible {
+  display: flex;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia.active {
+  background-color: #202020;
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia {
+  width: 96%;
+  height: 20%;
+  padding: 20px 10px;
+  border-radius: 8px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__separacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__titulo {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__titulo2 {
+  font-size: 18px;
+  font-weight: 300;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__texto {
+  font-size: 12px;
+  font-weight: 200;
+  color: rgb(26, 26, 26);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Apariencia .ventana__apariencia .ventana__apariencia__texto.active {
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos {
+  width: 67%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+  border: 1px solid rgb(167, 167, 167);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos.active {
+  background-color: #202020;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos.hidden {
+  display: none;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos.visible {
+  display: flex;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .ventana__habitos__lista {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(78, 78, 78);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion.active {
+  background-color: #2c2c2c;
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__separacion {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar {
+  width: 80px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid gray;
+  color: blue;
+  transition: 0.3s ease;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar.active {
+  background-color: #202020;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar:hover {
+  background-color: rgb(95, 95, 95);
+  color: rgb(255, 255, 255);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar {
+  width: 80px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid gray;
+  color: red;
+  transition: 0.3s ease;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar.active {
+  background-color: #202020;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar:hover {
+  background-color: rgb(95, 95, 95);
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__nombre {
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 30px;
+  text-transform: capitalize;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .ventana__habitos {
+  width: 96%;
+  height: 50%;
+  padding: 20px 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .ventana__habitos__titulo {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Habitos .ventana__habitos__titulo.active {
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion {
+  width: 67%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+  border: 1px solid rgb(167, 167, 167);
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion.hidden {
+  display: none;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion.visible {
+  display: flex;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion.active {
+  background-color: #202020;
+  color: white;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion {
+  width: 96%;
+  height: 200px;
+  padding: 20px 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion .espacioArriba {
+  padding-top: 18px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion .informacion {
+  font-size: 17px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Informacion .ventana__informacion .espacio {
+  padding-bottom: 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto {
+  width: 67%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto.active {
+  background-color: #202020;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto.hidden {
+  display: none;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto.visible {
+  display: flex;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto {
+  width: 96%;
+  height: 200px;
+  padding: 20px 10px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .ventana__contacto__titulo {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__texto {
+  font-size: 18px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .ventana__contacto__texto {
+  margin-top: 15px;
+  font-size: 18px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .espacio {
+  padding-bottom: 20px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto__separacion {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border: 1px solid black;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto__separacion .ventana__contacto__telefono {
+  width: 50%;
+  height: 50px;
+  font-weight: 300;
+  font-size: 20px;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto__separacion .ventana__contacto__email {
+  width: 50%;
+  height: 50px;
+  font-weight: 0;
+}
+.ventana__configuracion .ventana__configuracion__derecha__Contacto.active {
+  color: white;
+}
+
+@media (max-width: 1200px) {
+  .ventana__configuracion {
+    width: 85%;
+  }
+}
+@media (max-width: 810px) {
+  .ventana__configuracion {
+    width: 100%;
+    height: 90%;
+    top: 100;
+    right: 0;
+  }
+}
+@media (max-width: 690px) {
+  .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__apariencia .opciones__configuracion__texto,
+  .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__contactar .opciones__configuracion__texto,
+  .ventana__configuracion .ventana__configuracion__izquierda .opciones__configuracion__habitos .opciones__configuracion__texto {
+    font-size: 14px;
+  }
+  .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__separacion {
+    width: 50%;
+  }
+  .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar, .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar {
+    width: 60px;
+    height: 25px;
+  }
+  .ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .ventana__contacto__texto {
+    font-size: 14px;
+  }
+  .ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__texto {
+    font-size: 14px;
   }
 }
 .division__container {

@@ -5,10 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habits</title>
     <link rel="stylesheet" href="sass/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuid.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <!--Tareas pendientes
+
+7-Hacer que la grafica suba un pixel cada que el habito sea completado (EN PROCESO)
+
+
+2-Cuando edito un habito, se crea otro.
+2-Poder modificar el nombre del habito y el color. (Es posible editar el nombre, hay fallas con el color)
+
+Cuando el habito se crea en modo oscuro, no se hace la ventana blanca (EN PROCESO)
+
+
+Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
+
+
+3-Agregar a un limite a las letras de los habitos (EN PROCESO)
+
+4-Agregarle un hover al menu principal de la pagina, en donde esta el titulo
+
+5-Mejorar la interfaz del modal en computadora y en telefono
+
+7-Arreglar los habitos del contenedor, cuando se hace oscuro, ellos se vuelven negros
+
+
+10-Anunciar que solo se pueden crear 6 habitos cuando desees clickear el boton de crear.
+
+10-Modificar el hover de los botones cuando esta en modo blanco 
+11-Hacer que se encienda el boton amarillo arriba de la grafica, cuando todos los habitos esten completos
 
 1-Implementar colores en el modal que no sean negro ni blanco.
 2-Implementar codigo que habilite que el habito se hizo ese dia.
@@ -22,14 +49,16 @@
 9-Arreglar la pagina, para poader visualizarla en tablet. (En proceso)
 10-Decidir si el codigo sera en ingles o en español
 11-Hacer mas chico el menu de perfil y darle funcionalidad a las paginas
+
 -->
 
 <body>
-    
     <header>
-      
+    
         <div class="header__container">
-            <div class="brand__container"></div>
+            <div class="brand__container">
+                <h2 class="brand__container__title">GraphicHabits</h2>
+            </div>
             <nav class="nav__container">
             
                 <!--Boton para oscurecer la pagina-->
@@ -39,7 +68,7 @@
 
                 <!--Boton para el perfil-->
                 <div class="profile__section" id="abrir__ventana__perfil">
-                    <i class="fa-regular fa-user"></i>
+                    <i class="fa-solid fa-house"></i>
                 </div>
 
             </nav>
@@ -78,12 +107,31 @@
                         <button class="guardar__habito" type="submit">Guardar</button>
                     </div>
                     
+                    <!--Aqui-->
                     <div class="modal__content">
 
                         <div class="modal__content__union">
                             <label class="habitName__label" for="habitName">Habito:</label>                      
-                            <input type="text" class="habitName" id="habitName" name="habitName"  placeholder="Nombre" required>
+                            <input type="text" class="habitName" id="habitName" name="habitName"  autocomplete="off" placeholder="Nombre" required>
                         </div>
+
+
+                        <div class="separacion__Colores">
+                            <label class="habitColor__label">Color:</label>
+                            <div class="separacion__ColoresFlex">
+                                <div class="color__opcion" style="background-color: aqua;"></div>
+                                <div class="color__opcion" style="background-color: rgb(63, 255, 72);"></div>
+                                <div class="color__opcion" style="background-color: rgb(37, 78, 211);"></div>
+                                <div class="color__opcion" style="background-color: rgb(219, 68, 207);"></div>
+                                <div class="color__opcion" style="background-color: rgb(247, 185, 52);"></div>
+                                <div class="color__opcion" style="background-color: rgb(253, 240, 48);"></div>
+                                <div class="color__opcion" style="background-color: rgb(238, 62, 56);"></div>
+                                <div class="color__opcion" style="background-color: rgb(147, 32, 255);"></div>
+                                <div class="color__opcion" style="background-color: rgb(224, 71, 130);"></div>
+                                <div class="color__opcion" style="background-color: rgb(175, 219, 73);"></div>
+                                <div class="color__opcion" style="background-color: rgb(199, 158, 247);"></div>
+                                <div class="color__opcion" style="background-color: rgb(146, 241, 178);"></div>
+                            </div>
 
                         <div class="separacion__de__habitos"> 
                             <div class="color-option" style="background-color: rgb(81, 236, 159);"></div>
@@ -94,6 +142,7 @@
                             <div class="color-option" style="background-color: rgb(211, 76, 105);"></div>
                             <div class="color-option" style="background-color: rgb(224, 191, 100);"></div>
                             <div class="color-option" style="background-color: rgb(231, 156, 87);"></div>
+
                         </div>
                         
                     </div>
@@ -102,19 +151,92 @@
             </div>
         </div>
 
-        <!--Ventana del perfil-->
-        <div class="perfil__emergente" id="perfil__emergente__id">
-                <ul class="perfil__emergente__opciones">
-                    <li class="perfil__emergente__cuenta"><i class="fa-regular fa-user icon__perfil"></i>Cuenta </li>
-                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-gear icon__perfil"></i>Configuracion</li>
-                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-sliders icon__perfil"></i>Apariencia</li>
-                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-fire icon__perfil"></i>Habitos</li>
-                    <li class="perfil__emergente__opcion"><i class="fa-regular fa-folder-open icon__perfil"></i>Ordenar Habitos</li>
-                    <li class="perfil__emergente__opcion"><i class="fa-solid fa-chart-column icon__perfil"></i>Grafica</li>
-                    <li class="perfil__emergente__opcion"><i class="fa-regular fa-id-badge icon__perfil"></i>Contactame</li>
-                </ul>
-        </div>
+        <!--Ventana de configuracion-->
+        <div class="ventana__configuracion" id="ventana__configuracion__id">
 
+            <!--Ventana de opciones-->
+            <div class="ventana__configuracion__izquierda">
+                <div class="opciones__configuracion">
+                    <!--Apariencia-->
+                    <div class="opciones__configuracion__apariencia" id="configuracionApariencia">
+                        <i class="fa-solid fa-sliders icon__configuracion"></i>
+                        <h2  class="opciones__configuracion__texto">Configuracion</h2>
+                    </div>
+                    <!--Habitos-->
+                    <div class="opciones__configuracion__habitos" id="configuracionHabitos">
+                        <i class="fa-solid fa-fire icon__configuracion"></i>
+                        <h2 class="opciones__configuracion__texto">Habitos</h2>
+                    </div>
+                    <!--Informacion-->
+                    <div class="opciones__configuracion__informacion" id="configuracionInformacion">
+                        <i class="fa-solid fa-circle-info icon__configuracion"></i>
+                        <h2 class="opciones__configuracion__texto">Informacion</h2>
+                    </div>
+                    <!--Contacto-->
+                    <div class="opciones__configuracion__contactar" id="configuracionContacto">
+                        <i class="fa-solid fa-reply icon__configuracion"></i>
+                        <h2 class="opciones__configuracion__texto">Contactame</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!--Ventana de apariencia-->
+            <div class="ventana__configuracion__derecha__Apariencia" id="ventana__configuracion__derecha__Apariencia__id">
+                <div class="ventana__apariencia">
+                    <h2 class="ventana__apariencia__titulo">Mi configuracion</h2>
+                    <hr>
+                    <div class="ventana__apariencia__separacion">
+                        <div class="ventana__apariencia__division">
+                            <h3 class="ventana__apariencia__titulo2">Apariencia</h3>                        
+                            <p class="ventana__apariencia__texto">Selecciona como HabitsApp se vera en tu dispositivo</p>
+                        </div>
+                        <button>Color: Blanco</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Ventana de habitos-->
+            <div class="ventana__configuracion__derecha__Habitos" id="ventana__configuracion__derecha__Habitos__id">
+                <div class="ventana__habitos">
+                    <h2 class="ventana__habitos__titulo">Mis habitos</h2>
+                    <hr>
+                    <!--Aqui se agregan los habitos desde JavaScript-->
+                    <div class="ventana__habitos__lista" id="ventana__habitos__lista__id">
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Ventana de informacion-->
+            <div class="ventana__configuracion__derecha__Informacion" id="ventana__configuracion__derecha__Informacion__id">
+                <div class="ventana__informacion">
+                    <h2 class="ventana__informacion__titulo">Informacion</h2>
+                    <hr>
+                    <p class="informacion espacio espacioArriba ">GraphicHabits es mi proyecto favorito, es el primer proyecto "serio" de programacion que tengo y es al que mas horas le eh dedicado, 
+                        le tengo un profundo amor al arte de los habitos y a la organizacion de estos.
+                        Estoy consciente de que este proyecto facilmente tiene muchisimo potencial y se le puede dedicar muchas horas mas para hacerlo mas efectivo, 
+                        productivo y por supuesto, mejorar la interfaz u ofrecer cambios refrescantes.
+                    </p>
+                    <p class="informacion espacio">Asi como por supuesto, arreglar ciertos bugs que puedan llegar a aparecer con el uso frecuente de la aplicacion...</p>
+                   
+                    <p class="informacion espacio">Mas sin embargo, necesito pausar el avance de este proyecto para poder darme la oportunidad de crecer y mejorar mi habilidades en otras areas
+                        como Angular o la logica de programacion.</p>
+                    <p class="informacion"> Si te gusto este proyecto, no lo pienses mas y mandame un mensaje a mi correo o a mi telefono, dejando una reseña positiva!</p>
+                    <p class="informacion espacio">Mi email y telefono se encuentran en la parte de contacto</p>
+                    <p class="informacion">Con mucho amor.</p>
+                    <p class="informacion">Adam.</p>
+                </div>
+            </div>
+
+            <!--Ventana de contacto-->
+            <div class="ventana__configuracion__derecha__Contacto" id="ventana__configuracion__derecha__Contacto__id">
+                <div class="ventana__contacto">
+                    <h2 class="ventana__contacto__titulo">Contacto</h2>
+                    <hr>
+                    
+                </div>
+            </div>
+        </div>
         <!--Division del segundo contenedor, Contenedor de habitos-->
         <div class="division__container__number2">
 
@@ -126,7 +248,6 @@
                 </div>
                 
         </div>
-
     </main>
         
     <script src="./javascript/script.js" type="module"></script>
