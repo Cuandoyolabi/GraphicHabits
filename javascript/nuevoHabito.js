@@ -22,6 +22,7 @@ export function inicializadorSelectorDeColor(){
         opcion.addEventListener("click", () => {
             
             colorSeleccionado = opcion.style.backgroundColor;        
+            console.log(colorSeleccionado)
         }
     )}
 )};
@@ -78,7 +79,7 @@ export function crearNuevoHabito(event){
     //Informacion
     recuadroAbajo__texto.innerText = habitName.value;
     recuadroArriba__numero.textContent = 0;
-    recuadroArriba__Dias.textContent = "Dias";
+    recuadroArriba__Dias.textContent = "Día";
     buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
 
     //Estilos
@@ -401,8 +402,6 @@ export function obtenerIdDesdeUrl(){
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
 }
-
-//VERIFICA QUE FUNCIONE COMO EL COLOR, QUE SE USA CLOSEST
 
 // Funcion ( Completar Habito)
 function habitoCompletado(habitId) {
