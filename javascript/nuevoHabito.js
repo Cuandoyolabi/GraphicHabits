@@ -156,9 +156,10 @@ export function crearNuevoHabito(event){
     nuevoHabito.style.backgroundColor = colorSeleccionado;
     graphic__container__id.appendChild(nuevoHabito);
 
+    console.log("Llegando ??")
     //Guardamos los habitos en localStorage
     guardarHabitos();
-
+    console.log("Si llega aqui")
     //Refrescar la pagina de configuracion
     cargarHabitoConfiguracion();
 
@@ -207,6 +208,7 @@ export  function guardarHabitos(){
         let habitId =  uuid.v4();
         habitItem.dataset.id = habitId;
 
+        console.log("ID del habito: ", habitId);
         return {
             id: habitId,
             text: habitText,
@@ -216,6 +218,7 @@ export  function guardarHabitos(){
         };
     }).filter(habit => habit !== null);
 
+    console.log("Probando si llega aqui");
     localStorage.setItem("habitos", JSON.stringify(habitos));
 }
 
