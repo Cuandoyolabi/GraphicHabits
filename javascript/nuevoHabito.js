@@ -20,9 +20,12 @@ export function inicializadorSelectorDeColor(){
     const opcionesDeColor = document.querySelectorAll(".color__opcion");
     opcionesDeColor.forEach((opcion) => {
         opcion.addEventListener("click", () => {
-            
-            colorSeleccionado = opcion.style.backgroundColor;        
-            console.log(colorSeleccionado)
+
+            opcionesDeColor.forEach((opcion) =>  opcion.classList.remove("seleccionado"));
+
+            colorSeleccionado = opcion.style.backgroundColor;   
+            opcion.classList.add("seleccionado");
+
         }
     )}
 )};
