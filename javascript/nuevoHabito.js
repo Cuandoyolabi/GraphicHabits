@@ -7,13 +7,13 @@ function reiniciarPagina(){
 
     location.reload();
     
-
 }
 
 //--------------------------------------Variable global para el color seleccionado
 let colorSeleccionado = "";
 export function inicializadorSelectorDeColor(){
 
+    //---------------------------------------Selector de Color
     const opcionesDeColor = document.querySelectorAll(".color__opcion");
     opcionesDeColor.forEach((opcion) => {
         opcion.addEventListener("click", () => {
@@ -32,30 +32,31 @@ inicializadorSelectorDeColor();
 //--------------------------------------Crear Nuevo Habito
 export function crearNuevoHabito(event){
     
-    //Evitar el formulario por defecto
+    //---------------------------------------Prevenir el comportamiento por defecto del formulario
     event.preventDefault(); 
 
-    //Ids de la seccion de configuracion
+
+    //---------------------------------------Obtener elementos del DOM
     const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById('graphic__container__id');
     const habitName = document.getElementById("habitName");
     const form = document.getElementById('habitForm');
 
-    //Verifica limite de elementos
+    //---------------------------------------Limitacion de habitos
     const maximoDeElementos = 6;
     if(graphic__container__id.children.length >= maximoDeElementos){
         return;
     }
   
-    // Verificacion de que el usuario selecciono un color
+    //---------------------------------------Validacion de color
     const color = colorSeleccionado;
     if(!color){
         alert("Por favor, selecciona un color");
         return;
     }
 
-    //Agregar el habito al contenedor de habitos
+    //---------------------------------------Agregar el nuevo habito
     let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
@@ -67,13 +68,13 @@ export function crearNuevoHabito(event){
     let buttonCompletar = document.createElement("button");
     const icono__habito = document.createElement('i');
 
-    //Informacion
+    //----------------------------------------Informacion
     recuadroAbajo__texto.innerText = habitName.value;
     recuadroArriba__numero.textContent = 0;
     recuadroArriba__Dias.textContent = "Día";
     buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
 
-    //Estilos
+    //----------------------------------------Estilos
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
     nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
     recuadroArriba__numero.className = "recuadroArriba__numero";
@@ -85,7 +86,7 @@ export function crearNuevoHabito(event){
     buttonCompletar.className ="buttonCompletar";
     icono__habito.classList.add('fa-solid', 'fa-fire', "habit__icon");
 
-    //Variable que verifica la creacion del habito en modo oscuro o light
+    //-----------------------------------------Verificacion de obscuro o claro
     if(isDarkMode()){
         nuevo__habito__recuadro.style.borderColor = "#ffffff";
         recuadroAbajo__texto.style.color = "#ffffff";
@@ -94,25 +95,19 @@ export function crearNuevoHabito(event){
         recuadroArriba__numero.style.color = "#ffffff";
     }
 
-    //Estructura
+    //----------------------------------------Estructura del nuevo habito
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
-    
     nuevo__recuadro__Arriba.appendChild(recuadroArriba__Conjunto);
     nuevo__recuadro__Medio.appendChild(recuadroArriba__Dias)
-    
     recuadroArriba__Conjunto.appendChild(recuadroArriba__numero);
     recuadroArriba__Conjunto.appendChild(icono__habito);
-
     nuevo__recuadro__Arriba.appendChild(buttonCompletar);
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);      
 
-
-    /* Separacion para mejor organizacion */
-
-    //Agregar el habito a la configuracion de habitos
+    //----------------------------------------Habito creado para configuracion
     let nuevo__habito__configuracion = document.createElement("div");
     let habito__nombre = document.createElement("h2");
     let habito__separacion = document.createElement("div");
@@ -138,20 +133,20 @@ export function crearNuevoHabito(event){
     nuevo__habito__configuracion.appendChild(habito__separacion);
     ventana__habitos__lista.appendChild(nuevo__habito__configuracion);     
 
-    //Crear el nuevo habito e ingresarlo a la grafica.
+    //----------------------------------------Habito creado para la grafica
     let nuevoHabito = document.createElement('div');
     nuevoHabito.className = 'nuevo__habito';
     nuevoHabito.style.backgroundColor = colorSeleccionado;
     graphic__container__id.appendChild(nuevoHabito);
 
-    console.log("Llegando ??")
-    //Guardamos los habitos en localStorage
+
+    //----------------------------------------Guardardo en LocalStorage
     guardarHabitos();
-    console.log("Si llega aqui")
-    //Refrescar la pagina de configuracion
+
+    //----------------------------------------Habito para configuracion
     cargarHabitoConfiguracion();
 
-    //Resetear formulario y modal
+    //-----------------------------------------Reiniciar formulario y cerrar modal
     form.reset();
     cerrarModal();
 
@@ -179,20 +174,22 @@ export  function guardarHabitos(){
     const graphic__container__id = document.getElementById("graphic__container__id");
 
     const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
-        //Texto
+        
+        //----------------------------------Obtener el texto del habito
         const habitElement = habitItem.querySelector(".nuevo__recuadro__Abajo h2");
         const habitText =  habitElement ? habitElement.textContent.replace("✔", "").trim() : "";
         const graphicHabit = graphic__container__id.children[index];
-        //Color
+        
+        //----------------------------------Obtener el color del habito
         const habitColor = graphicHabit.style.backgroundColor;
 
-        //Verificacion de que el habito se implemento en la grafica y el contenedor
+        //----------------------------------Validacion de la creacion del habito
         if(!graphicHabit){
             console.error(`Error: No se encontro el elemento grafico para el indice ${index}`);
             return null;
         }
 
-        //Implementacion de ID
+        //----------------------------------Implementacion del ID
         let habitId = window.uuidv4();
         habitItem.dataset.id = habitId;
 
@@ -206,7 +203,10 @@ export  function guardarHabitos(){
         };
     }).filter(habit => habit !== null);
 
+    console.log("Este es el ID desde guardarHabitos",habitId)
     console.log("Probando si llega aqui");
+
+    //----------------------------------Guardar en localStorage
     localStorage.setItem("habitos", JSON.stringify(habitos));
 }
 
@@ -218,7 +218,7 @@ export function cargarHabitos(){
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
     habitosGuardados.forEach((habit) => {
-        //Recrea el habito con su estructura y estilos para el contenedor de habitos
+        //----------------------------------Recrea el habito despues de haber regresado a la pagina
         let nuevo__habito__recuadro = document.createElement("div"); 
         let nuevo__recuadro__Arriba = document.createElement("div");
         let nuevo__recuadro__Abajo = document.createElement("div");
@@ -230,13 +230,13 @@ export function cargarHabitos(){
         let buttonCompletar = document.createElement("button");
         const icono__habito = document.createElement('i');
 
-        //Informacion
+        //----------------------------------Asignacion de texto e informacion
         recuadroAbajo__texto.innerText = habit.text;
         recuadroArriba__numero.textContent = habit.days || 0;
         recuadroArriba__Dias.textContent = "Dias";
         buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>'; 
 
-        //Estilos
+        //----------------------------------Asignacion de estilos
         nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
         nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
         nuevo__recuadro__Medio.className = "nuevo__recuadro__Medio"
@@ -248,10 +248,10 @@ export function cargarHabitos(){
         buttonCompletar.className ="buttonCompletar";
         icono__habito.classList.add('fa-solid', 'fa-fire', "habit__icon");
 
-        //Asignacion de ID
+        //----------------------------------Asignacion de su mismo ID
         nuevo__habito__recuadro.dataset.id = habit.id;
 
-        //Estructura
+        //----------------------------------Asignacion de estructura
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
@@ -262,18 +262,18 @@ export function cargarHabitos(){
         nuevo__recuadro__Arriba.appendChild(buttonCompletar);
         nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);           
 
-        //Añadir el habito a la lista de habitos
+        //----------------------------------Añadir el habito a la lista de habitos
         habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
-        //Crear el nuevo habito para la grafica
+        //----------------------------------Recrear habito en la grafica
         let nuevoHabito = document.createElement("div");
         nuevoHabito.className = 'nuevo__habito';
         nuevoHabito.style.backgroundColor = habit.color || "gray";
 
-        //Asignacion de ID al habito de la grafica
+        //----------------------------------Asignar el ID al habito de la grafica
         nuevoHabito.dataset.id = habit.id;
 
-        //Añadir el habito a la grafica
+        //----------------------------------Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
     });
 }
@@ -286,6 +286,7 @@ export function cargarHabitoConfiguracion() {
     // Limpiar lista actual para evitar duplicados si la función se llama múltiples veces
     ventana__habitos__lista.innerHTML = "";
 
+    //----------------------------------Recrear los habitos en la configuracion
     habitosGuardados.forEach((habit, index) => { 
         let nuevo__habito__configuracion = document.createElement("div");
         let habito__nombre = document.createElement("h2");
@@ -293,31 +294,31 @@ export function cargarHabitoConfiguracion() {
         let habito__editar = document.createElement("button");
         let habito__eliminar = document.createElement("button");
 
-        // Texto asignado
+        //-------------------------------------Texto asignado
         habito__editar.textContent = "Editar";
         habito__eliminar.textContent = "Eliminar";
         habito__nombre.textContent = habit.text;
 
-        // Ids asignados
+        //-------------------------------------Ids asignados
         habito__eliminar.id = "habito__eliminar__id_" + index;
         habito__editar.id = "habito__editar__id_" + index;
 
-        // Clases asignadas
+        //--------------------------------------Clases asignadas
         habito__editar.className = "habito__editar";
         habito__eliminar.className = "habito__eliminar";
         habito__nombre.className = "habito__nombre";
         nuevo__habito__configuracion.className = "nuevo__habitoConfiguracion";
         habito__separacion.className = "habito__separacion";
 
-        // Evento de eliminacion
+        //------------------------------------Evento de eliminacion
         habito__eliminar.addEventListener("click", () => {
             eliminarHabito(index);
         });
 
-        // Evento de edición
+        //--------------------------------------Evento de edición
         habito__editar.addEventListener("click", () => editarHabito(index));
 
-        // Elementos agregados
+        //---------------------------------------Elementos agregados
         habito__separacion.appendChild(habito__editar);
         habito__separacion.appendChild(habito__eliminar);
         nuevo__habito__configuracion.appendChild(habito__nombre);
@@ -326,6 +327,7 @@ export function cargarHabitoConfiguracion() {
     });
 }
 
+//----------------------------------------Funcion que carga los habitos en configuracion al cargar la pagina
 document.addEventListener("DOMContentLoaded", cargarHabitos);
 cargarHabitoConfiguracion();
 
@@ -343,15 +345,15 @@ function editarHabito(index) {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habit = habitosGuardados[index];
 
-    // Mostrar el modal
+    //---------------------------------Mostrar el modal
     const modal = document.getElementById("modal");
     modal.style.display = "flex"; // Cambia el display para mostrar el modal
 
-    // Rellenar los campos del formulario con los valores actuales del hábito
+    //---------------------------------------Rellenar los campos del formulario 
     const habitNameInput = document.getElementById("habitName");
     habitNameInput.value = habit.text;
 
-    // Seleccionar el color actual
+    //---------------------------------------Seleccion de color
     const colorOptions = document.querySelectorAll(".color__opcion");
     colorOptions.forEach(option => {
         if (option.style.backgroundColor === habit.color) {
@@ -397,39 +399,40 @@ export function obtenerIdDesdeUrl(){
     return params.get("id");
 }
 
-// Funcion ( Completar Habito)
+//----------------------------------------Marcar un habito como completado
 function habitoCompletado(habitId) {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
 
     if (habitIndex !== -1) {
         const habit = habitosGuardados[habitIndex];
-
-        // Comprobamos si es el mismo día
+        
+        //-----------------------------------Comprobamos si la fecha de hoy es el ultimo dia del habito
         const today = new Date().toLocaleDateString();
-
         const habitElement = document.querySelector(`[data-id="${habitId}"]`);
         const buttonCompletar = habitElement.querySelector(".buttonCompletar");
         const habit__icon = habitElement.querySelector(".habit__icon");
         const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
 
-        console.log(buttonCompletar)
+        //Me esta cargando el boton como null porque el habitElement tambien es null
+        console.log("Habit ID:", habitId);
+        console.log("Habit Element:", habitElement);
+
 
         if (habit.ultimoDia === today) {
             habit.days = Math.max(0, habit.days - 1); 
-            habit.ultimoDia = null; 
+            habit.ultimoDia = 0; 
             habit.completado = false;
 
             const colorDeterminado = isDarkMode() ? '#ffffff' : '#000000';
-
             console.log(buttonCompletar)
-            //Resetea los estilos
+            //---------------------------------Reset de estilos
             buttonCompletar.style.borderColor = "black";
             buttonCompletar.style.color = "black";
             buttonCompletar.style.backgroundColor = "white";
             nuevo__habitoAgregado.style.borderWidth = "1px";
 
-            // SI LA PAGINA ESTA EN SU MODO OSCURO, ESTOS DEBEN SER BLANCOS EN VEZ DE NEGROS
+            //----------------------------------Seleccion del modo obscuro en la pagina
             nuevo__habitoAgregado.style.borderColor = colorDeterminado;
             habit__icon.style.color = colorDeterminado;
 
@@ -439,24 +442,23 @@ function habitoCompletado(habitId) {
             habit.completado = true;
 
             console.log(nuevo__habitoAgregado)
+            console.log(habit.color)
 
-            //Le da color al habito al ser completado
+            //---------------------------------Estilos para el habito completado
             buttonCompletar.style.backgroundColor = habit.color;
             buttonCompletar.style.borderColor = "white";
             buttonCompletar.style.color = "white";
             habit__icon.style.color = habit.color;
-            //nuevo__habitoAgregado.style.borderWidth = "3px";
-            //nuevo__habitoAgregado.style.borderColor = habit.color;
         }
 
-        // Actualizamos el habit en el localStorage
+        //---------------------------------Actualizar el estado del hábito en el arreglo
         localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
 
-        // Actualizar el contador de días en el DOM
+        //---------------------------------Actualizar el número de días en el DOM
         const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
         habitNumberElement.textContent = habit.days;
 
-        //Se llama a la funcion que actualiza el habito en la grafica
+        //---------------------------------Actualizar la grafica
         //actualizarGrafica(habitId);
 
     } else {
@@ -464,17 +466,18 @@ function habitoCompletado(habitId) {
     }
 }
 
+//----------------------------------------Restaurar Color de Habitos
 function restaurarColorDeHabitos() {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
     habitosGuardados.forEach(habit => {
         const habitElement = document.querySelector(`[data-id="${habit.id}"]`);
 
+        console.log(habitElement)
         if (habitElement) {
             const buttonCompletar = habitElement.querySelector(".buttonCompletar");
             const habit__icon = habitElement.querySelector(".habit__icon");
 
-            //Solo le hace falta el borde
             if (habit.completado) {
                 //nuevoHabitoAgregado.classList.add("habito-completado");
                 buttonCompletar.style.backgroundColor = habit.color;
@@ -493,6 +496,7 @@ function restaurarColorDeHabitos() {
     });
 }
 
+//----------------------------------------Actualizar Grafica
 function actualizarGrafica(habitId){
 
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
@@ -504,10 +508,8 @@ function actualizarGrafica(habitId){
 
 }
 
-// Aquí seleccionamos el contenedor principal donde se agregan dinámicamente los hábitos
+//----------------------------------------Delegacion de eventos para completar habitos
 const habitsContainer = document.getElementById("habits__container__list__id");
-
-// Delegación de eventos: escuchamos los clics en el contenedor principal
 habitsContainer.addEventListener("click", (event) => {
     if (event.target.closest(".buttonCompletar")) {
         const habitElement = event.target.closest(".nuevo__habitoAgregado");
@@ -520,11 +522,11 @@ habitsContainer.addEventListener("click", (event) => {
     }
 });
 
-//Recarga la pagina automaticamente
+//----------------------------------------Restaurar Color de Habitos al cargar la pagina
 document.addEventListener("DOMContentLoaded", () => {
     restaurarColorDeHabitos();
     
-    //Verifica si el usuario dejo la pagina en el modo oscuro
+    //-----------------------------------------Activar modo oscuro si es necesario
     if(isDarkMode()){
         activateNightMode();
     };
