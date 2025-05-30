@@ -35,7 +35,6 @@ export function crearNuevoHabito(event){
     //---------------------------------------Prevenir el comportamiento por defecto del formulario
     event.preventDefault(); 
 
-
     //---------------------------------------Obtener elementos del DOM
     const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -196,6 +195,9 @@ export function guardarHabitos() {
 
         console.log("ID del hábito: ", habitId);
         console.log(habitItem);
+
+        console.log("Este es el ID desde guardarHabitos",habitId)
+
         return {
             id: habitId,
             text: habitText,
@@ -205,7 +207,7 @@ export function guardarHabitos() {
         };
     }).filter(habit => habit !== null);
 
-    console.log("Este es el ID desde guardarHabitos",habitId)
+    
     console.log("Probando si llega aqui");
 
     //----------------------------------Guardar en localStorage
@@ -218,6 +220,8 @@ export function cargarHabitos(){
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+
+    console.log("Habitos guardados:", habitosGuardados);
 
     habitosGuardados.forEach((habit) => {
         //----------------------------------Recrea el habito despues de haber regresado a la pagina
@@ -252,6 +256,7 @@ export function cargarHabitos(){
 
         //----------------------------------Asignacion de su mismo ID
         nuevo__habito__recuadro.dataset.id = habit.id;
+        console.log("ID del hábito cargado: ", habit.id);
 
         //----------------------------------Asignacion de estructura
         nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
@@ -330,7 +335,12 @@ export function cargarHabitoConfiguracion() {
 }
 
 //----------------------------------------Funcion que carga los habitos en configuracion al cargar la pagina
-document.addEventListener("DOMContentLoaded", cargarHabitos);
+document.addEventListener("DOMContentLoaded", () => {
+
+    cargarHabitos(); // Cargar los hábitos al iniciar la página
+
+});
+
 cargarHabitoConfiguracion();
 
 //----------------------------------------Eliminar Habito
@@ -419,7 +429,7 @@ function habitoCompletado(habitId) {
         //Me esta cargando el boton como null porque el habitElement tambien es null
         console.log("Habit ID:", habitId);
         console.log("Habit Element:", habitElement);
-
+        console.log("Button completar:", buttonCompletar)
 
         if (habit.ultimoDia === today) {
             habit.days = Math.max(0, habit.days - 1); 
@@ -515,6 +525,7 @@ function actualizarGrafica(habitId){
 }
 
 //----------------------------------------Delegacion de eventos para completar habitos
+
 const habitsContainer = document.getElementById("habits__container__list__id");
 habitsContainer.addEventListener("click", (event) => {
     if (event.target.closest(".buttonCompletar")) {
