@@ -191,6 +191,10 @@
         </div>
     </main>
         
+    <script type="module">
+        import { v4 as uuidv4 } from 'https://cdn.jsdelivr.net/npm/uuid@9.0.0/dist/esm-browser/index.js';
+        window.uuidv4 = uuidv4; // Exponer uuidv4 globalmente si es necesario
+    </script>
     <script src="./javascript/script.js" type="module"></script>
 </body>
 

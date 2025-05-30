@@ -30,15 +30,6 @@ export function inicializadorSelectorDeColor(){
     )}
 )};
 
-const colors =  [
-    "#FF5773",
-    "#33FF73",
-    "#335773",
-    "#FFC300",
-    "#16A085",
-]
-
-
 inicializadorSelectorDeColor();
 
 // Funcion de creacion de habito
@@ -205,7 +196,7 @@ export  function guardarHabitos(){
         }
 
         //Implementacion de ID
-        let habitId =  uuid.v4();
+        let habitId = window.uuidv4();
         habitItem.dataset.id = habitId;
 
         console.log("ID del habito: ", habitId);
@@ -283,7 +274,7 @@ export function cargarHabitos(){
         nuevoHabito.style.backgroundColor = habit.color || "gray";
 
         //Asignacion de ID al habito de la grafica
-        nuevoHabito.datainfo.id = habit.id;
+        nuevoHabito.dataset.id = habit.id;
 
         //Añadir el habito a la grafica
         graphic__container__id.appendChild(nuevoHabito);
@@ -499,6 +490,8 @@ function restaurarColorDeHabitos() {
                 buttonCompletar.style.color = "black";
                 habit__icon.style.color = "black";
             }
+        } else {
+            console.warn(`No se encontro el elemento con data-id: ${habit.id}`);
         }
     });
 }
