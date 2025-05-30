@@ -168,38 +168,40 @@ export function cerrarModal(){
 }
 
 //--------------------------------------Guardar Habitos
-export  function guardarHabitos(){
-
+export function guardarHabitos() {
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
 
+    //----------------------------------Generar IDs únicos para cada hábito
     const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
-        
         //----------------------------------Obtener el texto del habito
         const habitElement = habitItem.querySelector(".nuevo__recuadro__Abajo h2");
-        const habitText =  habitElement ? habitElement.textContent.replace("✔", "").trim() : "";
+        const habitText = habitElement ? habitElement.textContent.replace("✔", "").trim() : "";
+
+        //----------------------------------Obtener el elemento grafico
         const graphicHabit = graphic__container__id.children[index];
-        
-        //----------------------------------Obtener el color del habito
-        const habitColor = graphicHabit.style.backgroundColor;
+        console.log(`Index: ${index}, Graphic Habit:`, graphicHabit);
 
         //----------------------------------Validacion de la creacion del habito
-        if(!graphicHabit){
-            console.error(`Error: No se encontro el elemento grafico para el indice ${index}`);
-            return null;
+        if (!graphicHabit) {
+            console.error(`Error: No se encontró el elemento gráfico para el índice ${index}. Se asignará un color por defecto.`);
         }
 
-        //----------------------------------Implementacion del ID
-        let habitId = window.uuidv4();
+        //----------------------------------Asignar un ID único al hábito
+        const habitId = habitItem.dataset.id || window.uuidv4();
         habitItem.dataset.id = habitId;
 
-        console.log("ID del habito: ", habitId);
+        //----------------------------------Obtener el color del habito
+        const habitColor = graphicHabit ? graphicHabit.style.backgroundColor : "gray";
+
+        console.log("ID del hábito: ", habitId);
+        console.log(habitItem);
         return {
             id: habitId,
             text: habitText,
             color: habitColor,
             days: 0,
-            ultimoDia: null,
+            ultimoDia: 0,
         };
     }).filter(habit => habit !== null);
 
@@ -478,17 +480,21 @@ function restaurarColorDeHabitos() {
             const buttonCompletar = habitElement.querySelector(".buttonCompletar");
             const habit__icon = habitElement.querySelector(".habit__icon");
 
-            if (habit.completado) {
-                //nuevoHabitoAgregado.classList.add("habito-completado");
-                buttonCompletar.style.backgroundColor = habit.color;
-                buttonCompletar.style.color = "white";
-                buttonCompletar.style.borderColor = "white";
-                habit__icon.style.color = habit.color;
+            if (buttonCompletar && habit__icon) {
+                if (habit.completado) {
+                    //nuevoHabitoAgregado.classList.add("habito-completado");
+                    buttonCompletar.style.backgroundColor = habit.color;
+                    buttonCompletar.style.color = "white";
+                    buttonCompletar.style.borderColor = "white";
+                    habit__icon.style.color = habit.color;
+                } else {
+                    //nuevoHabitoAgregado.classList.remove("habito-completado");
+                    buttonCompletar.style.backgroundColor = "white";
+                    buttonCompletar.style.color = "black";
+                    habit__icon.style.color = "black";
+                }
             } else {
-                //nuevoHabitoAgregado.classList.remove("habito-completado");
-                buttonCompletar.style.backgroundColor = "white";
-                buttonCompletar.style.color = "black";
-                habit__icon.style.color = "black";
+                console.warn(`No se encontraron los elementos buttonCompletar o habit__icon para el hábito con data-id: ${habit.id}`);
             }
         } else {
             console.warn(`No se encontro el elemento con data-id: ${habit.id}`);
