@@ -1,10 +1,8 @@
 "use strict";
-
-//Se utilizaran estas fuciones en (HabitoCompletado)
+//----------------------------------------Importaciones
 import { activateNightMode, isDarkMode } from "./modoOscuro.js";
 
-
-//Funcion que reinicia la pagina
+//--------------------------------------Reiniciar Pagina
 function reiniciarPagina(){
 
     location.reload();
@@ -12,9 +10,8 @@ function reiniciarPagina(){
 
 }
 
-// Funcion sobre eleccion del color
+//--------------------------------------Variable global para el color seleccionado
 let colorSeleccionado = "";
-
 export function inicializadorSelectorDeColor(){
 
     const opcionesDeColor = document.querySelectorAll(".color__opcion");
@@ -32,7 +29,7 @@ export function inicializadorSelectorDeColor(){
 
 inicializadorSelectorDeColor();
 
-// Funcion de creacion de habito
+//--------------------------------------Crear Nuevo Habito
 export function crearNuevoHabito(event){
     
     //Evitar el formulario por defecto
@@ -160,14 +157,14 @@ export function crearNuevoHabito(event){
 
 };
 
-//Mostrar Modal
+//--------------------------------------Mostrar Modal
 export function mostrarlModal(){
     
     const modal = document.getElementById('modal');
     modal.style.display = 'block';
     cubierta__container__id.style.display = 'block';
 }
-
+//--------------------------------------Cerrar Modal
 export function cerrarModal(){
 
     const modal = document.getElementById('modal');
@@ -175,7 +172,7 @@ export function cerrarModal(){
     cubierta__container__id.style.display = 'none';
 }
 
-//Funcion para guardar habitos en localStorage
+//--------------------------------------Guardar Habitos
 export  function guardarHabitos(){
 
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -213,7 +210,7 @@ export  function guardarHabitos(){
     localStorage.setItem("habitos", JSON.stringify(habitos));
 }
 
-// Funcion para cargar habitos desde localStorage
+//--------------------------------------Cargar Habitos
 export function cargarHabitos(){
     
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -281,7 +278,7 @@ export function cargarHabitos(){
     });
 }
 
-// Funcion para cargar los habitos a la pagina de habitos de Configuracion
+//---------------------------------------Cargar Habito Configuracion
 export function cargarHabitoConfiguracion() {
     const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
@@ -332,7 +329,7 @@ export function cargarHabitoConfiguracion() {
 document.addEventListener("DOMContentLoaded", cargarHabitos);
 cargarHabitoConfiguracion();
 
-//Funcion que elimina el habito seleccionado
+//----------------------------------------Eliminar Habito
 function eliminarHabito(index) {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     habitosGuardados.splice(index, 1); // Eliminar el hábito del arreglo
@@ -341,7 +338,7 @@ function eliminarHabito(index) {
     reiniciarPagina();
 }
 
-// Función que edita el hábito seleccionado
+//----------------------------------------Editar Habito
 function editarHabito(index) {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habit = habitosGuardados[index];
@@ -394,7 +391,7 @@ function editarHabito(index) {
     };
 }
 
-// Funcion que obtiene el ID
+//----------------------------------------Obtener ID desde la URL
 export function obtenerIdDesdeUrl(){
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
