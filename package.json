@@ -17,7 +17,7 @@
     "safer-buffer": "^2.1.2",
     "seq-queue": "^0.0.5",
     "sqlstring": "^2.3.3",
-    "uuid": "^11.0.3"
+    "uuid": "^11.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,5 +25,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
 }

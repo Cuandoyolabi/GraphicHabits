@@ -144,6 +144,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition:  width 0.3s ease;
+
 }
 
 @media (max-width: 905px){
@@ -251,4 +253,5 @@ body{
         }      
     }
 }
+
 

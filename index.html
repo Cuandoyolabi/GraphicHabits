@@ -8,37 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuid.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
-<!--Tareas pendientes
-
-7-Hacer que la grafica suba un pixel cada que el habito sea completado (EN PROCESO)
-
-
-2-Cuando edito un habito, se crea otro.
-2-Poder modificar el nombre del habito y el color. (Es posible editar el nombre, hay fallas con el color)
-
-Cuando el habito se crea en modo oscuro, no se hace la ventana blanca (EN PROCESO)
-
-
-Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
-
-
-3-Agregar a un limite a las letras de los habitos (EN PROCESO)
-
-4-Agregarle un hover al menu principal de la pagina, en donde esta el titulo
-
-5-Mejorar la interfaz del modal en computadora y en telefono
-
-7-Arreglar los habitos del contenedor, cuando se hace oscuro, ellos se vuelven negros
-
-
-10-Anunciar que solo se pueden crear 6 habitos cuando desees clickear el boton de crear.
-
-10-Modificar el hover de los botones cuando esta en modo blanco 
-11-Hacer que se encienda el boton amarillo arriba de la grafica, cuando todos los habitos esten completos
-
--->
-
 <body>
     <header>
         <div class="header__container">
@@ -100,8 +69,6 @@ Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
                             <label class="habitName__label" for="habitName">Habito:</label>                      
                             <input type="text" class="habitName" id="habitName" name="habitName"  autocomplete="off" placeholder="Nombre" required>
                         </div>
-
-
                         <div class="separacion__Colores">
                             <label class="habitColor__label">Color:</label>
                             <div class="separacion__ColoresFlex">
@@ -118,21 +85,7 @@ Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
                                 <div class="color__opcion" style="background-color: rgb(199, 158, 247);"></div>
                                 <div class="color__opcion" style="background-color: rgb(146, 241, 178);"></div>
                             </div>
-
-                        <div class="separacion__de__habitos"> 
-                            <div class="color-option" style="background-color: rgb(81, 236, 159);"></div>
-                            <div class="color-option" style="background-color: rgb(155, 252, 255);"></div>
-                            <div class="color-option" style="background-color: rgb(108, 235, 125);"></div>
-                            <div class="color-option" style="background-color: rgb(139, 97, 206);"></div>
-                            <div class="color-option" style="background-color: rgb(207, 90, 172);"></div>
-                            <div class="color-option" style="background-color: rgb(211, 76, 105);"></div>
-                            <div class="color-option" style="background-color: rgb(224, 191, 100);"></div>
-                            <div class="color-option" style="background-color: rgb(231, 156, 87);"></div>
-
-                        </div>
-                        
                     </div>
-
                 </form>
             </div>
         </div>
@@ -236,6 +189,10 @@ Cuando se reinicia, los habitos no se guardan correctamente, el numero baja
         </div>
     </main>
         
+    <script type="module">
+        import { v4 as uuidv4 } from 'https://cdn.jsdelivr.net/npm/uuid@9.0.0/dist/esm-browser/index.js';
+        window.uuidv4 = uuidv4; // Exponer uuidv4 globalmente si es necesario
+    </script>
     <script src="./javascript/script.js" type="module"></script>
 </body>
 
