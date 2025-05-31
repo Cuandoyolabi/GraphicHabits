@@ -418,18 +418,25 @@ function habitoCompletado(habitId) {
 
     if (habitIndex !== -1) {
         const habit = habitosGuardados[habitIndex];
-        
-        //-----------------------------------Comprobamos si la fecha de hoy es el ultimo dia del habito
         const today = new Date().toLocaleDateString();
-        const habitElement = document.querySelector(`[data-id="${habitId}"]`);
-        const buttonCompletar = habitElement.querySelector(".buttonCompletar");
+        const habitElement = document.querySelector(`.nuevo__habitoAgregado[data-id="${habitId}"]`);
+
+        if (!habitElement) {
+            console.error(`No se encontró el elemento con data-id: ${habitId}`);
+            return;
+        }
+
+        // Ajusta el selector para el botón
+        const buttonCompletar = habitElement.querySelector("div:nth-child(2) .buttonCompletar");
+        if (!buttonCompletar) {
+            console.error(`No se encontró el botón con clase .buttonCompletar dentro del habitElement con data-id: ${habitId}`);
+            console.log("Habit Element:", habitElement);
+            console.log("Children of Habit Element:", habitElement.children);
+            return;
+        }
+
         const habit__icon = habitElement.querySelector(".habit__icon");
         const nuevo__habitoAgregado = document.querySelector(".nuevo__habitoAgregado");
-
-        //Me esta cargando el boton como null porque el habitElement tambien es null
-        console.log("Habit ID:", habitId);
-        console.log("Habit Element:", habitElement);
-        console.log("Button completar:", buttonCompletar)
 
         if (habit.ultimoDia === today) {
             habit.days = Math.max(0, habit.days - 1); 
@@ -437,14 +444,10 @@ function habitoCompletado(habitId) {
             habit.completado = false;
 
             const colorDeterminado = isDarkMode() ? '#ffffff' : '#000000';
-            console.log(buttonCompletar)
-            //---------------------------------Reset de estilos
             buttonCompletar.style.borderColor = "black";
             buttonCompletar.style.color = "black";
             buttonCompletar.style.backgroundColor = "white";
             nuevo__habitoAgregado.style.borderWidth = "1px";
-
-            //----------------------------------Seleccion del modo obscuro en la pagina
             nuevo__habitoAgregado.style.borderColor = colorDeterminado;
             habit__icon.style.color = colorDeterminado;
 
@@ -453,26 +456,15 @@ function habitoCompletado(habitId) {
             habit.ultimoDia = today;
             habit.completado = true;
 
-            console.log(nuevo__habitoAgregado)
-            console.log(habit.color)
-
-            //---------------------------------Estilos para el habito completado
             buttonCompletar.style.backgroundColor = habit.color;
             buttonCompletar.style.borderColor = "white";
             buttonCompletar.style.color = "white";
             habit__icon.style.color = habit.color;
         }
 
-        //---------------------------------Actualizar el estado del hábito en el arreglo
         localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
-
-        //---------------------------------Actualizar el número de días en el DOM
         const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
         habitNumberElement.textContent = habit.days;
-
-        //---------------------------------Actualizar la grafica
-        //actualizarGrafica(habitId);
-
     } else {
         console.error(`No se encontró el hábito con el ID: ${habitId}`);
     }
@@ -482,15 +474,17 @@ function habitoCompletado(habitId) {
 function restaurarColorDeHabitos() {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
+    console.log("Verificando si la funcion se activa");
     habitosGuardados.forEach(habit => {
-        const habitElement = document.querySelector(`[data-id="${habit.id}"]`);
+        const habitElement = document.querySelector(`.nuevo__habitoAgregado[data-id="${habit.id}"]`);
 
         console.log(habitElement)
         if (habitElement) {
             const buttonCompletar = habitElement.querySelector(".buttonCompletar");
             const habit__icon = habitElement.querySelector(".habit__icon");
 
-            if (buttonCompletar && habit__icon) {
+            console.log(buttonCompletar)
+            if (buttonCompletar) {
                 if (habit.completado) {
                     //nuevoHabitoAgregado.classList.add("habito-completado");
                     buttonCompletar.style.backgroundColor = habit.color;
