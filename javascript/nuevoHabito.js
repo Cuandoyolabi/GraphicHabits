@@ -6,6 +6,7 @@ import { activateNightMode, isDarkMode } from "./modoOscuro.js";
 function reiniciarPagina(){
 
     location.reload();
+    restaurarColorDeHabitos();
     
 }
 
@@ -148,7 +149,7 @@ export function crearNuevoHabito(event){
     //-----------------------------------------Reiniciar formulario y cerrar modal
     form.reset();
     cerrarModal();
-
+    reiniciarPagina()
 };
 
 //--------------------------------------Mostrar Modal
@@ -199,6 +200,7 @@ export function guardarHabitos() {
         return {
             id: habitId,
             text: habitText,
+            completado: habitoExistente ? habitoExistente.completado : false,
             color: habitColor,
             days: habitoExistente ? habitoExistente.days : 0,
             ultimoDia: habitoExistente ? habitoExistente.ultimoDia : 0, 
@@ -476,24 +478,24 @@ function restaurarColorDeHabitos() {
     habitosGuardados.forEach(habit => {
         const habitElement = document.querySelector(`.nuevo__habitoAgregado[data-id="${habit.id}"]`);
 
-        console.log(habitElement)
         if (habitElement) {
             const buttonCompletar = habitElement.querySelector(".buttonCompletar");
             const habit__icon = habitElement.querySelector(".habit__icon");
 
-            console.log(buttonCompletar)
-            if (buttonCompletar) {
-                if (habit.completado) {
-                    //nuevoHabitoAgregado.classList.add("habito-completado");
+            if (buttonCompletar && habit__icon) {
+                if (habit.completado === true) {
+
                     buttonCompletar.style.backgroundColor = habit.color;
                     buttonCompletar.style.color = "white";
                     buttonCompletar.style.borderColor = "white";
                     habit__icon.style.color = habit.color;
+                    console.log(`Habito completado: ${habit.id}`);
                 } else {
-                    //nuevoHabitoAgregado.classList.remove("habito-completado");
+
                     buttonCompletar.style.backgroundColor = "white";
                     buttonCompletar.style.color = "black";
                     habit__icon.style.color = "black";
+                    console.log(`Habito no completado: ${habit.id}`);
                 }
             } else {
                 console.warn(`No se encontraron los elementos buttonCompletar o habit__icon para el hábito con data-id: ${habit.id}`);
