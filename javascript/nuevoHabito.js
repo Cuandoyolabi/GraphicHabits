@@ -474,7 +474,6 @@ function habitoCompletado(habitId) {
 function restaurarColorDeHabitos() {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
-    console.log("Verificando si la funcion se activa");
     habitosGuardados.forEach(habit => {
         const habitElement = document.querySelector(`.nuevo__habitoAgregado[data-id="${habit.id}"]`);
 
@@ -489,13 +488,11 @@ function restaurarColorDeHabitos() {
                     buttonCompletar.style.color = "white";
                     buttonCompletar.style.borderColor = "white";
                     habit__icon.style.color = habit.color;
-                    console.log(`Habito completado: ${habit.id}`);
                 } else {
 
                     buttonCompletar.style.backgroundColor = "white";
                     buttonCompletar.style.color = "black";
                     habit__icon.style.color = "black";
-                    console.log(`Habito no completado: ${habit.id}`);
                 }
             } else {
                 console.warn(`No se encontraron los elementos buttonCompletar o habit__icon para el hábito con data-id: ${habit.id}`);
@@ -511,7 +508,9 @@ function actualizarGrafica(habitId){
 
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
-    const habitElement = document.querySelector(`[data-id="${habitId}"]`);
+    const habitElement = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
+    console.log(`Este habito es de la grafica`,habitElement);
+
 
 
 
@@ -528,7 +527,7 @@ habitsContainer.addEventListener("click", (event) => {
 
         habitoCompletado(habitId);
         //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
-        //habitoDeGraficaCompletado(habitId);
+        actualizarGrafica(habitId);
 
     }
 });
