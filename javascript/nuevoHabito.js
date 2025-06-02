@@ -171,6 +171,8 @@ export function guardarHabitos() {
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
 
+
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     //----------------------------------Generar IDs únicos para cada hábito
     const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
         //----------------------------------Obtener el texto del habito
@@ -181,11 +183,6 @@ export function guardarHabitos() {
         const graphicHabit = graphic__container__id.children[index];
         console.log(`Index: ${index}, Graphic Habit:`, graphicHabit);
 
-        //----------------------------------Validacion de la creacion del habito
-        if (!graphicHabit) {
-            console.error(`Error: No se encontró el elemento gráfico para el índice ${index}. Se asignará un color por defecto.`);
-        }
-
         //----------------------------------Asignar un ID único al hábito
         const habitId = habitItem.dataset.id || window.uuidv4();
         habitItem.dataset.id = habitId;
@@ -195,15 +192,16 @@ export function guardarHabitos() {
 
         console.log("ID del hábito: ", habitId);
         console.log(habitItem);
-
         console.log("Este es el ID desde guardarHabitos",habitId)
+
+        const habitoExistente = habitosGuardados.find(h => h.id === habitId);
 
         return {
             id: habitId,
             text: habitText,
             color: habitColor,
-            days: 0,
-            ultimoDia: 0,
+            days: habitoExistente ? habitoExistente.days : 0,
+            ultimoDia: habitoExistente ? habitoExistente.ultimoDia : 0, 
         };
     }).filter(habit => habit !== null);
 
