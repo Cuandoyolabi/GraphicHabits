@@ -135,7 +135,7 @@ export function crearNuevoHabito(event){
 
     //----------------------------------------Habito creado para la grafica
     let nuevoHabito = document.createElement('div');
-    nuevoHabito.className = 'nuevo__habito';
+    nuevoHabito.classList.add('nuevo__habito');
     nuevoHabito.style.backgroundColor = colorSeleccionado;
     graphic__container__id.appendChild(nuevoHabito);
 
@@ -201,6 +201,7 @@ export function guardarHabitos() {
             id: habitId,
             text: habitText,
             completado: habitoExistente ? habitoExistente.completado : false,
+            pixeles: 20,
             color: habitColor,
             days: habitoExistente ? habitoExistente.days : 0,
             ultimoDia: habitoExistente ? habitoExistente.ultimoDia : 0, 
@@ -510,6 +511,9 @@ function actualizarGrafica(habitId){
     const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
     const habitElement = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
     console.log(`Este habito es de la grafica`,habitElement);
+
+    
+
 
 
 
