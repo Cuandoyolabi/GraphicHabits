@@ -512,6 +512,7 @@ function actualizarGrafica(habitId){
     const habitElement = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
     console.log(`Este habito es de la grafica`,habitElement);
 
+    habitElement.style.height = `${habitosGuardados[habitIndex].days * 20}px`; // Ajusta el ancho según los días completados
     
 
 
