@@ -215,7 +215,7 @@ export function guardarHabitos() {
     localStorage.setItem("habitos", JSON.stringify(habitos));
 }
 
-//--------------------------------------Cargar Habitos
+//--------------------------------------Cargar Habitos en contenedor
 export function cargarHabitos(){
     
     const habits__container__list__id = document.getElementById("habits__container__list__id");
@@ -504,7 +504,7 @@ function restaurarColorDeHabitos() {
     });
 }
 
-//----------------------------------------Actualizar Grafica
+//----------------------------------------Actualizar Grafica cuando el habito es completado
 function actualizarGrafica(habitId){
 
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
@@ -512,15 +512,24 @@ function actualizarGrafica(habitId){
     const habitElement = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
     console.log(`Este habito es de la grafica`,habitElement);
 
-    habitElement.style.height = `${habitosGuardados[habitIndex].days * 20}px`; // Ajusta el ancho según los días completados
+    //Necesito que se actualize el localStorage en los pixeles del habito
+    const habit = habitosGuardados.find(h => h.id === habitId);
+    if(habit){
+        habit.pixeles += 10;
+    }
+
+    localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
+    habitElement.style.height = `${habitosGuardados[habitIndex].days * 10}px`; // Ajusta el ancho según los días completados
     
+};
 
-
-
+//---------------------------------------Cargar Habitos en Grafica
+function cargarHabitosGrafica(habitId){
 
 
 
 }
+
 
 //----------------------------------------Delegacion de eventos para completar habitos
 
@@ -532,15 +541,17 @@ habitsContainer.addEventListener("click", (event) => {
 
         habitoCompletado(habitId);
         //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
+        //Hay un error que hace que los pixeles aumentes si el habito se clickea varias veces y eso debe corregirse
+        
         actualizarGrafica(habitId);
 
-    }
+    };
 });
 
 //----------------------------------------Restaurar Color de Habitos al cargar la pagina
 document.addEventListener("DOMContentLoaded", () => {
     restaurarColorDeHabitos();
-    
+
     //-----------------------------------------Activar modo oscuro si es necesario
     if(isDarkMode()){
         activateNightMode();
