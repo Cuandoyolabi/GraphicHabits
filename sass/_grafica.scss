@@ -14,7 +14,8 @@ body{
     justify-content: center;
     background: rgb(182,182,182);
     background: linear-gradient(0deg, rgba(182,182,182,1) 9%, rgba(255,255,255,1) 93%);
-    
+    border: 10px solid green;
+
     &.active{
         background: rgb(93,93,93);
         background: linear-gradient(320deg, rgb(49, 49, 49) 0%, rgba(0,0,0,1) 96%);

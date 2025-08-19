@@ -123,6 +123,7 @@ body {
   justify-content: center;
   background: rgb(182, 182, 182);
   background: linear-gradient(0deg, rgb(182, 182, 182) 9%, rgb(255, 255, 255) 93%);
+  border: 10px solid green;
 }
 .division__container.active {
   background: rgb(93, 93, 93);
@@ -489,6 +490,7 @@ body {
   align-items: center;
   gap: 20px;
   transition: all 0.5s ease-in-out;
+  border: 10px solid red;
 }
 .division__container__number2 .habits__container {
   width: 80%;
@@ -1100,6 +1102,7 @@ body {
   align-items: center;
   gap: 20px;
   transition: all 0.5s ease-in-out;
+  border: 10px solid red;
 }
 .division__container__number2 .habits__container {
   width: 80%;
@@ -1320,6 +1323,7 @@ body {
   justify-content: center;
   background: rgb(182, 182, 182);
   background: linear-gradient(0deg, rgb(182, 182, 182) 9%, rgb(255, 255, 255) 93%);
+  border: 10px solid green;
 }
 .division__container.active {
   background: rgb(93, 93, 93);
