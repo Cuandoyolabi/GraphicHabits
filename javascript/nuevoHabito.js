@@ -156,14 +156,14 @@ export function mostrarlModal(){
     
     const modal = document.getElementById('modal');
     modal.style.display = 'block';
-    cubierta__container__id.style.display = 'block';
+    overlay__id.style.display = 'block';
 }
 //--------------------------------------Cerrar Modal
 export function cerrarModal(){
 
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
-    cubierta__container__id.style.display = 'none';
+    overlay__id.style.display = 'none';
 }
 
 //--------------------------------------Guardar Habitos
