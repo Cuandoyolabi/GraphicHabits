@@ -6,6 +6,7 @@ import { activateNightMode, isDarkMode } from "./modoOscuro.js";
 function reiniciarPagina(){
 
     location.reload();
+    restaurarColorDeHabitos();
     
 }
 
@@ -134,7 +135,7 @@ export function crearNuevoHabito(event){
 
     //----------------------------------------Habito creado para la grafica
     let nuevoHabito = document.createElement('div');
-    nuevoHabito.className = 'nuevo__habito';
+    nuevoHabito.classList.add('nuevo__habito');
     nuevoHabito.style.backgroundColor = colorSeleccionado;
     graphic__container__id.appendChild(nuevoHabito);
 
@@ -148,7 +149,7 @@ export function crearNuevoHabito(event){
     //-----------------------------------------Reiniciar formulario y cerrar modal
     form.reset();
     cerrarModal();
-
+    reiniciarPagina()
 };
 
 //--------------------------------------Mostrar Modal
@@ -171,6 +172,8 @@ export function guardarHabitos() {
     const habits__container__list__id = document.getElementById("habits__container__list__id");
     const graphic__container__id = document.getElementById("graphic__container__id");
 
+
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     //----------------------------------Generar IDs únicos para cada hábito
     const habitos = Array.from(habits__container__list__id.children).map((habitItem, index) => {
         //----------------------------------Obtener el texto del habito
@@ -181,11 +184,6 @@ export function guardarHabitos() {
         const graphicHabit = graphic__container__id.children[index];
         console.log(`Index: ${index}, Graphic Habit:`, graphicHabit);
 
-        //----------------------------------Validacion de la creacion del habito
-        if (!graphicHabit) {
-            console.error(`Error: No se encontró el elemento gráfico para el índice ${index}. Se asignará un color por defecto.`);
-        }
-
         //----------------------------------Asignar un ID único al hábito
         const habitId = habitItem.dataset.id || window.uuidv4();
         habitItem.dataset.id = habitId;
@@ -195,15 +193,18 @@ export function guardarHabitos() {
 
         console.log("ID del hábito: ", habitId);
         console.log(habitItem);
-
         console.log("Este es el ID desde guardarHabitos",habitId)
+
+        const habitoExistente = habitosGuardados.find(h => h.id === habitId);
 
         return {
             id: habitId,
             text: habitText,
+            completado: habitoExistente ? habitoExistente.completado : false,
+            pixeles: 20,
             color: habitColor,
-            days: 0,
-            ultimoDia: 0,
+            days: habitoExistente ? habitoExistente.days : 0,
+            ultimoDia: habitoExistente ? habitoExistente.ultimoDia : 0, 
         };
     }).filter(habit => habit !== null);
 
@@ -474,25 +475,22 @@ function habitoCompletado(habitId) {
 function restaurarColorDeHabitos() {
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
-    console.log("Verificando si la funcion se activa");
     habitosGuardados.forEach(habit => {
         const habitElement = document.querySelector(`.nuevo__habitoAgregado[data-id="${habit.id}"]`);
 
-        console.log(habitElement)
         if (habitElement) {
             const buttonCompletar = habitElement.querySelector(".buttonCompletar");
             const habit__icon = habitElement.querySelector(".habit__icon");
 
-            console.log(buttonCompletar)
-            if (buttonCompletar) {
-                if (habit.completado) {
-                    //nuevoHabitoAgregado.classList.add("habito-completado");
+            if (buttonCompletar && habit__icon) {
+                if (habit.completado === true) {
+
                     buttonCompletar.style.backgroundColor = habit.color;
                     buttonCompletar.style.color = "white";
                     buttonCompletar.style.borderColor = "white";
                     habit__icon.style.color = habit.color;
                 } else {
-                    //nuevoHabitoAgregado.classList.remove("habito-completado");
+
                     buttonCompletar.style.backgroundColor = "white";
                     buttonCompletar.style.color = "black";
                     habit__icon.style.color = "black";
@@ -511,7 +509,13 @@ function actualizarGrafica(habitId){
 
     const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
     const habitIndex = habitosGuardados.findIndex(habit => habit.id === habitId);
-    const habitElement = document.querySelector(`[data-id="${habitId}"]`);
+    const habitElement = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
+    console.log(`Este habito es de la grafica`,habitElement);
+
+    habitElement.style.height = `${habitosGuardados[habitIndex].days * 20}px`; // Ajusta el ancho según los días completados
+    
+
+
 
 
 
@@ -528,7 +532,7 @@ habitsContainer.addEventListener("click", (event) => {
 
         habitoCompletado(habitId);
         //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
-        //habitoDeGraficaCompletado(habitId);
+        actualizarGrafica(habitId);
 
     }
 });
