@@ -110,11 +110,6 @@ body {
     transition: all 0.5s ease-in-out;
   }
 }
-body {
-  height: 100%;
-  position: fixed;
-}
-
 .division__container {
   width: 100%;
   height: 85vh;
@@ -1307,11 +1302,6 @@ body {
     grid-template-columns: 13px 1fr 1fr 1fr 13px;
   }
 }
-body {
-  height: 100%;
-  position: fixed;
-}
-
 .division__container {
   width: 100%;
   height: 85vh;
