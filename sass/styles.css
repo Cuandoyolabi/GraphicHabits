@@ -121,13 +121,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background: rgb(182, 182, 182);
-  background: linear-gradient(0deg, rgb(182, 182, 182) 9%, rgb(255, 255, 255) 93%);
-  border: 10px solid green;
+  background-color: #EDEDED;
 }
 .division__container.active {
-  background: rgb(93, 93, 93);
-  background: linear-gradient(320deg, rgb(49, 49, 49) 0%, rgb(0, 0, 0) 96%);
+  background-color: #121212;
 }
 .division__container .division__container__number1 {
   width: 55%;
@@ -490,7 +487,6 @@ body {
   align-items: center;
   gap: 20px;
   transition: all 0.5s ease-in-out;
-  border: 10px solid red;
 }
 .division__container__number2 .habits__container {
   width: 80%;
@@ -1102,7 +1098,6 @@ body {
   align-items: center;
   gap: 20px;
   transition: all 0.5s ease-in-out;
-  border: 10px solid red;
 }
 .division__container__number2 .habits__container {
   width: 80%;
@@ -1321,13 +1316,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background: rgb(182, 182, 182);
-  background: linear-gradient(0deg, rgb(182, 182, 182) 9%, rgb(255, 255, 255) 93%);
-  border: 10px solid green;
+  background-color: #EDEDED;
 }
 .division__container.active {
-  background: rgb(93, 93, 93);
-  background: linear-gradient(320deg, rgb(49, 49, 49) 0%, rgb(0, 0, 0) 96%);
+  background-color: #121212;
 }
 .division__container .division__container__number1 {
   width: 55%;
