@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #EDEDED;
     border-bottom: 1.5px solid grey;
     box-shadow:  2px 3px 5px rgb(160, 159, 159);
     transition: background-color .5s;
@@ -23,6 +23,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 1px solid rgb(194, 194, 194);
     
         &.active{
             background-color: #535353;
@@ -32,8 +33,6 @@
         .brand__container__title{
             font-weight: 300;
             font-size: 18px;
-        
-        
         }
     }
 
@@ -86,7 +85,6 @@
         }
         .fa-solid, .fa-regular{
             font-size: 23px;
-            
         }
     }
 }

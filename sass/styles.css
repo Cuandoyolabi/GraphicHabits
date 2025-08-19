@@ -6,7 +6,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #EDEDED;
   border-bottom: 1.5px solid grey;
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
   transition: background-color 0.5s;
@@ -23,6 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid rgb(194, 194, 194);
 }
 .header__container .brand__container.active {
   background-color: #535353;
@@ -196,6 +197,7 @@ body {
   border: 1.5px solid grey;
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
   transition: background-color 0.5s;
+  border: 10px solid red;
 }
 .division__container .division__container__number1 .graphic__container.active {
   background-color: #191919;
@@ -1391,6 +1393,7 @@ body {
   border: 1.5px solid grey;
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
   transition: background-color 0.5s;
+  border: 10px solid red;
 }
 .division__container .division__container__number1 .graphic__container.active {
   background-color: #191919;
