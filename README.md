@@ -18,10 +18,10 @@ Esta app te permite visualisar tu progreso todos los dias.
 - Característica 3
 
 ## Instalación 🔧
-1-Clonar el proyecto: git clone https://github.com/Cuandoyolabi/GraphicHabits.git
-2-Entra a la carpeta del proyecto: cd GraphicHabits
-3-Estas dos son las dependencias que uso en esta aplicacion:
-[uuid](https://www.npmjs.com/package/uuid)  
+1-Clonar el proyecto: git clone https://github.com/Cuandoyolabi/GraphicHabits.git<br>
+2-Entra a la carpeta del proyecto: cd GraphicHabits<br>
+3-Estas dos son las dependencias que uso en esta aplicacion:<br>
+[uuid](https://www.npmjs.com/package/uuid)
 Para generar identificadores únicos para cada hábito.
 [Font Awesome](https://fontawesome.com/)  
 Para los iconos en la interfaz (se carga vía CDN).
