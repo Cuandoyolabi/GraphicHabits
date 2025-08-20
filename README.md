@@ -46,6 +46,7 @@ Esta app te permite visualisar tu progreso todos los dias.
 All Rights Reserved
 
 ## Contacto
-Email: adaminzunza3@gmail.com
-Linkedin: https://www.linkedin.com/in/adam-samuel-inzunza-ramirez/
-Numero: 3320664573
+💻 **Mi perfil de Linkedin:** [Linkedin](https://www.linkedin.com/in/adam-samuel-inzunza-ramirez/)  
+🌐 **Mira mi portafolio!** [Portafolio](https://cuandoyolabi.github.io/PortafolioFrontend/)  
+📩 **Email: [adaminzunza3@gmail.com](mailto:adaminzunza3@gmail.com)** ​  
+📱 **Telefono: 3320664573**
