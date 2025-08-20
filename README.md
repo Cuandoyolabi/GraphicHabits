@@ -1,6 +1,5 @@
-# Nombre del Proyecto 🚀
-**Breve descripción del proyecto**  
-Una frase que explique qué hace el proyecto y cuál problema resuelve.
+# Graphic Habits 🚀
+**Una app de hábitos te permite crear, editar y eliminar hábitos personalizados que quieres desarrollar. Cada vez que cumples un hábito, lo marcas como completado. La app guarda tu progreso.**  
 
 ---
 
