@@ -20,6 +20,7 @@ Tiene mas de 400 lineas de codigo y es responsive en todos los dispositivos.
 1-Modo claro/obscuro. <br>
 2-Habitos guardados en LocalStorage.<br>
 3-Es posible editar o borrar los habitos.<br>
+4-Responsivo en todos los dispositivos. <br>
 
 ## Instalación 🔧
 1-Clonar el proyecto: git clone https://github.com/Cuandoyolabi/GraphicHabits.git<br>
