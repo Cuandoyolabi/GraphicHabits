@@ -1,42 +1,51 @@
-# Graphic Habits 🚀
-**Una app de hábitos te permite crear, editar y eliminar hábitos personalizados que quieres desarrollar. Cada vez que cumples un hábito, lo marcas como completado. La app guarda tu progreso.**  
+# Graphic Habits
+Rastrea el progreso de tus habitos con graficas! Crea tu habito, dale un nombre, elige un color y completalo.
+Esta app te permite visualisar tu progreso todos los dias.
 
----
+## Badges
+- Issues
+- Forks
+- Stars
+- Licencia
+- Tech Stack
 
-## 🏷️ Badges
-![GitHub issues](https://img.shields.io/github/issues/USERNAME/REPO)
-![GitHub forks](https://img.shields.io/github/forks/USERNAME/REPO)
-![GitHub stars](https://img.shields.io/github/stars/USERNAME/REPO)
-![GitHub license](https://img.shields.io/github/license/USERNAME/REPO)
-![Tech Stack](https://img.shields.io/badge/Tech-HTML%2FCSS%2FJS-blue)
+## Capturas
+- Imagen o GIF del proyecto funcionando
 
-*(Cambia `USERNAME/REPO` por tu usuario y nombre del repositorio)*
+## Tecnologías
+- Frontend
+- Backend
+- Base de datos
+- Herramientas
 
----
-
-## 📸 Capturas
-*(Agrega imágenes o GIFs de tu proyecto funcionando)*
-![Demo](link-a-tu-imagen-o-gif)
-
----
-
-## 🛠 Tecnologías
-- **Frontend:** Angular, React, Vue, etc.
-- **Backend:** Node.js, Express, Django, etc.
-- **Base de datos:** MySQL, MongoDB, Firebase, etc.
-- **Herramientas:** Git, VS Code, Postman, etc.
-
----
-
-## ⚡ Características
+## Características
 - Característica 1
 - Característica 2
 - Característica 3
-- Característica 4
 
----
+## Instalación
+1. Clonar repo
+2. Entrar al directorio
+3. Instalar dependencias
+4. Ejecutar app
 
-## 💻 Instalación
-1. Clona el repositorio  
-```bash
-git clone https://github.com/USERNAME/REPO.git
+## Uso
+- Cómo usar tu proyecto, con ejemplos
+
+## Demo
+- Link al demo
+
+## Contribuciones
+1. Hacer fork
+2. Crear rama
+3. Commit de cambios
+4. Push a rama
+5. Abrir Pull Request
+
+## Licencia
+- Tipo de licencia
+
+## Contacto
+- GitHub
+- Email
+- LinkedIn
