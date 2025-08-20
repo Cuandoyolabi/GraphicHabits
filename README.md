@@ -32,13 +32,6 @@ Para los iconos en la interfaz (se carga vía CDN). [Font Awesome](https://fonta
 ## Demo 📌
 https://habitosapp.netlify.app/
 
-## Contribuciones
-1. Hacer fork
-2. Crear rama
-3. Commit de cambios
-4. Push a rama
-5. Abrir Pull Request
-
 ## Licencia
 All Rights Reserved
 
