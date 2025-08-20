@@ -43,9 +43,9 @@ Esta app te permite visualisar tu progreso todos los dias.
 5. Abrir Pull Request
 
 ## Licencia
-- Tipo de licencia
+All Rights Reserved
 
 ## Contacto
-- GitHub
-- Email
-- LinkedIn
+Email: adaminzunza3@gmail.com
+Linkedin: https://www.linkedin.com/in/adam-samuel-inzunza-ramirez/
+Numero: 3320664573
