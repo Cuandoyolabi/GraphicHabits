@@ -3,11 +3,12 @@ Rastrea el progreso de tus habitos con graficas! Crea tu habito, dale un nombre,
 Esta app te permite visualisar tu progreso todos los dias.
 
 ## Badges
-- Issues
-- Forks
-- Stars
-- Licencia
-- Tech Stack
+![GitHub issues](https://img.shields.io/github/issues/Cuandoyolabi/GraphicHabits)
+![GitHub forks](https://img.shields.io/github/forks/USERNAME/REPO)
+![GitHub stars](https://img.shields.io/github/stars/USERNAME/REPO)
+![GitHub license](https://img.shields.io/github/license/USERNAME/REPO)
+![Tech Stack](https://img.shields.io/badge/Tech-HTML%2FCSS%2FJS-blue)
+
 
 ## Capturas
 - Imagen o GIF del proyecto funcionando
