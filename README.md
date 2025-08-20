@@ -24,7 +24,7 @@ Esta app te permite visualisar tu progreso todos los dias.
 
 Para generar identificadores únicos para cada hábito. [uuid](https://www.npmjs.com/package/uuid) <br>
 Para los iconos en la interfaz (se carga vía CDN). [Font Awesome](https://fontawesome.com/) <br>
-
+El proyecto tiene CDN para los dos, por lo cual no es necesario instalar nada en la terminal, ya es funcional.
 
 ## Uso 💡
 - Cómo usar tu proyecto, con ejemplos
