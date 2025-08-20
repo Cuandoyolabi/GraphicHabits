@@ -3,7 +3,8 @@ Rastrea el progreso de tus habitos con graficas! Crea tu habito, dale un nombre,
 Esta app te permite visualisar tu progreso todos los dias.
 
 Este proyecto se inicio el dia 23/072024 y hasta el dia de hoy, lo sigo mejorando
-para que sea cada vez sea mas funcional, interactivo y que tenga menos errores.
+para que sea cada vez sea mas funcional, interactivo y que tenga menos errores. 
+Tiene mas de 400 lineas de codigo y es responsive en todos los dispositivos.
 
 ## Capturas
 - Imagen o GIF del proyecto funcionando
