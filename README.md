@@ -2,11 +2,6 @@
 Rastrea el progreso de tus habitos con graficas! Crea tu habito, dale un nombre, elige un color y completalo.
 Esta app te permite visualisar tu progreso todos los dias.
 
-## Badges
-![GitHub issues](https://img.shields.io/github/issues/Cuandoyolabi/GraphicHabits)
-![GitHub forks](https://img.shields.io/github/forks/Cuandoyolabi/GraphicHabits)
-![GitHub stars](https://img.shields.io/github/stars/Cuandoyolabi/GraphicHabits)
-
 ## Capturas
 - Imagen o GIF del proyecto funcionando
 
