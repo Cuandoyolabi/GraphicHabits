@@ -13,9 +13,9 @@ Esta app te permite visualisar tu progreso todos los dias.
 
 
 ## Características 💎
-1-Modo claro/obscuro
-2-Habitos guardados en LocalStorage
-3-Es posible editar o borrar los habitos.
+1-Modo claro/obscuro <br>
+2-Habitos guardados en LocalStorage<br>
+3-Es posible editar o borrar los habitos.<br>
 
 ## Instalación 🔧
 1-Clonar el proyecto: git clone https://github.com/Cuandoyolabi/GraphicHabits.git<br>
