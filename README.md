@@ -25,7 +25,7 @@ Esta app te permite visualisar tu progreso todos los dias.
 ## Uso 💡
 - Cómo usar tu proyecto, con ejemplos
 
-## Demo
+## Demo 📌
 https://habitosapp.netlify.app/
 
 ## Contribuciones
