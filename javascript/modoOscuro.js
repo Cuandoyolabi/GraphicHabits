@@ -45,13 +45,13 @@ export function activateNightMode(){
     const buttonCompletar = document.querySelectorAll(".buttonCompletar");
     
     // Cubierta
-    const cubierta__container__id = document.querySelector('#cubierta__container__id');
+    const overlay = document.querySelector('#overlay__id');
 
     //Modal
     const buttonGuardar = document.querySelector(".guardar__habito");
     const habitName = document.querySelector(".habitName");
 
-    cubierta__container__id.classList.toggle('active');
+    overlay.classList.toggle('active');
     profile__section.classList.toggle('active');
     night__section.classList.toggle('active');
     graphic__container__plus.classList.toggle('active');
