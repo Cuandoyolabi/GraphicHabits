@@ -4,9 +4,9 @@ Esta app te permite visualisar tu progreso todos los dias.
 
 ## Badges
 ![GitHub issues](https://img.shields.io/github/issues/Cuandoyolabi/GraphicHabits)
-![GitHub forks](https://img.shields.io/github/forks/USERNAME/REPO)
-![GitHub stars](https://img.shields.io/github/stars/USERNAME/REPO)
-![GitHub license](https://img.shields.io/github/license/USERNAME/REPO)
+![GitHub forks](https://img.shields.io/github/forks/Cuandoyolabi/GraphicHabits)
+![GitHub stars](https://img.shields.io/github/stars/Cuandoyolabi/GraphicHabits)
+![GitHub license](https://img.shields.io/github/license/Cuandoyolabi/GraphicHabits)
 ![Tech Stack](https://img.shields.io/badge/Tech-HTML%2FCSS%2FJS-blue)
 
 
