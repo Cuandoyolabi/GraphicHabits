@@ -6,30 +6,28 @@ Esta app te permite visualisar tu progreso todos los dias.
 ![GitHub issues](https://img.shields.io/github/issues/Cuandoyolabi/GraphicHabits)
 ![GitHub forks](https://img.shields.io/github/forks/Cuandoyolabi/GraphicHabits)
 ![GitHub stars](https://img.shields.io/github/stars/Cuandoyolabi/GraphicHabits)
-![Tech Stack](https://img.shields.io/badge/Tech-HTML%2FCSS%2FJS-blue)
-
 
 ## Capturas
 - Imagen o GIF del proyecto funcionando
 
-## Tecnologías
-- Frontend
-- Backend
-- Base de datos
-- Herramientas
+## Tecnologías 🔎
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-## Características
+
+## Características 💎
 - Característica 1
 - Característica 2
 - Característica 3
 
-## Instalación
+## Instalación 🔧
 1. Clonar repo
 2. Entrar al directorio
 3. Instalar dependencias
 4. Ejecutar app
 
-## Uso
+## Uso 💡
 - Cómo usar tu proyecto, con ejemplos
 
 ## Demo
