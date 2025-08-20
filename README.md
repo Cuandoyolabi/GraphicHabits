@@ -13,8 +13,8 @@ Esta app te permite visualisar tu progreso todos los dias.
 
 
 ## Características 💎
-1-Modo claro/obscuro <br>
-2-Habitos guardados en LocalStorage<br>
+1-Modo claro/obscuro. <br>
+2-Habitos guardados en LocalStorage.<br>
 3-Es posible editar o borrar los habitos.<br>
 
 ## Instalación 🔧
