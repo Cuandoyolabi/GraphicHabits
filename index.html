@@ -1,206 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habits</title>
-    <link rel="stylesheet" href="sass/styles.css">
+    <link rel="stylesheet" href="sass/styles.css" />
     <!--<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuid.min.js"></script>
     Verificar si realmente el cdn funciona ahora o debe ser importado el uui
     -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="header__container">
-            <div class="brand__container">
-                <h2 class="brand__container__title">GraphicHabits</h2>
-            </div>
-            <nav class="nav__container">
-            
-                <!--Boton para oscurecer la pagina-->
-                <div class="night__section" id="color__icon">
-                    <i class="fa-solid fa-moon"></i>
-                </div>
-
-                <!--Boton para el perfil-->
-                <div class="profile__section" id="abrir__ventana__perfil">
-                    <i class="fa-solid fa-house"></i>
-                </div>
-
-            </nav>
+      <div class="header__container">
+        <div class="brand__container">
+          <h2 class="brand__container__title">GraphicHabits</h2>
         </div>
+        <nav class="nav__container">
+          <!--Boton para oscurecer la pagina-->
+          <div class="night__section" id="color__icon">
+            <i class="fa-solid fa-moon"></i>
+          </div>
+
+          <!--Boton para el perfil-->
+          <div class="profile__section" id="abrir__ventana__perfil">
+            <i class="fa-solid fa-house"></i>
+          </div>
+        </nav>
+      </div>
     </header>
-    
+
     <main class="main__container">
-        <div class="overlay" id="overlay__id"></div>
-        <!--Division de contenedor-->
-        <div class="division__container">
-            <div class="division__container__number1">
-
-                <!--Habito golden-->
-                <div class="golden__habit__division box1">
-                    <div class="golden__habit" id="golden__habit__id"> 
-                    <i class="fa-solid fa-check"></i>   
-                    </div>
-                </div>
-
-                <!--Grafica-->
-                <div id="graphic__container__id" class="graphic__container box2">
-
-                </div>
-
-                <!--Boton de grafica-->
-                <div class="graphic__container__button__division box3">
-                    <button id="graphic__container__plus__id" class="graphic__container__plus"><i class="fa-solid fa-plus"></i></button>
-                </div>
+      <div class="overlay" id="overlay__id"></div>
+      <!--Division de contenedor-->
+      <div class="division__container">
+        <div class="division__container__number1">
+          <!--Habito golden-->
+          <div class="golden__habit__division box1">
+            <div class="golden__habit" id="golden__habit__id">
+              <i class="fa-solid fa-check"></i>
             </div>
+          </div>
 
-             <!--Modal de creacion del nuevo habito-->
-             <div id="modal" class="modal__container">
-                <form class="habitForm" id="habitForm">
-                    <div class="modal__options">
-                        <span class="close">Cancelar</span>
-                        <button class="guardar__habito" type="submit">Guardar</button>
-                    </div>
-                    
-                    <!--Aqui-->
-                    <div class="modal__content">
+          <!--Grafica-->
+          <div
+            id="graphic__container__id"
+            class="graphic__container box2"
+          ></div>
 
-                        <div class="modal__content__union">
-                            <label class="habitName__label" for="habitName">Habito:</label>                      
-                            <input type="text" class="habitName" id="habitName" name="habitName"  autocomplete="off" placeholder="Nombre" required>
-                        </div>
-                        <div class="separacion__Colores">
-                            <label class="habitColor__label">Color:</label>
-                            <div class="separacion__ColoresFlex">
-                                <div class="color__opcion" style="background-color: aqua;"></div>
-                                <div class="color__opcion" style="background-color: rgb(63, 255, 72);"></div>
-                                <div class="color__opcion" style="background-color: rgb(37, 78, 211);"></div>
-                                <div class="color__opcion" style="background-color: rgb(219, 68, 207);"></div>
-                                <div class="color__opcion" style="background-color: rgb(247, 185, 52);"></div>
-                                <div class="color__opcion" style="background-color: rgb(253, 240, 48);"></div>
-                                <div class="color__opcion" style="background-color: rgb(238, 62, 56);"></div>
-                                <div class="color__opcion" style="background-color: rgb(147, 32, 255);"></div>
-                                <div class="color__opcion" style="background-color: rgb(224, 71, 130);"></div>
-                                <div class="color__opcion" style="background-color: rgb(175, 219, 73);"></div>
-                                <div class="color__opcion" style="background-color: rgb(199, 158, 247);"></div>
-                                <div class="color__opcion" style="background-color: rgb(146, 241, 178);"></div>
-                            </div>
-                    </div>
-                </form>
-            </div>
+          <!--Boton de grafica-->
+          <div class="graphic__container__button__division box3">
+            <button
+              id="graphic__container__plus__id"
+              class="graphic__container__plus"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
         </div>
 
-        <!--Ventana de configuracion-->
-        <div class="ventana__configuracion" id="ventana__configuracion__id">
-
-            <!--Ventana de opciones-->
-            <div class="ventana__configuracion__izquierda">
-                <div class="opciones__configuracion">
-                    <!--Apariencia-->
-                    <div class="opciones__configuracion__apariencia" id="configuracionApariencia">
-                        <i class="fa-solid fa-sliders icon__configuracion"></i>
-                        <h2  class="opciones__configuracion__texto">Configuracion</h2>
-                    </div>
-                    <!--Habitos-->
-                    <div class="opciones__configuracion__habitos" id="configuracionHabitos">
-                        <i class="fa-solid fa-fire icon__configuracion"></i>
-                        <h2 class="opciones__configuracion__texto">Habitos</h2>
-                    </div>
-                    <!--Informacion-->
-                    <div class="opciones__configuracion__informacion" id="configuracionInformacion">
-                        <i class="fa-solid fa-circle-info icon__configuracion"></i>
-                        <h2 class="opciones__configuracion__texto">Informacion</h2>
-                    </div>
-                    <!--Contacto-->
-                    <div class="opciones__configuracion__contactar" id="configuracionContacto">
-                        <i class="fa-solid fa-reply icon__configuracion"></i>
-                        <h2 class="opciones__configuracion__texto">Contactame</h2>
-                    </div>
-                </div>
+        <!--Modal de creacion del nuevo habito-->
+        <div id="modal" class="modal__container">
+          <form class="habitForm" id="habitForm">
+            <div class="modal__options">
+              <span class="close">Cancelar</span>
+              <button class="guardar__habito" type="submit">Guardar</button>
             </div>
 
-            <!--Ventana de apariencia-->
-            <div class="ventana__configuracion__derecha__Apariencia" id="ventana__configuracion__derecha__Apariencia__id">
-                <div class="ventana__apariencia">
-                    <h2 class="ventana__apariencia__titulo">Mi configuracion</h2>
-                    <hr>
-                    <div class="ventana__apariencia__separacion">
-                        <div class="ventana__apariencia__division">
-                            <h3 class="ventana__apariencia__titulo2">Apariencia</h3>                        
-                            <p class="ventana__apariencia__texto"></p>
-                        </div>
-                    </div>
+            <!--Aqui-->
+            <div class="modal__content">
+              <div class="modal__content__union">
+                <label class="habitName__label" for="habitName">Habito:</label>
+                <input
+                  type="text"
+                  class="habitName"
+                  id="habitName"
+                  name="habitName"
+                  autocomplete="off"
+                  placeholder="Nombre"
+                  required
+                />
+              </div>
+              <div class="separacion__Colores">
+                <label class="habitColor__label">Color:</label>
+                <div class="separacion__ColoresFlex">
+                  <div
+                    class="color__opcion"
+                    style="background-color: aqua"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(63, 255, 72)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(37, 78, 211)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(219, 68, 207)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(247, 185, 52)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(253, 240, 48)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(238, 62, 56)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(147, 32, 255)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(224, 71, 130)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(175, 219, 73)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(199, 158, 247)"
+                  ></div>
+                  <div
+                    class="color__opcion"
+                    style="background-color: rgb(146, 241, 178)"
+                  ></div>
                 </div>
+              </div>
             </div>
-
-            <!--Ventana de habitos-->
-            <div class="ventana__configuracion__derecha__Habitos" id="ventana__configuracion__derecha__Habitos__id">
-                <div class="ventana__habitos">
-                    <h2 class="ventana__habitos__titulo">Mis habitos</h2>
-                    <hr>
-                    <!--Aqui se agregan los habitos desde JavaScript-->
-                    <div class="ventana__habitos__lista" id="ventana__habitos__lista__id">
-
-                    </div>
-                </div>
-            </div>
-
-            <!--Ventana de informacion-->
-            <div class="ventana__configuracion__derecha__Informacion" id="ventana__configuracion__derecha__Informacion__id">
-                <div class="ventana__informacion">
-                    <h2 class="ventana__informacion__titulo">Informacion</h2>
-                    <hr>
-                    <p class="informacion espacio espacioArriba ">GraphicHabits es mi proyecto favorito, es el primer proyecto "serio" de programacion que tengo y es al que mas horas le eh dedicado, 
-                        le tengo un profundo amor al arte de los habitos y a la organizacion de estos.
-                        Estoy consciente de que este proyecto facilmente tiene muchisimo potencial y se le puede dedicar muchas horas mas para hacerlo mas efectivo, 
-                        productivo y por supuesto, mejorar la interfaz u ofrecer cambios refrescantes.
-                    </p>
-                    <p class="informacion espacio">Asi como por supuesto, arreglar ciertos bugs que puedan llegar a aparecer con el uso frecuente de la aplicacion...</p>
-                   
-                    <p class="informacion espacio">Mas sin embargo, necesito pausar el avance de este proyecto para poder darme la oportunidad de crecer y mejorar mi habilidades en otras areas
-                        como Angular o la logica de programacion.</p>
-                    <p class="informacion"> Si te gusto este proyecto, no lo pienses mas y mandame un mensaje a mi correo o a mi telefono, dejando una reseña positiva!</p>
-                    <p class="informacion espacio">Mi email y telefono se encuentran en la parte de contacto</p>
-                    <p class="informacion">Con mucho amor.</p>
-                    <p class="informacion">Adam.</p>
-                </div>
-            </div>
-
-            <!--Ventana de contacto-->
-            <div class="ventana__configuracion__derecha__Contacto" id="ventana__configuracion__derecha__Contacto__id">
-                <div class="ventana__contacto">
-                    <h2 class="ventana__contacto__titulo">Contacto</h2>
-                    <hr>
-                    <h3>Mi telefono: 3320664573</h3>
-                    <h3>Email: adaminzunza3@gmail.com</h3>
-                    <h3>Github: <a href="https://github.com/Cuandoyolabi">Adam Ramirez</a></h3>
-                    <h3>Cv: <a href=""></a></h3>
-                    <h3>Linkedin: <a href="https://www.linkedin.com/in/adam-samuel-inzunza-ramirez/">Perfil</a></h3>
-                    
-                </div>
-            </div>
+          </form>
         </div>
-        <!--Division del segundo contenedor, Contenedor de habitos-->
-        <div class="division__container__number2">
+      </div>
 
-            <div></div>
-                <div class="habits__container" id="habits__container__id">
-                   <ul class="habits__container__list" id="habits__container__list__id">
-
-                   </ul>
-                </div>
-                
+      <!--Ventana de configuracion-->
+      <div class="ventana__configuracion" id="ventana__configuracion__id">
+        <!--Ventana de opciones-->
+        <div class="ventana__configuracion__izquierda">
+          <div class="opciones__configuracion">
+            <!--Apariencia-->
+            <div
+              class="opciones__configuracion__apariencia"
+              id="configuracionApariencia"
+            >
+              <i class="fa-solid fa-sliders icon__configuracion"></i>
+              <h2 class="opciones__configuracion__texto">Configuracion</h2>
+            </div>
+            <!--Habitos-->
+            <div
+              class="opciones__configuracion__habitos"
+              id="configuracionHabitos"
+            >
+              <i class="fa-solid fa-fire icon__configuracion"></i>
+              <h2 class="opciones__configuracion__texto">Habitos</h2>
+            </div>
+            <!--Informacion-->
+            <div
+              class="opciones__configuracion__informacion"
+              id="configuracionInformacion"
+            >
+              <i class="fa-solid fa-circle-info icon__configuracion"></i>
+              <h2 class="opciones__configuracion__texto">Informacion</h2>
+            </div>
+            <!--Contacto-->
+            <div
+              class="opciones__configuracion__contactar"
+              id="configuracionContacto"
+            >
+              <i class="fa-solid fa-reply icon__configuracion"></i>
+              <h2 class="opciones__configuracion__texto">Contactame</h2>
+            </div>
+          </div>
         </div>
+
+        <!--Ventana de apariencia-->
+        <div
+          class="ventana__configuracion__derecha__Apariencia"
+          id="ventana__configuracion__derecha__Apariencia__id"
+        >
+          <div class="ventana__apariencia">
+            <h2 class="ventana__apariencia__titulo">Mi configuracion</h2>
+            <hr />
+            <div class="ventana__apariencia__separacion">
+              <div class="ventana__apariencia__division">
+                <h3 class="ventana__apariencia__titulo2">Apariencia</h3>
+                <p class="ventana__apariencia__texto"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Ventana de habitos-->
+        <div
+          class="ventana__configuracion__derecha__Habitos"
+          id="ventana__configuracion__derecha__Habitos__id"
+        >
+          <div class="ventana__habitos">
+            <h2 class="ventana__habitos__titulo">Mis habitos</h2>
+            <hr />
+            <!--Aqui se agregan los habitos desde JavaScript-->
+            <div
+              class="ventana__habitos__lista"
+              id="ventana__habitos__lista__id"
+            ></div>
+          </div>
+        </div>
+
+        <!--Ventana de informacion-->
+        <div
+          class="ventana__configuracion__derecha__Informacion"
+          id="ventana__configuracion__derecha__Informacion__id"
+        >
+          <div class="ventana__informacion">
+            <h2 class="ventana__informacion__titulo">Informacion</h2>
+            <hr />
+            <p class="informacion espacio espacioArriba">
+              GraphicHabits es mi proyecto favorito, es el primer proyecto
+              "serio" de programacion que tengo y es al que mas horas le eh
+              dedicado, le tengo un profundo amor al arte de los habitos y a la
+              organizacion de estos. Estoy consciente de que este proyecto
+              facilmente tiene muchisimo potencial y se le puede dedicar muchas
+              horas mas para hacerlo mas efectivo, productivo y por supuesto,
+              mejorar la interfaz u ofrecer cambios refrescantes.
+            </p>
+            <p class="informacion espacio">
+              Asi como por supuesto, arreglar ciertos bugs que puedan llegar a
+              aparecer con el uso frecuente de la aplicacion...
+            </p>
+
+            <p class="informacion espacio">
+              Mas sin embargo, necesito pausar el avance de este proyecto para
+              poder darme la oportunidad de crecer y mejorar mi habilidades en
+              otras areas como Angular o la logica de programacion.
+            </p>
+            <p class="informacion">
+              Si te gusto este proyecto, no lo pienses mas y mandame un mensaje
+              a mi correo o a mi telefono, dejando una reseña positiva!
+            </p>
+            <p class="informacion espacio">
+              Mi email y telefono se encuentran en la parte de contacto
+            </p>
+            <p class="informacion">Con mucho amor.</p>
+            <p class="informacion">Adam.</p>
+          </div>
+        </div>
+
+        <!--Ventana de contacto-->
+        <div
+          class="ventana__configuracion__derecha__Contacto"
+          id="ventana__configuracion__derecha__Contacto__id"
+        >
+          <div class="ventana__contacto">
+            <h2 class="ventana__contacto__titulo">Contacto</h2>
+            <hr />
+            <h3>Mi telefono: 3320664573</h3>
+            <h3>Email: adaminzunza3@gmail.com</h3>
+            <h3>
+              Github: <a href="https://github.com/Cuandoyolabi">Adam Ramirez</a>
+            </h3>
+            <h3>Cv: <a href=""></a></h3>
+            <h3>
+              Linkedin:
+              <a href="https://www.linkedin.com/in/adam-samuel-inzunza-ramirez/"
+                >Perfil</a
+              >
+            </h3>
+          </div>
+        </div>
+      </div>
+      <!--Division del segundo contenedor, Contenedor de habitos-->
+      <div class="division__container__number2">
+        <div></div>
+        <div class="habits__container" id="habits__container__id">
+          <ul
+            class="habits__container__list"
+            id="habits__container__list__id"
+          ></ul>
+        </div>
+      </div>
     </main>
-        
+
     <script type="module">
-        import { v4 as uuidv4 } from 'https://cdn.jsdelivr.net/npm/uuid@9.0.0/dist/esm-browser/index.js';
-        window.uuidv4 = uuidv4; // Exponer uuidv4 globalmente si es necesario
+      import { v4 as uuidv4 } from "https://cdn.jsdelivr.net/npm/uuid@9.0.0/dist/esm-browser/index.js";
+      window.uuidv4 = uuidv4; // Exponer uuidv4 globalmente si es necesario
     </script>
     <script src="./javascript/script.js" type="module"></script>
-</body>
-
+  </body>
 </html>
