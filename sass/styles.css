@@ -143,6 +143,17 @@ body {
   background-color: #191919;
   background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
 }
+.division__container .division__container__number1 .golden__habit {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: rgb(133, 133, 133);
+}
 .division__container .division__container__number1 .graphic__container {
   width: 80%;
   height: 400px;
@@ -1301,6 +1312,17 @@ body {
 .division__container .division__container__number1 .golden__habit__division.active {
   background-color: #191919;
   background: linear-gradient(300deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 96%);
+}
+.division__container .division__container__number1 .golden__habit {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: rgb(133, 133, 133);
 }
 .division__container .division__container__number1 .graphic__container {
   width: 80%;
