@@ -2,6 +2,10 @@
 //----------------------------------------Importaciones
 import { activateNightMode, isDarkMode } from "./modoOscuro.js";
 
+const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
+const habits__container__list__id = document.getElementById("habits__container__list__id");
+const graphic__container__id = document.getElementById("graphic__container__id");
+
 //--------------------------------------Reiniciar Pagina
 function reiniciarPagina() {
   location.reload();
@@ -33,15 +37,7 @@ export function crearNuevoHabito(event) {
   event.preventDefault();
 
   //---------------------------------------Obtener elementos del DOM
-  const ventana__habitos__lista = document.getElementById(
-    "ventana__habitos__lista__id"
-  );
-  const habits__container__list__id = document.getElementById(
-    "habits__container__list__id"
-  );
-  const graphic__container__id = document.getElementById(
-    "graphic__container__id"
-  );
+
   const habitName = document.getElementById("habitName");
   const form = document.getElementById("habitForm");
 
@@ -169,12 +165,6 @@ export function cerrarModal() {
 
 //--------------------------------------Guardar Habitos
 export function guardarHabitos() {
-  const habits__container__list__id = document.getElementById(
-    "habits__container__list__id"
-  );
-  const graphic__container__id = document.getElementById(
-    "graphic__container__id"
-  );
 
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
   //----------------------------------Generar IDs únicos para cada hábito
@@ -227,12 +217,7 @@ export function guardarHabitos() {
 
 //--------------------------------------Cargar Habitos en contenedor
 export function cargarHabitos() {
-  const habits__container__list__id = document.getElementById(
-    "habits__container__list__id"
-  );
-  const graphic__container__id = document.getElementById(
-    "graphic__container__id"
-  );
+
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
   console.log("Habitos guardados:", habitosGuardados);
@@ -301,9 +286,7 @@ export function cargarHabitos() {
 
 //---------------------------------------Cargar Habito Configuracion
 export function cargarHabitoConfiguracion() {
-  const ventana__habitos__lista = document.getElementById(
-    "ventana__habitos__lista__id"
-  );
+
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
   // Limpiar lista actual para evitar duplicados si la función se llama múltiples veces
