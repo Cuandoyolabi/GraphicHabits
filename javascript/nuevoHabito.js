@@ -28,7 +28,6 @@ export function inicializadorSelectorDeColor() {
     });
   });
 }
-
 inicializadorSelectorDeColor();
 
 //--------------------------------------Crear Nuevo Habito
@@ -321,11 +320,6 @@ export function cargarHabitoConfiguracion() {
   });
 }
 
-//----------------------------------------Funcion que carga los habitos en configuracion al cargar la pagina
-document.addEventListener("DOMContentLoaded", () => {
-  cargarHabitos(); // Cargar los hábitos al iniciar la página
-});
-
 cargarHabitoConfiguracion();
 
 //----------------------------------------Eliminar Habito
@@ -542,8 +536,13 @@ habitsContainer.addEventListener("click", (event) => {
   }
 });
 
-//----------------------------------------Restaurar Color de Habitos al cargar la pagina
+
+
+
+
+//----------------------------------------Restaura los habitos y el color
 document.addEventListener("DOMContentLoaded", () => {
+  cargarHabitos(); 
   restaurarColorDeHabitos();
 
   //-----------------------------------------Activar modo oscuro si es necesario
@@ -551,3 +550,4 @@ document.addEventListener("DOMContentLoaded", () => {
     activateNightMode();
   }
 });
+
