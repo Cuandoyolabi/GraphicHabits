@@ -372,6 +372,7 @@ function editarHabito(index) {
       // Guardar en localStorage y recargar la lista
       localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
       cargarHabitoConfiguracion(); // Recargar la lista de hábitos
+      reiniciarPagina();
 
       // Cerrar el modal
       modal.style.display = "none";
