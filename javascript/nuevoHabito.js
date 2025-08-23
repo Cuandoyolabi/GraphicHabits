@@ -170,13 +170,9 @@ export function guardarHabitos() {
   //----------------------------------Generar IDs únicos para cada hábito
   const habitos = Array.from(habits__container__list__id.children)
     .map((habitItem, index) => {
-      //----------------------------------Obtener el texto del habito
-      const habitElement = habitItem.querySelector(
-        ".nuevo__recuadro__Abajo h2"
-      );
-      const habitText = habitElement
-        ? habitElement.textContent.replace("✔", "").trim()
-        : "";
+      //----------------------------------Obtener el texto del habito (Selecciona nuevoRecuadroAbajo en vez de recuadroTexto)
+      const habitElement = habitItem.querySelector(".nuevo__recuadro__Abajo h2");
+      const habitText = habitElement ? habitElement.textContent.replace("✔", "").trim() : "";
 
       //----------------------------------Obtener el elemento grafico
       const graphicHabit = graphic__container__id.children[index];
@@ -187,9 +183,7 @@ export function guardarHabitos() {
       habitItem.dataset.id = habitId;
 
       //----------------------------------Obtener el color del habito
-      const habitColor = graphicHabit
-        ? graphicHabit.style.backgroundColor
-        : "gray";
+      const habitColor = graphicHabit ? graphicHabit.style.backgroundColor : "gray";
 
       console.log("ID del hábito: ", habitId);
       console.log(habitItem);
@@ -208,8 +202,6 @@ export function guardarHabitos() {
       };
     })
     .filter((habit) => habit !== null);
-
-  console.log("Probando si llega aqui");
 
   //----------------------------------Guardar en localStorage
   localStorage.setItem("habitos", JSON.stringify(habitos));
