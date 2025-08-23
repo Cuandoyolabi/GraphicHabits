@@ -399,29 +399,24 @@ function habitoCompletado(habitId) {
     const habitElement = document.querySelector(
       `.nuevo__habitoAgregado[data-id="${habitId}"]`
     );
-
-    if (!habitElement) {
-      console.error(`No se encontró el elemento con data-id: ${habitId}`);
-      return;
-    }
-
     // Ajusta el selector para el botón
     const buttonCompletar = habitElement.querySelector(
       "div:nth-child(2) .buttonCompletar"
     );
-    if (!buttonCompletar) {
-      console.error(
-        `No se encontró el botón con clase .buttonCompletar dentro del habitElement con data-id: ${habitId}`
-      );
-      console.log("Habit Element:", habitElement);
-      console.log("Children of Habit Element:", habitElement.children);
-      return;
-    }
-
-    const habit__icon = habitElement.querySelector(".habit__icon");
     const nuevo__habitoAgregado = document.querySelector(
       ".nuevo__habitoAgregado"
     );
+    const habit__icon = habitElement.querySelector(".habit__icon");
+
+    //Si el habito no existe
+    if (!habitElement) {
+      return;
+    }
+
+    //Si el boton no existe
+    if (!buttonCompletar) {
+      return;
+    }
 
     if (habit.ultimoDia === today) {
       habit.days = Math.max(0, habit.days - 1);
@@ -451,6 +446,8 @@ function habitoCompletado(habitId) {
       ".recuadroArriba__numero"
     );
     habitNumberElement.textContent = habit.days;
+    actualizarGrafica(habitId);
+    
   } else {
     console.error(`No se encontró el hábito con el ID: ${habitId}`);
   }
@@ -497,23 +494,39 @@ function actualizarGrafica(habitId) {
   const habitIndex = habitosGuardados.findIndex(
     (habit) => habit.id === habitId
   );
+  
+  //Habito creado para la grafica
   const habitElement = document.querySelector(
     `.nuevo__habito[data-id="${habitId}"]`
   );
-  console.log(`Este habito es de la grafica`, habitElement);
 
   //Necesito que se actualize el localStorage en los pixeles del habito
   const habit = habitosGuardados.find((h) => h.id === habitId);
   if (habit) {
-    habit.pixeles += 10;
+    habit.pixeles += 25;
   }
 
   localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
-  habitElement.style.height = `${habitosGuardados[habitIndex].days * 10}px`; // Ajusta el ancho según los días completados
+  habitElement.style.height = `${habitosGuardados[habitIndex].days + 25}px`; // Ajusta el ancho según los días completados
 }
 
-//---------------------------------------Cargar Habitos en Grafica
-function cargarHabitosGrafica(habitId) {}
+//---------------------------------------Cargar Pixeles de habitos
+function cargarHabitosGrafica(habitId) {
+
+  const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+  const habitIndex = habitosGuardados.findIndex(
+    (habit) => habit.id === habitId
+  );
+
+    //Habito creado para la grafica
+  const habitElement = document.querySelector(
+    `.nuevo__habito[data-id="${habitId}"]`
+  );
+
+  const habit = habitosGuardados.find((h) => h.id === habitId);
+  habitElement.style.height = habit.pixeles;
+
+}
 
 //----------------------------------------Delegacion de eventos para completar habitos
 
@@ -527,7 +540,6 @@ habitsContainer.addEventListener("click", (event) => {
     //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
     //Hay un error que hace que los pixeles aumentes si el habito se clickea varias veces y eso debe corregirse
 
-    actualizarGrafica(habitId);
   }
 });
 
@@ -545,6 +557,7 @@ export function obtenerIdDesdeUrl() {
 document.addEventListener("DOMContentLoaded", () => {
   cargarHabitos(); 
   restaurarColorDeHabitos();
+  //restaurarPixelesDeGrafica
 
   //-----------------------------------------Activar modo oscuro si es necesario
   if (isDarkMode()) {
