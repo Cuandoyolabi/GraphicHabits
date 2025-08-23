@@ -386,12 +386,6 @@ function editarHabito(index) {
   };
 }
 
-//----------------------------------------Obtener ID desde la URL
-export function obtenerIdDesdeUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
-
 //----------------------------------------Marcar un habito como completado
 function habitoCompletado(habitId) {
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
@@ -539,6 +533,12 @@ habitsContainer.addEventListener("click", (event) => {
 
 
 
+/*Obtener ID desde la URL
+export function obtenerIdDesdeUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
+*/
 
 
 //----------------------------------------Restaura los habitos y el color
