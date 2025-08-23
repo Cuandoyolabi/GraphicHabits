@@ -176,7 +176,6 @@ export function guardarHabitos() {
 
       //----------------------------------Obtener el elemento grafico
       const graphicHabit = graphic__container__id.children[index];
-      console.log(`Index: ${index}, Graphic Habit:`, graphicHabit);
 
       //----------------------------------Asignar un ID único al hábito
       const habitId = habitItem.dataset.id || window.uuidv4();
@@ -184,11 +183,6 @@ export function guardarHabitos() {
 
       //----------------------------------Obtener el color del habito
       const habitColor = graphicHabit ? graphicHabit.style.backgroundColor : "gray";
-
-      console.log("ID del hábito: ", habitId);
-      console.log(habitItem);
-      console.log("Este es el ID desde guardarHabitos", habitId);
-
       const habitoExistente = habitosGuardados.find((h) => h.id === habitId);
 
       return {
@@ -314,7 +308,9 @@ export function cargarHabitoConfiguracion() {
     });
 
     //--------------------------------------Evento de edición
-    habito__editar.addEventListener("click", () => editarHabito(index));
+    habito__editar.addEventListener("click", () => {
+      editarHabito(index)
+    });
 
     //---------------------------------------Elementos agregados
     habito__separacion.appendChild(habito__editar);
