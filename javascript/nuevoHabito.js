@@ -270,13 +270,7 @@ export function cargarHabitos() {
     let nuevoHabito = document.createElement("div");
     nuevoHabito.className = "nuevo__habito";
     nuevoHabito.style.backgroundColor = habit.color || "gray";
-    //LINEAS NUEVAS
     nuevoHabito.style.height = `${habit.pixeles}px`;
-
-
-    console.log("VERIFICANDO QUE ESTE CONSOLE SI SE REPRODUCE");
-    console.log(habit.pixeles);
-    console.log(nuevoHabito.style.height);
 
     //----------------------------------Asignar el ID al habito de la grafica
     nuevoHabito.dataset.id = habit.id;
@@ -450,6 +444,8 @@ function habitoCompletado(habitId) {
       habit.days += 1;
       habit.ultimoDia = today;
       habit.completado = true;
+      console.log("se esta actualizando aqui")
+      actualizarGrafica(habitId);
 
       buttonCompletar.style.backgroundColor = habit.color;
       buttonCompletar.style.borderColor = "white";
@@ -462,7 +458,6 @@ function habitoCompletado(habitId) {
       ".recuadroArriba__numero"
     );
     habitNumberElement.textContent = habit.days;
-    actualizarGrafica(habitId);
   } else {
     console.error(`No se encontró el hábito con el ID: ${habitId}`);
   }
@@ -505,6 +500,7 @@ function restaurarColorDeHabitos() {
 
 //----------------------------------------Actualizar Grafica cuando el habito es completado
 function actualizarGrafica(habitId) {
+  
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
   const habitIndex = habitosGuardados.findIndex(
     (habit) => habit.id === habitId
@@ -550,6 +546,14 @@ habitsContainer.addEventListener("click", (event) => {
   if (event.target.closest(".buttonCompletar")) {
     const habitElement = event.target.closest(".nuevo__habitoAgregado");
     const habitId = habitElement.dataset.id;
+
+    //Si el habito ya esta completado y el usuario lo quita, bajan los pixeles del habito
+    const today = new Date().toLocaleDateString();
+    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+    const habit = habitosGuardados.find((h) => h.id === habitId);
+    if(habit.completado === true && habit.ultimoDia === today){
+      
+    }
 
     habitoCompletado(habitId);
     //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
