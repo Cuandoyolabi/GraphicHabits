@@ -2,9 +2,15 @@
 //----------------------------------------Importaciones
 import { activateNightMode, isDarkMode } from "./modoOscuro.js";
 
-const ventana__habitos__lista = document.getElementById("ventana__habitos__lista__id");
-const habits__container__list__id = document.getElementById("habits__container__list__id");
-const graphic__container__id = document.getElementById("graphic__container__id");
+const ventana__habitos__lista = document.getElementById(
+  "ventana__habitos__lista__id"
+);
+const habits__container__list__id = document.getElementById(
+  "habits__container__list__id"
+);
+const graphic__container__id = document.getElementById(
+  "graphic__container__id"
+);
 
 //--------------------------------------Reiniciar Pagina
 function reiniciarPagina() {
@@ -164,14 +170,17 @@ export function cerrarModal() {
 
 //--------------------------------------Guardar Habitos
 export function guardarHabitos() {
-
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
   //----------------------------------Generar IDs únicos para cada hábito
   const habitos = Array.from(habits__container__list__id.children)
     .map((habitItem, index) => {
       //----------------------------------Obtener el texto del habito (Selecciona nuevoRecuadroAbajo en vez de recuadroTexto)
-      const habitElement = habitItem.querySelector(".nuevo__recuadro__Abajo h2");
-      const habitText = habitElement ? habitElement.textContent.replace("✔", "").trim() : "";
+      const habitElement = habitItem.querySelector(
+        ".nuevo__recuadro__Abajo h2"
+      );
+      const habitText = habitElement
+        ? habitElement.textContent.replace("✔", "").trim()
+        : "";
 
       //----------------------------------Obtener el elemento grafico
       const graphicHabit = graphic__container__id.children[index];
@@ -181,7 +190,9 @@ export function guardarHabitos() {
       habitItem.dataset.id = habitId;
 
       //----------------------------------Obtener el color del habito
-      const habitColor = graphicHabit ? graphicHabit.style.backgroundColor : "gray";
+      const habitColor = graphicHabit
+        ? graphicHabit.style.backgroundColor
+        : "gray";
       const habitoExistente = habitosGuardados.find((h) => h.id === habitId);
 
       return {
@@ -202,7 +213,6 @@ export function guardarHabitos() {
 
 //--------------------------------------Cargar Habitos en contenedor
 export function cargarHabitos() {
-
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
   console.log("Habitos guardados:", habitosGuardados);
@@ -260,6 +270,13 @@ export function cargarHabitos() {
     let nuevoHabito = document.createElement("div");
     nuevoHabito.className = "nuevo__habito";
     nuevoHabito.style.backgroundColor = habit.color || "gray";
+    //LINEAS NUEVAS
+    nuevoHabito.style.height = `${habit.pixeles}px`;
+
+
+    console.log("VERIFICANDO QUE ESTE CONSOLE SI SE REPRODUCE");
+    console.log(habit.pixeles);
+    console.log(nuevoHabito.style.height);
 
     //----------------------------------Asignar el ID al habito de la grafica
     nuevoHabito.dataset.id = habit.id;
@@ -271,7 +288,6 @@ export function cargarHabitos() {
 
 //---------------------------------------Cargar Habito Configuracion
 export function cargarHabitoConfiguracion() {
-
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
   // Limpiar lista actual para evitar duplicados si la función se llama múltiples veces
@@ -308,7 +324,7 @@ export function cargarHabitoConfiguracion() {
 
     //--------------------------------------Evento de edición
     habito__editar.addEventListener("click", () => {
-      editarHabito(index)
+      editarHabito(index);
     });
 
     //---------------------------------------Elementos agregados
@@ -447,7 +463,6 @@ function habitoCompletado(habitId) {
     );
     habitNumberElement.textContent = habit.days;
     actualizarGrafica(habitId);
-    
   } else {
     console.error(`No se encontró el hábito con el ID: ${habitId}`);
   }
@@ -494,11 +509,12 @@ function actualizarGrafica(habitId) {
   const habitIndex = habitosGuardados.findIndex(
     (habit) => habit.id === habitId
   );
-  
+
   //Habito creado para la grafica
   const habitElement = document.querySelector(
     `.nuevo__habito[data-id="${habitId}"]`
   );
+  console.log("Consol desde actualizarGrafica", habitElement);
 
   //Necesito que se actualize el localStorage en los pixeles del habito
   const habit = habitosGuardados.find((h) => h.id === habitId);
@@ -512,20 +528,19 @@ function actualizarGrafica(habitId) {
 
 //---------------------------------------Cargar Pixeles de habitos
 function cargarHabitosGrafica(habitId) {
-
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
   const habitIndex = habitosGuardados.findIndex(
     (habit) => habit.id === habitId
   );
 
-    //Habito creado para la grafica
+  //Habito creado para la grafica
   const habitElement = document.querySelector(
     `.nuevo__habito[data-id="${habitId}"]`
   );
+  console.log("Consol desde cargarHabitosG: ", habitElement);
 
   const habit = habitosGuardados.find((h) => h.id === habitId);
   habitElement.style.height = habit.pixeles;
-
 }
 
 //----------------------------------------Delegacion de eventos para completar habitos
@@ -539,23 +554,12 @@ habitsContainer.addEventListener("click", (event) => {
     habitoCompletado(habitId);
     //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
     //Hay un error que hace que los pixeles aumentes si el habito se clickea varias veces y eso debe corregirse
-
   }
 });
 
-
-
-/*Obtener ID desde la URL
-export function obtenerIdDesdeUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
-*/
-
-
 //----------------------------------------Restaura los habitos y el color
 document.addEventListener("DOMContentLoaded", () => {
-  cargarHabitos(); 
+  cargarHabitos();
   restaurarColorDeHabitos();
   //restaurarPixelesDeGrafica
 
@@ -564,4 +568,3 @@ document.addEventListener("DOMContentLoaded", () => {
     activateNightMode();
   }
 });
-
