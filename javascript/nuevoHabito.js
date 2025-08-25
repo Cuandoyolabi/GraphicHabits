@@ -152,7 +152,6 @@ export function crearNuevoHabito(event) {
   //-----------------------------------------Reiniciar formulario y cerrar modal
   form.reset();
   cerrarModal();
-  reiniciarPagina();
 }
 
 //--------------------------------------Mostrar Modal
@@ -174,7 +173,7 @@ export function guardarHabitos() {
   //----------------------------------Generar IDs únicos para cada hábito
   const habitos = Array.from(habits__container__list__id.children)
     .map((habitItem, index) => {
-      //----------------------------------Obtener el texto del habito (Selecciona nuevoRecuadroAbajo en vez de recuadroTexto)
+
       const habitElement = habitItem.querySelector(
         ".nuevo__recuadro__Abajo h2"
       );
@@ -182,14 +181,10 @@ export function guardarHabitos() {
         ? habitElement.textContent.replace("✔", "").trim()
         : "";
 
-      //----------------------------------Obtener el elemento grafico
       const graphicHabit = graphic__container__id.children[index];
-
-      //----------------------------------Asignar un ID único al hábito
       const habitId = habitItem.dataset.id || window.uuidv4();
       habitItem.dataset.id = habitId;
 
-      //----------------------------------Obtener el color del habito
       const habitColor = graphicHabit
         ? graphicHabit.style.backgroundColor
         : "gray";
@@ -199,7 +194,7 @@ export function guardarHabitos() {
         id: habitId,
         text: habitText,
         completado: habitoExistente ? habitoExistente.completado : false,
-        pixeles: 20,
+        pixeles: habitoExistente ? habitoExistente.pixeles : parseInt(graphicHabit.style.height) || 20,
         color: habitColor,
         days: habitoExistente ? habitoExistente.days : 0,
         ultimoDia: habitoExistente ? habitoExistente.ultimoDia : 0,
@@ -207,7 +202,6 @@ export function guardarHabitos() {
     })
     .filter((habit) => habit !== null);
 
-  //----------------------------------Guardar en localStorage
   localStorage.setItem("habitos", JSON.stringify(habitos));
 }
 
@@ -218,7 +212,6 @@ export function cargarHabitos() {
   console.log("Habitos guardados:", habitosGuardados);
 
   habitosGuardados.forEach((habit) => {
-    //----------------------------------Recrea el habito despues de haber regresado a la pagina
     let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
     let nuevo__recuadro__Abajo = document.createElement("div");
@@ -230,13 +223,11 @@ export function cargarHabitos() {
     let buttonCompletar = document.createElement("button");
     const icono__habito = document.createElement("i");
 
-    //----------------------------------Asignacion de texto e informacion
     recuadroAbajo__texto.innerText = habit.text;
     recuadroArriba__numero.textContent = habit.days || 0;
     recuadroArriba__Dias.textContent = "Dias";
     buttonCompletar.innerHTML = '<i class="fa-solid fa-check"></i>';
 
-    //----------------------------------Asignacion de estilos
     nuevo__habito__recuadro.className = "nuevo__habitoAgregado";
     nuevo__recuadro__Arriba.className = "nuevo__recuadro__Arriba";
     nuevo__recuadro__Medio.className = "nuevo__recuadro__Medio";
@@ -248,11 +239,9 @@ export function cargarHabitos() {
     buttonCompletar.className = "buttonCompletar";
     icono__habito.classList.add("fa-solid", "fa-fire", "habit__icon");
 
-    //----------------------------------Asignacion de su mismo ID
     nuevo__habito__recuadro.dataset.id = habit.id;
     console.log("ID del hábito cargado: ", habit.id);
 
-    //----------------------------------Asignacion de estructura
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Abajo);
@@ -262,20 +251,17 @@ export function cargarHabitos() {
     recuadroArriba__Conjunto.appendChild(icono__habito);
     nuevo__recuadro__Arriba.appendChild(buttonCompletar);
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
-
-    //----------------------------------Añadir el habito a la lista de habitos
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
-    //----------------------------------Recrear habito en la grafica
+
     let nuevoHabito = document.createElement("div");
     nuevoHabito.className = "nuevo__habito";
     nuevoHabito.style.backgroundColor = habit.color || "gray";
-    nuevoHabito.style.height = `${habit.pixeles}px`;
+    console.log("Pixeles actuales del habito", habit.pixeles)
 
-    //----------------------------------Asignar el ID al habito de la grafica
+    nuevoHabito.style.height = habit.pixeles;
     nuevoHabito.dataset.id = habit.id;
 
-    //----------------------------------Añadir el habito a la grafica
     graphic__container__id.appendChild(nuevoHabito);
   });
 }
@@ -382,7 +368,6 @@ function editarHabito(index) {
       // Guardar en localStorage y recargar la lista
       localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
       cargarHabitoConfiguracion(); // Recargar la lista de hábitos
-      reiniciarPagina();
 
       // Cerrar el modal
       modal.style.display = "none";
@@ -511,22 +496,21 @@ function actualizarGrafica(habitId, boolean) {
     `.nuevo__habito[data-id="${habitId}"]`
   );
 
-  console.log(habitElement.style.height)
+  console.log("Antes de actualizar:", habit.pixeles);
+
   if(boolean == false){
-    habit.pixeles -= 9;
-    habitElement.style.height = `${habit.pixeles -= 9}px`; 
-    console.log(habitElement.style.height)
-    localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
-    return;
+    habit.pixeles = Math.max(20, habit.pixeles - 9);
+    habitElement.style.height = `${habit.pixeles}px`; 
+  } else {
+    habit.pixeles += 9;
+    habitElement.style.height = `${habit.pixeles}px`; 
   }
 
-  console.log("Esta funcion hace que la grafica suba", habitElement);
+  console.log("Después de actualizar:", habit.pixeles);
  
-  //Necesito que se actualize el localStorage en los pixeles del habito
-  habit.pixeles += 9;
-  habitElement.style.height = `${habit.pixeles += 9}px`; 
-
   localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
+  console.log("✅ Guardado en localStorage:", JSON.parse(localStorage.getItem("habitos")));
+
 }
 
 //---------------------------------------Cargar Pixeles de habitos
