@@ -440,11 +440,13 @@ function habitoCompletado(habitId) {
       nuevo__habitoAgregado.style.borderWidth = "1px";
       nuevo__habitoAgregado.style.borderColor = colorDeterminado;
       habit__icon.style.color = colorDeterminado;
+      actualizarGrafica(habitId, false)
+
     } else {
       habit.days += 1;
       habit.ultimoDia = today;
       habit.completado = true;
-      actualizarGrafica(habitId);
+      actualizarGrafica(habitId, true);
 
       buttonCompletar.style.backgroundColor = habit.color;
       buttonCompletar.style.borderColor = "white";
@@ -499,27 +501,32 @@ function restaurarColorDeHabitos() {
 
 //Va recibir un booleano y se creara una condicional con return
 //----------------------------------------Actualizar Grafica cuando el habito es completado
-function actualizarGrafica(habitId) {
+function actualizarGrafica(habitId, boolean) {
   
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-  const habitIndex = habitosGuardados.findIndex(
-    (habit) => habit.id === habitId
-  );
+  const habit = habitosGuardados.find((h) => h.id === habitId);
 
   //Habito creado para la grafica
   const habitElement = document.querySelector(
     `.nuevo__habito[data-id="${habitId}"]`
   );
-  console.log("Esta funcion hace que la grafica suba", habitElement);
 
-  //Necesito que se actualize el localStorage en los pixeles del habito
-  const habit = habitosGuardados.find((h) => h.id === habitId);
-  if (habit) {
-    habit.pixeles += 25;
+  console.log(habitElement.style.height)
+  if(boolean == false){
+    habit.pixeles -= 9;
+    habitElement.style.height = `${habit.pixeles -= 9}px`; 
+    console.log(habitElement.style.height)
+    localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
+    return;
   }
 
+  console.log("Esta funcion hace que la grafica suba", habitElement);
+ 
+  //Necesito que se actualize el localStorage en los pixeles del habito
+  habit.pixeles += 9;
+  habitElement.style.height = `${habit.pixeles += 9}px`; 
+
   localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
-  habitElement.style.height = `${habitosGuardados[habitIndex].days + 25}px`; // Ajusta el ancho según los días completados
 }
 
 //---------------------------------------Cargar Pixeles de habitos
