@@ -444,7 +444,6 @@ function habitoCompletado(habitId) {
       habit.days += 1;
       habit.ultimoDia = today;
       habit.completado = true;
-      console.log("se esta actualizando aqui")
       actualizarGrafica(habitId);
 
       buttonCompletar.style.backgroundColor = habit.color;
@@ -498,6 +497,7 @@ function restaurarColorDeHabitos() {
   });
 }
 
+//Va recibir un booleano y se creara una condicional con return
 //----------------------------------------Actualizar Grafica cuando el habito es completado
 function actualizarGrafica(habitId) {
   
@@ -510,7 +510,7 @@ function actualizarGrafica(habitId) {
   const habitElement = document.querySelector(
     `.nuevo__habito[data-id="${habitId}"]`
   );
-  console.log("Consol desde actualizarGrafica", habitElement);
+  console.log("Esta funcion hace que la grafica suba", habitElement);
 
   //Necesito que se actualize el localStorage en los pixeles del habito
   const habit = habitosGuardados.find((h) => h.id === habitId);
