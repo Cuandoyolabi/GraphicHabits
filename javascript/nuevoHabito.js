@@ -259,7 +259,7 @@ export function cargarHabitos() {
     nuevoHabito.style.backgroundColor = habit.color || "gray";
     console.log("Pixeles actuales del habito", habit.pixeles)
 
-    nuevoHabito.style.height = habit.pixeles;
+    nuevoHabito.style.height = `${habit.pixeles}`;
     nuevoHabito.dataset.id = habit.id;
 
     graphic__container__id.appendChild(nuevoHabito);
@@ -391,16 +391,10 @@ function habitoCompletado(habitId) {
   if (habitIndex !== -1) {
     const habit = habitosGuardados[habitIndex];
     const today = new Date().toLocaleDateString();
-    const habitElement = document.querySelector(
-      `.nuevo__habitoAgregado[data-id="${habitId}"]`
-    );
-    // Ajusta el selector para el botón
-    const buttonCompletar = habitElement.querySelector(
-      "div:nth-child(2) .buttonCompletar"
-    );
-    const nuevo__habitoAgregado = document.querySelector(
-      ".nuevo__habitoAgregado"
-    );
+    const habitElement = document.querySelector(`.nuevo__habitoAgregado[data-id="${habitId}"]`);
+
+    const buttonCompletar = habitElement.querySelector("div:nth-child(2) .buttonCompletar");
+    const nuevo__habitoAgregado = document.querySelector(`.nuevo__habitoAgregado[data-id="${habitId}"]`);
     const habit__icon = habitElement.querySelector(".habit__icon");
 
     //Si el habito no existe
@@ -425,13 +419,15 @@ function habitoCompletado(habitId) {
       nuevo__habitoAgregado.style.borderWidth = "1px";
       nuevo__habitoAgregado.style.borderColor = colorDeterminado;
       habit__icon.style.color = colorDeterminado;
-      actualizarGrafica(habitId, false)
+      habit.pixeles -= 9;
+      actualizarGrafica(habitId)
 
     } else {
       habit.days += 1;
       habit.ultimoDia = today;
-      habit.completado = true;
-      actualizarGrafica(habitId, true);
+      habit.completado = true;      
+      habit.pixeles += 9;
+      actualizarGrafica(habitId);
 
       buttonCompletar.style.backgroundColor = habit.color;
       buttonCompletar.style.borderColor = "white";
@@ -486,7 +482,7 @@ function restaurarColorDeHabitos() {
 
 //Va recibir un booleano y se creara una condicional con return
 //----------------------------------------Actualizar Grafica cuando el habito es completado
-function actualizarGrafica(habitId, boolean) {
+function actualizarGrafica(habitId) {
   
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
   const habit = habitosGuardados.find((h) => h.id === habitId);
@@ -497,20 +493,12 @@ function actualizarGrafica(habitId, boolean) {
   );
 
   console.log("Antes de actualizar:", habit.pixeles);
+  console.log(habit.id)
+  habitElement.style.height = `${habit.pixeles}px`; 
 
-  if(boolean == false){
-    habit.pixeles = Math.max(20, habit.pixeles - 9);
-    habitElement.style.height = `${habit.pixeles}px`; 
-  } else {
-    habit.pixeles += 9;
-    habitElement.style.height = `${habit.pixeles}px`; 
-  }
 
   console.log("Después de actualizar:", habit.pixeles);
- 
-  localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
   console.log("✅ Guardado en localStorage:", JSON.parse(localStorage.getItem("habitos")));
-
 }
 
 //---------------------------------------Cargar Pixeles de habitos
@@ -538,17 +526,8 @@ habitsContainer.addEventListener("click", (event) => {
     const habitElement = event.target.closest(".nuevo__habitoAgregado");
     const habitId = habitElement.dataset.id;
 
-    //Si el habito ya esta completado y el usuario lo quita, bajan los pixeles del habito
-    const today = new Date().toLocaleDateString();
-    const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-    const habit = habitosGuardados.find((h) => h.id === habitId);
-    if(habit.completado === true && habit.ultimoDia === today){
-      
-    }
-
     habitoCompletado(habitId);
-    //Aqui se insertara la nueva funcion que incrementa el tamaño de los habitos en la grafica
-    //Hay un error que hace que los pixeles aumentes si el habito se clickea varias veces y eso debe corregirse
+
   }
 });
 
