@@ -258,8 +258,11 @@ export function cargarHabitos() {
     nuevoHabito.className = "nuevo__habito";
     nuevoHabito.style.backgroundColor = habit.color || "gray";
     console.log("Pixeles actuales del habito", habit.pixeles)
+    console.log("Estilo del habito" , nuevoHabito)
+    console.log("Heigth actual del habito" , nuevoHabito.style.height)
 
-    nuevoHabito.style.height = `${habit.pixeles}`;
+    nuevoHabito.style.height = `${habit.pixeles}px`;
+    console.log("Heigth actual del habito" , nuevoHabito.style.height)
     nuevoHabito.dataset.id = habit.id;
 
     graphic__container__id.appendChild(nuevoHabito);
