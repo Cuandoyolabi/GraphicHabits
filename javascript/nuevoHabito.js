@@ -489,7 +489,6 @@ function restaurarColorDeHabitos() {
 //------------------------------------Contenedor golden
 function habitoGoldenCompletado(){
   
-  console.log("Esta funcion si se esta ejecutando")
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
   const golden__habit = document.getElementById("golden__habit__id");
 

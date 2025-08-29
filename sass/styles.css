@@ -179,7 +179,8 @@ body {
   background-color: rgb(133, 133, 133);
 }
 .division__container .division__container__number1 .golden__habit__division .on {
-  background-color: rgb(255, 255, 115);
+  background-color: rgb(255, 255, 0);
+  border: 1px solid white;
 }
 .division__container .division__container__number1 .graphic__container {
   width: 80%;
@@ -1340,7 +1341,8 @@ body {
   background-color: rgb(133, 133, 133);
 }
 .division__container .division__container__number1 .golden__habit__division .on {
-  background-color: rgb(255, 255, 115);
+  background-color: rgb(255, 255, 0);
+  border: 1px solid white;
 }
 .division__container .division__container__number1 .graphic__container {
   width: 80%;
