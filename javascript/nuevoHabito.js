@@ -444,7 +444,7 @@ function habitoCompletado(habitId) {
     const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
     habitNumberElement.textContent = habit.days;
 
-
+    habitoGoldenCompletado(habitId);
 
   } else {
     console.error(`No se encontró el hábito con el ID: ${habitId}`);
@@ -486,39 +486,30 @@ function restaurarColorDeHabitos() {
   });
 }
 
-/*
-//----------------------------------------Actualizar Grafica cuando el habito es completado
-function actualizarGrafica(habitId) {
+//------------------------------------Contenedor golden
+function habitoGoldenCompletado(){
   
+  console.log("Esta funcion si se esta ejecutando")
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-  const habit = habitosGuardados.find((h) => h.id === habitId);
+  const golden__habit = document.getElementById("golden__habit__id");
 
-  //Habito creado para la grafica
-  const habitElement = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
-
-  console.log("✅ Guardado en localStorage:", JSON.parse(localStorage.getItem("habitos")));
+  for(let i = 0; i < habitosGuardados.length; i++){
+    if(habitosGuardados[i].completado == true){
+      console.log(habitosGuardados[i], "este si" );
+    } else {
+      golden__habit.classList.remove("on");
+      return;
+    }
+  }
+  golden__habit.classList.add("on");
 }
 
-//---------------------------------------Cargar Pixeles de habitos
-function cargarHabitosGrafica(habitId) {
-  const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-  const habitIndex = habitosGuardados.findIndex(
-    (habit) => habit.id === habitId
-  );
+//------------------------------------Funcion que reinicia la grafica
+function reinicioDeMes(){
 
-  //Habito creado para la grafica
-  const habitElement = document.querySelector(
-    `.nuevo__habito[data-id="${habitId}"]`
-  );
-  console.log("Consol desde cargarHabitosG: ", habitElement);
-
-  const habit = habitosGuardados.find((h) => h.id === habitId);
-  habitElement.style.height = habit.pixeles;
 }
-*/
 
 //----------------------------------------Delegacion de eventos para completar habitos
-
 const habitsContainer = document.getElementById("habits__container__list__id");
 habitsContainer.addEventListener("click", (event) => {
   if (event.target.closest(".buttonCompletar")) {
@@ -533,9 +524,11 @@ habitsContainer.addEventListener("click", (event) => {
 document.addEventListener("DOMContentLoaded", () => {
   cargarHabitos();
   restaurarColorDeHabitos();
+  habitoGoldenCompletado();
 
   //-----------------------------------------Activar modo oscuro si es necesario
   if (isDarkMode()) {
     activateNightMode();
   }
 });
+

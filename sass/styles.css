@@ -83,7 +83,26 @@
 
 @media (max-width: 600px) {
   .header__container {
-    border: 10px solid rgb(0, 255, 0);
+    justify-content: space-evenly;
+  }
+  .header__container .brand__container {
+    margin-left: 25px;
+  }
+}
+@media (max-width: 380px) {
+  .header__container {
+    justify-content: space-evenly;
+  }
+  .header__container .brand__container {
+    width: 150px;
+    margin-left: 15px;
+  }
+  .header__container .nav__container {
+    gap: 20px;
+    margin-right: 20px;
+  }
+  .header__container .nav__container .profile__section {
+    margin-right: 10px;
   }
 }
 * {
@@ -135,7 +154,6 @@ body {
   justify-content: center;
   align-items: center;
   transition: all 0.5s ease-in-out;
-  border: 10px solid blue;
 }
 .division__container .division__container__number1 .golden__habit__division {
   width: 80%;
@@ -144,7 +162,6 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  border: 10px solid yellow;
 }
 .division__container .division__container__number1 .golden__habit__division.active {
   background-color: #191919;
@@ -161,6 +178,9 @@ body {
   border-radius: 5px;
   background-color: rgb(133, 133, 133);
 }
+.division__container .division__container__number1 .golden__habit__division .on {
+  background-color: rgb(255, 255, 115);
+}
 .division__container .division__container__number1 .graphic__container {
   width: 80%;
   height: 400px;
@@ -172,7 +192,6 @@ body {
   border: 1.5px solid grey;
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
   transition: background-color 0.5s;
-  border: 10px solid red;
 }
 .division__container .division__container__number1 .graphic__container.active {
   background-color: #191919;
@@ -1296,7 +1315,6 @@ body {
   justify-content: center;
   align-items: center;
   transition: all 0.5s ease-in-out;
-  border: 10px solid blue;
 }
 .division__container .division__container__number1 .golden__habit__division {
   width: 80%;
@@ -1305,7 +1323,6 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  border: 10px solid yellow;
 }
 .division__container .division__container__number1 .golden__habit__division.active {
   background-color: #191919;
@@ -1322,6 +1339,9 @@ body {
   border-radius: 5px;
   background-color: rgb(133, 133, 133);
 }
+.division__container .division__container__number1 .golden__habit__division .on {
+  background-color: rgb(255, 255, 115);
+}
 .division__container .division__container__number1 .graphic__container {
   width: 80%;
   height: 400px;
@@ -1333,7 +1353,6 @@ body {
   border: 1.5px solid grey;
   box-shadow: 2px 3px 5px rgb(160, 159, 159);
   transition: background-color 0.5s;
-  border: 10px solid red;
 }
 .division__container .division__container__number1 .graphic__container.active {
   background-color: #191919;
