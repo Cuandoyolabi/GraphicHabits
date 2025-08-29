@@ -211,8 +211,6 @@ export function guardarHabitos() {
 export function cargarHabitos() {
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
 
-  console.log("Habitos guardados:", habitosGuardados);
-
   habitosGuardados.forEach((habit) => {
     let nuevo__habito__recuadro = document.createElement("div");
     let nuevo__recuadro__Arriba = document.createElement("div");
@@ -242,7 +240,6 @@ export function cargarHabitos() {
     icono__habito.classList.add("fa-solid", "fa-fire", "habit__icon");
 
     nuevo__habito__recuadro.dataset.id = habit.id;
-    console.log("ID del hábito cargado: ", habit.id);
 
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Arriba);
     nuevo__habito__recuadro.appendChild(nuevo__recuadro__Medio);
@@ -420,24 +417,15 @@ function habitoCompletado(habitId) {
       nuevo__habitoAgregado.style.borderColor = colorDeterminado;
       habit__icon.style.color = colorDeterminado;
 
-      console.log("Antes de actualizar:", habit.pixeles);
-      console.log("Antes de actualizar:", habitGraphic);
       habitGraphic.style.height = `${habit.pixeles - 9}px`;
-      console.log("Despues de actualizar: ",habit.pixeles);
-      console.log("Despues de actualizar:", habitGraphic);
-
-      actualizarGrafica(habitId)
+      //actualizarGrafica(habitId)
 
     } else {
       habit.days += 1;
       habit.ultimoDia = today;
       habit.completado = true;    
-      console.log("Antes de actualizar:", habit.pixeles);  
-      console.log("Antes de actualizar:", habitGraphic);
       habitGraphic.style.height = `${habit.pixeles + 9}px`;
-      console.log("Despues de actualizar: ",habit.pixeles);
-      console.log("Despues de actualizar:", habitGraphic);
-      actualizarGrafica(habitId);
+      //actualizarGrafica(habitId);
 
       buttonCompletar.style.backgroundColor = habit.color;
       buttonCompletar.style.borderColor = "white";
@@ -491,7 +479,7 @@ function restaurarColorDeHabitos() {
   });
 }
 
-//Va recibir un booleano y se creara una condicional con return
+
 //----------------------------------------Actualizar Grafica cuando el habito es completado
 function actualizarGrafica(habitId) {
   
@@ -499,13 +487,7 @@ function actualizarGrafica(habitId) {
   const habit = habitosGuardados.find((h) => h.id === habitId);
 
   //Habito creado para la grafica
-  const habitElement = document.querySelector(
-    `.nuevo__habito[data-id="${habitId}"]`
-  );
-
-  console.log(habit.id)
-  //habitElement.style.height = `${habit.pixeles}px`; 
-
+  const habitElement = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
 
   console.log("✅ Guardado en localStorage:", JSON.parse(localStorage.getItem("habitos")));
 }
