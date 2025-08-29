@@ -13,9 +13,14 @@ const graphic__container__id = document.getElementById(
 );
 
 //--------------------------------------Reiniciar Pagina
-function reiniciarPagina() {
+function reiniciarPaginaHabitos() {
   location.reload();
   restaurarColorDeHabitos();
+  cargarHabitos();
+}
+
+function reiniciarPaginaNormal(){
+  location.reload();
 }
 
 //--------------------------------------Variable global para el color seleccionado
@@ -149,8 +154,9 @@ export function crearNuevoHabito(event) {
   //----------------------------------------Habito para configuracion
   cargarHabitoConfiguracion();
 
-  //---Reinicio de pagina
-  reiniciarPagina();
+  //----------------------------------Reinicio simple
+  reiniciarPaginaNormal();
+
   //-----------------------------------------Reiniciar formulario y cerrar modal
   form.reset();
   cerrarModal();
@@ -321,7 +327,7 @@ function eliminarHabito(index) {
   habitosGuardados.splice(index, 1); // Eliminar el hábito del arreglo
   localStorage.setItem("habitos", JSON.stringify(habitosGuardados)); // Guardar los cambios
   cargarHabitoConfiguracion(); // Recargar la lista para reflejar los cambios
-  reiniciarPagina();
+  reiniciarPaginaHabitos();
 }
 
 //----------------------------------------Editar Habito
@@ -408,6 +414,8 @@ function habitoCompletado(habitId) {
       habit.days = Math.max(0, habit.days - 1);
       habit.ultimoDia = 0;
       habit.completado = false;
+      habit.pixeles -= 9;
+      habitGraphic.style.height = `${habit.pixeles - 9}px`;
 
       const colorDeterminado = isDarkMode() ? "#ffffff" : "#000000";
       buttonCompletar.style.borderColor = "black";
@@ -416,14 +424,13 @@ function habitoCompletado(habitId) {
       nuevo__habitoAgregado.style.borderWidth = "1px";
       nuevo__habitoAgregado.style.borderColor = colorDeterminado;
       habit__icon.style.color = colorDeterminado;
-
-      habitGraphic.style.height = `${habit.pixeles - 9}px`;
       //actualizarGrafica(habitId)
 
     } else {
       habit.days += 1;
       habit.ultimoDia = today;
       habit.completado = true;    
+      habit.pixeles += 9;
       habitGraphic.style.height = `${habit.pixeles + 9}px`;
       //actualizarGrafica(habitId);
 
@@ -479,7 +486,7 @@ function restaurarColorDeHabitos() {
   });
 }
 
-
+/*
 //----------------------------------------Actualizar Grafica cuando el habito es completado
 function actualizarGrafica(habitId) {
   
@@ -508,6 +515,7 @@ function cargarHabitosGrafica(habitId) {
   const habit = habitosGuardados.find((h) => h.id === habitId);
   habitElement.style.height = habit.pixeles;
 }
+*/
 
 //----------------------------------------Delegacion de eventos para completar habitos
 
@@ -518,7 +526,6 @@ habitsContainer.addEventListener("click", (event) => {
     const habitId = habitElement.dataset.id;
 
     habitoCompletado(habitId);
-
   }
 });
 
@@ -526,7 +533,6 @@ habitsContainer.addEventListener("click", (event) => {
 document.addEventListener("DOMContentLoaded", () => {
   cargarHabitos();
   restaurarColorDeHabitos();
-  //restaurarPixelesDeGrafica
 
   //-----------------------------------------Activar modo oscuro si es necesario
   if (isDarkMode()) {
