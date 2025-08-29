@@ -149,6 +149,8 @@ export function crearNuevoHabito(event) {
   //----------------------------------------Habito para configuracion
   cargarHabitoConfiguracion();
 
+  //---Reinicio de pagina
+  reiniciarPagina();
   //-----------------------------------------Reiniciar formulario y cerrar modal
   form.reset();
   cerrarModal();
@@ -253,16 +255,11 @@ export function cargarHabitos() {
     nuevo__recuadro__Abajo.appendChild(recuadroAbajo__texto);
     habits__container__list__id.appendChild(nuevo__habito__recuadro);
 
-
     let nuevoHabito = document.createElement("div");
     nuevoHabito.className = "nuevo__habito";
     nuevoHabito.style.backgroundColor = habit.color || "gray";
-    console.log("Pixeles actuales del habito", habit.pixeles)
-    console.log("Estilo del habito" , nuevoHabito)
-    console.log("Heigth actual del habito" , nuevoHabito.style.height)
 
     nuevoHabito.style.height = `${habit.pixeles}px`;
-    console.log("Heigth actual del habito" , nuevoHabito.style.height)
     nuevoHabito.dataset.id = habit.id;
 
     graphic__container__id.appendChild(nuevoHabito);
@@ -387,9 +384,7 @@ function editarHabito(index) {
 //----------------------------------------Marcar un habito como completado
 function habitoCompletado(habitId) {
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-  const habitIndex = habitosGuardados.findIndex(
-    (habit) => habit.id === habitId
-  );
+  const habitIndex = habitosGuardados.findIndex((habit) => habit.id === habitId);
 
   if (habitIndex !== -1) {
     const habit = habitosGuardados[habitIndex];
@@ -399,6 +394,8 @@ function habitoCompletado(habitId) {
     const buttonCompletar = habitElement.querySelector("div:nth-child(2) .buttonCompletar");
     const nuevo__habitoAgregado = document.querySelector(`.nuevo__habitoAgregado[data-id="${habitId}"]`);
     const habit__icon = habitElement.querySelector(".habit__icon");
+
+    const habitGraphic = document.querySelector(`.nuevo__habito[data-id="${habitId}"]`);
 
     //Si el habito no existe
     if (!habitElement) {
@@ -422,14 +419,24 @@ function habitoCompletado(habitId) {
       nuevo__habitoAgregado.style.borderWidth = "1px";
       nuevo__habitoAgregado.style.borderColor = colorDeterminado;
       habit__icon.style.color = colorDeterminado;
-      habit.pixeles -= 9;
+
+      console.log("Antes de actualizar:", habit.pixeles);
+      console.log("Antes de actualizar:", habitGraphic);
+      habitGraphic.style.height = `${habit.pixeles - 9}px`;
+      console.log("Despues de actualizar: ",habit.pixeles);
+      console.log("Despues de actualizar:", habitGraphic);
+
       actualizarGrafica(habitId)
 
     } else {
       habit.days += 1;
       habit.ultimoDia = today;
-      habit.completado = true;      
-      habit.pixeles += 9;
+      habit.completado = true;    
+      console.log("Antes de actualizar:", habit.pixeles);  
+      console.log("Antes de actualizar:", habitGraphic);
+      habitGraphic.style.height = `${habit.pixeles + 9}px`;
+      console.log("Despues de actualizar: ",habit.pixeles);
+      console.log("Despues de actualizar:", habitGraphic);
       actualizarGrafica(habitId);
 
       buttonCompletar.style.backgroundColor = habit.color;
@@ -439,10 +446,11 @@ function habitoCompletado(habitId) {
     }
 
     localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
-    const habitNumberElement = habitElement.querySelector(
-      ".recuadroArriba__numero"
-    );
+    const habitNumberElement = habitElement.querySelector(".recuadroArriba__numero");
     habitNumberElement.textContent = habit.days;
+
+
+
   } else {
     console.error(`No se encontró el hábito con el ID: ${habitId}`);
   }
@@ -495,12 +503,10 @@ function actualizarGrafica(habitId) {
     `.nuevo__habito[data-id="${habitId}"]`
   );
 
-  console.log("Antes de actualizar:", habit.pixeles);
   console.log(habit.id)
-  habitElement.style.height = `${habit.pixeles}px`; 
+  //habitElement.style.height = `${habit.pixeles}px`; 
 
 
-  console.log("Después de actualizar:", habit.pixeles);
   console.log("✅ Guardado en localStorage:", JSON.parse(localStorage.getItem("habitos")));
 }
 
