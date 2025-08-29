@@ -20,6 +20,7 @@
     justify-content: center;
     align-items: center;
     transition: all 0.5s ease-in-out;
+    border: 10px solid blue;
 
     .golden__habit__division {
       width: 80%;
@@ -28,6 +29,7 @@
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
+      border: 10px solid yellow;
 
       &.active {
         background-color: #191919;
@@ -62,6 +64,7 @@
       border: 1.5px solid grey;
       box-shadow: 2px 3px 5px rgb(160, 159, 159);
       transition: background-color 0.5s;
+      border: 10px solid red;
 
       &.active {
         background-color: #191919;
