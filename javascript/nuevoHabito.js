@@ -355,14 +355,16 @@ function editarHabito(index) {
     }
   });
 
+
   // Actualizar el hábito al hacer clic en "Guardar"
   const habitForm = document.getElementById("habitForm");
   habitForm.onsubmit = function (event) {
     event.preventDefault(); // Prevenir el envío del formulario
 
     const nuevoNombre = habitNameInput.value;
-    const nuevoColor = document.querySelector(".color__opcion.selected").style
-      .backgroundColor;
+    const nuevoColor = document.querySelector(".color__opcion.selected").style.backgroundColor;
+    console.log("VERIFICANDO EL COLOR: ", nuevoColor);
+    console.log("VERIFICANDO EL COLOR DEL HABIT: ", habit.color);
 
     if (nuevoNombre.trim() !== "") {
       // Actualizar el hábito
