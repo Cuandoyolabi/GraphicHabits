@@ -2,6 +2,9 @@ import { activateNightMode } from "./modoOscuro.js";
 import { crearNuevoHabito, mostrarlModal, cerrarModal } from "./nuevoHabito.js";
 import { cerrarPerfil, mostrarPerfil, mostrarConfiguracionHabitos, mostrarConfiguracionContacto, mostrarConfiguracionApariencia, mostrarConfiguracionInformacion } from "./ventanaConfiguracion.js";
 
+const graphic__container__id = document.getElementById(
+  "graphic__container__id"
+);
 
 //Modo oscuro
 const toggleBlack = document.getElementById('color__icon');
@@ -15,6 +18,12 @@ toggleBlack.addEventListener('click', () => {
 const showModal = document.getElementById('graphic__container__plus__id');
 showModal.addEventListener('click',  () => {
 
+    const maximoDeElementos = 6;
+    if (graphic__container__id.children.length >= maximoDeElementos) {
+        alert("Has alcanzado el maximo de habitos (6)");
+        return;
+    }
+
     mostrarlModal();
     cerrarPerfil();
 
@@ -23,13 +32,7 @@ showModal.addEventListener('click',  () => {
 const closeModal = document.querySelector('.close');
 closeModal.addEventListener('click', cerrarModal);
 
-
 document.getElementById('habitForm').addEventListener('submit', crearNuevoHabito);
-
-
-//Crear nuevo Habito
-
-//Crear una ventana que aparezca cuando se selecciona goldenHabit
 
 //Ventana del perfil
 abrir__ventana__perfil.addEventListener("click", () => {
@@ -68,6 +71,6 @@ configuracionInformacion.addEventListener("click", () => {
 
 });
 
-//document.getElementById("habito__eliminar__id").addEventListener("click", eliminarHabito);
+
 
 

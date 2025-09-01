@@ -54,7 +54,6 @@ export function crearNuevoHabito(event) {
   //---------------------------------------Limitacion de habitos
   const maximoDeElementos = 6;
   if (graphic__container__id.children.length >= maximoDeElementos) {
-    //Aqui deberia crearse un elemento que indique que el limite son 6 y no dejar usar el modal
     return;
   }
 
