@@ -7,7 +7,7 @@ para que sea cada vez sea mas funcional, interactivo y que tenga menos errores.
 Tiene mas de 400 lineas de codigo y es responsive en todos los dispositivos.
 
 ## Capturas
-- Imagen o GIF del proyecto funcionando
+![img][/assets/images/LinkedinHabitos2.png]
 
 ## Tecnologías 🔎
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
