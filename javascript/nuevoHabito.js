@@ -262,7 +262,9 @@ export function cargarHabitos() {
     nuevoHabito.className = "nuevo__habito";
     nuevoHabito.style.backgroundColor = habit.color || "gray";
 
+    
     nuevoHabito.style.height = `${habit.pixeles}px`;
+    console.log("GUARDAR HABITOS REINICIO: ", habit.pixeles);
     nuevoHabito.dataset.id = habit.id;
 
     graphic__container__id.appendChild(nuevoHabito);
@@ -414,8 +416,15 @@ function habitoCompletado(habitId) {
       habit.days = Math.max(0, habit.days - 1);
       habit.ultimoDia = 0;
       habit.completado = false;
+
+      console.log("PIXELES DE HABITOS: antes RESTAR ", habit.pixeles);
+      console.log("ALTURA DE HABITOS: antes RESTAR", habitGraphic.style.height);
+
       habit.pixeles -= 9;
-      habitGraphic.style.height = `${habit.pixeles - 9}px`;
+      habitGraphic.style.height = `${habit.pixeles}px`;
+
+    console.log("PIXELES DE HABITOS: despues RESTAR", habit.pixeles);
+    console.log("ALTURA DE HABITOS: despues RESTAR", habitGraphic.style.height);
 
       const colorDeterminado = isDarkMode() ? "#ffffff" : "#000000";
       buttonCompletar.style.borderColor = "black";
@@ -431,8 +440,15 @@ function habitoCompletado(habitId) {
       habit.ultimoDia = today;
       habit.completado = true;    
       habit.pixeles += 9;
-      habitGraphic.style.height = `${habit.pixeles + 9}px`;
+
+      console.log("PIXELES DE HABITOS: antes SUMAR ", habit.pixeles);
+      console.log("ALTURA DE HABITOS: antes SUMAR", habitGraphic.style.height);
+
+      habitGraphic.style.height = `${habit.pixeles}px`;
       //actualizarGrafica(habitId);
+
+      console.log("PIXELES DE HABITOS: despues SUMAR", habit.pixeles);
+      console.log("ALTURA DE HABITOS: despues SUMAR", habitGraphic.style.height);
 
       buttonCompletar.style.backgroundColor = habit.color;
       buttonCompletar.style.borderColor = "white";
