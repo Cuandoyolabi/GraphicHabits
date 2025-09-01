@@ -512,7 +512,6 @@ function habitoGoldenCompletado(){
 function reinicioDeMes(){
 
   const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
-
   const fecha = new Date();
   const año = fecha.getFullYear();
   const mes = fecha.getMonth();
@@ -530,7 +529,6 @@ function reinicioDeMes(){
     });
     localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
     reiniciarPaginaNormal();
-    
   }
 }
 

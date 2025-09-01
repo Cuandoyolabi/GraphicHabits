@@ -179,8 +179,9 @@ body {
   background-color: rgb(133, 133, 133);
 }
 .division__container .division__container__number1 .golden__habit__division .on {
-  background-color: rgb(255, 255, 0);
+  background-color: rgb(247, 247, 93);
   border: 1px solid white;
+  box-shadow: 0px 0px 6px 2px rgb(255, 255, 139);
 }
 .division__container .division__container__number1 .graphic__container {
   width: 80%;
@@ -1006,7 +1007,7 @@ body {
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto {
   width: 96%;
-  height: 200px;
+  height: 90%;
   padding: 20px 10px;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .ventana__contacto__titulo {
@@ -1014,35 +1015,26 @@ body {
   font-size: 20px;
   font-weight: 400;
 }
-.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__texto {
-  font-size: 18px;
-}
-.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .ventana__contacto__texto {
-  margin-top: 15px;
-  font-size: 18px;
-}
-.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .espacio {
-  padding-bottom: 20px;
-}
-.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto__separacion {
-  width: 90%;
-  height: 50px;
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__divider {
+  width: 95%;
+  height: 90%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  border: 1px solid black;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 10px;
 }
-.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto__separacion .ventana__contacto__telefono {
-  width: 50%;
-  height: 50px;
-  font-weight: 300;
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__divider .contacto__telefono,
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__divider .contacto__email,
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__divider .contacto__github,
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__divider .contacto__cv,
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__divider .contacto__linkedin {
   font-size: 20px;
+  font-weight: 300;
 }
-.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto__separacion .ventana__contacto__email {
-  width: 50%;
-  height: 50px;
-  font-weight: 0;
+.ventana__configuracion .ventana__configuracion__derecha__Contacto .ventana__contacto .contacto__divider .contacto__linkedin {
+  margin-bottom: 20px;
 }
 .ventana__configuracion .ventana__configuracion__derecha__Contacto.active {
   color: white;
@@ -1070,7 +1062,8 @@ body {
   .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__separacion {
     width: 50%;
   }
-  .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar, .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar {
+  .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__editar,
+  .ventana__configuracion .ventana__configuracion__derecha__Habitos .nuevo__habitoConfiguracion .habito__eliminar {
     width: 60px;
     height: 25px;
   }
@@ -1341,8 +1334,9 @@ body {
   background-color: rgb(133, 133, 133);
 }
 .division__container .division__container__number1 .golden__habit__division .on {
-  background-color: rgb(255, 255, 0);
+  background-color: rgb(247, 247, 93);
   border: 1px solid white;
+  box-shadow: 0px 0px 6px 2px rgb(255, 255, 139);
 }
 .division__container .division__container__number1 .graphic__container {
   width: 80%;

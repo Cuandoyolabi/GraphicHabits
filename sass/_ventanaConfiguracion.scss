@@ -1,459 +1,430 @@
-.ventana__configuracion{
-    width: 60%;
-    height: 75%;
+.ventana__configuracion {
+  width: 60%;
+  height: 75%;
+  display: none;
+  flex-direction: row;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 20px;
+  margin-top: 15px;
+  border: 1px solid rgb(197, 197, 197);
+
+  &.visible {
+    display: flex;
+  }
+  &.hidden {
     display: none;
-    flex-direction: row;
-    background-color: #ffffff;
-    position: absolute;
-    border-radius: 20px;
-    margin-top: 15px;
-    border: 1px solid rgb(197, 197, 197);
+  }
 
-    &.visible{
+  .ventana__configuracion__izquierda {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 170px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: rgb(218, 218, 218);
+    border: 1px solid rgb(167, 167, 167);
+
+    &.active {
+      background-color: #2c2c2c;
+    }
+
+    .opciones__configuracion {
+      width: 90%;
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 17px;
+      margin-top: 10px;
+      border-radius: 16px;
+    }
+
+    .opciones__configuracion__apariencia,
+    .opciones__configuracion__habitos,
+    .opciones__configuracion__contactar,
+    .opciones__configuracion__informacion {
+      width: 100%;
+      height: 30px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      padding-left: 10px;
+      border-radius: 6px;
+      background-color: rgb(255, 255, 255);
+      cursor: pointer;
+
+      &.active {
+        background-color: #202020;
+        color: white;
+
+        &.selected {
+          border: 1px solid white;
+        }
+
+        &:hover {
+          background-color: rgb(56, 56, 56);
+        }
+      }
+      &:hover {
+        background-color: #dadada;
+        border: 1px solid rgb(92, 92, 92);
+      }
+
+      &.selected {
+        border: 1.5px solid rgb(0, 0, 0);
+      }
+
+      .icon__configuracion {
+        font-size: 20px;
+        color: rgba(58, 54, 54, 0.973);
+
+        &.active {
+          color: white;
+        }
+      }
+
+      .opciones__configuracion__texto {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgb(61, 61, 61);
+
+        &.active {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .ventana__configuracion__derecha__Apariencia {
+    width: 67%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-top-right-radius: 19px;
+    border-bottom-right-radius: 19px;
+    border: 1px solid rgb(167, 167, 167);
+
+    &.hidden {
+      display: none;
+    }
+
+    &.visible {
+      display: flex;
+    }
+
+    &.active {
+      background-color: #202020;
+      color: white;
+    }
+
+    .ventana__apariencia {
+      width: 96%;
+      height: 20%;
+      padding: 20px 10px;
+      border-radius: 8px;
+
+      .ventana__apariencia__separacion {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .ventana__apariencia__titulo {
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+      .ventana__apariencia__titulo2 {
+        font-size: 18px;
+        font-weight: 300;
+      }
+      .ventana__apariencia__texto {
+        font-size: 12px;
+        font-weight: 200;
+        color: rgb(26, 26, 26);
+
+        &.active {
+          color: white;
+        }
+      }
     }
-    &.hidden{
-        display: none;
+  }
+
+  .ventana__configuracion__derecha__Habitos {
+    width: 67%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    border-top-right-radius: 19px;
+    border-bottom-right-radius: 19px;
+    border: 1px solid rgb(167, 167, 167);
+
+    &.active {
+      background-color: #202020;
+    }
+    &.hidden {
+      display: none;
+    }
+    &.visible {
+      display: flex;
     }
 
-    .ventana__configuracion__izquierda{
-        width: 33%;
+    .ventana__habitos__lista {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .nuevo__habitoConfiguracion {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      border-radius: 10px;
+      background-color: rgb(255, 255, 255);
+      border: 1px solid rgb(78, 78, 78);
+
+      &.active {
+        background-color: #2c2c2c;
+        color: white;
+      }
+
+      .habito__separacion {
+        width: 40%;
         height: 100%;
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        min-width: 170px;
-        border-top-left-radius: 18px;
-        border-bottom-left-radius: 18px;
-        background-color: rgb(218, 218, 218);
-        border: 1px solid rgb(167, 167, 167);
-    
-        &.active{
-            background-color: #2c2c2c;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .habito__editar {
+        width: 80px;
+        height: 30px;
+        border-radius: 7px;
+        border: 1px solid gray;
+        color: blue;
+        transition: 0.3s ease;
+        background-color: #ffffff;
+        cursor: pointer;
+
+        &.active {
+          background-color: #202020;
         }
 
-        .opciones__configuracion{
-            width: 90%;
-            height: 90%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            gap: 17px;
-            margin-top: 10px;
-            border-radius: 16px;
+        &:hover {
+          background-color: rgb(95, 95, 95);
+          color: rgb(255, 255, 255);
         }
+      }
 
-        .opciones__configuracion__apariencia,
-        .opciones__configuracion__habitos, 
-        .opciones__configuracion__contactar,
-        .opciones__configuracion__informacion{
-            width: 100%;
-            height: 30px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 20px;
-            padding-left: 10px;
-            border-radius: 6px;
-            background-color: rgb(255, 255, 255);
-            cursor: pointer;
+      .habito__eliminar {
+        width: 80px;
+        height: 30px;
+        border-radius: 7px;
+        border: 1px solid gray;
+        color: red;
+        transition: 0.3s ease;
+        background-color: #ffffff;
+        cursor: pointer;
 
-            &.active{
-                background-color: #202020;
-                color: white;
-                
-                &.selected{
-                    border: 1px solid white;
-                }
+        &.active {
+          background-color: #202020;
+        }
+        &:hover {
+          background-color: rgb(95, 95, 95);
+          color: white;
+        }
+      }
 
-                &:hover{
-                    background-color:rgb(56, 56, 56);
-                }
-            }
-            &:hover{
-                background-color:  #dadada;
-                border: 1px solid rgb(92, 92, 92);
-            }
-
-            &.selected{
-                border: 1.5px solid rgb(0, 0, 0);
-            }
-
-            .icon__configuracion{
-                font-size: 20px;
-                color: rgba(58, 54, 54, 0.973);
-            
-                &.active{
-                    color: white;
-                }
-            }
-
-            .opciones__configuracion__texto{
-                font-size: 16px;
-                font-weight: 300;
-                color: rgb(61, 61, 61);
-            
-                &.active{
-                    color: white;
-                }
-            }
-        }  
+      .habito__nombre {
+        font-size: 20px;
+        font-weight: 400;
+        margin-left: 30px;
+        text-transform: capitalize;
+      }
     }
 
-    .ventana__configuracion__derecha__Apariencia{
-        width: 67%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        border-top-right-radius: 19px;
-        border-bottom-right-radius: 19px;
-        border: 1px solid rgb(167, 167, 167);
-
-        &.hidden{
-            display: none;
-        }
-
-        &.visible{
-            display: flex;
-        }
-
-        &.active{
-            background-color: #202020;
-            color: white;
-        }
-
-        .ventana__apariencia{
-            width: 96%;
-            height: 20%;
-            padding: 20px 10px;
-            border-radius: 8px;
-        
-            .ventana__apariencia__separacion{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 10px;
-            }
-
-            .ventana__apariencia__titulo{
-                font-size: 20px;
-                font-weight: 400;
-                margin-bottom: 10px;
-            }
-            .ventana__apariencia__titulo2{
-                font-size: 18px;
-                font-weight: 300;
-            }
-            .ventana__apariencia__texto{
-                font-size: 12px;
-                font-weight: 200;
-                color: rgb(26, 26, 26);
-            
-                &.active{
-                    color: white;
-                }
-            }
-        }
+    .ventana__habitos {
+      width: 96%;
+      height: 50%;
+      padding: 20px 10px;
     }
 
-    .ventana__configuracion__derecha__Habitos{
-        width: 67%;
-        height: 100%;
-        display: none;
-        justify-content: center;
-        align-items: flex-start;
-        border-top-right-radius: 19px;
-        border-bottom-right-radius: 19px;
-        border: 1px solid rgb(167, 167, 167);
+    .ventana__habitos__titulo {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px;
 
-        &.active{
-            background-color: #202020;   
-        }
-        &.hidden{
-            display: none;
-        }
-        &.visible{
-            display: flex;
-        }
+      &.active {
+        color: white;
+      }
+    }
+  }
 
-        .ventana__habitos__lista{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        
-        .nuevo__habitoConfiguracion{
-            width: 100%;
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-            border-radius: 10px;
-            background-color: rgb(255, 255, 255);
-            border: 1px solid rgb(78, 78, 78);
-        
-            &.active{
-                background-color: #2c2c2c;
-                color: white;
-            }
+  .ventana__configuracion__derecha__Informacion {
+    width: 67%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    border-top-right-radius: 19px;
+    border-bottom-right-radius: 19px;
+    border: 1px solid rgb(167, 167, 167);
 
-            .habito__separacion{
-                width: 40%;
-                height: 100%;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-            }
-
-            .habito__editar{
-                width: 80px;
-                height: 30px;
-                border-radius: 7px;
-                border: 1px solid gray;
-                color: blue;
-                transition: 0.3s ease;
-                background-color: #ffffff;
-                cursor: pointer;
-
-                &.active{
-                    background-color:#202020
-                }
-
-                &:hover{
-                    background-color: rgb(95, 95, 95);
-                    color:rgb(255, 255, 255);
-                }
-            }
-
-            .habito__eliminar{
-                width: 80px;
-                height: 30px;
-                border-radius: 7px;
-                border: 1px solid gray;
-                color: red;
-                transition: 0.3s ease;
-                background-color: #ffffff;
-                cursor: pointer;
-            
-                &.active{
-                    background-color:#202020
-                }
-                &:hover{
-                    background-color: rgb(95, 95, 95);
-                    color: white;
-                }    
-            }
-
-            .habito__nombre{
-                font-size: 20px;
-                font-weight: 400;
-                margin-left: 30px;
-                text-transform: capitalize;
-            }
-        }
-
-        .ventana__habitos{
-            width: 96%;
-            height: 50%;
-            padding: 20px 10px;
-        }
-
-        .ventana__habitos__titulo{
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 10px;
-        
-            &.active{
-                color: white;
-            }
-        }
-        
+    &.hidden {
+      display: none;
+    }
+    &.visible {
+      display: flex;
+    }
+    &.active {
+      background-color: #202020;
+      color: white;
     }
 
-    .ventana__configuracion__derecha__Informacion{
-        width: 67%;
-        height: 100%;
-        display: none;
-        justify-content: center;
-        align-items: flex-start;
-        border-top-right-radius: 19px;
-        border-bottom-right-radius: 19px;
-        border: 1px solid rgb(167, 167, 167);
-    
-        
-        &.hidden{
-            display: none;
-        }
-        &.visible{
-            display: flex;
-        }
-        &.active{
-            background-color: #202020;   
-            color: white;
-        }
+    .ventana__informacion {
+      width: 96%;
+      height: 200px;
+      padding: 20px 10px;
 
-        .ventana__informacion{
-            width: 96%;
-            height: 200px;
-            padding: 20px 10px;
-        
-            .espacioArriba{
-                padding-top: 18px;
-            }
+      .espacioArriba {
+        padding-top: 18px;
+      }
 
-            .informacion{
-                font-size: 17px;
-            }
-            .espacio{
-                padding-bottom: 10px;
-            }
-        }
+      .informacion {
+        font-size: 17px;
+      }
+      .espacio {
+        padding-bottom: 10px;
+      }
+    }
+  }
 
+  .ventana__configuracion__derecha__Contacto {
+    width: 67%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    border-top-right-radius: 19px;
+    border-bottom-right-radius: 19px;
 
+    &.active {
+      background-color: #202020;
     }
 
-    .ventana__configuracion__derecha__Contacto{
-        width: 67%;
-        height: 100%;
-        display: none;
-        justify-content: center;
-        align-items: flex-start;
-        border-top-right-radius: 19px;
-        border-bottom-right-radius: 19px;
-        
-        &.active{
-            background-color: #202020;
-        }
-
-        &.hidden{
-            display: none;
-        }
-
-        &.visible{
-            display: flex;
-        }
-
-        .ventana__contacto{
-            width: 96%;
-            height: 200px;
-            padding: 20px 10px;
-        
-            .ventana__contacto__titulo{
-                margin-bottom: 10px;
-                font-size: 20px;
-                font-weight: 400;
-            }
-            .contacto__texto{
-                font-size: 18px;
-            }
-            .ventana__contacto__texto{
-                margin-top: 15px;
-                font-size: 18px;
-                
-            }
-            .espacio{
-                padding-bottom: 20px;
-            }
-        }
-
-        .ventana__contacto__separacion{
-            width: 90%;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            border: 1px solid black;
-        
-            .ventana__contacto__telefono{
-                width: 50%;
-                height: 50px;
-                font-weight: 300;
-                font-size: 20px;
-            }
-
-            .ventana__contacto__email{
-                width: 50%;
-                height: 50px;
-                font-weight: 00;
-
-            }
-        }
-
-        &.active{
-            color: white;
-        }
+    &.hidden {
+      display: none;
     }
-}
 
-@media(max-width: 1200px){
-    .ventana__configuracion{
-        width: 85%;
+    &.visible {
+      display: flex;
     }
-}
 
-@media (max-width: 810px){
+    .ventana__contacto {
+      width: 96%;
+      height: 90%;
+      padding: 20px 10px;
 
-    .ventana__configuracion{
-        width: 100%;
+      .ventana__contacto__titulo {
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .contacto__divider {
+        width: 95%;
         height: 90%;
-        top: 100;
-        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 20px;
+        gap: 10px;
+
+        .contacto__telefono,
+        .contacto__email,
+        .contacto__github,
+        .contacto__cv,
+        .contacto__linkedin {
+          font-size: 20px;
+          font-weight: 300;
+        }
+
+        .contacto__linkedin{
+            margin-bottom: 20px;
+        }
+      }
     }
 
-}
-
-@media (max-width: 690px){
-
-    .ventana__configuracion{
-
-        .ventana__configuracion__izquierda{
-            
-
-            .opciones__configuracion__apariencia,
-            .opciones__configuracion__contactar,
-            .opciones__configuracion__habitos{
-
-                .opciones__configuracion__texto{
-                    font-size: 14px;
-                }
-            }
-        }
-
-        .ventana__configuracion__derecha__Habitos{
-
-            .nuevo__habitoConfiguracion{
-                
-                .habito__separacion{
-                    width: 50%;
-                }
-                .habito__editar, .habito__eliminar{
-                    width: 60px;
-                    height: 25px;
-                }
-            }
-        }
-
-        .ventana__configuracion__derecha__Contacto{
-
-            .ventana__contacto{
-
-                .ventana__contacto__texto{
-                    font-size: 14px;
-                }
-
-                .contacto__texto{
-                    font-size: 14px;
-                }
-
-            }
-        }
-
+    &.active {
+      color: white;
     }
+  }
 }
 
+@media (max-width: 1200px) {
+  .ventana__configuracion {
+    width: 85%;
+  }
+}
 
+@media (max-width: 810px) {
+  .ventana__configuracion {
+    width: 100%;
+    height: 90%;
+    top: 100;
+    right: 0;
+  }
+}
+
+@media (max-width: 690px) {
+  .ventana__configuracion {
+    .ventana__configuracion__izquierda {
+      .opciones__configuracion__apariencia,
+      .opciones__configuracion__contactar,
+      .opciones__configuracion__habitos {
+        .opciones__configuracion__texto {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .ventana__configuracion__derecha__Habitos {
+      .nuevo__habitoConfiguracion {
+        .habito__separacion {
+          width: 50%;
+        }
+        .habito__editar,
+        .habito__eliminar {
+          width: 60px;
+          height: 25px;
+        }
+      }
+    }
+
+    .ventana__configuracion__derecha__Contacto {
+      .ventana__contacto {
+        .ventana__contacto__texto {
+          font-size: 14px;
+        }
+
+        .contacto__texto {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
