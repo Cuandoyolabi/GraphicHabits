@@ -48,7 +48,6 @@
         margin-bottom: 15px;
         border-radius: 5px;
         background-color: rgb(133, 133, 133);
-      
       }
       .on {
         background-color: rgb(247, 247, 93);
@@ -114,7 +113,11 @@
   transition: width 0.3s ease;
 }
 
-@media (max-width: 905px) {
+@media (max-width: 900px) {
+
+}
+
+@media (max-width: 820px) {
   .division__container {
     display: flex;
     flex-direction: column;
@@ -188,6 +191,21 @@
   }
 }
 
+@media (max-width: 470px) {
+  .division__container {
+    .division__container__number1 {
+
+      display: grid;
+      grid-template-columns: 13px 1fr 1fr 1fr 13px;
+
+      .graphic__container {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/*
 @media (min-width: 390px) and (max-width: 450px) {
   .main__container {
     .division__container__number1 {
@@ -216,3 +234,4 @@
     }
   }
 }
+*/
