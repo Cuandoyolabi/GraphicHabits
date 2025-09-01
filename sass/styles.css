@@ -669,7 +669,6 @@ body {
     align-items: center;
     padding: 5px;
     font-size: 14px;
-    border: 3px solid green;
   }
   .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
     font-size: 15px;
@@ -1271,7 +1270,6 @@ body {
     align-items: center;
     padding: 5px;
     font-size: 14px;
-    border: 3px solid green;
   }
   .nuevo__habitoAgregado .nuevo__recuadro__Abajo .recuadroAbajo__texto {
     font-size: 15px;
