@@ -211,6 +211,8 @@ export function guardarHabitos() {
     .filter((habit) => habit !== null);
 
   localStorage.setItem("habitos", JSON.stringify(habitos));
+
+  
 }
 
 //--------------------------------------Cargar Habitos en contenedor
@@ -264,7 +266,6 @@ export function cargarHabitos() {
 
     
     nuevoHabito.style.height = `${habit.pixeles}px`;
-    console.log("GUARDAR HABITOS REINICIO: ", habit.pixeles);
     nuevoHabito.dataset.id = habit.id;
 
     graphic__container__id.appendChild(nuevoHabito);
@@ -417,14 +418,8 @@ function habitoCompletado(habitId) {
       habit.ultimoDia = 0;
       habit.completado = false;
 
-      console.log("PIXELES DE HABITOS: antes RESTAR ", habit.pixeles);
-      console.log("ALTURA DE HABITOS: antes RESTAR", habitGraphic.style.height);
-
       habit.pixeles -= 9;
       habitGraphic.style.height = `${habit.pixeles}px`;
-
-    console.log("PIXELES DE HABITOS: despues RESTAR", habit.pixeles);
-    console.log("ALTURA DE HABITOS: despues RESTAR", habitGraphic.style.height);
 
       const colorDeterminado = isDarkMode() ? "#ffffff" : "#000000";
       buttonCompletar.style.borderColor = "black";
@@ -441,14 +436,8 @@ function habitoCompletado(habitId) {
       habit.completado = true;    
       habit.pixeles += 9;
 
-      console.log("PIXELES DE HABITOS: antes SUMAR ", habit.pixeles);
-      console.log("ALTURA DE HABITOS: antes SUMAR", habitGraphic.style.height);
-
       habitGraphic.style.height = `${habit.pixeles}px`;
       //actualizarGrafica(habitId);
-
-      console.log("PIXELES DE HABITOS: despues SUMAR", habit.pixeles);
-      console.log("ALTURA DE HABITOS: despues SUMAR", habitGraphic.style.height);
 
       buttonCompletar.style.backgroundColor = habit.color;
       buttonCompletar.style.borderColor = "white";
@@ -510,7 +499,7 @@ function habitoGoldenCompletado(){
 
   for(let i = 0; i < habitosGuardados.length; i++){
     if(habitosGuardados[i].completado == true){
-      console.log(habitosGuardados[i], "este si" );
+      continue;
     } else {
       golden__habit.classList.remove("on");
       return;
@@ -519,9 +508,30 @@ function habitoGoldenCompletado(){
   golden__habit.classList.add("on");
 }
 
-//------------------------------------Funcion que reinicia la grafica
+//------------------------------------Funcion que reinicia la grafica si es el ultimo dia del mes
 function reinicioDeMes(){
 
+  const habitosGuardados = JSON.parse(localStorage.getItem("habitos")) || [];
+
+  const fecha = new Date();
+  const año = fecha.getFullYear();
+  const mes = fecha.getMonth();
+  const diaDelMes = fecha.getDate();
+  //const ultimoDiaDelMes = new Date(año, mes + 1, 0).getDate();
+
+  const clave = `reinicio-${año}-${mes}`;
+
+  if(diaDelMes === 1 && !localStorage.getItem(clave)){
+
+    localStorage.setItem(clave, 'hecho');
+
+    habitosGuardados.forEach((habit) => {
+      habit.pixeles = 20;
+    });
+    localStorage.setItem("habitos", JSON.stringify(habitosGuardados));
+    reiniciarPaginaNormal();
+    
+  }
 }
 
 //----------------------------------------Delegacion de eventos para completar habitos
@@ -540,10 +550,12 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarHabitos();
   restaurarColorDeHabitos();
   habitoGoldenCompletado();
+  reinicioDeMes();
 
   //-----------------------------------------Activar modo oscuro si es necesario
   if (isDarkMode()) {
     activateNightMode();
   }
 });
+
 
