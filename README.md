@@ -32,7 +32,10 @@ Para los iconos en la interfaz (se carga vía CDN). [Font Awesome](https://fonta
 **El proyecto tiene CDN para los dos, por lo cual no es necesario instalar nada en la terminal, ya es funcional.**
 
 ## Uso 💡
-- Cómo usar tu proyecto, con ejemplos
+-Te recibe una interfaz sencilla que tiene dos contenedores, uno es la grafica y el otro donde puedes ver y clickear los habitos.
+Abajo de la grafica, hay un boton que abre un modal, te permite darle nombre a un habito y elegir su color, asi de facil es usar la app!
+En la parte de arriba esta el modo obscuro y el menu que al ser clickeado, te permite ver mas informacion de la aplicacion.
+Asi como editar y eliminar habitos.
 
 ## Demo 📌
 https://habitosapp.netlify.app/
